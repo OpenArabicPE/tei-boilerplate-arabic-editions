@@ -36,24 +36,24 @@ TEI > text[lang *= "-Arab-Ar"] div >* {
 
 /* Move ltr text left and the facsimile right */
 
-[lang = "en"],
-[lang = "fr"],
-[lang = "de"],
-[lang = "it"],
-[lang *= "ar-Latn-"],
-[lang *= "ota-Latn-"] {
+TEI > text[lang = "en"],
+TEI > text[lang = "fr"],
+TEI > text[lang = "de"],
+TEI > text[lang = "it"],
+TEI > text[lang *= "ar-Latn-"],
+TEI > text[lang *= "ota-Latn-"] {
 	/*width: 550px;*/
 	float: left;
 	/*padding-left: 2em;
 	border-left: 5px dotted #EBEBEB;*/
 }
 /* everything should "clear:right" but for <l>, which are already floating */
-[lang = "en"] div >*,
-[lang = "fr"] div >*,
-[lang = "de"] div >*,
-[lang = "it"] div >*,
-[lang *= "ar-Latn-"] div >*,
-[lang *= "ota-Latn-"] div >* {
+TEI > text[lang = "en"] div >*,
+TEI > text[lang = "fr"] div >*,
+TEI > text[lang = "de"] div >*,
+TEI > text[lang = "it"] div >*,
+TEI > text[lang *= "ar-Latn-"] div >*,
+TEI > text[lang *= "ota-Latn-"] div >* {
 	clear: left !important;
 }
 
@@ -81,12 +81,12 @@ TEI > text[lang *= "-Arab-Ar"] span.-teibp-pb {
 	clear: left;
 }
 
-[lang = "en"] span.-teibp-pb,
-[lang = "fr"] span.-teibp-pb,
-[lang = "de"] span.-teibp-pb,
-[lang = "it"] span.-teibp-pb,
-[lang *= "ar-Latn-"] span.-teibp-pb,
-[lang *= "ota-Latn-"] span.-teibp-pb {
+TEI > text[lang = "en"] span.-teibp-pb,
+TEI > text[lang = "fr"] span.-teibp-pb,
+TEI > text[lang = "de"] span.-teibp-pb,
+TEI > text[lang = "it"] span.-teibp-pb,
+TEI > text[lang *= "ar-Latn-"] span.-teibp-pb,
+TEI > text[lang *= "ota-Latn-"] span.-teibp-pb {
 	/* clear: right is necessary here if facsimiles are larger than the space occupied by the transcription */
 	clear: right;
 }
@@ -128,12 +128,12 @@ TEI > text[lang *= "-Arab-Ar"] span.-teibp-pb img {
 	clear: left;
 	border-right: 5px dotted #EBEBEB;
 }
-[lang = "en"] span.-teibp-pb img,
-[lang = "fr"] span.-teibp-pb img,
-[lang = "de"] span.-teibp-pb img,
-[lang = "it"] span.-teibp-pb img,
-[lang *= "ar-Latn-"] span.-teibp-pb img,
-[lang *= "ota-Latn-"] span.-teibp-pb img {
+TEI > text[lang = "en"] span.-teibp-pb img,
+TEI > text[lang = "fr"] span.-teibp-pb img,
+TEI > text[lang = "de"] span.-teibp-pb img,
+TEI > text[lang = "it"] span.-teibp-pb img,
+TEI > text[lang *= "ar-Latn-"] span.-teibp-pb img,
+TEI > text[lang *= "ota-Latn-"] span.-teibp-pb img {
 	float: right;
 	clear: right;
 	border-left: 5px dotted #EBEBEB;
