@@ -6,7 +6,7 @@ date: 2016-02-23 15:08:33
 
 This repository contains a customisation of [TEI Boilerplate](http://dcl.slis.indiana.edu/teibp/) adopted to the need of TEI editions of Arabic language material. TEI Boilerplate provides a  first display of TEI files in the browser based on XSLT 1 and without need for pre-processed HTML. For a first impression see the [example file in this repository](https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/master/example/oclc_4770057679-i_60.TEIP5.xml).
 
-The code has been developed in the context of the [Digital Muqtabas](https://github.com/tillgrallert/digital-muqtabas) project.
+The code has been developed in the context of the [Digital Muqtabas](https://github.com/tillgrallert/digital-muqtabas), [Digital Ḥaqāʾiq](https://github.com/tillgrallert/digital-haqaiq) and [Digital Manār](https://github.com/tillgrallert/digital-manar) projects.
 
 The display is build around modular css files that are all loaded through a central call to `custom.css`. Changing the look of the headers from dark font on a light background to light font on dark background, for example, can be done be loading `teibp-heads-dark.css` instead of `teibp-heads-light.css`.
 
