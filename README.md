@@ -16,8 +16,26 @@ As the original TEI Boilerplate suffers from a known bug that prevents the jump 
 
 # Installation / use:
 
-The code can either be used by downloading / cloning the repository and integrating it into one's own project or by simply linking `xslt-boilerplate/custom.xsl` of this repository in the head of one's XML files:
+The code can either be used by downloading / cloning the repository and integrating it into one's own project or by simply linking `xslt-boilerplate/custom.xsl` of this repository in the head of one's XML files. 
+
+There are three variants, each in its own branch
+
+1. master
 
 ~~~{.xml}
 <?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/master/xslt-boilerplate/custom.xsl"?>
+~~~
+
+2. online
+
+~~~{.xml}
+<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online/xslt-boilerplate/custom.xsl"?>
+~~~
+
+3. online-local-facsimiles
+
+This version needs no local installation. It can be used to load the online boilerplate for any TEI file and display local facsimile files.
+
+~~~{.xml}
+<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online-local-facsimiles/xslt-boilerplate/custom.xsl"?>
 ~~~
