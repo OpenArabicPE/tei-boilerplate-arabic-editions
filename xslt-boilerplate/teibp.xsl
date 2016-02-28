@@ -421,11 +421,11 @@
         <xsl:param name="n"/>
         <xsl:param name="facs"/>
         <xsl:param name="id"/>
+        <xsl:variable name="vFacsID" select="substring-after($facs, '#')"/>
         <!-- dealing with pointers instead of full URLs in @facs -->
-        <xsl:variable name="vFacs">
+        <xsl:variable name="vFacsUrl">
             <xsl:choose>
                 <xsl:when test="starts-with($facs, '#')">
-                    <xsl:variable name="vFacsID" select="substring-after($facs, '#')"/>
                     <!-- here could be an option to select the image hosted on HathiTrust -->
                     <xsl:choose>
                         <xsl:when test="$pgOnlineFacs = true()">
@@ -455,6 +455,22 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:variable>
+        <xsl:variable name="vFacsSource">
+            <xsl:choose>
+                <xsl:when
+                    test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://eap.')]">
+                    <xsl:text>EAP</xsl:text>
+                </xsl:when>
+                <xsl:when
+                    test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://babel.hathitrust.org')]">
+                    <xsl:text>HathiTrust</xsl:text>
+                </xsl:when>
+                <xsl:when
+                    test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://')]">
+                    <xsl:text>HathiTrust</xsl:text>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
         <span class="-teibp-pageNum" lang="en">
             <!-- <xsl:call-template name="atts"/> -->
             <xsl:copy-of select="$pbNote"/>
@@ -464,13 +480,18 @@
         <span class="-teibp-pbFacs">
             <a class="gallery-facs" rel="prettyPhoto[gallery1]">
                 <xsl:attribute name="onclick">
-                    <xsl:value-of select="concat('showFacs(', $apos, $n, $apos, ',', $apos, $vFacs, $apos, ',', $apos, $id, $apos, ')')"/>
+                    <xsl:value-of select="concat('showFacs(', $apos, $n, $apos, ',', $apos, $vFacsUrl, $apos, ',', $apos, $id, $apos, ')')"/>
                 </xsl:attribute>
                 <img alt="{$altTextPbFacs}" class="-teibp-thumbnail">
                     <xsl:attribute name="src">
-                        <xsl:value-of select="$vFacs"/>
+                        <xsl:value-of select="$vFacsUrl"/>
                     </xsl:attribute>
                 </img>
+            </a>
+            <!-- provide link to online facsimile no matter what -->
+            <a href="{$vFacsUrl}" target="_blank">
+                <xsl:text>View facismile on </xsl:text>
+                <xsl:value-of select="$vFacsSource"/>
             </a>
         </span>
     </xsl:template>
