@@ -18,60 +18,14 @@
     <xsl:include href="xml-to-string.xsl"/>
     <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
     <xsl:include href="pb.xsl"/>
+    <!-- import stylesheet setting all the parameters -->
+    <xsl:include href="parameters.xsl"/>
 
     <xsl:output encoding="UTF-8" method="xml" omit-xml-declaration="yes"/>
 
-    <!-- select whether or not you want to display online facsimiles -->
-    <xsl:param name="pgOnlineFacs" select="false()"/>
-
-    <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
-    <xsl:param name="inlineCSS" select="true()"/>
-    <xsl:param name="includeToolbox" select="false()"/>
-    <xsl:param name="includeAnalytics" select="true()"/>
-    <xsl:param name="displayPageBreaks" select="true()"/>
-    <!-- special characters -->
-    <xsl:param name="quot">
-        <text>"</text>
-    </xsl:param>
-    <xsl:param name="apos">
-        <text>'</text>
-    </xsl:param>
-    <!-- interface text -->
-    <xsl:param name="pbNote">
-        <span class="-teibp-pbNote">
-            <xsl:attribute name="lang">
-                <xsl:text>en</xsl:text>
-            </xsl:attribute>
-            <xsl:text>page: </xsl:text>
-        </span>
-    </xsl:param>
-    <xsl:param name="altTextPbFacs">
-        <span class="-teibp-pbNote">
-            <xsl:attribute name="lang">
-                <xsl:text>en</xsl:text>
-            </xsl:attribute>
-        <xsl:text>view facsimile</xsl:text>
-        </span>
-    </xsl:param>
-    <!-- parameters for file paths or URLs -->
-    <!-- modify filePrefix to point to files on your own server, 
-		or to specify a relatie path, e.g.:
-		<xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
-		
-	-->
-    <xsl:param name="filePrefix" select="'https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online'"/>
-    <xsl:param name="teibpCSS" select="concat($filePrefix, '/css/teibp.css')"/>
-    <xsl:param name="customCSS" select="concat($filePrefix, '/css/custom.css')"/>
-    <xsl:param name="jqueryJS" select="concat($filePrefix, '/js/jquery/jquery.min.js')"/>
-    <xsl:param name="jqueryBlockUIJS" select="concat($filePrefix, '/js/jquery/plugins/jquery.blockUI.js')"/>
-    <xsl:param name="teibpJS" select="concat($filePrefix, '/js/teibp.js')"/>
-    <xsl:param name="theme.default" select="concat($filePrefix, '/css/teibp.css')"/>
-    <xsl:param name="theme.sleepytime" select="concat($filePrefix, '/css/sleepy.css')"/>
-    <xsl:param name="theme.terminal" select="concat($filePrefix, '/css/terminal.css')"/>
-
     <!-- variables -->
     <xsl:variable name="vMimeType" select="'image/jpeg'"/>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>Match document root and create and html5 wrapper for the TEI document, which is copied, with some modification, into the
                 HTML document.</xd:p>
@@ -136,13 +90,13 @@
             <xsl:apply-templates select="@* | node()"/>
         </tei-title>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>Template to omit processing instructions from output.</xd:p>
         </xd:desc>
     </xd:doc>
     <xsl:template match="processing-instruction()" priority="10"/>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>Template moves value of @rend into an html @style attribute. Stylesheet assumes CSS is used in @rend to describe
                 renditions, i.e., styles.</xd:p>
@@ -219,7 +173,7 @@
         </xsl:copy>
     </xsl:template>
     <!--
-	<xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+	<xd:doc>
 		<xd:desc>
 			<xd:p>Transforms TEI figure/head to HTML figcaption</xd:p>
 		</xd:desc>
@@ -229,7 +183,7 @@
 	</xsl:template>
 	-->
     <!--
-	<xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+	<xd:doc>
 		<xd:desc>
 			<xd:p>Adds some javascript just before end of root tei element. Javascript sets the
 				/html/head/title element to an appropriate title selected from the TEI document.
@@ -262,7 +216,7 @@
             </xsl:attribute>
         </xsl:if>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>The generate-id() function does not guarantee the generated id will not conflict with existing ids in the document. This
                 template checks for conflicts and appends a number (hexedecimal 'f') to the id. The template is recursive and continues
@@ -292,7 +246,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>Template for adding /html/head content.</xd:p>
         </xd:desc>
@@ -376,7 +330,7 @@
         </xsl:if>
         <xsl:value-of select="concat('{ ', normalize-space(.), '}&#x000A;')"/>
     </xsl:template>
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>Template for adding footer to html document.</xd:p>
         </xd:desc>
@@ -442,7 +396,7 @@
 		</xsl:comment>
     </xsl:template>
 
-    <xd:doc xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl">
+    <xd:doc>
         <xd:desc>
             <xd:p>This template adds support for rtl-languages such as Arabic. It generates a HTML @lang attribute based on the containing
                 element's @xml:lang attribute. It is called in the for every element in the "teipb-default" template</xd:p>
