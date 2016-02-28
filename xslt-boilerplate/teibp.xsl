@@ -44,7 +44,12 @@
         </span>
     </xsl:param>
     <xsl:param name="altTextPbFacs">
-        <text>view page image(s)</text>
+        <span class="-teibp-pbNote">
+            <xsl:attribute name="lang">
+                <xsl:text>en</xsl:text>
+            </xsl:attribute>
+        <xsl:text>view facsimile</xsl:text>
+        </span>
     </xsl:param>
     <!-- parameters for file paths or URLs -->
     <!-- modify filePrefix to point to files on your own server, 
@@ -499,10 +504,11 @@
             <!-- <xsl:call-template name="atts"/> -->
             <xsl:copy-of select="$pbNote"/>
             <xsl:value-of select="@n"/>
-            <xsl:text> </xsl:text> 
+            <xsl:text>. </xsl:text> 
             <!-- provide link to online facsimile no matter what -->
             <a href="{$vFacsUrlOnline}" target="_blank">
-                <xsl:text>View facsimile on </xsl:text>
+                <xsl:value-of select="$altTextPbFacs"/>
+                <xsl:text> on </xsl:text>
                 <xsl:value-of select="$vFacsSource"/>
             </a>
         </span>
