@@ -16,6 +16,7 @@
     <!-- import the stylesheet formatting all bibliographic metadata -->
     <xsl:include href="bibl.xsl"/>
     <xsl:include href="xml-to-string.xsl"/>
+    <xsl:include href="pb.xsl"/>
 
     <xsl:output encoding="UTF-8" method="xml" omit-xml-declaration="yes"/>
 
@@ -422,16 +423,16 @@
 		  })();
 		</script>
     </xsl:template>
-    <xsl:template name="templPbHandler">
+    <!--<xsl:template name="templPbHandler">
         <xsl:param name="n"/>
         <xsl:param name="facs"/>
         <xsl:param name="id"/>
         <xsl:variable name="vFacsID" select="substring-after($facs, '#')"/>
-        <!-- dealing with pointers instead of full URLs in @facs -->
+        <!-\- dealing with pointers instead of full URLs in @facs -\->
         <xsl:variable name="vFacsUrl">
             <xsl:choose>
                 <xsl:when test="starts-with($facs, '#')">
-                    <!-- here could be an option to select the image hosted on HathiTrust -->
+                    <!-\- here could be an option to select the image hosted on HathiTrust -\->
                     <xsl:choose>
                         <xsl:when test="$pgOnlineFacs = true()">
                             <xsl:choose>
@@ -463,7 +464,7 @@
         <xsl:variable name="vFacsUrlOnline">
             <xsl:choose>
                 <xsl:when test="starts-with($facs, '#')">
-                    <!-- here could be an option to select the image hosted on HathiTrust -->
+                    <!-\- here could be an option to select the image hosted on HathiTrust -\->
                     <xsl:choose>
                                 <xsl:when
                                     test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://eap.')]">
@@ -494,18 +495,18 @@
                     test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://babel.hathitrust.org')]">
                     <xsl:text>HathiTrust</xsl:text>
                 </xsl:when>
-                <!--<xsl:when
+                <!-\-<xsl:when
                     test="ancestor::tei:TEI/tei:facsimile/tei:surface[@xml:id = $vFacsID]/tei:graphic[starts-with(@url, 'http://')]">
                     <xsl:text>HathiTrust</xsl:text>
-                </xsl:when>-->
+                </xsl:when>-\->
             </xsl:choose>
         </xsl:variable>
         <span class="-teibp-pageNum" lang="en">
-            <!-- <xsl:call-template name="atts"/> -->
+            <!-\- <xsl:call-template name="atts"/> -\->
             <xsl:copy-of select="$pbNote"/>
             <xsl:value-of select="@n"/>
             <xsl:text> - </xsl:text> 
-            <!-- provide link to online facsimile no matter what -->
+            <!-\- provide link to online facsimile no matter what -\->
             <a href="{$vFacsUrlOnline}" target="_blank">
                 <xsl:value-of select="$altTextPbFacs"/>
                 <xsl:text> on </xsl:text>
@@ -524,14 +525,14 @@
                 </img>
             </a>
         </span>
-    </xsl:template>
-    <xsl:template match="tei:pb[@facs]">
+    </xsl:template>-->
+    <!--<xsl:template match="tei:pb[@facs]">
         <xsl:param name="pn">
             <xsl:number count="//tei:pb" level="any"/>
         </xsl:param>
         <xsl:choose>
             <xsl:when test="$displayPageBreaks = true()">
-                <!-- add @lang="en" to ensure correct ltr rendering -->
+                <!-\- add @lang="en" to ensure correct ltr rendering -\->
                 <span class="-teibp-pb" lang="en">
                     <xsl:call-template name="addID"/>
                     <xsl:call-template name="templPbHandler">
@@ -556,7 +557,7 @@
                 </xsl:copy>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template>-->
     <xsl:template match="eg:egXML">
         <xsl:element name="{local-name()}">
             <xsl:apply-templates select="@*"/>
