@@ -502,7 +502,7 @@
             <xsl:text> </xsl:text> 
             <!-- provide link to online facsimile no matter what -->
             <a href="{$vFacsUrlOnline}" target="_blank">
-                <xsl:text>View facismile on </xsl:text>
+                <xsl:text>View facsimile on </xsl:text>
                 <xsl:value-of select="$vFacsSource"/>
             </a>
         </span>
