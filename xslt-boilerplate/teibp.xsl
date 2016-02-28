@@ -504,7 +504,7 @@
             <!-- <xsl:call-template name="atts"/> -->
             <xsl:copy-of select="$pbNote"/>
             <xsl:value-of select="@n"/>
-            <xsl:text>. </xsl:text> 
+            <xsl:text> - </xsl:text> 
             <!-- provide link to online facsimile no matter what -->
             <a href="{$vFacsUrlOnline}" target="_blank">
                 <xsl:value-of select="$altTextPbFacs"/>
