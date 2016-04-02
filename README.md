@@ -1,7 +1,7 @@
 ---
 title: "read me"
 author: Till Grallert
-date: $timestamp
+date: 2016-04-02 17:47:03
 ---
 
 This repository contains a customisation of [TEI Boilerplate](http://dcl.slis.indiana.edu/teibp/) adopted to the need of TEI editions of Arabic language material. TEI Boilerplate provides a  first display of TEI files in the browser based on XSLT 1 and without need for pre-processed HTML. For a first impression see the [example file in this repository](https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/master/example/oclc_4770057679-i_60.TEIP5.xml).
