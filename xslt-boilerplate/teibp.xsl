@@ -13,11 +13,12 @@
                 to javascript and other features from the html/browser environment.</xd:p>
         </xd:desc>
     </xd:doc>
-    <!-- import the standard TEI Boilerplate stylesheets -->
+        <!-- import the standard TEI Boilerplate stylesheets -->
     <xsl:include href="custom.xsl"/>
     <xsl:include href="xml-to-string.xsl"/>
     <!-- import the stylesheet formatting all bibliographic metadata -->
     <xsl:include href="bibl.xsl"/>
+
     <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
     <xsl:include href="pb.xsl"/>
     <!-- import stylesheet setting all the parameters -->
@@ -380,6 +381,7 @@
 		  })();
 		</script>
     </xsl:template>
+    
     <xsl:template match="eg:egXML">
         <xsl:element name="{local-name()}">
             <xsl:apply-templates select="@*"/>
@@ -537,19 +539,19 @@
             </xsl:choose>
             <xsl:choose>
                 <xsl:when test="parent::tei:div[@type='section'] and not(ancestor::tei:div[@type='article']) and not(ancestor::tei:div[@type='bill'])">
-                    <span class="cLinks">
+                    <span class="cLinks" lang="en">
                         <!-- link to the BibTex file for this article. NOTE: these must have been pregenerated -->
                         <a href="../metadata/{$vFileId}-{parent::node()/@xml:id}.bib" download="{$vFileId}-{parent::node()/@xml:id}.bib" class="cLinkBibTex">BibTeX</a>
                     </span>
                 </xsl:when>
                 <xsl:when test="parent::tei:div[@type='article'] and not(ancestor::tei:div[@type='bill'])">
-                    <span class="cLinks">
+                    <span class="cLinks" lang="en">
                         <!-- link to the BibTex file for this article. NOTE: these must have been pregenerated -->
                         <a href="../metadata/{$vFileId}-{parent::node()/@xml:id}.bib" download="{$vFileId}-{parent::node()/@xml:id}.bib" class="cLinkBibTex">BibTeX</a>
                     </span>
                 </xsl:when>
                 <xsl:when test="parent::tei:div[@type='bill']">
-                    <span class="cLinks">
+                    <span class="cLinks" lang="en">
                         <!-- link to the BibTex file for this article. NOTE: these must have been pregenerated -->
                         <a href="../metadata/{$vFileId}-{parent::node()/@xml:id}.bib" download="{$vFileId}-{parent::node()/@xml:id}.bib" class="cLinkBibTex">BibTeX</a>
                     </span>
@@ -573,7 +575,7 @@
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
-            <span class="cId cNumber">
+            <span class="cId cNumber" lang="en">
                 <xsl:choose>
                     <xsl:when test="@xml:id">
                         <a href="#{@xml:id}" class="cLinkSelf cNumber"><xsl:value-of select="$vCount"/></a>
