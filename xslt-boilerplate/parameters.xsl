@@ -50,7 +50,7 @@
 		<xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
 		
 	-->
-    <xsl:param name="filePrefix" select="'https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online'"/>
+    <xsl:param name="filePrefix" select="''"/>
     <xsl:param name="teibpCSS" select="concat($filePrefix, '/css/teibp.css')"/>
     <xsl:param name="customCSS" select="concat($filePrefix, '/css/custom.css')"/>
     <xsl:param name="jqueryJS" select="concat($filePrefix, '/js/jquery/jquery.min.js')"/>
