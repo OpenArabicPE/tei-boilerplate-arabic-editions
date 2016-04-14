@@ -1693,7 +1693,7 @@
             <pb n="24" ed="print" facs="#facs_28" xml:id="pb_46.d1e2625"/>
             <pb ed="shamela" n="n60-p25" corresp="zip:file:/BachUni/projekte/XML/EPub2Tei/26523.epub!/OEBPS/xhtml/P3932.xhtml" xml:id="pb_47.d1e2627"/>
             <div type="article" xml:lang="ar" xml:id="div_10.d1e2629">
-                <head xml:lang="ar" xml:id="head_9.d1e2631">غابات سورية</head>
+                <head xml:lang="ar" xml:id="head_9.d1e2631">غابات <placeName>سورية</placeName></head>
                 <p xml:lang="ar" xml:id="p_97.d1e2634">تشجير أراضي السلطنة من أهم المسائل الاقتصادية
                     المهمة التي يجب أن تصرف لها عناية العثمانيين وحكومتهم فقد جهل الناس منافع
                     الغابات ولم تعن الحكومة بالهيمنة عليها حتى أتى السكان أو كادوا في أكثر الأقاليم
@@ -2954,7 +2954,7 @@
                         مئات بعده من أنصار الجمهورية وأحباب الاستعمار وبث الأفكار.</p>
                 </div>
                 <div type="article" xml:lang="ar" xml:id="div_18.d1e4028">
-                    <head xml:lang="ar" xml:id="head_18.d1e4030">فلسفة أديسون</head>
+                    <head xml:lang="ar" xml:id="head_18.d1e4030">فلسفة <persName>أديسون</persName></head>
                     <p xml:lang="ar" xml:id="p_233.d1e4033">خالف هذه المرة أديسون الأميركاني مخترع
                         الكهربائية جميع الفلاسفة الإلهيين في الاعتقاد <pb ed="shamela" n="n60-p67" corresp="zip:file:/BachUni/projekte/XML/EPub2Tei/26523.epub!/OEBPS/xhtml/P3974.xhtml" xml:id="pb_129.d1e4035"/> بخلود النفس فصرح ولم يجمجم باعتقاده المادي
                         وأنكر الخلود محاولاً أن يورد حجة على دعواه في حوار له مع أحدهم فقال: ليس
