@@ -518,7 +518,12 @@
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
-            <xsl:apply-templates select="node()"/>
+            <!-- head -->
+            <xsl:apply-templates select="tei:head"/>
+            <!-- inject some author information -->
+            
+            <!-- body of the div -->
+            <xsl:apply-templates select="node()[not(self::tei:head)]"/>
             <!--</a>-->
         </xsl:copy>
     </xsl:template>
