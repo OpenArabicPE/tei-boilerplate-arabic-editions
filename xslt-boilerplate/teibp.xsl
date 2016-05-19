@@ -462,7 +462,7 @@
                 <xsl:if test="tei:byline/descendant::tei:persName">
                     <xsl:choose>
                         <xsl:when test="@xml:lang = 'ar'">
-                            <xsl:text>مؤلف: </xsl:text>
+                            <xsl:text>تأليف: </xsl:text>
                         </xsl:when>
                     </xsl:choose>
                     <xsl:value-of select="tei:byline/descendant::tei:persName"/>
@@ -527,7 +527,7 @@
                     <xsl:text>[</xsl:text>
                     <xsl:choose>
                         <xsl:when test="@xml:lang = 'ar'">
-                            <xsl:text>مؤلف: </xsl:text>
+                            <xsl:text>تأليف: </xsl:text>
                         </xsl:when>
                         <xsl:when test="@xml:lang = 'en'">
                             <xsl:text>author: </xsl:text>
@@ -685,4 +685,27 @@
             </ul>
         </div>
     </xsl:variable>
+
+    <!-- translate tei tables to html tables, which isn't really necessary -->
+    <!-- <xsl:template match="tei:table">
+        <table>
+            <xsl:apply-templates/>
+        </table>
+    </xsl:template>
+    <xsl:template match="tei:row">
+        <tr>
+            <xsl:apply-templates/>
+        </tr>
+    </xsl:template>
+    <xsl:template match="tei:row[@role='label']/tei:cell">
+        <th>
+            <xsl:apply-templates/>
+        </th>
+    </xsl:template>
+    <xsl:template match="tei:row[@role='data']/tei:cell">
+        <td>
+            <xsl:apply-templates/>
+        </td>
+    </xsl:template> -->
+    
 </xsl:stylesheet>
