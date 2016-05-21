@@ -8,13 +8,6 @@
     <!-- construct the image URL on the fly -->
     <xsl:variable name="vgVolume" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit='volume']/@n"/>
     <xsl:variable name="vgIssue" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit='issue']/@n"/>
-    <xsl:variable name="vgFacsUrl-Sakhrit">
-        <xsl:text>http://archive.sakhrit.co/MagazinePages/Magazine_JPG/AL_moqtabs/Al_moqtabs_</xsl:text>
-        <xsl:value-of select="number($vgVolume)+1905"/>
-        <xsl:text>/Issue_</xsl:text>
-        <xsl:value-of select="$vgIssue"/>
-        <xsl:text>/</xsl:text>
-    </xsl:variable>
 
     <!-- could also select pb[@facs] -->
     <xsl:template match="tei:pb[@ed='print']">
@@ -176,17 +169,14 @@
         </span>
         <xsl:if test="$facs=true()">
         <span class="-teibp-pbFacs" lang="en">
-            <a class="gallery-facs" rel="prettyPhoto[gallery1]" lang="en">
-                <xsl:attribute name="onclick">
+            <a class="gallery-facs" lang="en" href="{$vFacsUrl}" target="_blank">
+            <!-- <a class="gallery-facs" rel="prettyPhoto[gallery1]" lang="en"> -->
+                <!-- <xsl:attribute name="onclick">
                     <xsl:value-of select="concat('showFacs(', $apos, $n, $apos, ',', $apos, $vFacsUrl, $apos, ',', $apos, $id, $apos, ')')"/>
-                </xsl:attribute>
+                </xsl:attribute> -->
                 <img alt="{$altTextPbFacs}" class="-teibp-thumbnail">
                     <xsl:attribute name="src">
                         <xsl:value-of select="$vFacsUrl"/>
-                        <!-- test -->
-                        <!-- <xsl:value-of select="$vgFacsUrl-Sakhrit"/>
-                        <xsl:value-of select="format-number(@n,'000')"/>
-                        <xsl:text>.JPG</xsl:text> -->
                     </xsl:attribute>
                 </img>
             </a>
