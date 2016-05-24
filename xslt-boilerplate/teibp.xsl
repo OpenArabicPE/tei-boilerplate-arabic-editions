@@ -25,7 +25,9 @@
     <xsl:include href="parameters.xsl"/>
 
     <xsl:output encoding="UTF-8" method="xml" omit-xml-declaration="yes"/>
-    
+
+    <!-- variables -->
+    <xsl:variable name="vMimeType" select="'image/jpeg'"/>
     <xd:doc>
         <xd:desc>
             <xd:p>Match document root and create and html5 wrapper for the TEI document, which is copied, with some modification, into the
@@ -155,12 +157,6 @@
             <xsl:apply-templates select="@*"/>
             <xsl:call-template name="rendition"/>
             <xsl:value-of select="normalize-space(@target)"/>
-        </a>
-    </xsl:template>
-    <!-- wrap all elements that carry @corresp into links -->
-    <xsl:template match="tei:*[@corresp]">
-        <a href="{@corresp}" class="c_corresp">
-            <xsl:apply-templates/>
         </a>
     </xsl:template>
     <!-- need something else for images with captions -->
