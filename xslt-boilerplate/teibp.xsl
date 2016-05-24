@@ -157,6 +157,12 @@
             <xsl:value-of select="normalize-space(@target)"/>
         </a>
     </xsl:template>
+    <!-- wrap all elements that carry @corresp into links -->
+    <xsl:template match="tei:*[@corresp]">
+        <a href="{@corresp}" class="c_corresp">
+            <xsl:apply-templates/>
+        </a>
+    </xsl:template>
     <!-- need something else for images with captions -->
     <xd:doc>
         <xd:desc>
