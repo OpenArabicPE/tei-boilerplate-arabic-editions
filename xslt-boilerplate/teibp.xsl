@@ -157,7 +157,7 @@
             <xsl:value-of select="normalize-space(@target)"/>
         </a>
     </xsl:template>
-    <!-- wrap all elements that carry @corresp into links -->
+    <!-- wrap all elements with @corresp in a link -->
     <xsl:template match="tei:*[@corresp]">
         <a href="{@corresp}" class="c_corresp">
             <xsl:apply-templates/>
