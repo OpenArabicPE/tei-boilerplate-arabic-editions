@@ -203,11 +203,11 @@ text orgName{
     /*border-bottom: 5px dotted #E4E8FF;*/
 }
 
-text persName, text placeName, text orgName {
+text persName, text placeName, text orgName, text title {
   display: inline-block;
   position: relative;
 }
-text persName::after, text placeName::after, text orgName::after {
+text persName::after, text placeName::after, text orgName::after, text title::after {
   content: '';
   position: absolute;
   left: 0;
@@ -231,7 +231,8 @@ text orgName::after{
 /* display tooltip-like information on the tag */
 text[lang = "ar"] persName:hover:after,
 text[lang = "ar"] placeName:hover:after,
-text[lang = "ar"] orgName:hover:after{
+text[lang = "ar"] orgName:hover:after,
+text[lang = "ar"] title:hover:after{
     display:inline-block;
     font-size:10px;
     text-align: center;
@@ -262,6 +263,9 @@ text[lang = "ar"] placeName:hover:after{
 text[lang = "ar"] orgName:hover:after{
     content:"orgName"
 }
+text[lang = "ar"] title:hover:after {
+    content: "title"
+}
 
 /*------------------------
 editorial changes
@@ -279,4 +283,10 @@ sic {
 sic:after {
     content: " [sic]";
     color: red;
+}
+/*------------------------
+bibliographic information
+------------------------*/
+bibl, text[lang = "ar"] title {
+    color:#F35024;
 }
