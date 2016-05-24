@@ -203,11 +203,11 @@ text orgName{
     /*border-bottom: 5px dotted #E4E8FF;*/
 }
 
-text persName, text placeName, text orgName, body title {
+text persName, text placeName, text orgName, text>body title {
   display: inline-block;
   position: relative;
 }
-text persName::after, text placeName::after, text orgName::after, body title::after {
+text persName::after, text placeName::after, text orgName::after, text>body title::after {
   content: '';
   position: absolute;
   left: 0;
@@ -232,7 +232,7 @@ text orgName::after{
 text persName:hover:after,
 text placeName:hover:after,
 text orgName:hover:after,
-body title:hover:after{
+text>body title:hover:after{
     display:inline-block;
     font-size:10px;
     text-align: center;
@@ -263,7 +263,7 @@ text placeName:hover:after{
 text orgName:hover:after{
     content:"orgName"
 }
-body title:hover:after {
+text>body title:hover:after {
     content: "title"
 }
 
@@ -287,6 +287,6 @@ sic:after {
 /*------------------------
 bibliographic information
 ------------------------*/
-bibl, body title {
+bibl, text>body title {
     color:#F35024;
 }
