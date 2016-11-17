@@ -14,7 +14,7 @@
                 <xsl:with-param name="pBiblUrl" select="concat('../metadata/',$vFileId)"/>
                 <xsl:with-param name="pLabelText" select="'Bibliographic metadata for this item: '"/>
             </xsl:call-template>
-            <span class="cLinks" lang="en">
+            <span class="c_links" lang="en">
                 <a href="{ancestor::tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence/@target}">Licence information</a>
             </span>
         </div>
@@ -132,8 +132,8 @@
                 <xsl:text>, </xsl:text>
                 <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:publisher/tei:orgName[@xml:lang = $vLang]"/>
                 <xsl:text>, </xsl:text>
-                <!-- publication date -->
-                <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:date" mode="mBibl">
+                <!-- publication date(s) -->
+                <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:date[@calendar='#cal_islamic'][1]" mode="mBibl">
                     <xsl:with-param name="pLang" select="$vLang"/>
                 </xsl:apply-templates>
             </span>

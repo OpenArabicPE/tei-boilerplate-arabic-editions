@@ -52,12 +52,12 @@
     <xsl:template name="templBiblDataLinks">
         <xsl:param name="pBiblUrl"/>
         <xsl:param name="pLabelText"/>
-        <span class="cLinks" lang="en">
+        <span class="c_links" lang="en">
             <xsl:value-of select="$pLabelText"/>
             <!-- link to the BibTex file for this article. NOTE: these must have been pregenerated -->
-            <a href="{$pBiblUrl}.bib" download="{$pBiblUrl}.bib" target="_blank" class="cLinkBibTex">BibTeX</a>
+            <a href="{$pBiblUrl}.bib" download="{$pBiblUrl}.bib" target="_blank" class="c_links c_link-bibtex" title="Link to bibliographic metadata as BibTeX">BibTeX</a>
             <!-- link to the MODS file for this article. NOTE: these must have been pregenerated -->
-            <a href="{$pBiblUrl}.MODS.xml" download="{$pBiblUrl}.MODS.xml" target="_blank" class="cLinkBibTex">MODS</a>
+            <a href="{$pBiblUrl}.MODS.xml" download="{$pBiblUrl}.MODS.xml" target="_blank" class="c_links c_link-bibtex" title="Link to bibliographic metadata as MODS XML">MODS</a>
         </span>
     </xsl:template>
 </xsl:stylesheet>

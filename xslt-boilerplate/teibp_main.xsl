@@ -14,15 +14,15 @@
         </xd:desc>
     </xd:doc>
         <!-- import the standard TEI Boilerplate stylesheets -->
-    <xsl:include href="sourcedesc.xsl"/>
+    <!--<xsl:include href="sourcedesc.xsl"/>
     <xsl:include href="xml-to-string.xsl"/>
-    <!-- import the stylesheet formatting all bibliographic metadata -->
+    <!-\- import the stylesheet formatting all bibliographic metadata -\->
     <xsl:include href="bibl.xsl"/>
 
-    <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
+    <!-\- import the stylesheet dealing with the display of <pb> and facsimiles -\->
     <xsl:include href="pb.xsl"/>
-    <!-- import stylesheet setting all the parameters -->
-    <xsl:include href="parameters.xsl"/>
+    <!-\- import stylesheet setting all the parameters -\->
+    <xsl:include href="parameters.xsl"/>-->
 
     <xsl:output encoding="UTF-8" method="xml" omit-xml-declaration="yes"/>
     
@@ -46,7 +46,7 @@
                 <div id="tei_wrapper">
                     <xsl:apply-templates/>
                 </div>
-                <xsl:copy-of select="$vNotes"/>
+                <xsl:copy-of select="$v_notes"/>
                 <xsl:copy-of select="$htmlFooter"/>
             </body>
         </html>
@@ -69,7 +69,7 @@
         <xsl:element name="{local-name()}">
             <xsl:apply-templates select="@*"/>
             <xsl:call-template name="addID"/>
-            <xsl:call-template name="rendition"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
@@ -103,9 +103,9 @@
                 renditions, i.e., styles.</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template match="@rend">
+    <xsl:template match="@style">
         <xsl:choose>
-            <xsl:when test="$inlineCSS = true()">
+            <xsl:when test="$p_use-inline-css = true()">
                 <xsl:attribute name="style">
                     <xsl:value-of select="."/>
                 </xsl:attribute>
@@ -117,13 +117,14 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template name="rendition">
+    <!-- as this template simply replicates the @rendition attribute, it has been removed -->
+    <!--<xsl:template name="rendition">
         <xsl:if test="@rendition">
             <xsl:attribute name="rendition">
                 <xsl:value-of select="@rendition"/>
             </xsl:attribute>
         </xsl:if>
-    </xsl:template>
+    </xsl:template>-->
     <xsl:template match="@xml:id">
         <!-- @xml:id is copied to @id, which browsers can use for internal links. -->
         <xsl:attribute name="id">
@@ -138,7 +139,7 @@
     <xsl:template match="tei:ref[@target]" priority="99">
         <a href="{@target}">
             <xsl:apply-templates select="@*"/>
-            <xsl:call-template name="rendition"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:apply-templates select="@* | node()"/>
             <!-- <xsl:apply-templates select="node()"/> -->
         </a>
@@ -153,16 +154,16 @@
     <xsl:template match="tei:ptr[@target]" priority="99">
         <a href="{@target}">
             <xsl:apply-templates select="@*"/>
-            <xsl:call-template name="rendition"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:value-of select="normalize-space(@target)"/>
         </a>
     </xsl:template>
-    <!-- wrap all elements with @corresp in a link -->
-    <xsl:template match="tei:*[@corresp]">
+    <!-- wrap all elements with @corresp in a link: this is a bad idea! Sometimes entire <div>s would become links -->
+    <!--<xsl:template match="tei:*[@corresp]">
         <a href="{@corresp}" class="c_corresp">
             <xsl:apply-templates/>
         </a>
-    </xsl:template>
+    </xsl:template>-->
     <!-- need something else for images with captions -->
     <xd:doc>
         <xd:desc>
@@ -463,13 +464,13 @@
                 <xsl:apply-templates select="child::tei:head" mode="mToc"/>
                 <xsl:text> (</xsl:text>
                 <!-- add author names and pages if available -->
-                <xsl:if test="tei:byline/descendant::tei:persName">
+                <xsl:if test="tei:byline/descendant::tei:persName or tei:opener/tei:byline/descendant::tei:persName">
                     <xsl:choose>
                         <xsl:when test="@xml:lang = 'ar'">
                             <xsl:text>تأليف: </xsl:text>
                         </xsl:when>
                     </xsl:choose>
-                    <xsl:value-of select="tei:byline/descendant::tei:persName"/>
+                    <xsl:value-of select="descendant::tei:byline/descendant::tei:persName"/>
                     <xsl:text>،</xsl:text>
                 </xsl:if>
                 <!-- add page numbers -->
@@ -501,7 +502,18 @@
     <xsl:template match="tei:lb | tei:cb" mode="mToc">
         <xsl:text> </xsl:text>
     </xsl:template>
-    <xsl:template match="tei:lb | tei:cb">
+    <!-- toggle the display of line breaks -->
+    <xsl:template match="tei:lb">
+        <xsl:choose>
+            <xsl:when test="$p_display-line-breaks = true()">
+                <br/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text> </xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:cb">
         <xsl:text> </xsl:text>
     </xsl:template>
     
@@ -555,7 +567,7 @@
             </xsl:call-template>
             <xsl:choose>
                 <xsl:when test="parent::node()/@xml:id">
-                    <a href="#{parent::node()/@xml:id}" class="cLinkSelf"><xsl:apply-templates select="node()"/></a>
+                    <a href="#{parent::node()/@xml:id}" class="c_link-self" title="{concat($p_text-permalink, $p_text-name-element_div)}"><xsl:apply-templates select="node()"/></a>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates select="node()"/>
@@ -598,10 +610,27 @@
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
-            <span class="cId cNumber" lang="en">
+            <span class="c_id" lang="en">
                 <xsl:choose>
                     <xsl:when test="@xml:id">
-                        <a href="#{@xml:id}" class="cLinkSelf cNumber"><xsl:value-of select="$vCount"/></a>
+                        <a href="#{@xml:id}" class="c_link-self" title="{concat($p_text-permalink, $p_text-name-element_p)}">
+                            <span class="c_link-self c_number" lang="en"><xsl:value-of select="$vCount"/></span>
+                        </a>
+                        <!--<a href="#{@xml:id}" class="c_link-self" title="{concat($p_text-permalink, $p_text-name-element_p)}">
+                            <span class="c_link-self c_number" lang="en"><xsl:value-of select="$vCount"/></span>
+                            <!-\- generate a pop-up label -\->
+                            <span class="c_link-self c_id c_hidden" lang="en">
+                                <!-\-<xsl:value-of select="concat($v_url-file,'#',@xml:id)"/>-\->
+                                <xsl:value-of select="concat($p_text-permalink, $p_text-name-element_p,' (#',@xml:id,')')"/>
+                            </span>
+                        </a>-->
+                        <!--<xsl:call-template name="t_link-self">
+                            <xsl:with-param name="p_id" select="@xml:id"/>
+                            <xsl:with-param name="p_name-element" select="'p'"/>
+                            <xsl:with-param name="p_content">
+                                <span class="c_link-self c_number" lang="en"><xsl:value-of select="$vCount"/></span>
+                            </xsl:with-param>
+                        </xsl:call-template>-->
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$vCount"/>
@@ -612,53 +641,77 @@
         </xsl:copy>
     </xsl:template>
 
-    <!-- do something with notes -->
-    <xsl:variable name="vNotes">
+    <!-- render foot and end notes-->
+    <!-- generate a block of endnotes to be inserted at some point in the result document -->
+    <xsl:variable name="v_notes">
         <div id="teibp_notes">
+            <!-- add support for multiple languages -->
             <head lang="ar">ملاحظات</head>
-            <xsl:apply-templates select="/descendant::tei:body/descendant::tei:note" mode="mNotes"/>
+            <xsl:apply-templates select="/descendant::tei:body/descendant::tei:note[@type='footnote' or @type='endnote']" mode="m_notes"/>
         </div>
     </xsl:variable>
-    <xsl:template match="tei:note" mode="mNotes">
+    <xsl:template match="tei:note[@type='footnote' or @type='endnote']" mode="m_notes">
         <p class="cNote" id="fn-{generate-id()}">
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
-            <a href="#fn-mark-{generate-id()}" class="cFnMark cContent">
+            <a href="#fn-mark-{generate-id()}" class="c_fn-mark" lang="en">
                 <xsl:value-of select="count(preceding::tei:note[ancestor::tei:body]) + 1"/>
             </a>
             <xsl:apply-templates/>
+            <!-- add a back link with arrow -->
+            <a href="#fn-mark-{generate-id()}" class="c_fn-back">
+<!--                <xsl:text>&#x21A9;</xsl:text>-->
+               <!-- <xsl:text>&#x21AA;</xsl:text>-->
+            </a>
         </p>
     </xsl:template>
-    <xsl:template match="tei:body//tei:note">
-        <a href="#fn-{generate-id()}" id="fn-mark-{generate-id()}" class="cFnMark cContent">
-            <xsl:value-of select="count(preceding::tei:note[ancestor::tei:body]) + 1"/>
+    <!-- generate the references to the block of endnotes in the text -->
+    <xsl:template match="tei:body//tei:note[@type='footnote' or @type='endnote']">
+        <a href="#fn-{generate-id()}" id="fn-mark-{generate-id()}" class="c_fn cContent">
+            <!-- one should have the full text of the note hidden by CSS -->
+            <span class="c_fn-mark" lang="en"><xsl:value-of select="count(preceding::tei:note[ancestor::tei:body]) + 1"/></span>
+            <span class="c_fn-content c_hidden">
+                <xsl:call-template name="templHtmlAttrLang">
+                    <xsl:with-param name="pInput" select="."/>
+                </xsl:call-template>
+                <xsl:choose>
+                    <xsl:when test="string-length(.) &gt; 150">
+                        <xsl:value-of select="substring(.,1,150)"/>
+                        <xsl:text> [...]</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="."/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </span>
         </a>
     </xsl:template>
     <!-- the file's id -->
-    <xsl:variable name="vFileId" select="tei:TEI/@xml:id"/>
+    <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
     <xsl:variable name="vFileIssueNo" select="substring-after($vFileId,'-i_')"/>
+    <!-- the file's url -->
+    <xsl:variable name="v_url-file">
+        <xsl:choose>
+            <xsl:when test="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type = 'url']">
+                <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type = 'url']"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of
+                    select="concat('https://github.com/tillgrallert/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"
+                />
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
     <!-- Sidebar buttons -->
     <xsl:variable name="vButtons">
         <!-- link to Github -->
-        <div id="XmlSourceLink" class="cSidebarButton">
+        <div id="XmlSourceLink" class="c_button-sidebar">
             <!-- xml: https://github.com/tillgrallert/ArabicTeiEdition/blob/master/MajallatMuqtabas/xml/oclc_4770057679-i_1.TEIP5.xml
                 boilerplate: https://rawgit.com/tillgrallert/ArabicTeiEdition/master/MajallatMuqtabas/xml/oclc_4770057679-i_60.TEIP5.xml-->
             <ul>
                 <li>
-                    <a>
-                        <xsl:attribute name="href">
-                            <xsl:choose>
-                                <xsl:when test="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type = 'url']">
-                                    <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type = 'url']"/>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:value-of
-                                        select="concat('https://github.com/tillgrallert/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"
-                                    />
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </xsl:attribute>
+                    <a href="{$v_url-file}">
                         <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
                         <xsl:text>TEI source on GitHub</xsl:text>
                     </a>
@@ -667,21 +720,21 @@
             </ul>
         </div>
         <!-- links to previous and next issues -->
-        <div id="NextIssue" class="cSidebarButton">
+        <div id="NextIssue" class="c_button-sidebar">
             <ul>
                 <li>
                     <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">Next issue</a>
                 </li>
             </ul>
         </div>
-        <div id="PrevIssue" class="cSidebarButton">
+        <div id="PrevIssue" class="c_button-sidebar">
             <ul>
                 <li>
                     <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">Previous issue</a>
                 </li>
             </ul>
         </div>
-        <div id="BackToTop" class="cSidebarButton">
+        <div id="BackToTop" class="c_button-sidebar">
             <ul>
                 <li>
                     <a href="#">Top of the page</a>
@@ -712,4 +765,75 @@
         </td>
     </xsl:template> -->
     
+    <!-- provide links to linked data -->
+    <xsl:template match="tei:*[@ref][ancestor::tei:text]">
+        <xsl:copy>
+            <xsl:apply-templates/>
+        </xsl:copy>
+        <!-- do something with private urls -->
+        <a class="c_linked-data" target="_blank" lang="en">
+        <xsl:choose>
+            <xsl:when test="starts-with(@ref,'geon')">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="concat('http://www.geonames.org/',substring-after(@ref,'geon:'))"/>
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                    <xsl:text>Link to this toponym on GeoNames</xsl:text>
+                </xsl:attribute>
+                <xsl:text>geonames</xsl:text>
+            </xsl:when>
+            <xsl:when test="starts-with(@ref,'oclc')">
+                <xsl:attribute name="href">
+                    <xsl:value-of select="concat('https://www.worldcat.org/oclc/',substring-after(@ref,'oclc:'))"/>
+                </xsl:attribute>
+                <xsl:attribute name="title">
+                    <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
+                </xsl:attribute>                
+                <xsl:text>oclc</xsl:text>
+            </xsl:when>
+            <xsl:when test="starts-with(@ref,'viaf')">
+              <xsl:attribute name="href">
+                  <xsl:value-of select="concat('https://viaf.org/viaf/',substring-after(@ref,'viaf:'))"/>
+              </xsl:attribute>
+                <xsl:attribute name="title">
+                    <xsl:text>Link to this entity at VIAF</xsl:text>
+                </xsl:attribute> 
+                <xsl:text>viaf</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:attribute name="href">
+                    <xsl:value-of select="@ref"/>
+                </xsl:attribute>
+                <xsl:text>link</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+        </a>
+    </xsl:template>
+    
+    <!-- template to provide permalinks to elements -->
+    <xsl:template name="t_link-self">
+        <!-- passon content of the link -->
+        <xsl:param name="p_content"/>
+        <!-- the @xml:id to link back to -->
+        <xsl:param name="p_id"/>
+        <xsl:param name="p_name-element"/>
+        <xsl:variable name="v_name-element">
+            <xsl:choose>
+                <xsl:when test="$p_name-element = 'div'">
+                    <xsl:copy-of select="$p_text-name-element_div"/>
+                </xsl:when>
+                <xsl:when test="$p_name-element = 'p'">
+                    <xsl:copy-of select="$p_text-name-element_p"/>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+        <a href="#{$p_id}" class="c_link-self" title="{concat($p_text-permalink, $v_name-element)}">
+            <xsl:copy-of select="$p_content"/>
+            <!-- generate a pop-up label -->
+            <span class="c_link-self c_id c_hidden" lang="en">
+                <!--<xsl:value-of select="concat($v_url-file,'#',@xml:id)"/>-->
+                <xsl:value-of select="concat($p_text-permalink, $v_name-element,' (#',$p_id,')')"/>
+            </span>
+        </a>
+    </xsl:template>
 </xsl:stylesheet>

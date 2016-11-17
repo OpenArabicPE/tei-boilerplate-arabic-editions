@@ -48,6 +48,10 @@ back{
     counter-reset:p;
 }
 
+/** {
+    font-size: inherit;
+}*/
+
 /*--------------------
 block level elements
 ----------------------*/
@@ -94,7 +98,7 @@ text p:before{
 }*/
 
 /* new explicit counting */
-p>span.cId{
+p>span.c_id{
     direction:ltr;
     /* vertical-align:top; */
     font-size:0.5em;
@@ -106,18 +110,40 @@ p>span.cId{
     color:gray;
 }
 /* for ltr languages*/
-p>span.cId{
+p>span.c_id{
     margin-left: -4em;
 }
 /* for rtl languages*/
-p[lang = "ar"]>span.cId,p[lang = "ota"]>span.cId,p[lang = "fa"]>span.cId,p[lang = "he"]>span.cId,p[lang *= "-Arab-Ar"]>span.cId{
+p[lang = "ar"]>span.c_id,p[lang = "ota"]>span.c_id,p[lang = "fa"]>span.c_id,p[lang = "he"]>span.c_id,p[lang *= "-Arab-Ar"]>span.c_id{
     margin-right: -4em;
 }
 
-p>span.cId:before {
+p>span.c_id:before {
     content:"§ ";
     direction:ltr;
 }
+/* lines */
+/*pb {
+    counter-reset: br;
+    counter-increment: br;
+}
+text:br {
+    counter-increment: br;
+}
+text br:before{
+    content:"§ " counter(br) " ";
+    direction:ltr;
+     vertical-align:top; 
+    font-size:0.5em;
+    display:block;
+    position:absolute;
+    padding-right:0.5em;
+    padding-left:0.5em;
+    margin-top:0.5em;
+    margin-right:-40px;
+    color:gray;
+}*/
+
 /* anonymous blocks <ab> */
 ab{
     margin-right:auto;
@@ -127,8 +153,12 @@ ab{
 byline{
     display:block;
 }
-byline[lang="ar"]{
+byline[lang="ar"],
+byline[lang="ota"]{
     margin-right: 100px;
+}
+byline{
+    margin-left: 100px;
 }
 /* gaps */
 gap{
@@ -204,7 +234,7 @@ text orgName{
 }
 
 text persName, text placeName, text orgName, text>body title {
-  display: inline-block;
+  display: inline;
   position: relative;
 }
 text persName::after, text placeName::after, text orgName::after, text>body title::after {
@@ -236,6 +266,7 @@ text>body title:hover:after{
     display:inline-block;
     font-size:10px;
     text-align: center;
+    text-indent: 0;
     direction: ltr;
     font-family: Helvetica, Arial, sans-serif;
     color:black;
@@ -249,6 +280,7 @@ text>body title:hover:after{
     border-bottom-left-radius:3px;
     box-shadow:0px 1px 5px rgba(0, 0, 0, 0.3), 0px 1px 0px rgba(255, 255, 255, 0.2) inset, 0px -1px 0px rgba(0, 0, 0, 0.3) inset;
     min-width: 60px;
+    width: 100%;
     /* position the pop over */
     position:absolute;
     margin:-2em 0 0 0;
@@ -271,11 +303,14 @@ text>body title:hover:after {
 editorial changes
 ------------------------*/
 
-supplied:before {
+choice>corr:before,supplied:before {
     content:"[";
 }
-supplied:after {
+choice>corr:after, supplied:after {
     content: "]";
+}
+choice>corr[resp = "#org_MS"], supplied[resp = "#org_MS"]{
+    display: none;
 }
 sic {
     color: red;
