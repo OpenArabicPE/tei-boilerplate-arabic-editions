@@ -113,13 +113,12 @@
         </xsl:choose>
     </xsl:param>
     <!-- parameters for file paths or URLs -->
-    <!-- modify filePrefix to point to boilerplate files on your own server, 
-		or to specify a relative path, e.g.:
-		<xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
+    <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
 	-->
     <xsl:param name="filePrefix" select="'..'"/>
+    <!-- the following parameters should not be changed unless the folder structure and file names have been changed -->
     <xsl:param name="teibpCSS" select="concat($filePrefix, '/css/teibp.css')"/>
-    <xsl:param name="customCSS" select="concat($filePrefix, '/css/custom.css')"/>
+    <xsl:param name="customCSS" select="concat($filePrefix, '/css/teibp_custom.css')"/>
     <xsl:param name="jqueryJS" select="concat($filePrefix, '/js/jquery/jquery.min.js')"/>
     <xsl:param name="jqueryBlockUIJS" select="concat($filePrefix, '/js/jquery/plugins/jquery.blockUI.js')"/>
     <xsl:param name="teibpJS" select="concat($filePrefix, '/js/teibp.js')"/>
