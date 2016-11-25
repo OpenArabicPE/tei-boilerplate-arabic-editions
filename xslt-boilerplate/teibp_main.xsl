@@ -636,8 +636,20 @@
     <!-- generate a block of endnotes to be inserted at some point in the result document -->
     <xsl:variable name="v_notes">
         <div id="teibp_notes">
-            <!-- add support for multiple languages -->
-            <head lang="ar">ملاحظات</head>
+            <head>
+                <xsl:call-template name="templHtmlAttrLang">
+                    <xsl:with-param name="pInput" select="tei:TEI/tei:text"/>
+                </xsl:call-template>
+<!--                <xsl:value-of select="$p_text-notes"/>-->
+                <xsl:choose>
+                    <xsl:when test="tei:TEI/tei:text/@xml:lang = 'ar'">
+                        <xsl:text>ملاحظات</xsl:text>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>Notes</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </head>
             <xsl:apply-templates select="/descendant::tei:body/descendant::tei:note[@type='footnote' or @type='endnote']" mode="m_notes"/>
         </div>
     </xsl:variable>
