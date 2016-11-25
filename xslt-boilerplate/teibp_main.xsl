@@ -36,7 +36,8 @@
                 <div id="tei_wrapper">
                     <xsl:apply-templates/>
                 </div>
-                <xsl:copy-of select="$v_notes"/>
+                <!-- this could be moved to the back of the TEI document -->
+                <!--<xsl:copy-of select="$v_notes"/>-->
                 <xsl:copy-of select="$htmlFooter"/>
             </body>
         </html>
@@ -65,6 +66,39 @@
     </xd:doc>
     <xsl:template match="@*">
         <xsl:copy/>
+    </xsl:template>
+    <!-- add notes to the <back> element -->
+    <xsl:template match="tei:text">
+        <xsl:copy>
+            <xsl:call-template name="templHtmlAttrLang">
+                <xsl:with-param name="pInput" select="."/>
+            </xsl:call-template>
+            <xsl:apply-templates select="@*"/>
+            <xsl:apply-templates select="child::tei:front"/>
+            <xsl:apply-templates select="child::tei:body"/>
+            <xsl:choose>
+                <xsl:when test="child::tei:back">
+                    <xsl:apply-templates select="child::tei:back"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:element name="back">
+                        <xsl:call-template name="templHtmlAttrLang">
+                            <xsl:with-param name="pInput" select="."/>
+                        </xsl:call-template>
+                        <xsl:copy-of select="$v_notes"/>
+                    </xsl:element>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:copy>
+    </xsl:template>
+    <xsl:template match="tei:back">
+        <xsl:copy>
+            <xsl:call-template name="templHtmlAttrLang">
+                <xsl:with-param name="pInput" select="."/>
+            </xsl:call-template>
+            <xsl:apply-templates select="@* | node()"/>
+            <xsl:copy-of select="$v_notes"/>
+        </xsl:copy>
     </xsl:template>
     <xd:doc>
         <xd:desc>
