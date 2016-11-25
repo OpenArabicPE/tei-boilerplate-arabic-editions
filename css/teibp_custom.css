@@ -6,7 +6,7 @@
 @import "teibp_tei-elements.css";
 @import "teibp_links.css";
 /* this can be set to either teibp_heads-light or teibp_heads-dark */
-@import "teibp_heads-light.css";
+/*@import "teibp_heads-light.css";*/
 @import "teibp_sidebar-buttons.css";
 /* teibp_facsimile.css toggles the two-column view with a large facsimile displayed to the left of the text */
 @import "teibp_facsimile.css";
