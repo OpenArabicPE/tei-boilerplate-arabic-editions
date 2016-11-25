@@ -1816,6 +1816,7 @@ footer {
   border-top: 1px solid #292929;
   padding-top: .5em;
   font-size: 12pt;
+  clear: both;
 }
 /* a:link,
 a:visited,
