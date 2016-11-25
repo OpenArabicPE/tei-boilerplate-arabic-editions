@@ -124,6 +124,47 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:param>
+    <xsl:param name="p_text-notes">
+        <xsl:choose>
+            <xsl:when test="$v_lang-interface = 'ar'">
+                <xsl:text>ملاحظات</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Notes</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    
+    <xsl:param name="p_text-nav_next-issue">
+        <xsl:choose>
+            <xsl:when test="$v_lang-interface = 'ar'">
+                <xsl:text>الجزء التالي</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Next issue</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    <xsl:param name="p_text-nav_next-issue">
+        <xsl:choose>
+            <xsl:when test="$v_lang-interface = 'ar'">
+                <xsl:text>الجزء التالي</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Next issue</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    <xsl:param name="p_text-nav_previous-issue">
+        <xsl:choose>
+            <xsl:when test="$v_lang-interface = 'ar'">
+                <xsl:text>الجزء السابق</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>Previous issue</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
     
     <!-- parameters for file paths or URLs -->
     <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
