@@ -114,6 +114,17 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:param>
+    <xsl:param name="p_text-name-element_pb">
+        <xsl:choose>
+            <xsl:when test="$v_lang-interface = 'ar'">
+                <xsl:text>هذه الصفحة</xsl:text>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:text>this page break</xsl:text>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:param>
+    
     <!-- parameters for file paths or URLs -->
     <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
 	-->
