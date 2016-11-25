@@ -36,11 +36,18 @@
                 <div id="tei_wrapper">
                     <xsl:apply-templates/>
                 </div>
-                <!-- this could be moved to the back of the TEI file -->
-                <!--<xsl:copy-of select="$v_notes"/>-->
+                <xsl:copy-of select="$v_notes"/>
                 <xsl:copy-of select="$htmlFooter"/>
             </body>
         </html>
+    </xsl:template>
+    <xd:doc>
+        <xd:desc>
+            <xd:p>Basic copy template, copies all attribute nodes from source XML tree to output document.</xd:p>
+        </xd:desc>
+    </xd:doc>
+    <xsl:template match="@*">
+        <xsl:copy/>
     </xsl:template>
     <xd:doc>
         <xd:desc>
@@ -52,26 +59,12 @@
         <xsl:element name="{local-name()}">
             <xsl:apply-templates select="@*"/>
             <xsl:call-template name="addID"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
             <xsl:apply-templates select="node()"/>
         </xsl:element>
-    </xsl:template>
-    <!-- add notes to the back child of <text> -->
-    <!--<xsl:template match="tei:back">
-        <xsl:copy>
-            <xsl:apply-templates select="@* | node()"/>
-            <xsl:copy-of select="$v_notes"/>
-        </xsl:copy>
-    </xsl:template>-->
-    <xd:doc>
-        <xd:desc>
-            <xd:p>Basic copy template, copies all attribute nodes from source XML tree to output document.</xd:p>
-        </xd:desc>
-    </xd:doc>
-    <xsl:template match="@*">
-        <xsl:copy/>
     </xsl:template>
     <xd:doc>
         <xd:desc>
@@ -96,7 +89,7 @@
     <xsl:template match="processing-instruction()" priority="10"/>
     <xd:doc>
         <xd:desc>
-            <xd:p>Template replicates value of @style into an html @style attribute. Stylesheet assumes CSS is used in @style to describe
+            <xd:p>Template moves value of @rend into an html @style attribute. Stylesheet assumes CSS is used in @rend to describe
                 renditions, i.e., styles.</xd:p>
         </xd:desc>
     </xd:doc>
@@ -135,7 +128,10 @@
     </xd:doc>
     <xsl:template match="tei:ref[@target]" priority="99">
         <a href="{@target}">
+            <xsl:apply-templates select="@*"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:apply-templates select="@* | node()"/>
+            <!-- <xsl:apply-templates select="node()"/> -->
         </a>
     </xsl:template>
     <!-- prevent @target from being reproduced here -->
@@ -148,6 +144,7 @@
     <xsl:template match="tei:ptr[@target]" priority="99">
         <a href="{@target}">
             <xsl:apply-templates select="@*"/>
+<!--            <xsl:call-template name="rendition"/>-->
             <xsl:value-of select="normalize-space(@target)"/>
         </a>
     </xsl:template>
@@ -202,6 +199,7 @@
 	</xsl:template>
 	-->
     <xsl:template name="addID">
+        <xsl:if test="not(ancestor::eg:egXML)">
             <xsl:attribute name="id">
                 <xsl:choose>
                     <xsl:when test="@xml:id">
@@ -214,6 +212,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:attribute>
+        </xsl:if>
     </xsl:template>
     <xd:doc>
         <xd:desc>
