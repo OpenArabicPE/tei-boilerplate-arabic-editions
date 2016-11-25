@@ -63,7 +63,7 @@ Currently our boilerplate supports English (as fall-back option) and Arabic, but
 
 ~~~{.xml}
 <xsl:param name="p_text-page">
-        <span class="-teibp-pbNote" lang="{$v_lang-interface}">
+        <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
                 <xsl:when test="$v_lang-interface = 'ar'">
                     <xsl:text>صفحة</xsl:text>
@@ -80,7 +80,7 @@ To add another language just add another `<xsl:when>` option; e.g.
 
 ~~~{.xml}
 <xsl:param name="p_text-page">
-        <span class="-teibp-pbNote" lang="{$v_lang-interface}">
+        <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
                 <xsl:when test="$v_lang-interface = 'ar'">
                     <xsl:text>صفحة</xsl:text>

@@ -16,7 +16,7 @@
         <xsl:choose>
             <xsl:when test="$p_display-page-breaks = true()">
                 <!-- add @lang="en" to ensure correct ltr rendering -->
-                <span class="-teibp-pb" lang="en">
+                <span class="c_teibp-pb" lang="en">
                     <xsl:call-template name="addID"/>
                     <xsl:call-template name="t_handler-pb">
                         <xsl:with-param name="p_n" select="@n"/>
@@ -115,7 +115,7 @@
             </xsl:for-each>
         </xsl:variable>
         <!-- construct the final output -->
-        <span class="-teibp-pbImgInfo">
+        <span class="c_teibp-pbImgInfo">
             <span class="-teibp-pageNum" lang="{$v_lang-interface}">
                 <xsl:copy-of select="$p_text-page"/>
                 <xsl:text> </xsl:text>
@@ -129,7 +129,7 @@
                 </xsl:if>
             </span>
             <xsl:if test="$p_facs = true()">
-                <span class="-teibp-pbFacs" lang="en">
+                <span class="c_teibp-pbFacs" lang="en">
                     <a class="gallery-facs" lang="en" href="{$v_url-facs}" target="_blank">
                         <img src="{$v_url-facs}" class="-teibp-thumbnail"/>
                     </a>
