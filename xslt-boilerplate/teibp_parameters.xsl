@@ -61,7 +61,7 @@
     </xsl:variable>
     <!-- interface text -->
     <xsl:param name="p_text-page">
-        <span class="-teibp-pbNote" lang="{$v_lang-interface}">
+        <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
                 <xsl:when test="$v_lang-interface = 'ar'">
                     <xsl:text>صفحة</xsl:text>
@@ -73,7 +73,7 @@
         </span>
     </xsl:param>
     <xsl:param name="p_text-facs-link">
-        <span class="-teibp-pbNote" lang="{$v_lang-interface}">
+        <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
                 <xsl:when test="$v_lang-interface = 'ar'">
                     <xsl:text>انظر الى هذه الصورة في</xsl:text>
