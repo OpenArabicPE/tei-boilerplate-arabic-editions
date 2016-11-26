@@ -26,7 +26,7 @@
     <!-- select whether you want to display page breaks and facsimiles -->
     <xsl:param name="p_display-page-breaks" select="true()"/>
     <!-- select whether you want to display online or local facsimiles -->
-    <xsl:param name="p_display-online-facsimiles" select="true()"/>
+    <xsl:param name="p_display-online-facsimiles" select="false()"/>
     <!-- select whether you want to display line breaks -->
     <xsl:param name="p_display-line-breaks" select="true()"/>
     <!-- select whether you want to use inline CSS for the display -->
@@ -136,24 +136,28 @@
     </xsl:param>
     
     <xsl:param name="p_text-nav_next-issue">
-        <xsl:choose>
-            <xsl:when test="$v_lang-interface = 'ar'">
-                <xsl:text>الجزء التالي</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>Next issue</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>الجزء التالي</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Next issue</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
     </xsl:param>
     <xsl:param name="p_text-nav_next-issue">
-        <xsl:choose>
-            <xsl:when test="$v_lang-interface = 'ar'">
-                <xsl:text>الجزء التالي</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>Next issue</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>الجزء التالي</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Next issue</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
     </xsl:param>
     <xsl:param name="p_text-nav_previous-issue">
         <xsl:choose>
