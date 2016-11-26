@@ -36,7 +36,7 @@
                 <div id="tei_wrapper">
                     <xsl:apply-templates/>
                 </div>
-                <!-- this could be moved to the back of the TEI document -->
+                <!-- this was moved to the back of the TEI document -->
                 <!--<xsl:copy-of select="$v_notes"/>-->
                 <xsl:copy-of select="$htmlFooter"/>
             </body>
@@ -654,7 +654,7 @@
         </div>
     </xsl:variable>
     <xsl:template match="tei:note[@type='footnote' or @type='endnote']" mode="m_notes">
-        <p class="cNote" id="fn-{generate-id()}">
+        <note class="cNote" id="fn-{generate-id()}">
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
@@ -668,7 +668,7 @@
                 <!-- <xsl:text>&#x21A9;</xsl:text>-->
                 <!-- <xsl:text>&#x21AA;</xsl:text>-->
             </a>
-        </p>
+        </note>
     </xsl:template>
     <!-- generate the references to the block of endnotes in the text -->
     <xsl:template match="tei:body//tei:note[@type='footnote' or @type='endnote']">
