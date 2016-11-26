@@ -654,7 +654,7 @@
         </div>
     </xsl:variable>
     <xsl:template match="tei:note[@type='footnote' or @type='endnote']" mode="m_notes">
-        <note class="cNote" id="fn-{generate-id()}">
+        <note class="c_note" id="fn-{generate-id()}">
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
