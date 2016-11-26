@@ -147,27 +147,18 @@
             </xsl:choose>
         </span>
     </xsl:param>
-    <xsl:param name="p_text-nav_next-issue">
+
+    <xsl:param name="p_text-nav_previous-issue">
         <span lang="{$v_lang-interface}">
             <xsl:choose>
                 <xsl:when test="$v_lang-interface = 'ar'">
-                    <xsl:text>الجزء التالي</xsl:text>
+                    <xsl:text>الجزء السابق</xsl:text>
                 </xsl:when>
                 <xsl:otherwise>
-                    <xsl:text>Next issue</xsl:text>
+                    <xsl:text>Previous issue</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
         </span>
-    </xsl:param>
-    <xsl:param name="p_text-nav_previous-issue">
-        <xsl:choose>
-            <xsl:when test="$v_lang-interface = 'ar'">
-                <xsl:text>الجزء السابق</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text>Previous issue</xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
     </xsl:param>
     
     <!-- parameters for file paths or URLs -->
