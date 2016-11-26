@@ -728,14 +728,18 @@
         <div id="NextIssue" class="c_button-sidebar">
             <ul>
                 <li>
-                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">Next issue</a>
+                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">
+                        <xsl:copy-of select="$p_text-nav_next-issue"/>
+                    </a>
                 </li>
             </ul>
         </div>
         <div id="PrevIssue" class="c_button-sidebar">
             <ul>
                 <li>
-                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">Previous issue</a>
+                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">
+                        <xsl:copy-of select="$p_text-nav_previous-issue"/>
+                    </a>
                 </li>
             </ul>
         </div>
