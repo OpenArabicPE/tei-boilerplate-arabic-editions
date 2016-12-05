@@ -1,14 +1,14 @@
 [rend="brackets"] {
 	/* this doesn't seem to work with inline-blocks*/
-    /*quotes: " \0028" "\0029" !important;*/
+    quotes: " \0028" "\0029" !important;
     /*color: red;*/
 }
-[rend="brackets"]:before {
+/*[rend="brackets"]:before {
 	content: "\0028";
 }
 [rend="brackets"]:after {
 	content: "\0029";
-}
+}*/
 
 [rend="quotation-marks"][lang="ar"] {
     quotes: "\00AB" "\00BB" !important;
