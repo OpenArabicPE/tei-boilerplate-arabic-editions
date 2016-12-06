@@ -776,6 +776,9 @@
     <!-- provide links to linked data -->
     <xsl:template match="tei:*[@ref][ancestor::tei:text]">
         <xsl:copy>
+            <xsl:call-template name="templHtmlAttrLang">
+                <xsl:with-param name="pInput" select="."/>
+            </xsl:call-template>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
         <!-- do something with private urls -->
