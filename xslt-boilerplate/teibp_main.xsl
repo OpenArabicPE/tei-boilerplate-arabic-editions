@@ -776,7 +776,7 @@
     <!-- provide links to linked data -->
     <xsl:template match="tei:*[@ref][ancestor::tei:text]">
         <xsl:copy>
-            <xsl:apply-templates/>
+            <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
         <!-- do something with private urls -->
         <a class="c_linked-data" target="_blank" lang="en">
