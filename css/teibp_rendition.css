@@ -14,11 +14,19 @@
 [rend="quotation-marks"][lang *= "-Arab-AR"] {
     quotes: "\00AB" "\00BB" !important;
 }*/
-[rend="quotation-marks"][lang="ar"]:before,
+/*[rend="quotation-marks"][lang="ar"]:before,
+[rend="quotation-marks"][lang="ota"]:before,
 [rend="quotation-marks"][lang *= "-Arab-AR"]:before {
     content: "\00AB" !important;
 }
 [rend="quotation-marks"][lang="ar"]:after,
+[rend="quotation-marks"][lang="ota"]:after,
 [rend="quotation-marks"][lang *= "-Arab-AR"]:after {
+    content: "\00BB" !important;
+}*/
+[rend="quotation-marks"]:before {
+    content: "\00AB" !important;
+}
+[rend="quotation-marks"]:after {
     content: "\00BB" !important;
 }
