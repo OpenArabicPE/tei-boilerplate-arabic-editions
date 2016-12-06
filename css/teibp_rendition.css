@@ -11,6 +11,6 @@
 }
 
 [rend="quotation-marks"][lang="ar"],
-[rend="quotation-marks"][lang $= "-Arab-Ar"] {
+[rend="quotation-marks"][lang $= "-Arab-AR"] {
     quotes: "\00AB" "\00BB" !important;
 }

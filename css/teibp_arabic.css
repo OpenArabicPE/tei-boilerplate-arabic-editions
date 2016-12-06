@@ -3,7 +3,7 @@
 [lang = "ota"],
 [lang = "fa"],
 [lang = "he"],
-[lang $= "-Arab-Ar"]{
+[lang $= "-Arab-AR"]{
     direction:rtl;
     text-align:right;
     font-family: AmiriWeb, Helvetica, Arial, sans-serif;

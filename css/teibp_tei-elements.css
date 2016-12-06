@@ -114,7 +114,7 @@ p>span.c_id{
     margin-left: -4em;
 }
 /* for rtl languages*/
-p[lang = "ar"]>span.c_id,p[lang = "ota"]>span.c_id,p[lang = "fa"]>span.c_id,p[lang = "he"]>span.c_id,p[lang $= "-Arab-Ar"]>span.c_id{
+p[lang = "ar"]>span.c_id,p[lang = "ota"]>span.c_id,p[lang = "fa"]>span.c_id,p[lang = "he"]>span.c_id,p[lang $= "-Arab-AR"]>span.c_id{
     margin-right: -4em;
 }
 

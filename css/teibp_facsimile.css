@@ -24,7 +24,7 @@ TEI > text[lang = "ar"],
 TEI > text[lang = "ota"],
 TEI > text[lang = "fa"],
 TEI > text[lang = "he"],
-TEI > text[lang $= "-Arab-Ar"] {
+TEI > text[lang $= "-Arab-AR"] {
 	float: right;
 }
 /* everything should "clear:right" but for <l>, which are already floating */
@@ -32,7 +32,7 @@ TEI > text[lang = "ar"] div >*,
 TEI > text[lang = "ota"] div >*,
 TEI > text[lang = "fa"] div >*,
 TEI > text[lang = "he"] div >*,
-TEI > text[lang $= "-Arab-Ar"] div >* {
+TEI > text[lang $= "-Arab-AR"] div >* {
 	clear: right !important;
 }
 
@@ -73,7 +73,7 @@ TEI > text[lang = "ar"] span.c_teibp-pb,
 TEI > text[lang = "ota"] span.c_teibp-pb,
 TEI > text[lang = "fa"] span.c_teibp-pb,
 TEI > text[lang = "he"] span.c_teibp-pb,
-TEI > text[lang $= "-Arab-Ar"] span.c_teibp-pb {
+TEI > text[lang $= "-Arab-AR"] span.c_teibp-pb {
 	/* clear: left is necessary here if facsimiles are larger than the space occupied by the transcription */
 	clear: left !important;
 }
@@ -107,7 +107,7 @@ TEI > text[lang = "ar"] span.c_teibp-pbImgInfo,
 TEI > text[lang = "ota"] span.c_teibp-pbImgInfo,
 TEI > text[lang = "fa"] span.c_teibp-pbImgInfo,
 TEI > text[lang = "he"] span.c_teibp-pbImgInfo,
-TEI > text[lang $= "-Arab-Ar"] span.c_teibp-pbImgInfo {
+TEI > text[lang $= "-Arab-AR"] span.c_teibp-pbImgInfo {
 	float: left;
 	clear: left;
 	border-right: 5px dotted #EBEBEB;
