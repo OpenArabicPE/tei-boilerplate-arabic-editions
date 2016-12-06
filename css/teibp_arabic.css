@@ -3,7 +3,7 @@
 [lang = "ota"],
 [lang = "fa"],
 [lang = "he"],
-[lang $= "-Arab-AR"]{
+[lang *="-Arab-AR"]{
     direction:rtl;
     text-align:right;
     font-family: AmiriWeb, Helvetica, Arial, sans-serif;
@@ -17,15 +17,15 @@
 [lang = "fr"],
 [lang = "de"],
 [lang = "it"],
-[lang $= "ar-Latn-"],
-[lang $= "ota-Latn-"]{
+[lang *="ar-Latn-"],
+[lang *="ota-Latn-"]{
     direction:ltr;
     text-align:left;
     font-family: Helvetica, Arial, sans-serif;
     font-size:14px;
 }
-[lang $= "ar-Latn-"],
-[lang $= "ota-Latn-"]{
+[lang *="ar-Latn-"],
+[lang *="ota-Latn-"]{
     font-style:italic;
 }
 /* change markers for quotes based on language */
