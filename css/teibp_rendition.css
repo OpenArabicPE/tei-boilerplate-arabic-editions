@@ -10,6 +10,7 @@
 	content: "\0029";
 }
 
-[rend="quotation-marks"][lang="ar"] {
+[rend="quotation-marks"][lang="ar"],
+[rend="quotation-marks"][lang *= "-Arab-Ar"] {
     quotes: "\00AB" "\00BB" !important;
 }
