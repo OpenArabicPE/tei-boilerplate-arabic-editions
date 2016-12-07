@@ -273,8 +273,8 @@
             <meta charset="UTF-8"/>
             <xsl:call-template name="templMetadataDCFile"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
-            <link href="{$v_css-heads}" id="css-heads" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
+            <link href="{$v_css-heads}" id="css-heads" rel="stylesheet" type="text/css"/>
             <script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
