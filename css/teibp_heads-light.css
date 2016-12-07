@@ -6,7 +6,7 @@ head bibl,
 head orgName,
 head persName,
 head placeName,
-head title, {
+head title {
     color:inherit !important;
     /*background-color: inherit !important;*/
     font-size: inherit !important;
