@@ -24,10 +24,10 @@ div > head{
     /* make headers sticky */
     position: -webkit-sticky;
     top: -8px;
-    /*position: -moz-sticky;
+    position: -moz-sticky;
     position: -ms-sticky;
     position: -o-sticky;
-    position: sticky;*/
+    position: sticky;
     /*z-index: 60;*/
 }
 
