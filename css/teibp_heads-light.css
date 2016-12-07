@@ -1,10 +1,7 @@
 /* make sure not to color etc. entities in heads. 
 The !important flag is brutal and overrides any more specific rules. 
 Yet, font-size is not inherited by all descendants in Firefox */
-head *:not(.c_fn-mark), 
-head *:not(.c_links),
-head *:not(.c_fn-content), 
-head *:not(.c_linked-data) {
+head *:not(.c_fn-mark, .c_links, .c_fn-content, .c_linked-data) {
     color:inherit !important;
     /*background-color: inherit !important;*/
     font-size: inherit !important;
