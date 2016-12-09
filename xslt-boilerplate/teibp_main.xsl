@@ -271,7 +271,7 @@
     <xsl:template name="htmlHead">
         <head>
             <meta charset="UTF-8"/>
-            <xsl:call-template name="templMetadataDCFile"/>
+            <xsl:call-template name="t_metadata-dc-file"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-heads}" id="css-heads" rel="stylesheet" type="text/css"/>
@@ -286,7 +286,8 @@
 			</script>
             <xsl:call-template name="tagUsage2style"/>
             <xsl:call-template name="rendition2style"/>
-            <title><!-- don't leave empty. --></title>
+            <!-- <title>don't leave empty.</title> -->
+            <xsl:call-template name="t_metadata-file"/>
             <xsl:if test="$includeAnalytics = true()">
                 <xsl:call-template name="analytics"/>
             </xsl:if>
