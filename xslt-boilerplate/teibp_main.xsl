@@ -3,7 +3,7 @@
     msxsl" version="1.0"
     xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples" xmlns:exsl="http://exslt.org/common"
     xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:msxsl="urn:schemas-microsoft-com:xslt"
-    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xi="http://www.w3.org/2001/XInclude">
 
     <xd:doc scope="stylesheet">
         <xd:desc>
@@ -850,5 +850,11 @@
                 <xsl:value-of select="concat($p_text-permalink, $v_name-element,' (#',$p_id,')')"/>
             </span>
         </a>
+    </xsl:template>
+    
+    <!-- template to follow XIncludes -->
+    <xsl:template match="xi:include">
+        <xsl:variable name="v_id-element" select="@xpointer"/>
+        <xsl:apply-templates select="document(@href)//node()[@xml:id=$v_id-element]"/>
     </xsl:template>
 </xsl:stylesheet>
