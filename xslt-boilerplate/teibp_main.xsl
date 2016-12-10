@@ -851,12 +851,4 @@
             </span>
         </a>
     </xsl:template>
-    
-    <!-- follwo XIncludes -->
-    <xsl:template match="xi:include">
-        <xsl:variable name="v_inlcude">
-            <xsl:copy-of select="document(@href)"/>
-        </xsl:variable>
-        <xsl:apply-templates select="$v_inlcude"/>
-    </xsl:template>
 </xsl:stylesheet>
