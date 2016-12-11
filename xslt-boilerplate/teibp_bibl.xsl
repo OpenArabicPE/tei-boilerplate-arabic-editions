@@ -27,9 +27,9 @@
     		<xsl:value-of select="$vgPublicationTitle"/>
     		<xsl:text> </xsl:text>
     		<xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@n"/>
-    		<xsl:text>:</xsl:text>
+    		<xsl:text>(</xsl:text>
     		<xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@n"/>
-    		<xsl:text> </xsl:text>
+    		<xsl:text>) </xsl:text>
     		<!-- <xsl:value-of select="$vgPublicationDate"/> -->
     	</title>
     </xsl:template>
