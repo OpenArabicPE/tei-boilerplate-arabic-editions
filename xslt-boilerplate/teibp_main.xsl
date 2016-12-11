@@ -854,9 +854,7 @@
     
     <!-- template to follow XIncludes -->
     <xsl:template match="xi:include">
-        <xsl:if test="$p_process-xinclude = true()">
         <xsl:variable name="v_id-element" select="@xpointer"/>
         <xsl:apply-templates select="document(@href)//node()[@xml:id=$v_id-element]"/>
-        </xsl:if>
     </xsl:template>
 </xsl:stylesheet>
