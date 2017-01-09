@@ -6,7 +6,7 @@ date: 2016-04-02 17:47:03
 
 # TEI Boilerplate for editions of Arabic texts
 
-[![GitHub release](https://img.shields.io/github/release/tillgrallert/tei-boilerplate-arabic-editions.svg?maxAge=2592000)](https://github.com/tillgrallert/tei-boilerplate-arabic-editions/releases)
+[![GitHub release](https://img.shields.io/github/release/tillgrallert/tei-boilerplate-arabic-editions.svg)](https://github.com/tillgrallert/tei-boilerplate-arabic-editions/releases)
 [![DOI](https://zenodo.org/badge/52358824.svg)](https://zenodo.org/badge/latestdoi/52358824)
 
 This repository contains a customisation of [TEI Boilerplate](http://dcl.slis.indiana.edu/teibp/) adopted to the need of TEI editions of Arabic language material. In general, TEI Boilerplate provides a  first display of TEI files in a web browser based on XSLT 1 and without the need for pre-processed HTML. Our customisation adds support for RTL scripts, a beautiful open source Arabic font (Khaled Hosny's [Amiri font](http://www.amirifont.org/) based on early 20th-century fonts developped by the Bulāq Press in Cairo), side-by-side display of text and facsimiles, a functional table of content, and links to the bibliographic metadata for every article (provided they are available). For a first impression see [the included example file from "Digital *Muqtabas*"](https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/master/example/oclc_4770057679-i_60.TEIP5.xml).
