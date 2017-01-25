@@ -136,6 +136,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:param>
+    <!-- not yet ready for production -->
     <xsl:param name="p_text-open">
         <xsl:choose>
             <xsl:when test="$v_lang-interface = 'ar'">
