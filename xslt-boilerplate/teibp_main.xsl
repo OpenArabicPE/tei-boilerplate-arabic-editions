@@ -170,7 +170,7 @@
         </a>
     </xsl:template>
     <!-- wrap all elements with @corresp in a link: this is a bad idea! Sometimes entire <div>s would become links -->
-    <xsl:template match="tei:*[@corresp]">
+    <xsl:template match="tei:*[not(self::tei:pb[@ed='shamela'])][@corresp]">
         <xsl:apply-templates/>
         <!--<a href="{@corresp}" class="c_corresp" title="{concat($p_text-open,' ',@corresp,' ',$p_text-new-window)}" target="_blank"/>-->
         <a href="{@corresp}" class="c_corresp" title="Open {@corresp} in new window" target="_blank" lang="en">external link</a>
