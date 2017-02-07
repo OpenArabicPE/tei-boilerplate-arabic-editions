@@ -26,9 +26,41 @@
     	<title>
     		<xsl:value-of select="$vgPublicationTitle"/>
     		<xsl:text> </xsl:text>
-    		<xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@n"/>
+    	    <!-- include @from and @to -->
+    	    <xsl:choose>
+    	        <!-- test for singular item -->
+    	        <xsl:when test="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@from = $vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@to">
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@from"/>
+    	        </xsl:when>
+    	        <!-- test for range -->
+    	        <xsl:when test="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@from != $vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@to">
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@from"/>
+    	            <xsl:text>–</xsl:text>
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@to"/>
+    	        </xsl:when>
+    	        <!-- default to @n -->
+    	        <xsl:otherwise>
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@n"/>
+    	        </xsl:otherwise>
+    	    </xsl:choose>
     		<xsl:text>(</xsl:text>
-    		<xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@n"/>
+    	    <!-- include @from and @to -->
+    	    <xsl:choose>
+    	        <!-- test for singular item -->
+    	        <xsl:when test="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@from = $vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@to">
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@from"/>
+    	        </xsl:when>
+    	        <!-- test for range -->
+    	        <xsl:when test="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@from != $vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@to">
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@from"/>
+    	            <xsl:text>–</xsl:text>
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@to"/>
+    	        </xsl:when>
+    	        <!-- default to @n -->
+    	        <xsl:otherwise>
+    	            <xsl:value-of select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@n"/>
+    	        </xsl:otherwise>
+    	    </xsl:choose>
     		<xsl:text>) </xsl:text>
     		<!-- <xsl:value-of select="$vgPublicationDate"/> -->
     	</title>
