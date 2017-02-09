@@ -530,7 +530,7 @@
             <xsl:apply-templates select="tei:head"/>
             <!-- inject some author information -->
             <!-- add author names and pages if available -->
-            <xsl:if test="tei:byline/descendant::tei:persName">
+            <xsl:if test="tei:byline/preceding-sibling::*[1]!=tei:head and tei:byline/descendant::tei:persName">
                 <span lang="ar" class="cAuthor">
                     <xsl:text>[</xsl:text>
                     <xsl:choose>
