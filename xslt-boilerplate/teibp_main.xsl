@@ -355,12 +355,8 @@
         </xd:desc>
     </xd:doc>
     <xsl:variable name="htmlFooter">
-        <footer>
-            <span>Powered by <a href="{$teibpHome}">TEI Boilerplate</a>. TEI Boilerplate is licensed under a <a
-                href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a
-                href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons
-                    License"
-                src="http://i.creativecommons.org/l/by/3.0/80x15.png" style="border-width:0;"/></a></span>
+        <footer id="footer">
+            <span>Powered by <a href="{$teibpHome}">TEI Boilerplate</a>. TEI Boilerplate is licensed under a <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported License</a>. <a href="http://creativecommons.org/licenses/by/3.0/"><img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/3.0/80x15.png" style="border-width:0;"/></a></span>
             <span>
                 <a href="http://www.tei-c.org/">
                     <img src="http://www.tei-c.org/About/Badges/We-use-TEI.png" alt="We use TEI" style="border-width:0;"/>
@@ -725,28 +721,42 @@
             </ul>
         </div>
         <!-- links to previous and next issues -->
-        <div id="NextIssue" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">
-                        <xsl:copy-of select="$p_text-nav_next-issue"/>
-                    </a>
-                </li>
-            </ul>
-        </div>
-        <div id="PrevIssue" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">
-                        <xsl:copy-of select="$p_text-nav_previous-issue"/>
-                    </a>
-                </li>
-            </ul>
-        </div>
+        <xsl:if test="descendant-or-self::tei:TEI/@next">
+            <div id="NextIssue" class="c_button-sidebar">
+                <ul>
+                    <li>
+                        <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
+                        <a href="{descendant-or-self::tei:TEI/@next}">
+                            <xsl:copy-of select="$p_text-nav_next-issue"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </xsl:if>
+        <xsl:if test="descendant-or-self::tei:TEI/@prev">
+            <div id="PrevIssue" class="c_button-sidebar">
+                <ul>
+                    <li>
+                        <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
+                        <a href="{descendant-or-self::tei:TEI/@prev}">
+                            <xsl:copy-of select="$p_text-nav_previous-issue"/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </xsl:if>
+        <!-- top and bottom -->
         <div id="BackToTop" class="c_button-sidebar">
             <ul>
                 <li>
                     <a href="#">Top of the page</a>
+                </li>
+            </ul>
+        </div>
+        <div id="ToBottom" class="c_button-sidebar">
+            <ul>
+                <li>
+                    <a href="#footer">Bottom of the page</a>
                 </li>
             </ul>
         </div>
