@@ -726,7 +726,7 @@
                 <ul>
                     <li>
                         <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@next}">
+                        <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
                             <xsl:copy-of select="$p_text-nav_next-issue"/>
                         </a>
                     </li>
@@ -738,7 +738,7 @@
                 <ul>
                     <li>
                         <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@prev}">
+                        <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
                             <xsl:copy-of select="$p_text-nav_previous-issue"/>
                         </a>
                     </li>
