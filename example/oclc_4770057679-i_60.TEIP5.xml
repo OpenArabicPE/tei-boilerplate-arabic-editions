@@ -738,7 +738,7 @@
                         <persName xml:lang="ar" xml:id="persName_7.d1e1568">أحمد بك زكي</persName>
                         <placeName xml:lang="ar" xml:id="placeName_5.d1e1571" rend="brackets">القاهرة</placeName>
                         <persName xml:lang="ar" xml:id="persName_8.d1e1574">أمين أفندي
-                        ريحاني</persName> <placeName xml:lang="ar" xml:id="placeName_6.d1e1578" rend="brackets">نيويورك</placeName> <persName xml:lang="ar" xml:id="persName_9.d1e1581">الشيخ جمال الدين القاسمي</persName>
+                        ريحاني</persName> <placeName xml:lang="ar" xml:id="placeName_6.d1e1578" rend="brackets">نيويورك</placeName> <persName ref="viaf:93607460" xml:lang="ar">الشيخ <forename>جمال الدين</forename> <surname>القاسمي</surname></persName>
                     <q xml:lang="ar" xml:id="q_1.d1e1584">
                         <placeName xml:lang="ar" xml:id="placeName_7.d1e1586">دمشق</placeName>
                     </q>
@@ -759,7 +759,7 @@
                     <q xml:lang="ar" xml:id="q_5.d1e1621">
                         <placeName xml:lang="ar" xml:id="placeName_11.d1e1623">سلانيك</placeName>
                     </q>
-                    <persName xml:lang="ar" xml:id="persName_14.d1e1627">رفيق بك العظم</persName>
+                    <persName ref="viaf:28125663" xml:lang="ar"><forename>رفيق</forename> بك <surname>العظم</surname></persName>
                     <q xml:lang="ar" xml:id="q_6.d1e1631">
                         <placeName xml:lang="ar" xml:id="placeName_12.d1e1633">القاهرة</placeName>
                     </q>
@@ -821,8 +821,7 @@
                     <q xml:lang="ar" xml:id="q_19.d1e1746">
                         <placeName xml:lang="ar" xml:id="placeName_24.d1e1748">دمشق</placeName>
                     </q>
-                    <persName xml:lang="ar" xml:id="persName_27.d1e1752">محمود شكري أفندي
-                        الآلوسي</persName>
+                    <persName xml:lang="ar" xml:id="persName_27.d1e1752" ref="viaf:47005120"><forename>محمود</forename> <forename>شكري</forename> أفندي <surname>الآلوسي</surname></persName>
                     <q xml:lang="ar" xml:id="q_20.d1e1755">
                         <placeName xml:lang="ar" xml:id="placeName_25.d1e1757">بغداد</placeName>
                     </q>
@@ -839,12 +838,10 @@
                 <head xml:lang="ar" xml:id="head_2.d1e1781">كتاب البئر</head>
                 <byline xml:lang="ar" xml:id="byline_1.d1e1784">
                     <ref xml:lang="ar" xml:id="ref_7.d1e1786">من <bibl xml:lang="ar" xml:id="bibl_1.d1e1788">مصنفات إمام أئمة اللغة والأدب <author xml:lang="ar" xml:id="author_3.d1e1790">
-                                <persName xml:lang="ar" xml:id="persName_29.d1e1792">أبي عبد الله
-                                    محمد بن زياد المعروف بابن الأعرابي</persName>
+                                <persName xml:lang="ar" xml:id="persName_29.d1e1792">أبي عبد الله محمد بن زياد المعروف بابن الأعرابي</persName>
                             </author>
                             <lb xml:id="lb_2.d1e1796"/>توفي <date datingMethod="#cal_islamic" calendar="#cal_islamic" when-custom="230" xml:lang="ar" xml:id="date_13.d1e1798">سنة <num xml:lang="ar" type="auto-markup" subtype="d2" resp="#pers_TG" value="30" xml:id="num_3.d1e1864">ثلاثين</num> ومائتين</date> رحمة الله علي<lb xml:id="lb_3.d1e1801"/>ترجمته في ص <num type="auto-markup" resp="#pers_TG" value="207" xml:lang="ar" xml:id="num_3.d1e1803">٢٠٧</num> من كتاب نزهة الأدباء<lb xml:id="lb_4.d1e1807"/>عني بنشره وتعليق حواشيه السيد <publisher xml:lang="ar" xml:id="publisher_3.d1e1809">
-                                <persName xml:lang="ar" xml:id="persName_30.d1e1811">محمود شكري
-                                    الآلوسي</persName>
+                                <persName xml:lang="ar" xml:id="persName_30.d1e1811" ref="viaf:47005120"><forename>محمود</forename> <forename>شكري</forename> <surname>الآلوسي</surname></persName>
                             </publisher>
                         </bibl>
                     </ref>
@@ -2852,7 +2849,7 @@
                         مرض وعلى أبصارهم غشاوة فهم لا يبصرون.</p>
                     <p xml:lang="ar" xml:id="p_271.d1e4252">فسلام على يثرب وسلام على ساكنها العظيم
                         وسلام على أمته النجيبة وعليكم أجمعين.</p>
-                    <byline xml:id="byline_3.d1e5326"><supplied resp="#pers_TG" xml:id="supplied_1.d1e5327"><persName xml:lang="ar" xml:id="persName_63.d1e5328"><forename xml:id="forename_9.d1e5329">رفيق</forename> بك <surname xml:id="surname_11.d1e5332">العظم</surname></persName></supplied></byline>
+                    <byline xml:id="byline_3.d1e5326"><supplied resp="#pers_TG" xml:id="supplied_1.d1e5327"><persName ref="viaf:28125663" xml:lang="ar"><forename>رفيق</forename> بك <surname>العظم</surname></persName></supplied></byline>
                 </div>
                 <div type="article" xml:lang="ar" xml:id="div_23.d1e4256">
                     <head xml:lang="ar" xml:id="head_23.d1e4258">رأس السنة الهجرية<note type="footnote" n="1" xml:lang="ar" xml:id="note_10.d1e4260"> <bibl xml:lang="ar" xml:id="bibl_5.d1e4261">ل<author xml:lang="ar" xml:id="author_5.d1e4263"><persName xml:lang="ar" xml:id="persName_55.d1e4264"><forename xml:id="forename_10.d1e5346">خليل</forename> افندي <surname xml:id="surname_12.d1e5349">مطران</surname></persName></author> من كبار شعراءِ <placeName xml:lang="ar" xml:id="placeName_81.d1e4267">سورية</placeName> نزلاءِ <placeName xml:lang="ar" xml:id="placeName_82.d1e4270">مصر</placeName> قالها في رأْس هذه السنة الهجرية والاحتفال بها</bibl>
