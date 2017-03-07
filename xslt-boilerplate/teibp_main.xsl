@@ -698,9 +698,8 @@
                 <xsl:value-of select="tei:TEI/tei:teiHeader/tei:fileDesc/tei:publicationStmt/tei:idno[@type = 'url']"/>
             </xsl:when>
             <xsl:otherwise>
-                <xsl:value-of
-                    select="concat('https://github.com/tillgrallert/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"
-                />
+                <!-- this needs a better fall-back path -->
+                <xsl:value-of select="concat('https://github.com/OpenAraPE/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
@@ -708,8 +707,6 @@
     <xsl:variable name="vButtons">
         <!-- link to Github -->
         <div id="XmlSourceLink" class="c_button-sidebar">
-            <!-- xml: https://github.com/tillgrallert/ArabicTeiEdition/blob/master/MajallatMuqtabas/xml/oclc_4770057679-i_1.TEIP5.xml
-                boilerplate: https://rawgit.com/tillgrallert/ArabicTeiEdition/master/MajallatMuqtabas/xml/oclc_4770057679-i_60.TEIP5.xml-->
             <ul>
                 <li>
                     <a href="{$v_url-file}">
