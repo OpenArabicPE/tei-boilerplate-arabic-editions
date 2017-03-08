@@ -699,7 +699,7 @@
             </xsl:when>
             <xsl:otherwise>
                 <!-- this needs a better fall-back path -->
-                <xsl:value-of select="concat('https://github.com/OpenAraPE/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"/>
+                <xsl:value-of select="concat('https://github.com/OpenArabicPE/digital-muqtabas/blob/master/xml/',$vFileId,'.TEIP5.xml')"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
