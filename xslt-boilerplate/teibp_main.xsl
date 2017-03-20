@@ -537,7 +537,7 @@
                             <xsl:text>author: </xsl:text>
                         </xsl:when>
                     </xsl:choose>
-                    <xsl:value-of select="tei:byline/descendant::tei:persName"/>
+                    <xsl:apply-templates select="tei:byline/descendant::tei:persName"/>
                     <xsl:text>]</xsl:text>
                 </span>
             </xsl:if>
