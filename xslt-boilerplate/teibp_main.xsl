@@ -526,16 +526,17 @@
             <xsl:apply-templates select="tei:head"/>
             <!-- inject some author information -->
             <!-- add author names and pages if available -->
+            <!-- BUG: this doesn't reliably work if there is more than one preceding <tei:head> -->
             <xsl:if test="tei:byline/preceding-sibling::*[1]!=tei:head and tei:byline/descendant::tei:persName">
-                <span lang="ar" class="cAuthor">
+                <span lang="ar" class="c_byline">
                     <xsl:text>[</xsl:text>
                     <xsl:choose>
                         <xsl:when test="@xml:lang = 'ar'">
                             <xsl:text>تأليف: </xsl:text>
                         </xsl:when>
-                        <xsl:when test="@xml:lang = 'en'">
+                        <!--<xsl:when test="@xml:lang = 'en'">
                             <xsl:text>author: </xsl:text>
-                        </xsl:when>
+                        </xsl:when>-->
                     </xsl:choose>
                     <xsl:apply-templates select="tei:byline/descendant::tei:persName"/>
                     <xsl:text>]</xsl:text>

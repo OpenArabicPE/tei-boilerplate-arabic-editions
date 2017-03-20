@@ -158,14 +158,22 @@ ab{
     margin-left:auto;
 }
 /* byline */
-byline{
-    display:block;
+byline, 
+.c_byline {
+    display:inline-block;
 }
 byline[lang="ar"],
-byline[lang="ota"]{
+byline[lang="ota"],
+.c_byline[lang="ar"],
+.c_byline[lang="ota"]{
     margin-right: 100px;
 }
-byline{
+byline[lang="en"],
+byline[lang="fr"],
+byline[lang="de"],
+.c_byline[lang="en"],
+.c_byline[lang="fr"],
+.c_byline[lang="de"]{
     margin-left: 100px;
 }
 /* gaps */
