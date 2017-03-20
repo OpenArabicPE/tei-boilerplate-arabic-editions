@@ -713,7 +713,7 @@
     </xsl:template>
     
     <!-- editorial changes introduced by the transcribers at shamela.ws should be ignored: -->
-    <xsl:template match="tei:add[@resp='#org_MS']"/>
+    <xsl:template match="tei:add[@resp='#org_MS'] | tei:supplied[@resp='#org_MS']"/>
     <xsl:template match="tei:del[@resp='#org_MS']">
         <xsl:apply-templates/>
     </xsl:template>
