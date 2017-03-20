@@ -689,6 +689,26 @@
             </span>
         </a>
     </xsl:template>
+    
+    <!-- editorial changes to the text: as we are dealing with printed material only, all changes were made by editors of the digital text -->
+    <xsl:template match="tei:choice">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <xsl:choose>
+                <xsl:when test="tei:orig and tei:corr">
+                    <xsl:choose>
+                        <xsl:when test="$p_display-editorial-changes=true()">
+                            <xsl:apply-templates select="tei:corr"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="tei:orig"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:copy>
+    </xsl:template>
+    
     <!-- the file's id -->
     <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
     <xsl:variable name="vFileIssueNo" select="substring-after($vFileId,'-i_')"/>
