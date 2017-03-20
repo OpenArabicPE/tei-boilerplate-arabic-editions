@@ -695,7 +695,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <xsl:choose>
-                <xsl:when test="tei:orig and tei:corr">
+                <xsl:when test="tei:orig and tei:corr[not(@resp='#org_MS')]">
                     <xsl:choose>
                         <xsl:when test="$p_display-editorial-changes=true()">
                             <xsl:apply-templates select="tei:corr"/>
@@ -705,8 +705,17 @@
                         </xsl:otherwise>
                     </xsl:choose>
                 </xsl:when>
+                <xsl:when test="tei:orig and tei:corr[@resp='#org_MS']">
+                    <xsl:apply-templates select="tei:orig"/>
+                </xsl:when>
             </xsl:choose>
         </xsl:copy>
+    </xsl:template>
+    
+    <!-- editorial changes introduced by the transcribers at shamela.ws should be ignored: -->
+    <xsl:template match="tei:add[@resp='#org_MS']"/>
+    <xsl:template match="tei:del[@resp='#org_MS']">
+        <xsl:apply-templates/>
     </xsl:template>
     
     <!-- the file's id -->
