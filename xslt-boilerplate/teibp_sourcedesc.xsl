@@ -14,9 +14,18 @@
                 <xsl:with-param name="pBiblUrl" select="concat('../metadata/',$vFileId)"/>
                 <xsl:with-param name="pLabelText" select="'Bibliographic metadata for this item: '"/>
             </xsl:call-template>
+            <!-- add licence information -->
             <span class="c_links" lang="en">
                 <a href="{ancestor::tei:fileDesc/tei:publicationStmt/tei:availability/tei:licence/@target}">Licence information</a>
             </span>
+                <!-- add link to Zenodo and display DOI -->
+                <xsl:if test="tei:biblStruct/tei:idno[@type='zenodo']">
+                    <p>
+                    <span class="c_links" lang="en">
+                        <a href="https://zenodo.org/badge/latestdoi/{tei:biblStruct/tei:idno[@type='zenodo']}"><img src="https://zenodo.org/badge/{tei:biblStruct/tei:idno[@type='zenodo']}.svg" alt="DOI"/></a>
+                    </span>
+                    </p>
+                </xsl:if>
         </div>
     </xsl:template>
     
