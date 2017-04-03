@@ -8,13 +8,15 @@
 @import "teibp_named-entities.css";
 @import "teibp_links.css";
 /* this can be set to either teibp_heads-light or teibp_heads-dark */
-/*@import "teibp_heads-light.css";*/
+@import "teibp_heads.css";
 @import "teibp_sidebar-buttons.css";
 /* teibp_facsimile.css toggles the two-column view with a large facsimile displayed to the left of the text */
 @import "teibp_facsimile.css";
 @import "teibp_masthead.css";
 @import "fonts_amiri.css";
 @import "teibp_rendition.css";
+/* colour schemes are loaded through a parameter in teibp_parameters.xsl*/
+/*@import "teibp_color-red.css";*/
 
 
 
@@ -45,12 +47,12 @@ html {
     word-wrap: break-word;
 }
 /* colour scheme */
-html {
+/*html {
     background-color:#EBEBEB; 
 }
 body, #tei_wrapper {
     background-color: white;
-}
+}*/
 
 /* remove the unequal padding between full text and facsimile view */
 #tei_wrapper {
