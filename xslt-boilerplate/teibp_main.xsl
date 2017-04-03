@@ -274,7 +274,7 @@
             <xsl:call-template name="t_metadata-dc-file"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
-            <link href="{$v_css-heads}" id="css-heads" rel="stylesheet" type="text/css"/>
+            <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
             <script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
@@ -896,4 +896,22 @@
             <xsl:apply-templates select="document(@href)//node()[@xml:id=$v_id-element]"/>
         </xsl:if>
     </xsl:template>
+
+    <!-- variable to select CSS for colour schemes -->
+    <xsl:variable name="v_css-color">
+        <xsl:choose>
+            <xsl:when test="$p_color-scheme = 'red'">
+                <xsl:value-of select="concat($filePrefix,'/css/teibp_color-red.css')"/>
+            </xsl:when>
+            <xsl:when test="$p_color-scheme = 'blue'">
+                <xsl:value-of select="concat($filePrefix,'/css/teibp_color-blue.css')"/>
+            </xsl:when>
+            <xsl:when test="$p_color-scheme = 'green'">
+                <xsl:value-of select="concat($filePrefix,'/css/teibp_color-green.css')"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="concat($filePrefix,'/css/teibp_color-red.css')"/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:variable>
 </xsl:stylesheet>

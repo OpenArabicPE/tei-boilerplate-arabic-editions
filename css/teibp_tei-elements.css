@@ -111,7 +111,7 @@ p>span.c_id{
     padding-right:0.5em;
     padding-left:0.5em;
     margin-top:0.5em;
-    color:gray;
+    /*color:gray;*/
 }
 /* for ltr languages*/
 p>span.c_id{
@@ -255,10 +255,4 @@ sic {
 sic:after {
     content: " [sic]";
     color: red;
-}
-/*------------------------
-bibliographic information
-------------------------*/
-text>body title {
-    color:#F35024;
 }

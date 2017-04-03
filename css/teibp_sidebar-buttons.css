@@ -50,7 +50,7 @@ div.c_button-sidebar a {
     text-decoration:none;
     line-height:1.3em;
     font-size:16px;
-    color:#999;
+    /*color:#999;*/
     padding-left:0.5em;
     padding-right:0.2em;
 }
@@ -96,8 +96,8 @@ div.c_button-sidebar:focus > a {
     border-top-right-radius:0px;
     border-bottom-right-radius:0px;
     border-bottom-left-radius:5px;
-    color:white;
-    background-color:#BD4007;
+    /*color:white;*/
+    /*background-color:#BD4007;*/
     text-decoration:none;
 }
 div.c_button-sidebar:hover li > a:hover, 

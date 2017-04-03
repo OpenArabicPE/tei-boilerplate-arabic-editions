@@ -79,7 +79,7 @@ nav a * {
     background-color:inherit;
     text-decoration:none;
     font-size:16px;
-    color:#999;
+    /*color:#999;*/
 }
 nav:hover, 
 nav:focus{
@@ -160,7 +160,7 @@ nav:focus li > a{
     /*fixed with or relative ?*/
     width:200px;
     line-height: 1.3em;
-    color:#999;
+    /*color:#999;*/
     border:1px solid #e5e5e5;
 }
 nav:hover li > a:hover, 
@@ -173,7 +173,7 @@ nav:focus li > a:focus{
     text-decoration:none;
 }
 /* highlight colours mirroring the heads */
-nav:hover > ul > li > a:hover, 
+/*nav:hover > ul > li > a:hover, 
 nav:focus > ul > li > a:focus {
     color: white;
     background-color: #BD4007;
@@ -187,4 +187,4 @@ nav:hover > ul>li>ul>li>ul>li > a:hover,
 nav:focus > ul>li>ul>li>ul>li > a:focus {
     color: white;
     background-color: #ED8816;
-}
+}*/
