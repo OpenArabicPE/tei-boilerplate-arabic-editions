@@ -522,8 +522,43 @@
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
-            <!-- head -->
-            <xsl:apply-templates select="tei:head"/>
+            <!-- head: there are some divs without heads. they should nevertheless have a place-holder head -->
+<!--            <xsl:apply-templates select="tei:head"/>-->
+            <tei:head>
+                    <xsl:apply-templates select="tei:head/@*"/>
+                    <xsl:call-template name="templHtmlAttrLang">
+                        <xsl:with-param name="pInput" select="tei:head"/>
+                    </xsl:call-template>
+                    <xsl:choose>
+                        <xsl:when test="@xml:id">
+                            <a href="#{@xml:id}" class="c_link-self" title="{concat($p_text-permalink, $p_text-name-element_div)}">
+                                <xsl:apply-templates select="tei:head/node()"/>
+                            </a>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:apply-templates select="tei:head/node()"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                    <xsl:variable name="vBiblUrl" select="concat('../metadata/',$vFileId,'-',@xml:id)"/>
+                    <xsl:choose>
+                        <xsl:when test="@type='section' and not(ancestor::tei:div[@type='article']) and not(ancestor::tei:div[@type='bill'])">
+                            <xsl:call-template name="templBiblDataLinks">
+                                <xsl:with-param name="pBiblUrl" select="$vBiblUrl"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="@type='article' and not(ancestor::tei:div[@type='bill'])">
+                            <xsl:call-template name="templBiblDataLinks">
+                                <xsl:with-param name="pBiblUrl" select="$vBiblUrl"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="@type='bill'">
+                            <xsl:call-template name="templBiblDataLinks">
+                                <xsl:with-param name="pBiblUrl" select="$vBiblUrl"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                    </xsl:choose>
+                
+            </tei:head>
             <!-- inject some author information -->
             <!-- add author names and pages if available -->
             <!-- BUG: this doesn't reliably work if there is more than one preceding <tei:head> -->
@@ -547,7 +582,7 @@
         </xsl:copy>
     </xsl:template>
     <!-- link heads back to themselves -->
-    <xsl:template match="tei:head">
+    <xsl:template match="tei:head" mode="m_unused">
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <xsl:call-template name="templHtmlAttrLang">
