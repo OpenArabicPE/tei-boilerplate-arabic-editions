@@ -127,8 +127,8 @@ div.c_button-sidebar:focus li > a:focus {
 /* content of buttons */
 #XmlSourceLink:before{
     /*content:"TEI";*/
-    /*content: url("../assets/icons/core/type.svg");*/
-    content: url("../assets/icons/github-logo.svg");
+    /*content: url("../assets/icons/github-logo.svg");*/
+    content: url("../assets/icons/download.svg");
     font-size:16px;
     padding-left:0.5em;
     padding-right:0.2em;
