@@ -19,6 +19,17 @@ a:hover {
   color: #62A401;
 }
 
+a:link svg,
+a:visited svg,
+a:active svg {
+  stroke: #002096;
+}
+
+a:hover svg {
+    /* could be green (#84DA00) or the original orange (#002096) well */
+  stroke: #62A401;
+}
+
 /*********
  heads
 *********/

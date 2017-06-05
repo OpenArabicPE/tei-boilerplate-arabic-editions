@@ -172,7 +172,10 @@
     <!-- wrap all elements with @corresp in a link: this is a bad idea! Sometimes entire <div>s would become links -->
     <xsl:template match="tei:*[not(self::tei:pb[@ed='shamela'])][@corresp]">
         <xsl:apply-templates/>
-        <a href="{@corresp}" class="c_corresp" title="{concat($p_text-open,' ',@corresp,' ',$p_text-new-window)}" target="_blank" lang="en">external link</a>
+        <a href="{@corresp}" class="c_corresp c_linked-data" title="{concat($p_text-open,' ',@corresp,' ',$p_text-new-window)}" target="_blank" lang="en">
+            <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
+            <!--<xsl:text>external link</xsl:text>-->
+        </a>
 <!--        <a href="{@corresp}" class="c_corresp" title="Open {@corresp} in new window" target="_blank">external link</a>-->
     </xsl:template>
     <!-- need something else for images with captions -->
@@ -864,7 +867,7 @@
                 <xsl:attribute name="title">
                     <xsl:text>Link to this toponym on GeoNames</xsl:text>
                 </xsl:attribute>
-                <xsl:text>geonames</xsl:text>
+                <!-- <xsl:text>geonames</xsl:text> -->
             </xsl:when>
             <xsl:when test="starts-with(@ref,'oclc')">
                 <xsl:attribute name="href">
@@ -873,7 +876,7 @@
                 <xsl:attribute name="title">
                     <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
                 </xsl:attribute>                
-                <xsl:text>oclc</xsl:text>
+                <!-- <xsl:text>oclc</xsl:text> -->
             </xsl:when>
             <xsl:when test="starts-with(@ref,'viaf')">
               <xsl:attribute name="href">
@@ -882,15 +885,16 @@
                 <xsl:attribute name="title">
                     <xsl:text>Link to this entity at VIAF</xsl:text>
                 </xsl:attribute> 
-                <xsl:text>viaf</xsl:text>
+                <!-- <xsl:text>viaf</xsl:text> -->
             </xsl:when>
             <xsl:otherwise>
                 <xsl:attribute name="href">
                     <xsl:value-of select="@ref"/>
                 </xsl:attribute>
-                <xsl:text>link</xsl:text>
+                <!-- <xsl:text>link</xsl:text> -->
             </xsl:otherwise>
         </xsl:choose>
+            <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
         </a>
     </xsl:template>
     

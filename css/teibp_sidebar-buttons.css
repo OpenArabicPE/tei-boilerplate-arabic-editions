@@ -50,7 +50,6 @@ div.c_button-sidebar a {
     text-decoration:none;
     line-height:1.3em;
     font-size:16px;
-    /*color:#999;*/
     padding-left:0.5em;
     padding-right:0.2em;
 }
@@ -103,6 +102,10 @@ div.c_button-sidebar:focus > a {
 div.c_button-sidebar:hover li > a:hover, 
 div.c_button-sidebar:focus li > a:focus {
     /* empty */
+    /*display: inline-block;
+    vertical-align: middle;
+    padding-top: auto;
+    padding-bottom: auto;*/
 }
 
 /* sort order of buttons and stack them vertically */
@@ -123,7 +126,9 @@ div.c_button-sidebar:focus li > a:focus {
 }
 /* content of buttons */
 #XmlSourceLink:before{
-    content:"TEI";
+    /*content:"TEI";*/
+    /*content: url("../assets/icons/core/type.svg");*/
+    content: url("../assets/icons/github-logo.svg");
     font-size:16px;
     padding-left:0.5em;
     padding-right:0.2em;
@@ -132,7 +137,8 @@ div.c_button-sidebar:focus li > a:focus {
     position:fixed;
 }
 #PrevIssue:before{
-    content:"\25c0";
+    /*content:"\25c0";*/
+    content: url("../assets/icons/chevron-left.svg");
     font-size:20px;
     padding-left:0.5em;
     padding-right:0.2em;
@@ -141,7 +147,8 @@ div.c_button-sidebar:focus li > a:focus {
     position:fixed;
 }
 #NextIssue:before{
-    content:"\25ba";
+    /*content:"\25ba";*/
+    content: url("../assets/icons/chevron-right.svg");
     font-size:20px;
     padding-left:0.5em;
     padding-right:0.2em;
@@ -150,7 +157,8 @@ div.c_button-sidebar:focus li > a:focus {
     position:fixed;
 }
 #BackToTop:before{
-    content:"\25b2";
+    /*content:"\25b2";*/
+    content: url("../assets/icons/arrow-up.svg");
     font-size:20px;
     padding-left:0.5em;
     padding-right:0.2em;
@@ -159,7 +167,8 @@ div.c_button-sidebar:focus li > a:focus {
     position:fixed;
 }
 #ToBottom:before{
-    content:"\25bc";
+    /*content:"\25bc";*/
+    content: url("../assets/icons/arrow-down.svg");
     font-size:20px;
     padding-left:0.5em;
     padding-right:0.2em;
