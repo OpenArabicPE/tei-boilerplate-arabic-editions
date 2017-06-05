@@ -36,6 +36,12 @@ a.c_corresp {
     padding-left:0.5em;
     padding-right:0.5em;
 }
+
+a.c_linked-data svg {
+	width: 16px;
+	height: 16px;
+}
+
 /* footnote back links */
 *[lang="ar"] >a.c_fn-back:after {
 	content: "\21AA";
