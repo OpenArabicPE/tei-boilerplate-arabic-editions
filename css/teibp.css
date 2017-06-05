@@ -89,7 +89,7 @@ choice sic + corr:before,
 choice corr + sic:before,
 choice orig + reg:before,
 choice reg + orig:before {
-  content: " (";
+  content: " [";
 }
 choice abbr + expan:after,
 choice expan + abbr:after,
@@ -97,7 +97,11 @@ choice sic + corr:after,
 choice corr + sic:after,
 choice orig + reg:after,
 choice reg + orig:after {
-  content: ")";
+  content: "]";
+}
+
+choice abbr:after {
+  content: ".";
 }
 /* A */
 ab {

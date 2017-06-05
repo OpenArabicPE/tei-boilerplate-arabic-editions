@@ -733,6 +733,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <xsl:choose>
+                <!-- corrections -->
                 <xsl:when test="tei:orig and tei:corr[not(@resp='#org_MS')]">
                     <xsl:choose>
                         <xsl:when test="$p_display-editorial-changes=true()">
@@ -746,6 +747,11 @@
                 <xsl:when test="tei:orig and tei:corr[@resp='#org_MS']">
                     <xsl:apply-templates select="tei:orig"/>
                 </xsl:when>
+                <!-- abbreviations -->
+                <xsl:when test="tei:abbr and tei:expan">
+                    <xsl:apply-templates/>
+                </xsl:when>
+                <!-- fallback option -->
             </xsl:choose>
         </xsl:copy>
     </xsl:template>
@@ -755,6 +761,8 @@
     <xsl:template match="tei:del[@resp='#org_MS']">
         <xsl:apply-templates/>
     </xsl:template>
+    
+    <!-- abbreviations: are dealt with in CSS -->
     
     <!-- the file's id -->
     <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
