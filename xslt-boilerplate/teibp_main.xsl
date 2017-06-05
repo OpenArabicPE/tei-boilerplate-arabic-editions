@@ -172,7 +172,7 @@
     <!-- wrap all elements with @corresp in a link: this is a bad idea! Sometimes entire <div>s would become links -->
     <xsl:template match="tei:*[not(self::tei:pb[@ed='shamela'])][@corresp]">
         <xsl:apply-templates/>
-        <a href="{@corresp}" class="c_corresp" title="{concat($p_text-open,' ',@corresp,' ',$p_text-new-window)}" target="_blank" lang="en">
+        <a href="{@corresp}" class="c_corresp c_linked-data" title="{concat($p_text-open,' ',@corresp,' ',$p_text-new-window)}" target="_blank" lang="en">
             <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
             <!--<xsl:text>external link</xsl:text>-->
         </a>
