@@ -527,7 +527,8 @@
             </xsl:call-template>
             <!-- head: there are some divs without heads. they should nevertheless have a place-holder head -->
 <!--            <xsl:apply-templates select="tei:head"/>-->
-            <tei:head>
+            <xsl:if test="not(@type='masthead')">
+                <tei:head>
                     <xsl:apply-templates select="tei:head/@*"/>
                     <xsl:call-template name="templHtmlAttrLang">
                         <xsl:with-param name="pInput" select="tei:head"/>
@@ -560,8 +561,9 @@
                             </xsl:call-template>
                         </xsl:when>
                     </xsl:choose>
-                
-            </tei:head>
+                    
+                </tei:head>
+            </xsl:if>
             <!-- inject some author information -->
             <!-- add author names and pages if available -->
             <!-- BUG: this doesn't reliably work if there is more than one preceding <tei:head> -->
@@ -733,6 +735,7 @@
         <xsl:copy>
             <xsl:apply-templates select="@*"/>
             <xsl:choose>
+                <!-- corrections -->
                 <xsl:when test="tei:orig and tei:corr[not(@resp='#org_MS')]">
                     <xsl:choose>
                         <xsl:when test="$p_display-editorial-changes=true()">
@@ -746,6 +749,11 @@
                 <xsl:when test="tei:orig and tei:corr[@resp='#org_MS']">
                     <xsl:apply-templates select="tei:orig"/>
                 </xsl:when>
+                <!-- abbreviations -->
+                <xsl:when test="tei:abbr and tei:expan">
+                    <xsl:apply-templates/>
+                </xsl:when>
+                <!-- fallback option -->
             </xsl:choose>
         </xsl:copy>
     </xsl:template>
@@ -755,6 +763,8 @@
     <xsl:template match="tei:del[@resp='#org_MS']">
         <xsl:apply-templates/>
     </xsl:template>
+    
+    <!-- abbreviations: are dealt with in CSS -->
     
     <!-- the file's id -->
     <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
