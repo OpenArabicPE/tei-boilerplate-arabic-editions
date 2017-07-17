@@ -59,6 +59,8 @@ text > * > div > div > div > div > head {
 /*********
  navigation
 *********/
+nav,
+nav *,
 nav a, 
 nav a *,
 nav:hover li > a, 
