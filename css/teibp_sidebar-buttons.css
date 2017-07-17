@@ -54,7 +54,7 @@ div.c_button-sidebar li {
     width:inherit;
 }
 div.c_button-sidebar a,
-div.c_button-sidebar span {
+div.c_button-sidebar > span {
     display:block;
     text-decoration:none;
     line-height:1.3em;
@@ -118,7 +118,9 @@ div.c_button-sidebar:focus li > a:focus {
 }
 
 /* sort order of buttons and stack them vertically */
-#menu {
+#menu,
+#menuOpen,
+#menuClose {
     top: 0px;
     padding-top:0.5em;
     padding-bottom:0.5em;
