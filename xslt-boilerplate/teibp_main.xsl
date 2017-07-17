@@ -25,9 +25,9 @@
     <xsl:key match="//*" name="ids" use="@xml:id"/>
     <!-- main HTML wrapper -->
     <xsl:template match="/" name="htmlShell" priority="99">
-        <html>
+        <html id="html">
             <xsl:copy-of select="$v_html-head"/>
-            <body ontouchstart="">
+            <body ontouchstart="" id="body">
                 <!-- removed the toolbox altogether -->
                 <!--<xsl:if test="$includeToolbox = true()">
                     <xsl:call-template name="teibpToolbox"/>
@@ -58,8 +58,8 @@
     <xsl:variable name="v_js-sidenav">
         <script>
             function openNav() {
-            document.getElementById("navigation").style.width = "250px";
-            document.getElementById("content").style.marginRight = "250px";
+            document.getElementById("navigation").style.width = "300px";
+            document.getElementById("content").style.marginRight = "300px";
             }
             
             function closeNav() {
@@ -67,51 +67,6 @@
             document.getElementById("content").style.marginRight= "0";
             }
         </script>
-    </xsl:variable>
-    
-    <!-- CSS for sliding navigation -->
-    <xsl:variable name="v_css-sidenav">
-        <style>
-            
-            .c_sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            right: 0;
-            background-color: #111;
-            overflow-x: hidden;
-            transition: 0.5s;
-            padding-top: 60px;
-            }
-            
-            .c_sidenav a {
-            padding: 8px 8px 8px 32px;
-            text-decoration: none;
-            /* font-size: 25px; */
-            color: #818181;
-            display: block;
-            transition: 0.3s;
-            }
-            
-            .c_sidenav a:hover, .offcanvas a:focus{
-            color: #f1f1f1;
-            }
-            
-            .c_sidenav .closebtn {
-            position: absolute;
-            top: 0;
-            left: 5px;
-            font-size: 36px;
-            margin-right: 50px;
-            }
-            
-            @media screen and (max-height: 450px) {
-            .c_sidenav {padding-top: 15px;}
-            .c_sidenav a {font-size: 18px;}
-            }
-        </style>
     </xsl:variable>
     
     <xd:doc>
@@ -349,7 +304,6 @@
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
-            <xsl:copy-of select="$v_css-sidenav"/>
             <!--<script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>

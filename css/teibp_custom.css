@@ -15,8 +15,7 @@
 @import "teibp_masthead.css";
 @import "fonts_amiri.css";
 @import "teibp_rendition.css";
-/* colour schemes are loaded through a parameter in teibp_parameters.xsl*/
-/*@import "teibp_color-red.css";*/
+@import "teibp_navigation-slideout.css";
 
 
 
@@ -35,11 +34,15 @@ html > body{
     padding-top:1em;
     padding-bottom: 1em;
 }
-#tei_wrapper{
+/*#tei_wrapper{
     padding-left:1em;
     padding-right:1em;
     padding-top:1em;
     padding-bottom: 1em;
+}*/
+/* remove the unequal padding between full text and facsimile view */
+#tei_wrapper {
+    padding:0;
 }
 /* fonts */
 html {
@@ -53,8 +56,3 @@ html {
 body, #tei_wrapper {
     background-color: white;
 }*/
-
-/* remove the unequal padding between full text and facsimile view */
-#tei_wrapper {
-    padding:0;
-}

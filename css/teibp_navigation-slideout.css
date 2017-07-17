@@ -1,0 +1,82 @@
+.c_sidenav {
+      background-color:white;
+      border:1px solid #e5e5e5;
+      height: 100%;
+      width: 0; /* width is set with javascript */
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      right: 0;
+      overflow-x: hidden;
+      transition: 0.5s;
+      padding-top: 60px;
+}
+/* the button to close the slideout panel */
+.c_sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      left: 5px;
+      font-size: 36px;
+      /*margin-right: 50px;*/
+}
+
+/*.c_sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      color: #818181;
+      display: block;
+      transition: 0.3s;
+      }*/
+
+/* reset standard browser behaviour */
+nav ul {
+      -webkit-margin-before: 0px;
+      -webkit-margin-after: 0px;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      -webkit-padding-start: 0px;
+}
+
+nav {
+      top: 0;
+      right: 0;
+      font-size: inherit;
+      transition: 0.3s;
+}
+/* set everything to display blocks */
+nav ul,
+nav li,
+nav a {
+      display: block;
+}
+/* set width */
+nav ul {
+      width: 250px;
+}
+
+/* second level*/
+nav >ul>li>ul {
+      right:50px;
+}
+/* third level */
+nav >ul>li>ul>li>ul {
+      right:100px;
+}
+
+nav li,
+nav a {
+      right:inherit;
+}
+
+nav a, 
+nav a * {
+  background-color:inherit;
+  text-decoration:none;
+  font-size:inherit;
+  /*color:#999;*/
+}
+
+
+@media screen and (max-height: 450px) {
+      .c_sidenav {padding-top: 15px;}
+      .c_sidenav a {font-size: 18px;}
