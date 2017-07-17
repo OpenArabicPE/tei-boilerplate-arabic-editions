@@ -26,24 +26,93 @@
     <!-- main HTML wrapper -->
     <xsl:template match="/" name="htmlShell" priority="99">
         <html>
-            <xsl:call-template name="htmlHead"/>
+            <xsl:copy-of select="$v_html-head"/>
             <body ontouchstart="">
                 <!-- removed the toolbox altogether -->
                 <!--<xsl:if test="$includeToolbox = true()">
                     <xsl:call-template name="teibpToolbox"/>
                 </xsl:if>-->
-                <xsl:copy-of select="$vNav"/>
-                <!-- the button design is not yet done -->
-                <xsl:copy-of select="$vButtons"/>
-                <div id="tei_wrapper">
-                    <xsl:apply-templates/>
+                <!-- to prepare for the slideout, navigation and content are wrapped in divs  -->
+                <div class="c_sidenav" id="navigation">
+                    <xsl:copy-of select="$v_navigation"/>
                 </div>
-                <!-- this was moved to the back of the TEI document -->
-                <!--<xsl:copy-of select="$v_notes"/>-->
-                <xsl:copy-of select="$htmlFooter"/>
+                <div class="c_content" id="content">
+                    <!-- placeholder for slideout button -->
+                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
+                    <!-- the button design is not yet done -->
+                    <xsl:copy-of select="$v_buttons"/>
+                    <!-- this is the actual content -->
+                    <div id="tei_wrapper">
+                        <xsl:apply-templates/>
+                    </div>
+                    <!-- this was moved to the back of the TEI document -->
+                    <!--<xsl:copy-of select="$v_notes"/>-->
+                    <xsl:copy-of select="$htmlFooter"/>
+                </div>
+                <xsl:copy-of select="$v_js-sidenav"/>
             </body>
         </html>
     </xsl:template>
+    
+    <!-- javascript for sliding navigation -->
+    <xsl:variable name="v_js-sidenav">
+        <script>
+            function openNav() {
+            document.getElementById("navigation").style.width = "250px";
+            document.getElementById("content").style.marginRight = "250px";
+            }
+            
+            function closeNav() {
+            document.getElementById("navigation").style.width = "0";
+            document.getElementById("content").style.marginRight= "0";
+            }
+        </script>
+    </xsl:variable>
+    
+    <!-- CSS for sliding navigation -->
+    <xsl:variable name="v_css-sidenav">
+        <style>
+            
+            .c_sidenav {
+            height: 100%;
+            width: 0;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            right: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+            }
+            
+            .c_sidenav a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            /* font-size: 25px; */
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+            }
+            
+            .c_sidenav a:hover, .offcanvas a:focus{
+            color: #f1f1f1;
+            }
+            
+            .c_sidenav .closebtn {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            font-size: 36px;
+            margin-right: 50px;
+            }
+            
+            @media screen and (max-height: 450px) {
+            .c_sidenav {padding-top: 15px;}
+            .c_sidenav a {font-size: 18px;}
+            }
+        </style>
+    </xsl:variable>
     
     <xd:doc>
         <xd:desc>
@@ -273,14 +342,15 @@
             <xd:p>Template for adding /html/head content.</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="htmlHead">
+    <xsl:variable name="v_html-head">
         <head>
             <meta charset="UTF-8"/>
             <xsl:call-template name="t_metadata-dc-file"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
-            <script src="{$jqueryJS}" type="text/javascript"/>
+            <xsl:copy-of select="$v_css-sidenav"/>
+            <!--<script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
             <script type="text/javascript">
@@ -288,7 +358,7 @@
 					$("html > head > title").text($("TEI > teiHeader > fileDesc > titleStmt > title:first").text());
 					$.unblockUI();	
 				});
-			</script>
+			</script>-->
             <xsl:call-template name="tagUsage2style"/>
             <xsl:call-template name="rendition2style"/>
             <!-- <title>don't leave empty.</title> -->
@@ -298,7 +368,7 @@
                 <xsl:call-template name="analytics"/>
             </xsl:if>-->
         </head>
-    </xsl:template>
+    </xsl:variable>
     <xsl:template name="rendition2style">
         <style type="text/css">
             <xsl:apply-templates mode="rendition2style" select="//tei:rendition"/>
@@ -426,10 +496,12 @@
     </xsl:template>
 
     <!-- provide a toc-style navigation -->
-    <xsl:variable name="vNav">
+    <xsl:variable name="v_navigation">
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
             <nav>
                 <ul>
+                    <!-- close button for navigation -->
+                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a></li>
                     <xsl:apply-templates mode="mToc" select="/descendant::tei:body/tei:div"/>
                 </ul>
             </nav>
@@ -787,7 +859,7 @@
         </xsl:choose>
     </xsl:variable>
     <!-- Sidebar buttons -->
-    <xsl:variable name="vButtons">
+    <xsl:variable name="v_buttons">
         <!-- link to Github -->
         <div id="XmlSourceLink" class="c_button-sidebar">
             <ul>
@@ -968,4 +1040,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
+    
+
 </xsl:stylesheet>
