@@ -437,8 +437,6 @@
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
             <nav>
                 <ul>
-                    <!-- close button for navigation -->
-                    <li><span class="closebtn" onclick="closeNav()">&#9776;</span></li>
                     <xsl:apply-templates mode="mToc" select="/descendant::tei:body/tei:div"/>
                 </ul>
             </nav>
@@ -800,8 +798,15 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- content button -->
+            <!--<div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
+                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+            </div>
+            <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
+                <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
+            </div>-->
             <div class="c_button-sidebar" id="menu">
-                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/menu.svg')"/></span>
+                <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+                <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
             </div>
             <!-- link to Github -->
             <div id="xmlSourceLink" class="c_button-sidebar">
