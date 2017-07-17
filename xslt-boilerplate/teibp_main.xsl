@@ -293,9 +293,10 @@
             <xsl:call-template name="rendition2style"/>
             <!-- <title>don't leave empty.</title> -->
             <xsl:call-template name="t_metadata-file"/>
-            <xsl:if test="$includeAnalytics = true()">
+            <!-- removed analytics -->
+            <!--<xsl:if test="$includeAnalytics = true()">
                 <xsl:call-template name="analytics"/>
-            </xsl:if>
+            </xsl:if>-->
         </head>
     </xsl:template>
     <xsl:template name="rendition2style">
@@ -385,7 +386,8 @@
             </div>
         </div>
     </xsl:template>-->
-    <xsl:template name="analytics">
+    <!-- removed analytics -->
+    <!--<xsl:template name="analytics">
         <script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  //include analytics account below.
@@ -398,7 +400,7 @@
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 		</script>
-    </xsl:template>
+    </xsl:template>-->
 
     <xd:doc>
         <xd:desc>
