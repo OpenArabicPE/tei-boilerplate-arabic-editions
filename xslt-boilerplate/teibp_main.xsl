@@ -23,13 +23,15 @@
         </xd:desc>
     </xd:doc>
     <xsl:key match="//*" name="ids" use="@xml:id"/>
+    <!-- main HTML wrapper -->
     <xsl:template match="/" name="htmlShell" priority="99">
         <html>
             <xsl:call-template name="htmlHead"/>
             <body ontouchstart="">
-                <xsl:if test="$includeToolbox = true()">
+                <!-- removed the toolbox altogether -->
+                <!--<xsl:if test="$includeToolbox = true()">
                     <xsl:call-template name="teibpToolbox"/>
-                </xsl:if>
+                </xsl:if>-->
                 <xsl:copy-of select="$vNav"/>
                 <!-- the button design is not yet done -->
                 <xsl:copy-of select="$vButtons"/>
@@ -367,7 +369,8 @@
             </span>
         </footer>
     </xsl:variable>
-    <xsl:template name="teibpToolbox">
+    <!-- removed the toolbox -->
+    <!--<xsl:template name="teibpToolbox">
         <div id="teibpToolbox">
             <h1>Toolbox</h1>
             <label for="pbToggle">Hide page breaks</label>
@@ -381,7 +384,7 @@
                 </select>
             </div>
         </div>
-    </xsl:template>
+    </xsl:template>-->
     <xsl:template name="analytics">
         <script type="text/javascript">
 		  var _gaq = _gaq || [];
