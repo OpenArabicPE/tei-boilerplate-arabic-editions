@@ -37,8 +37,6 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
-                    <!-- placeholder for slideout button -->
-                    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776;</span>
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
@@ -53,21 +51,6 @@
             </body>
         </html>
     </xsl:template>
-    
-    <!-- javascript for sliding navigation -->
-    <xsl:variable name="v_js-sidenav">
-        <script>
-            function openNav() {
-            document.getElementById("navigation").style.width = "300px";
-            document.getElementById("content").style.marginRight = "300px";
-            }
-            
-            function closeNav() {
-            document.getElementById("navigation").style.width = "0";
-            document.getElementById("content").style.marginRight= "0";
-            }
-        </script>
-    </xsl:variable>
     
     <xd:doc>
         <xd:desc>
@@ -455,7 +438,7 @@
             <nav>
                 <ul>
                     <!-- close button for navigation -->
-                    <li><a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&#9776;</a></li>
+                    <li><span class="closebtn" onclick="closeNav()">&#9776;</span></li>
                     <xsl:apply-templates mode="mToc" select="/descendant::tei:body/tei:div"/>
                 </ul>
             </nav>
@@ -816,8 +799,12 @@
     <xsl:variable name="v_buttons">
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
+            <!-- content button -->
+            <div class="c_button-sidebar" id="menu">
+                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/menu.svg')"/></span>
+            </div>
             <!-- link to Github -->
-            <div id="XmlSourceLink" class="c_button-sidebar">
+            <div id="xmlSourceLink" class="c_button-sidebar">
                 <ul>
                     <li>
                         <a href="{$v_url-file}">
@@ -830,7 +817,7 @@
             </div>
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
-                <div id="NextIssue" class="c_button-sidebar">
+                <div id="nextIssue" class="c_button-sidebar">
                     <ul>
                         <li>
                             <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
@@ -842,7 +829,7 @@
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
-                <div id="PrevIssue" class="c_button-sidebar">
+                <div id="prevIssue" class="c_button-sidebar">
                     <ul>
                         <li>
                             <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
@@ -854,14 +841,14 @@
                 </div>
             </xsl:if>
             <!-- top and bottom -->
-            <div id="BackToTop" class="c_button-sidebar">
+            <div id="backToTop" class="c_button-sidebar">
                 <ul>
                     <li>
                         <a href="#">Top of the page</a>
                     </li>
                 </ul>
             </div>
-            <div id="ToBottom" class="c_button-sidebar">
+            <div id="goToBottom" class="c_button-sidebar">
                 <ul>
                     <li>
                         <a href="#footer">Bottom of the page</a>
