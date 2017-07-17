@@ -49,10 +49,11 @@ html {
     font-family: Helvetica, Arial, sans-serif;
     word-wrap: break-word;
 }
-/* colour scheme */
-/*html {
-    background-color:#EBEBEB; 
+/* basic classes */
+.c_hidden {
+    visibility: hidden;
 }
-body, #tei_wrapper {
-    background-color: white;
-}*/
+.c_visible {
+    visibility: visible;
+}
+
