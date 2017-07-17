@@ -49,7 +49,7 @@
                     <!--<xsl:copy-of select="$v_notes"/>-->
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
-                <xsl:copy-of select="$v_js-sidenav"/>
+                <script type="text/javascript" src="../js/nav-slideout.js"></script>
             </body>
         </html>
     </xsl:template>
@@ -814,57 +814,60 @@
     </xsl:variable>
     <!-- Sidebar buttons -->
     <xsl:variable name="v_buttons">
-        <!-- link to Github -->
-        <div id="XmlSourceLink" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="{$v_url-file}">
-                        <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
-                        <xsl:text>TEI source on GitHub</xsl:text>
-                    </a>
-                </li>
-               
-            </ul>
-        </div>
-        <!-- links to previous and next issues -->
-        <xsl:if test="descendant-or-self::tei:TEI/@next">
-            <div id="NextIssue" class="c_button-sidebar">
+        <!-- wrap all buttons in a div -->
+        <div id="sidebar-buttons" class="c_sidebar">
+            <!-- link to Github -->
+            <div id="XmlSourceLink" class="c_button-sidebar">
                 <ul>
                     <li>
-                        <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
-                            <xsl:copy-of select="$p_text-nav_next-issue"/>
+                        <a href="{$v_url-file}">
+                            <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
+                            <xsl:text>TEI source on GitHub</xsl:text>
                         </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- links to previous and next issues -->
+            <xsl:if test="descendant-or-self::tei:TEI/@next">
+                <div id="NextIssue" class="c_button-sidebar">
+                    <ul>
+                        <li>
+                            <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
+                            <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
+                                <xsl:copy-of select="$p_text-nav_next-issue"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </xsl:if>
+            <xsl:if test="descendant-or-self::tei:TEI/@prev">
+                <div id="PrevIssue" class="c_button-sidebar">
+                    <ul>
+                        <li>
+                            <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
+                            <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
+                                <xsl:copy-of select="$p_text-nav_previous-issue"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </xsl:if>
+            <!-- top and bottom -->
+            <div id="BackToTop" class="c_button-sidebar">
+                <ul>
+                    <li>
+                        <a href="#">Top of the page</a>
                     </li>
                 </ul>
             </div>
-        </xsl:if>
-        <xsl:if test="descendant-or-self::tei:TEI/@prev">
-            <div id="PrevIssue" class="c_button-sidebar">
+            <div id="ToBottom" class="c_button-sidebar">
                 <ul>
                     <li>
-                        <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
-                            <xsl:copy-of select="$p_text-nav_previous-issue"/>
-                        </a>
+                        <a href="#footer">Bottom of the page</a>
                     </li>
                 </ul>
             </div>
-        </xsl:if>
-        <!-- top and bottom -->
-        <div id="BackToTop" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="#">Top of the page</a>
-                </li>
-            </ul>
-        </div>
-        <div id="ToBottom" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="#footer">Bottom of the page</a>
-                </li>
-            </ul>
         </div>
     </xsl:variable>
 

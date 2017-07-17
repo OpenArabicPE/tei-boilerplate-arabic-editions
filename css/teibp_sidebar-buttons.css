@@ -1,12 +1,20 @@
 /* from the top right corner */
 /*generic button */
+div.c_sidebar {
+    background-color:white;
+    display: block;
+    width: 40px;
+    right: 0px;
+    transition: 0.5s;
+}
+    
 div.c_button-sidebar{
     background-color:white;
     border:1px solid #e5e5e5;
     position:fixed;
     height:40px;
-    width:40px;
-    right:0px;
+    width:inherit;
+    right:inherit;
     margin:0;
     padding:0;
     overflow:hidden;
