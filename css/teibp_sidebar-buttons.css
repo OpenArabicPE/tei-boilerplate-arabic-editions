@@ -1,12 +1,20 @@
 /* from the top right corner */
 /*generic button */
+div.c_sidebar {
+    background-color:white;
+    display: block;
+    width: 40px;
+    right: 0px;
+    transition: 0.5s;
+}
+    
 div.c_button-sidebar{
     background-color:white;
     border:1px solid #e5e5e5;
     position:fixed;
     height:40px;
-    width:40px;
-    right:0px;
+    width:inherit;
+    right:inherit;
     margin:0;
     padding:0;
     overflow:hidden;
@@ -45,7 +53,8 @@ div.c_button-sidebar ul {
 div.c_button-sidebar li {
     width:inherit;
 }
-div.c_button-sidebar a {
+div.c_button-sidebar a,
+div.c_button-sidebar > span {
     display:block;
     text-decoration:none;
     line-height:1.3em;
@@ -109,34 +118,42 @@ div.c_button-sidebar:focus li > a:focus {
 }
 
 /* sort order of buttons and stack them vertically */
-#XmlSourceLink{
+#menu,
+#menuOpen,
+#menuClose {
+    top: 0px;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    cursor: pointer;
+}
+#xmlSourceLink{
     top:40px;
 }
-#BackToTop{
+#backToTop{
     top:80px;
 }
-#ToBottom {
+#goToBottom {
     top:120px;
 }
-#PrevIssue{
+#prevIssue{
     top:160px;
 }
-#NextIssue{
+#nextIssue{
     top:200px;
 }
 /* content of buttons */
-#XmlSourceLink:before{
+#xmlSourceLink:before{
     /*content:"TEI";*/
     /*content: url("../assets/icons/github-logo.svg");*/
     content: url("../assets/icons/download.svg");
-    font-size:16px;
+    font-size:20px;
     padding-left:0.5em;
     padding-right:0.2em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
 }
-#PrevIssue:before{
+#prevIssue:before{
     /*content:"\25c0";*/
     content: url("../assets/icons/chevron-left.svg");
     font-size:20px;
@@ -146,7 +163,7 @@ div.c_button-sidebar:focus li > a:focus {
     padding-bottom:0.5em;
     position:fixed;
 }
-#NextIssue:before{
+#nextIssue:before{
     /*content:"\25ba";*/
     content: url("../assets/icons/chevron-right.svg");
     font-size:20px;
@@ -156,7 +173,7 @@ div.c_button-sidebar:focus li > a:focus {
     padding-bottom:0.5em;
     position:fixed;
 }
-#BackToTop:before{
+#backToTop:before{
     /*content:"\25b2";*/
     content: url("../assets/icons/arrow-up.svg");
     font-size:20px;
@@ -166,7 +183,7 @@ div.c_button-sidebar:focus li > a:focus {
     padding-bottom:0.5em;
     position:fixed;
 }
-#ToBottom:before{
+#goToBottom:before{
     /*content:"\25bc";*/
     content: url("../assets/icons/arrow-down.svg");
     font-size:20px;

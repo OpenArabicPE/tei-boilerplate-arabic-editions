@@ -23,22 +23,31 @@
         </xd:desc>
     </xd:doc>
     <xsl:key match="//*" name="ids" use="@xml:id"/>
+    <!-- main HTML wrapper -->
     <xsl:template match="/" name="htmlShell" priority="99">
-        <html>
-            <xsl:call-template name="htmlHead"/>
-            <body ontouchstart="">
-                <xsl:if test="$includeToolbox = true()">
+        <html id="html">
+            <xsl:copy-of select="$v_html-head"/>
+            <body ontouchstart="" id="body">
+                <!-- removed the toolbox altogether -->
+                <!--<xsl:if test="$includeToolbox = true()">
                     <xsl:call-template name="teibpToolbox"/>
-                </xsl:if>
-                <xsl:copy-of select="$vNav"/>
-                <!-- the button design is not yet done -->
-                <xsl:copy-of select="$vButtons"/>
-                <div id="tei_wrapper">
-                    <xsl:apply-templates/>
+                </xsl:if>-->
+                <!-- to prepare for the slideout, navigation and content are wrapped in divs  -->
+                <div class="c_sidenav" id="navigation">
+                    <xsl:copy-of select="$v_navigation"/>
                 </div>
-                <!-- this was moved to the back of the TEI document -->
-                <!--<xsl:copy-of select="$v_notes"/>-->
-                <xsl:copy-of select="$htmlFooter"/>
+                <div class="c_content" id="content">
+                    <!-- the button design is not yet done -->
+                    <xsl:copy-of select="$v_buttons"/>
+                    <!-- this is the actual content -->
+                    <div id="tei_wrapper">
+                        <xsl:apply-templates/>
+                    </div>
+                    <!-- this was moved to the back of the TEI document -->
+                    <!--<xsl:copy-of select="$v_notes"/>-->
+                    <xsl:copy-of select="$htmlFooter"/>
+                </div>
+                <script type="text/javascript" src="../js/nav-slideout.js"></script>
             </body>
         </html>
     </xsl:template>
@@ -271,14 +280,14 @@
             <xd:p>Template for adding /html/head content.</xd:p>
         </xd:desc>
     </xd:doc>
-    <xsl:template name="htmlHead">
+    <xsl:variable name="v_html-head">
         <head>
             <meta charset="UTF-8"/>
             <xsl:call-template name="t_metadata-dc-file"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
-            <script src="{$jqueryJS}" type="text/javascript"/>
+            <!--<script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
             <script type="text/javascript">
@@ -286,16 +295,17 @@
 					$("html > head > title").text($("TEI > teiHeader > fileDesc > titleStmt > title:first").text());
 					$.unblockUI();	
 				});
-			</script>
+			</script>-->
             <xsl:call-template name="tagUsage2style"/>
             <xsl:call-template name="rendition2style"/>
             <!-- <title>don't leave empty.</title> -->
             <xsl:call-template name="t_metadata-file"/>
-            <xsl:if test="$includeAnalytics = true()">
+            <!-- removed analytics -->
+            <!--<xsl:if test="$includeAnalytics = true()">
                 <xsl:call-template name="analytics"/>
-            </xsl:if>
+            </xsl:if>-->
         </head>
-    </xsl:template>
+    </xsl:variable>
     <xsl:template name="rendition2style">
         <style type="text/css">
             <xsl:apply-templates mode="rendition2style" select="//tei:rendition"/>
@@ -367,7 +377,8 @@
             </span>
         </footer>
     </xsl:variable>
-    <xsl:template name="teibpToolbox">
+    <!-- removed the toolbox -->
+    <!--<xsl:template name="teibpToolbox">
         <div id="teibpToolbox">
             <h1>Toolbox</h1>
             <label for="pbToggle">Hide page breaks</label>
@@ -381,8 +392,9 @@
                 </select>
             </div>
         </div>
-    </xsl:template>
-    <xsl:template name="analytics">
+    </xsl:template>-->
+    <!-- removed analytics -->
+    <!--<xsl:template name="analytics">
         <script type="text/javascript">
 		  var _gaq = _gaq || [];
 		  //include analytics account below.
@@ -395,7 +407,7 @@
 		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 		  })();
 		</script>
-    </xsl:template>
+    </xsl:template>-->
 
     <xd:doc>
         <xd:desc>
@@ -421,9 +433,9 @@
     </xsl:template>
 
     <!-- provide a toc-style navigation -->
-    <xsl:variable name="vNav">
+    <xsl:variable name="v_navigation">
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
-            <nav>
+            <nav lang="ar">
                 <ul>
                     <xsl:apply-templates mode="mToc" select="/descendant::tei:body/tei:div"/>
                 </ul>
@@ -782,58 +794,72 @@
         </xsl:choose>
     </xsl:variable>
     <!-- Sidebar buttons -->
-    <xsl:variable name="vButtons">
-        <!-- link to Github -->
-        <div id="XmlSourceLink" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="{$v_url-file}">
-                        <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
-                        <xsl:text>TEI source on GitHub</xsl:text>
-                    </a>
-                </li>
-               
-            </ul>
-        </div>
-        <!-- links to previous and next issues -->
-        <xsl:if test="descendant-or-self::tei:TEI/@next">
-            <div id="NextIssue" class="c_button-sidebar">
+    <xsl:variable name="v_buttons">
+        <!-- wrap all buttons in a div -->
+        <div id="sidebar-buttons" class="c_sidebar">
+            <!-- content button -->
+            <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
+                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+            </div>
+            <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
+                <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
+            </div>
+            <!--<div class="c_button-sidebar" id="menu">
+                <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+                <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
+            </div>-->
+            <!-- link to Github -->
+            <div id="xmlSourceLink" class="c_button-sidebar">
                 <ul>
                     <li>
-                        <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
-                            <xsl:copy-of select="$p_text-nav_next-issue"/>
+                        <a href="{$v_url-file}">
+                            <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
+                            <xsl:text>TEI source on GitHub</xsl:text>
                         </a>
+                    </li>
+                    
+                </ul>
+            </div>
+            <!-- links to previous and next issues -->
+            <xsl:if test="descendant-or-self::tei:TEI/@next">
+                <div id="nextIssue" class="c_button-sidebar">
+                    <ul>
+                        <li>
+                            <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
+                            <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
+                                <xsl:copy-of select="$p_text-nav_next-issue"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </xsl:if>
+            <xsl:if test="descendant-or-self::tei:TEI/@prev">
+                <div id="prevIssue" class="c_button-sidebar">
+                    <ul>
+                        <li>
+                            <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
+                            <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
+                                <xsl:copy-of select="$p_text-nav_previous-issue"/>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </xsl:if>
+            <!-- top and bottom -->
+            <div id="backToTop" class="c_button-sidebar">
+                <ul>
+                    <li>
+                        <a href="#">Top of the page</a>
                     </li>
                 </ul>
             </div>
-        </xsl:if>
-        <xsl:if test="descendant-or-self::tei:TEI/@prev">
-            <div id="PrevIssue" class="c_button-sidebar">
+            <div id="goToBottom" class="c_button-sidebar">
                 <ul>
                     <li>
-                        <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
-                        <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
-                            <xsl:copy-of select="$p_text-nav_previous-issue"/>
-                        </a>
+                        <a href="#footer">Bottom of the page</a>
                     </li>
                 </ul>
             </div>
-        </xsl:if>
-        <!-- top and bottom -->
-        <div id="BackToTop" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="#">Top of the page</a>
-                </li>
-            </ul>
-        </div>
-        <div id="ToBottom" class="c_button-sidebar">
-            <ul>
-                <li>
-                    <a href="#footer">Bottom of the page</a>
-                </li>
-            </ul>
         </div>
     </xsl:variable>
 
@@ -963,4 +989,6 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:variable>
+    
+
 </xsl:stylesheet>

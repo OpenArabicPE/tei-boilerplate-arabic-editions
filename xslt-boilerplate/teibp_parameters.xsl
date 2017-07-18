@@ -42,6 +42,7 @@
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
+    <!-- toolbox and analytics have been removed -->
     <xsl:param name="includeToolbox" select="false()"/>
     <xsl:param name="includeAnalytics" select="false()"/>
     
