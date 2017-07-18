@@ -59,7 +59,7 @@ text > * > div > div > div > div > head {
 /*********
  navigation
 *********/
-nav,
+/*nav,
 nav *,
 nav a, 
 nav a *,
@@ -67,7 +67,7 @@ nav:hover li > a,
 nav:focus li > a,
 div.c_button-sidebar a {
     color:#999;
-}
+}*/
 div.c_button-sidebar:hover li > a, 
 div.c_button-sidebar:focus > a {
     color:white;
