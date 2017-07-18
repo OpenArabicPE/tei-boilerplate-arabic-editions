@@ -435,7 +435,7 @@
     <!-- provide a toc-style navigation -->
     <xsl:variable name="v_navigation">
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
-            <nav>
+            <nav lang="ar">
                 <ul>
                     <xsl:apply-templates mode="mToc" select="/descendant::tei:body/tei:div"/>
                 </ul>
