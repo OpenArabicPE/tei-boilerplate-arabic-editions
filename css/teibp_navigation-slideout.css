@@ -10,17 +10,9 @@
       margin: 0;
       padding: 0; 
       overflow-x: hidden;
-      transition: 0.5s;
+      /*transition: 0.5s;*/
       box-shadow: 5px 0px 10px 1px rgba(197, 197, 197, 0.5) inset;
       /*padding-top: 60px;*/
-}
-/* the button to close the slideout panel */
-.c_sidenav .closebtn {
-      position: absolute;
-      top: 0;
-      left: 5px;
-      font-size: 36px;
-      /*margin-right: 50px;*/
 }
 
 /* reset standard browser behaviour */
@@ -33,11 +25,22 @@ nav ul {
       -webkit-padding-start: 0px;
 }
 
+/* set transition times */
+.c_sidenav,
+nav,
+#body {
+      transition: 0.5s
+}
+
+/*********** 
+navigation
+***********/
+
 nav {
       top: 0;
       right: 0;
       font-size: inherit;
-      transition: 0.3s;
+      /*transition: 0.3s;*/
 }
 /* set everything to display blocks */
 nav ul,
