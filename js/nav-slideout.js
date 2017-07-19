@@ -1,12 +1,10 @@
 function openNav() {
     styleWidth('navigation','300');
     styleRight('sidebar-buttons','300');
-    document.getElementById("body").style.marginRight = "150px";
-    document.getElementById("body").style.marginLeft = "-150px";
+    document.getElementById("body").style.marginRight = "300px";
+    document.getElementById("body").style.marginLeft = "-300px";
     styleVisibility('menuOpen','hidden');
     styleVisibility('menuClose','visible');
-    // document.getElementById("menuOpen").style.visibility = "hidden";
-    // document.getElementById("menuClose").style.visibility = "visible";
 }
 
 function closeNav() {
@@ -16,8 +14,6 @@ function closeNav() {
     document.getElementById("body").style.marginLeft = "0px";
     styleVisibility('menuOpen','visible');
     styleVisibility('menuClose','hidden');
-    // document.getElementById("menuClose").style.visibility = "hidden";
-    // document.getElementById("menuOpen").style.visibility = "visible";
 }
 
 // set the width of an element by ID
