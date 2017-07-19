@@ -26,7 +26,7 @@
     <!-- select whether you want to display page breaks and facsimiles; default: true() -->
     <xsl:param name="p_display-page-breaks" select="true()"/>
     <!-- select whether you want to display online or local facsimiles; default: true() -->
-    <xsl:param name="p_display-online-facsimiles" select="false()"/>
+    <xsl:param name="p_display-online-facsimiles" select="true()"/>
     <!-- select whether you want to display line breaks; default: false() -->
     <xsl:param name="p_display-line-breaks" select="false()"/>
     <!-- select whether you want to display editorial changes; default: false() -->
@@ -38,7 +38,7 @@
     <!-- select whether the language of the interface should follow the main language of the text; default: false() -->
     <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
     <!-- select the colour scheme for heads; currently available options: red, blue, green -->
-    <xsl:param name="p_color-scheme" select="'blue'"/>
+    <xsl:param name="p_color-scheme" select="'red'"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
@@ -198,6 +198,7 @@
     <xsl:param name="jqueryJS" select="concat($filePrefix, '/js/jquery/jquery.min.js')"/>
     <xsl:param name="jqueryBlockUIJS" select="concat($filePrefix, '/js/jquery/plugins/jquery.blockUI.js')"/>
     <xsl:param name="teibpJS" select="concat($filePrefix, '/js/teibp.js')"/>
+    <xsl:param name="p_js-slideout" select="concat($filePrefix,'/js/nav-slideout.js')"/>
     <xsl:param name="theme.default" select="concat($filePrefix, '/css/teibp.css')"/>
     <xsl:param name="theme.sleepytime" select="concat($filePrefix, '/css/sleepy.css')"/>
     <xsl:param name="theme.terminal" select="concat($filePrefix, '/css/terminal.css')"/>
