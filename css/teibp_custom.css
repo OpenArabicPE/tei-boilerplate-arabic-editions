@@ -1,6 +1,7 @@
 /* Place project-specific CSS here */
 
 /* @import "teibp_navigation.css"; */
+@import "teibp_navigation-slideout.css";
 @import "teibp_arabic.css";
 @import "teibp_toolbox.css";
 @import "teibp_tei-elements.css";
@@ -15,8 +16,6 @@
 @import "teibp_masthead.css";
 @import "fonts_amiri.css";
 @import "teibp_rendition.css";
-@import "teibp_navigation-slideout.css";
-
 
 
 /* provide a readable page-width and center it on screen */
