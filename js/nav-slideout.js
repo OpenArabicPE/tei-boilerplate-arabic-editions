@@ -1,8 +1,8 @@
 function openNav() {
     styleWidth('navigation','300');
     styleRight('sidebar-buttons','300');
-    document.getElementById("body").style.marginRight = "300px";
-    document.getElementById("body").style.marginLeft = "-300px";
+    document.getElementById("body").style.marginRight = "150px";
+    document.getElementById("body").style.marginLeft = "-150px";
     styleVisibility('menuOpen','hidden');
     styleVisibility('menuClose','visible');
     // document.getElementById("menuOpen").style.visibility = "hidden";
