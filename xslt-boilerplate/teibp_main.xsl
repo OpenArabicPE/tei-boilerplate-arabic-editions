@@ -37,6 +37,8 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
+                    <!-- experimental button -->
+                    <button id="b_toggle">toggle</button>
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
@@ -48,6 +50,8 @@
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
                 <script type="text/javascript" src="{$p_js-slideout}"></script>
+                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+                <script src="../js/script.js"></script>
             </body>
         </html>
     </xsl:template>
@@ -506,7 +510,7 @@
         <xsl:text> </xsl:text>
     </xsl:template>
     <!-- toggle the display of line breaks -->
-    <xsl:template match="tei:lb">
+    <!-- <xsl:template match="tei:lb">
         <xsl:choose>
             <xsl:when test="$p_display-line-breaks = true()">
                 <br/>
@@ -515,7 +519,7 @@
                 <xsl:text> </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="tei:cb">
         <xsl:text> </xsl:text>
     </xsl:template>
