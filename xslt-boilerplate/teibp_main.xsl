@@ -37,8 +37,9 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
-                    <!-- experimental button -->
-                    <button id="b_toggle-lb" class="c_button">toggle</button>
+                    <!-- experimental buttons -->
+                    <button id="b_toggle-lb" class="c_button">toggle lb</button>
+                    <button id="b_toggle-sidebar" class="c_button">toggle sidebar</button>
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
@@ -50,7 +51,6 @@
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
                 <script type="text/javascript" src="{$p_js-slideout}"></script>
-                <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
                 <script src="../js/script.js"></script>
             </body>
         </html>
@@ -291,6 +291,8 @@
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
+            <!-- re-added jquery -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <!--<script src="{$jqueryJS}" type="text/javascript"/>
             <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
