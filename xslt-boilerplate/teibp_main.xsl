@@ -38,7 +38,7 @@
                 </div>
                 <div class="c_content" id="content">
                     <!-- experimental button -->
-                    <button id="b_toggle">toggle</button>
+                    <button id="b_toggle-lb" class="c_button">toggle</button>
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
