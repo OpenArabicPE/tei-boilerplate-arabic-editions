@@ -51,22 +51,26 @@ function addElement(tag, addedElement, style, innerHTML){
 // Event setup using a convenience method
 
 // 1. every button should get the "c_toggled" class upon being toggled
-$("button").on("click", function(){
-    $("button").toggleClass("c_toggled");
-    var id = $("button").attr('id');
-    // the following is for debugging only check class of button 
-    if ($("button").is(".c_toggled")) {
-        // if button is toggled do some thing
-        console.log(id += " toggled on");
-    }
-    else {
-        // revert to original state
-        console.log(id += " toggled off");
-    }
-});
+// $("button").on("click", function(){
+//     var id = $("button").attr('id');
+//     console.log(id);
+//     // this is currently not working since all or no button are assigned the new class
+//     // $(id).toggleClass("c_toggled");
+//     // the following is for debugging only check class of button 
+//     // if ($("button").is(".c_toggled")) {
+//     //     // if button is toggled do some thing
+//     //     console.log(id += " toggled on");
+//     // }
+//     // else {
+//     //     // revert to original state
+//     //     console.log(id += " toggled off");
+//     // }
+// });
 
 // 2. use a specific button to change the class of another element, which is then styled with CSS
 $( "#b_toggle-lb" ).click(function() {
+    // toogle class of button
+    $('#b_toggle-lb').toggleClass("c_toggled");
     // change the class of all line breaks to "c_toggled". The display is then set to "display:block" in CSS
     $("lb").toggleClass("c_toggled");
     // or change <lb> to <br>, but <br> has currently no styles associated in CSS
@@ -74,3 +78,21 @@ $( "#b_toggle-lb" ).click(function() {
 });
 
 // jQuery for sliding panel 
+$("#b_toggle-sidebar").on("click", function() {
+    // console.log("#b_toggle-sidebar was toggled");
+    // toggle class of button
+    $("#b_toggle-sidebar").toggleClass("c_toggled");
+    // test if state of button 
+    if ($("#b_toggle-sidebar").is(".c_toggled")) {
+        console.log("on"); 
+        // if button is toggled open the sidebar
+        // $("p").css({"color": "red"});
+        // $("#sidebar-buttons").css("right", widthSidebar);
+        // $("#body").css("margin-right", widthSidebar);    
+    }
+    else {
+        console.log("off");
+        // revert to original state   
+    }
+
+});
