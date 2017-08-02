@@ -47,35 +47,14 @@ function addElement(tag, addedElement, style, innerHTML){
 //theButton.addEventListener('click',addElement('lb','span','display:block;','test'))
 
 
-// we could add jquery functions
+//jQuery for using a toggle buttons
 // Event setup using a convenience method
-$( "#b_toggle-lb" ).click(function() {
-    // change the class of the button
-    $( "#b_toggle-lb" ).toggleClass( "c_toggled" );
-    // change the class of all line breaks to "c_toggled". The display is then set to "display:block" in CSS
-    $("lb").toggleClass("c_toggled");
-    // or change <lb> to <br>. 
-    // $("lb").replaceWith("<br></br>")
-    // check class of button 
-    if ($("#b_toggle-lb").is(".c_toggled")) {
-        // if button is toggled do some thing
-        console.log("toggled on");
-        // change the button content
-        $("#b_toggle-lb").text("toogle line breaks off")
-    }
-    else {
-        // revert to original state
-        console.log("toggled off");
-        // change the button content
-        $("#b_toggle-lb").text("toogle line breaks on")
-    }
-});
 
-// every button should get the "c_toggled class
+// 1. every button should get the "c_toggled" class upon being toggled
 $("button").on("click", function(){
     $("button").toggleClass("c_toggled");
     var id = $("button").attr('id');
-    // check class of button 
+    // the following is for debugging only check class of button 
     if ($("button").is(".c_toggled")) {
         // if button is toggled do some thing
         console.log(id += " toggled on");
@@ -85,3 +64,13 @@ $("button").on("click", function(){
         console.log(id += " toggled off");
     }
 });
+
+// 2. use a specific button to change the class of another element, which is then styled with CSS
+$( "#b_toggle-lb" ).click(function() {
+    // change the class of all line breaks to "c_toggled". The display is then set to "display:block" in CSS
+    $("lb").toggleClass("c_toggled");
+    // or change <lb> to <br>, but <br> has currently no styles associated in CSS
+    // $("lb").replaceWith("<br></br>")
+});
+
+// jQuery for sliding panel 
