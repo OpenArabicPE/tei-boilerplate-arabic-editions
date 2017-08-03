@@ -37,9 +37,6 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
-                    <!-- experimental buttons -->
-                    <button id="b_toggle-lb" class="c_button">&lt;lb/&gt;</button>
-                    <!-- <div id="b_toggle-sidebar" class="c_button c_button-sidebar"></div> -->
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
