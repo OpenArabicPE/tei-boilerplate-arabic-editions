@@ -260,6 +260,7 @@ sic:after {
 /*------------------------
 milestones
 ------------------------*/
-lb.c_toggled {
-    display: block;
+lb.c_toggled:after {
+  content: '\a';
+  white-space: pre;
 }
