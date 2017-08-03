@@ -809,14 +809,14 @@
                 <span class="c_icon c_close">
                     <xsl:copy-of select="document('../assets/icons/x.svg')"/>
                 </span>
-                <span class="c_label">Contents</span>
+                <span class="c_label" lang="en">Contents</span>
             </div>
             <!-- link to Github -->
             <div id="xmlSourceLink" class="c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/download.svg')"/>
                 </span>
-                <a href="{$v_url-file}" class="c_label">
+                <a href="{$v_url-file}" class="c_label" lang="en">
                             <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
                             <xsl:text>TEI source on GitHub</xsl:text>
                         </a>
@@ -827,7 +827,7 @@
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
                     </span>
-                    <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label">
+                    <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_next-issue"/>
                             </a>
                 </div>
@@ -837,7 +837,7 @@
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
                     </span>
-                    <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label">
+                    <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_previous-issue"/>
                             </a>
                 </div>
@@ -847,17 +847,17 @@
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
                 </span>
-                <a href="#" class="c_label">Top of the page</a>
+                <a href="#" class="c_label" lang="en">Top of the page</a>
             </div>
             <div id="goToBottom" class="c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
                 </span>
-                <a href="#footer" class="c_label">Bottom of the page</a>
+                <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
             <div id="toggleLb" class="c_button-sidebar">
-                <span class="c_icon">lb</span>
-                <span class="c_label">Toggle line breaks</span>
+                <span class="c_icon" lang="en">lb</span>
+                <span class="c_label" lang="en">Toggle line breaks</span>
             </div>
         </div>
     </xsl:variable>
