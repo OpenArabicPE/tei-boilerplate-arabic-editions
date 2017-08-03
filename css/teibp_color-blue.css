@@ -68,8 +68,10 @@ nav:focus li > a,
 div.c_button-sidebar a {
     color:#999;
 }*/
-div.c_button-sidebar:hover li > a, 
-div.c_button-sidebar:focus > a {
+div.c_button-sidebar:hover,
+div.c_button-sidebar:focus,
+div.c_button-sidebar:hover > *, 
+div.c_button-sidebar:focus > * {
     color:white;
     background-color:#002096;
 }

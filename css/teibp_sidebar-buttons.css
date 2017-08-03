@@ -6,125 +6,93 @@ div.c_sidebar {
     width: 40px;
     right: 0px;
     transition: 0.5s;
+    /*set margin and padding to zero */
+    margin: 0;
+    padding: 0;
 }
     
 div.c_button-sidebar{
+    display: block;
     background-color:white;
     border:1px solid #e5e5e5;
     position:fixed;
     height:40px;
     width:inherit;
     right:inherit;
-    margin:0;
-    padding:0;
+   /*set margin and padding to zero */
+    margin: 0;
+    padding: 0;
     overflow:hidden;
     /* The transition somehow causes different displays in different browsers */
     /* -webkit-transition:width .05s linear;
     transition:width .05s linear;
     -webkit-transform:translateZ(0) scale(1, 1);*/
     z-index:1000;
+    cursor: pointer;
+    /* if we add transition here it adds to the transition of the containing
+    element upon invoking the sliding navigation */
+    /*transition: 0.2s;*/
 }
 /* common settings for all child elements */
-div.c_button-sidebar ul,
-div.c_button-sidebar li {
-    display:none;
-    padding: inherit;
-}
-div.c_button-sidebar ul,
-div.c_button-sidebar li,
-div.c_button-sidebar a {
-    position: fixed;
-    top:inherit;
-    right: inherit;
-    margin: inherit;
-    background-color: inherit; 
-}
-div.c_button-sidebar li,
-div.c_button-sidebar a {
-    height: inherit;
-}
-
-div.c_button-sidebar ul {
-    width:16px;
-    height:40px;
-    /* swith off standard behavour */
-    -moz-padding-start:0px;
-}
-div.c_button-sidebar li {
-    width:inherit;
-}
-div.c_button-sidebar a,
-div.c_button-sidebar > span {
-    display:block;
+div.c_button-sidebar > * {
     text-decoration:none;
     line-height:1.3em;
     font-size:16px;
-    padding-left:0.5em;
-    padding-right:0.2em;
+    display: block;
+    height: auto;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    /*position:fixed;*/
+    float: left;
+    clear: left;
+
+    /*height: inherit;*/
+    /*padding-left:0.5em;
+    padding-right:0.2em;*/
+}
+/* show icon */
+div.c_button-sidebar > *.c_icon {
+    display: block;
+    /* icons should inherit the full width*/
+    width: 24px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
+/* do not display label */
+div.c_button-sidebar > *.c_label {
+    visibility: hidden;
+    /*padding-left: 40px;*/
+    /*width: 200px;*/
+    width: 155px;
+    text-decoration:none;
+    /*margin-left: 40px;*/
+    padding-left: 0.2em;
+    clear: right;
 }
 /* hovering state */
-/* display block */
-div.c_button-sidebar:hover, 
-div.c_button-sidebar:focus,
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul,
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-    display: block;
-}
-/* padding and margins */
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul,
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-    outline:0;
-    margin:0;
-    padding:0;
-}
-div.c_button-sidebar:hover, 
-div.c_button-sidebar:focus {
-    height:auto;
-    overflow:visible;
-}
-/* all levels */
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul {
-    /* empty */
-}
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-   /* empty */
-}
-div.c_button-sidebar:hover li > a, 
-div.c_button-sidebar:focus > a {
-    /*fixed with or relative ?*/
+div.c_button-sidebar:hover {
     width:200px;
-    border:1px solid #e5e5e5;
+}
+/* display block */
+/* padding and margins */
+
+/* toggle the display of direct children with class c_label*/
+div.c_button-sidebar:hover > *.c_label,
+div.c_button-sidebar:focus > *.c_label {
+    visibility: visible;
+/*    border:1px solid #e5e5e5;
     border-top-left-radius:5px;
     border-top-right-radius:0px;
     border-bottom-right-radius:0px;
-    border-bottom-left-radius:5px;
-    /*color:white;*/
-    /*background-color:#BD4007;*/
-    text-decoration:none;
-}
-div.c_button-sidebar:hover li > a:hover, 
-div.c_button-sidebar:focus li > a:focus {
-    /* empty */
-    /*display: inline-block;
-    vertical-align: middle;
-    padding-top: auto;
-    padding-bottom: auto;*/
+    border-bottom-left-radius:5px;*/
 }
 
 /* sort order of buttons and stack them vertically */
-#menu,
+/*#menu,*/
 #menuOpen,
-#menuClose {
+#menuClose,
+#toggleSidebar {
     top: 0px;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    cursor: pointer;
 }
 #xmlSourceLink{
     top:40px;
@@ -141,54 +109,105 @@ div.c_button-sidebar:focus li > a:focus {
 #nextIssue{
     top:200px;
 }
+/* the first button toggling display features should have a leading gap*/
+#toggleLb {
+    top:240px;
+}
+/* change toggled buttons*/
+#toggleLb.c_toggled{
+    /*color: white;
+    background-color: black;*/
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
+}
+#toggleSidebar >.c_open {
+    display: block;
+}
+#toggleSidebar >.c_close {
+    display: none;
+}
+#toggleSidebar.c_toggled >.c_open {
+    display: none;
+}
+#toggleSidebar.c_toggled >.c_close {
+    display: block;
+}
 /* content of buttons */
-#xmlSourceLink:before{
-    /*content:"TEI";*/
-    /*content: url("../assets/icons/github-logo.svg");*/
+#c_sidebar svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+/*#toggleSidebar:before {
+   content: url("../assets/icons/list.svg");
+   display: block;
+   position: fixed;
+   margin: auto;
+   padding-left:0.5em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}*/
+/*#toggleSidebar.c_toggled:before {
+   content: url("../assets/icons/x.svg");
+   display: block;
+   position: fixed;
+   margin: auto;
+   padding-left:0.5em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}*/
+/*#xmlSourceLink:before{
     content: url("../assets/icons/download.svg");
     font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.2em;
+   padding-left:0.5em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#prevIssue:before{
-    /*content:"\25c0";*/
+}*/
+/*#prevIssue:before{
     content: url("../assets/icons/chevron-left.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#nextIssue:before{
-    /*content:"\25ba";*/
+}*/
+/*#nextIssue:before{
     content: url("../assets/icons/chevron-right.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#backToTop:before{
-    /*content:"\25b2";*/
+}*/
+/*#backToTop:before{
     content: url("../assets/icons/arrow-up.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#goToBottom:before{
-    /*content:"\25bc";*/
+}*/
+/*#goToBottom:before{
     content: url("../assets/icons/arrow-down.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    position:fixed;
+}*/
+/*#toggleLb:before{
+    content:"lb";
+    font-size:20px;
+    padding-left:0.5em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
