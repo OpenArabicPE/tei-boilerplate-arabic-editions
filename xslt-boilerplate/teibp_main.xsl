@@ -47,7 +47,7 @@
                     <!--<xsl:copy-of select="$v_notes"/>-->
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
-                <script type="text/javascript" src="{$p_js-slideout}"></script>
+                <!-- <script type="text/javascript" src="{$p_js-slideout}"></script> -->
                 <script src="../js/script.js"></script>
             </body>
         </html>
