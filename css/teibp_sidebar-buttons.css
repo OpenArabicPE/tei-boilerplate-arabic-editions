@@ -29,98 +29,42 @@ div.c_button-sidebar{
     -webkit-transform:translateZ(0) scale(1, 1);*/
     z-index:1000;
     cursor: pointer;
+    transition: inherit;
 }
 /* common settings for all child elements */
-div.c_button-sidebar ul,
-div.c_button-sidebar li {
-    display:none;
-    padding: inherit;
-}
-div.c_button-sidebar ul,
-div.c_button-sidebar li,
-div.c_button-sidebar a {
-    position: fixed;
-    top:inherit;
-    right: inherit;
-    margin: inherit;
-    background-color: inherit; 
-}
-div.c_button-sidebar li,
-div.c_button-sidebar a {
-    height: inherit;
-}
-
-div.c_button-sidebar ul {
-    width:16px;
-    height:40px;
-    /* swith off standard behavour */
-    -moz-padding-start:0px;
-}
-div.c_button-sidebar li {
-    width:inherit;
-}
-div.c_button-sidebar a,
-div.c_button-sidebar > span {
-    display:block;
+div.c_button-sidebar * {
     text-decoration:none;
     line-height:1.3em;
     font-size:16px;
-    padding-left:0.5em;
-    padding-right:0.2em;
+    /*padding-left:0.5em;
+    padding-right:0.2em;*/
+}
+/* do not display label */
+div.c_button-sidebar > *.c_label {
+    display: none;
+    padding-left: 40px;
+    height: inherit;
+    width: 200px;
+    text-decoration:none;
 }
 /* hovering state */
-/* display block */
-div.c_button-sidebar:hover, 
-div.c_button-sidebar:focus,
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul,
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-    display: block;
-}
-/* padding and margins */
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul,
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-    outline:0;
-    margin:0;
-    padding:0;
-}
-div.c_button-sidebar:hover, 
-div.c_button-sidebar:focus {
-    /*height:auto;*/
-    overflow:visible;
-}
-/* all levels */
-div.c_button-sidebar:hover ul, 
-div.c_button-sidebar:focus ul {
-    /* empty */
-}
-div.c_button-sidebar:hover li, 
-div.c_button-sidebar:focus li {
-   /* empty */
-}
-div.c_button-sidebar:hover li > a, 
-div.c_button-sidebar:focus > a {
-    /*fixed with or relative ?*/
+div.c_button-sidebar:hover {
     width:200px;
+}
+/* display block */
+/* padding and margins */
+
+/* toggle the display of direct children with class c_label*/
+div.c_button-sidebar:hover > *.c_label,
+div.c_button-sidebar:focus > *.c_label {
+    display: block;
+    /*height: inherit;*/
+    /*width:200px;*/
     border:1px solid #e5e5e5;
     border-top-left-radius:5px;
     border-top-right-radius:0px;
     border-bottom-right-radius:0px;
     border-bottom-left-radius:5px;
-    /*color:white;*/
-    /*background-color:#BD4007;*/
-    text-decoration:none;
-}
-div.c_button-sidebar:hover li > a:hover, 
-div.c_button-sidebar:focus li > a:focus {
-    /* empty */
-    /*display: inline-block;
-    vertical-align: middle;
-    padding-top: auto;
-    padding-bottom: auto;*/
 }
 
 /* sort order of buttons and stack them vertically */
