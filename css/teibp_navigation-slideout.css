@@ -102,17 +102,3 @@ slideout: using class c_sidebar-visible;
    margin-right: 300px;
    margin-left: -300px;
 }
-/*change the content of the button*/
-/*toggled off*/
-#b_toggle-sidebar:before {
-   content: url("../assets/icons/list.svg");
-}
-#b_toggle-sidebar.c_toggled:before {
-   content: url("../assets/icons/x.svg");
-}
-/*#menuOpen.c_sidebar-visible {
-   visibility: hidden;
-}
-#menuClose.c_sidebar-visible {
-   visibility: visible;
-}*/
