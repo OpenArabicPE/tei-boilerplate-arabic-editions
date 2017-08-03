@@ -38,8 +38,8 @@
                 </div>
                 <div class="c_content" id="content">
                     <!-- experimental buttons -->
-                    <button id="b_toggle-lb" class="c_button">toggle lb</button>
-                    <div id="b_toggle-sidebar" class="c_button c_button-sidebar"></div>
+                    <button id="b_toggle-lb" class="c_button">&lt;lb/&gt;</button>
+                    <!-- <div id="b_toggle-sidebar" class="c_button c_button-sidebar"></div> -->
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
@@ -805,12 +805,13 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- content button -->
-            <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
+            <div class="c_button-sidebar" id="toggleSidebar"/>
+            <!-- <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
                 <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
             </div>
             <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
                 <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
-            </div>
+            </div> -->
             <!--<div class="c_button-sidebar" id="menu">
                 <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
                 <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
@@ -867,6 +868,7 @@
                     </li>
                 </ul>
             </div>
+            <div id="toggleLb" class="c_button c_button-sidebar"></div>
         </div>
     </xsl:variable>
 
