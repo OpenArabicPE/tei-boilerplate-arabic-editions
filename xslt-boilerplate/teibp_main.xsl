@@ -288,13 +288,14 @@
         <head>
             <meta charset="UTF-8"/>
             <xsl:call-template name="t_metadata-dc-file"/>
+            <!-- normalize all styles -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
             <!-- re-added jquery -->
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <!--<script src="{$jqueryJS}" type="text/javascript"/>
-            <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
+            <script src="{$jqueryJS}" type="text/javascript"/>
+            <!--<script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
             <script type="text/javascript">
 				$(document).ready(function() {
