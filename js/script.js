@@ -47,7 +47,13 @@ function addElement(tag, addedElement, style, innerHTML){
 //theButton.addEventListener('click',addElement('lb','span','display:block;','test'))
 
 
-//jQuery for using a toggle buttons
+// jQuery
+$("document").ready(function() {
+    // set variables for all functions
+    var $buttonToggleLb = $("#b_toggle-lb"),
+        $buttonToggleSidebar = $("#b_toggle-sidebar"),
+        $body = $("#body");
+
 // Event setup using a convenience method
 
 // 1. every button should get the "c_toggled" class upon being toggled
@@ -68,9 +74,9 @@ function addElement(tag, addedElement, style, innerHTML){
 // });
 
 // 2. use a specific button to change the class of another element, which is then styled with CSS
-$( "#b_toggle-lb" ).click(function() {
+$buttonToggleLb.on("click", function() {
     // toogle class of button
-    $('#b_toggle-lb').toggleClass("c_toggled");
+    $buttonToggleLb.toggleClass("c_toggled");
     // change the class of all line breaks to "c_toggled". The display is then set to "display:block" in CSS
     $("lb").toggleClass("c_toggled");
     // or change <lb> to <br>, but <br> has currently no styles associated in CSS
@@ -78,21 +84,29 @@ $( "#b_toggle-lb" ).click(function() {
 });
 
 // jQuery for sliding panel 
-$("#b_toggle-sidebar").on("click", function() {
-    // console.log("#b_toggle-sidebar was toggled");
+$buttonToggleSidebar.on("click", function() {
     // toggle class of button
-    $("#b_toggle-sidebar").toggleClass("c_toggled");
+    $buttonToggleSidebar.toggleClass("c_toggled");
+    // debugging
     // test if state of button 
-    if ($("#b_toggle-sidebar").is(".c_toggled")) {
+    if ($buttonToggleSidebar.is(".c_toggled")) {
         console.log("on"); 
+        // debugging: this works
+            // $body.addClass("toggle-is-true");
+            // console.log($body.attr("class"));
         // if button is toggled open the sidebar
-        // $("p").css({"color": "red"});
+        // try to set css on $body: invariably fails
         // $("#sidebar-buttons").css("right", widthSidebar);
-        // $("#body").css("margin-right", widthSidebar);    
+        $body.css({
+            "margin-right": "300px",
+            "margin-left": "-300px"
+        });  
     }
     else {
         console.log("off");
         // revert to original state   
+        $("#body").addClass("toggle-is-false");
     }
 
+});
 });
