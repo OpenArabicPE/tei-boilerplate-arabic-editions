@@ -29,23 +29,43 @@ div.c_button-sidebar{
     -webkit-transform:translateZ(0) scale(1, 1);*/
     z-index:1000;
     cursor: pointer;
-    transition: inherit;
+    /* if we add transition here it adds to the transition of the containing
+    element upon invoking the sliding navigation */
+    /*transition: 0.2s;*/
 }
 /* common settings for all child elements */
-div.c_button-sidebar * {
+div.c_button-sidebar > * {
     text-decoration:none;
     line-height:1.3em;
     font-size:16px;
+    display: block;
+    height: inherit;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    /*position:fixed;*/
+    float: left;
+
+    /*height: inherit;*/
     /*padding-left:0.5em;
     padding-right:0.2em;*/
 }
+/* show icon */
+div.c_button-sidebar > *.c_icon {
+    display: block;
+    /* icons should inherit the full width*/
+    width: 24px;
+    margin-left: 8px;
+    margin-right: 8px;
+}
 /* do not display label */
 div.c_button-sidebar > *.c_label {
-    display: none;
-    padding-left: 40px;
-    height: inherit;
-    width: 200px;
+    visibility: hidden;
+    /*padding-left: 40px;*/
+    /*width: 200px;*/
+    width: 155px;
     text-decoration:none;
+    /*margin-left: 40px;*/
+    padding-left: 0.2em;
 }
 /* hovering state */
 div.c_button-sidebar:hover {
@@ -57,14 +77,12 @@ div.c_button-sidebar:hover {
 /* toggle the display of direct children with class c_label*/
 div.c_button-sidebar:hover > *.c_label,
 div.c_button-sidebar:focus > *.c_label {
-    display: block;
-    /*height: inherit;*/
-    /*width:200px;*/
-    border:1px solid #e5e5e5;
+    visibility: visible;
+/*    border:1px solid #e5e5e5;
     border-top-left-radius:5px;
     border-top-right-radius:0px;
     border-bottom-right-radius:0px;
-    border-bottom-left-radius:5px;
+    border-bottom-left-radius:5px;*/
 }
 
 /* sort order of buttons and stack them vertically */
@@ -73,9 +91,6 @@ div.c_button-sidebar:focus > *.c_label {
 #menuClose,
 #toggleSidebar {
     top: 0px;
-/*    padding-top:0.5em;
-    padding-bottom:0.5em;
-    cursor: pointer;*/
 }
 #xmlSourceLink{
     top:40px;
@@ -101,13 +116,25 @@ div.c_button-sidebar:focus > *.c_label {
     color: white;
     background-color: black;
 }
+#toggleSidebar >.c_open {
+    display: block;
+}
+#toggleSidebar >.c_close {
+    display: none;
+}
+#toggleSidebar.c_toggled >.c_open {
+    display: none;
+}
+#toggleSidebar.c_toggled >.c_close {
+    display: block;
+}
 /* content of buttons */
 #c_sidebar svg {
     display: block;
     width: 100%;
     height: 100%;
 }
-#toggleSidebar:before {
+/*#toggleSidebar:before {
    content: url("../assets/icons/list.svg");
    display: block;
    position: fixed;
@@ -116,8 +143,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
-}
-#toggleSidebar.c_toggled:before {
+}*/
+/*#toggleSidebar.c_toggled:before {
    content: url("../assets/icons/x.svg");
    display: block;
    position: fixed;
@@ -126,10 +153,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
-}
-#xmlSourceLink:before{
-    /*content:"TEI";*/
-    /*content: url("../assets/icons/github-logo.svg");*/
+}*/
+/*#xmlSourceLink:before{
     content: url("../assets/icons/download.svg");
     font-size:20px;
    padding-left:0.5em;
@@ -137,9 +162,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#prevIssue:before{
-    /*content:"\25c0";*/
+}*/
+/*#prevIssue:before{
     content: url("../assets/icons/chevron-left.svg");
     font-size:20px;
     padding-left:0.5em;
@@ -147,9 +171,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#nextIssue:before{
-    /*content:"\25ba";*/
+}*/
+/*#nextIssue:before{
     content: url("../assets/icons/chevron-right.svg");
     font-size:20px;
     padding-left:0.5em;
@@ -157,9 +180,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#backToTop:before{
-    /*content:"\25b2";*/
+}*/
+/*#backToTop:before{
     content: url("../assets/icons/arrow-up.svg");
     font-size:20px;
     padding-left:0.5em;
@@ -167,9 +189,8 @@ div.c_button-sidebar:focus > *.c_label {
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#goToBottom:before{
-    /*content:"\25bc";*/
+}*/
+/*#goToBottom:before{
     content: url("../assets/icons/arrow-down.svg");
     font-size:20px;
     padding-left:0.5em;
@@ -177,10 +198,9 @@ div.c_button-sidebar:focus > *.c_label {
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
-}
-#toggleLb:before{
+}*/
+/*#toggleLb:before{
     content:"lb";
-    /*content: url("../assets/icons/arrow-down.svg");*/
     font-size:20px;
     padding-left:0.5em;
     padding-right:0.5em;

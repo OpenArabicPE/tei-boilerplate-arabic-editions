@@ -803,12 +803,19 @@
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- button to toggle ToC -->
             <div class="c_button-sidebar" id="toggleSidebar">
-                <span class="c_icon"></span>
+                <span class="c_icon c_open">
+                    <xsl:copy-of select="document('../assets/icons/list.svg')"/>
+                </span>
+                <span class="c_icon c_close">
+                    <xsl:copy-of select="document('../assets/icons/x.svg')"/>
+                </span>
                 <span class="c_label">Contents</span>
             </div>
             <!-- link to Github -->
             <div id="xmlSourceLink" class="c_button-sidebar">
-                <span class="c_icon"></span>
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/download.svg')"/>
+                </span>
                 <a href="{$v_url-file}" class="c_label">
                             <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
                             <xsl:text>TEI source on GitHub</xsl:text>
@@ -817,7 +824,9 @@
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
                 <div id="nextIssue" class="c_button-sidebar">
-                    <span class="c_icon"></span>
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                    </span>
                     <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label">
                                 <xsl:copy-of select="$p_text-nav_next-issue"/>
                             </a>
@@ -825,7 +834,9 @@
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
                 <div id="prevIssue" class="c_button-sidebar">
-                    <span class="c_icon"></span>
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                    </span>
                     <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label">
                                 <xsl:copy-of select="$p_text-nav_previous-issue"/>
                             </a>
@@ -833,15 +844,19 @@
             </xsl:if>
             <!-- top and bottom -->
             <div id="backToTop" class="c_button-sidebar">
-                <span class="c_icon"></span>
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
+                </span>
                 <a href="#" class="c_label">Top of the page</a>
             </div>
             <div id="goToBottom" class="c_button-sidebar">
-                <span class="c_icon"></span>
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
+                </span>
                 <a href="#footer" class="c_label">Bottom of the page</a>
             </div>
             <div id="toggleLb" class="c_button-sidebar">
-                <span class="c_icon"></span>
+                <span class="c_icon">lb</span>
                 <span class="c_label">Toggle line breaks</span>
             </div>
         </div>
@@ -914,7 +929,7 @@
                 <!-- <xsl:text>link</xsl:text> -->
             </xsl:otherwise>
         </xsl:choose>
-            <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
+            <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
         </a>
     </xsl:template>
     

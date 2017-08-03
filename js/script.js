@@ -4,7 +4,7 @@ $("document").ready(function() {
     var $buttonToggleLb = $("#toggleLb"),
     $buttonToggleSidebar = $("#toggleSidebar"),
     $body = $("#body"),
-    $sidebarButtons = $('#sidebar-buttons'),
+    $sidebar = $('.c_sidebar'),
     $navigation = $("#navigation"),
     $menuOpen = $("#menuOpen"),
     $menuClose = $("#menuClose");
@@ -24,9 +24,9 @@ $buttonToggleSidebar.on("click", function() {
     // toggle class of button
     $buttonToggleSidebar.toggleClass("c_toggled");
     // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
-    // three elements must be moved: $body, $sidebarButtons, the sidebar
+    // three elements must be moved: $body, $sidebar, the sidebar
     $body.toggleClass("c_sidebar-visible");
-    $sidebarButtons.toggleClass("c_sidebar-visible");
+    $sidebar.toggleClass("c_sidebar-visible");
     // this could used to slide out something different from the navigation
     $navigation.toggleClass("c_sidebar-visible");
 });
