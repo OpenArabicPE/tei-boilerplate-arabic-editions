@@ -37,6 +37,9 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
+                    <!-- experimental buttons -->
+                    <button id="b_toggle-lb" class="c_button">&lt;lb/&gt;</button>
+                    <!-- <div id="b_toggle-sidebar" class="c_button c_button-sidebar"></div> -->
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
@@ -48,6 +51,7 @@
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
                 <script type="text/javascript" src="{$p_js-slideout}"></script>
+                <script src="../js/script.js"></script>
             </body>
         </html>
     </xsl:template>
@@ -284,11 +288,14 @@
         <head>
             <meta charset="UTF-8"/>
             <xsl:call-template name="t_metadata-dc-file"/>
+            <!-- normalize all styles -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
-            <!--<script src="{$jqueryJS}" type="text/javascript"/>
-            <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
+            <!-- re-added jquery -->
+            <script src="{$jqueryJS}" type="text/javascript"/>
+            <!--<script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
             <script type="text/javascript">
 				$(document).ready(function() {
@@ -506,7 +513,7 @@
         <xsl:text> </xsl:text>
     </xsl:template>
     <!-- toggle the display of line breaks -->
-    <xsl:template match="tei:lb">
+    <!-- <xsl:template match="tei:lb">
         <xsl:choose>
             <xsl:when test="$p_display-line-breaks = true()">
                 <br/>
@@ -515,7 +522,7 @@
                 <xsl:text> </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="tei:cb">
         <xsl:text> </xsl:text>
     </xsl:template>
@@ -798,12 +805,13 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- content button -->
-            <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
+            <div class="c_button-sidebar" id="toggleSidebar"/>
+            <!-- <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
                 <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
             </div>
             <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
                 <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
-            </div>
+            </div> -->
             <!--<div class="c_button-sidebar" id="menu">
                 <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
                 <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
@@ -860,6 +868,7 @@
                     </li>
                 </ul>
             </div>
+            <div id="toggleLb" class="c_button c_button-sidebar"></div>
         </div>
     </xsl:variable>
 

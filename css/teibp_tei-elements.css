@@ -256,3 +256,11 @@ sic:after {
     content: " [sic]";
     color: red;
 }
+
+/*------------------------
+milestones
+------------------------*/
+lb.c_toggled:after {
+  content: '\a';
+  white-space: pre;
+}

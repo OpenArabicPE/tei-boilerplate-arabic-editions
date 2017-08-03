@@ -6,23 +6,29 @@ div.c_sidebar {
     width: 40px;
     right: 0px;
     transition: 0.5s;
+    /*set margin and padding to zero */
+    margin: 0;
+    padding: 0;
 }
     
 div.c_button-sidebar{
+    display: block;
     background-color:white;
     border:1px solid #e5e5e5;
     position:fixed;
     height:40px;
     width:inherit;
     right:inherit;
-    margin:0;
-    padding:0;
+   /*set margin and padding to zero */
+    margin: 0;
+    padding: 0;
     overflow:hidden;
     /* The transition somehow causes different displays in different browsers */
     /* -webkit-transition:width .05s linear;
     transition:width .05s linear;
     -webkit-transform:translateZ(0) scale(1, 1);*/
     z-index:1000;
+    cursor: pointer;
 }
 /* common settings for all child elements */
 div.c_button-sidebar ul,
@@ -83,7 +89,7 @@ div.c_button-sidebar:focus li {
 }
 div.c_button-sidebar:hover, 
 div.c_button-sidebar:focus {
-    height:auto;
+    /*height:auto;*/
     overflow:visible;
 }
 /* all levels */
@@ -118,13 +124,14 @@ div.c_button-sidebar:focus li > a:focus {
 }
 
 /* sort order of buttons and stack them vertically */
-#menu,
+/*#menu,*/
 #menuOpen,
-#menuClose {
+#menuClose,
+#toggleSidebar {
     top: 0px;
-    padding-top:0.5em;
+/*    padding-top:0.5em;
     padding-bottom:0.5em;
-    cursor: pointer;
+    cursor: pointer;*/
 }
 #xmlSourceLink{
     top:40px;
@@ -141,14 +148,48 @@ div.c_button-sidebar:focus li > a:focus {
 #nextIssue{
     top:200px;
 }
+/* the first button toggling display features should have a leading gap*/
+#toggleLb {
+    top:260px;
+}
+/* change toggled buttons*/
+#toggleLb.c_toggled{
+    color: white;
+    background-color: black;
+}
 /* content of buttons */
+#c_sidebar svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+#toggleSidebar:before {
+   content: url("../assets/icons/list.svg");
+   display: block;
+   position: fixed;
+   margin: auto;
+   padding-left:0.5em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
+#toggleSidebar.c_toggled:before {
+   content: url("../assets/icons/x.svg");
+   display: block;
+   position: fixed;
+   margin: auto;
+   padding-left:0.5em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+}
 #xmlSourceLink:before{
     /*content:"TEI";*/
     /*content: url("../assets/icons/github-logo.svg");*/
     content: url("../assets/icons/download.svg");
     font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.2em;
+   padding-left:0.5em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
@@ -158,7 +199,7 @@ div.c_button-sidebar:focus li > a:focus {
     content: url("../assets/icons/chevron-left.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
@@ -168,7 +209,7 @@ div.c_button-sidebar:focus li > a:focus {
     content: url("../assets/icons/chevron-right.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
@@ -178,7 +219,7 @@ div.c_button-sidebar:focus li > a:focus {
     content: url("../assets/icons/arrow-up.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;
@@ -188,7 +229,17 @@ div.c_button-sidebar:focus li > a:focus {
     content: url("../assets/icons/arrow-down.svg");
     font-size:20px;
     padding-left:0.5em;
-    padding-right:0.2em;
+    padding-right:0.5em;
+    padding-top:0.5em;
+    padding-bottom:0.5em;
+    position:fixed;
+}
+#toggleLb:before{
+    content:"lb";
+    /*content: url("../assets/icons/arrow-down.svg");*/
+    font-size:20px;
+    padding-left:0.5em;
+    padding-right:0.5em;
     padding-top:0.5em;
     padding-bottom:0.5em;
     position:fixed;

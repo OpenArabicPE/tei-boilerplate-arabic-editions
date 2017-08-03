@@ -5,8 +5,6 @@ function openNav() {
     document.getElementById("body").style.marginLeft = "-150px";
     styleVisibility('menuOpen','hidden');
     styleVisibility('menuClose','visible');
-    // document.getElementById("menuOpen").style.visibility = "hidden";
-    // document.getElementById("menuClose").style.visibility = "visible";
 }
 
 function closeNav() {
@@ -16,8 +14,6 @@ function closeNav() {
     document.getElementById("body").style.marginLeft = "0px";
     styleVisibility('menuOpen','visible');
     styleVisibility('menuClose','hidden');
-    // document.getElementById("menuClose").style.visibility = "hidden";
-    // document.getElementById("menuOpen").style.visibility = "visible";
 }
 
 // set the width of an element by ID

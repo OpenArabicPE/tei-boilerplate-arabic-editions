@@ -835,10 +835,10 @@ layoutDesc {
 lb {
   /* Empty Rule Set */
 }
-lb:after {
+/*lb:after {
   content: '\a';
   white-space: pre;
-}
+}*/
 lbl {
   /* Empty Rule Set */
 }
