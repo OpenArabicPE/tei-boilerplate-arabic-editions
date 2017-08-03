@@ -111,14 +111,14 @@ div.c_button-sidebar:focus > *.c_label {
 }
 /* the first button toggling display features should have a leading gap*/
 #toggleLb {
-    top:260px;
+    top:240px;
 }
 /* change toggled buttons*/
 #toggleLb.c_toggled{
     /*color: white;
     background-color: black;*/
-    border: 1px solid black;
-    box-shadow: inset 0 0 4px #000000;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
 }
 #toggleSidebar >.c_open {
     display: block;
