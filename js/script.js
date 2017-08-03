@@ -52,7 +52,11 @@ $("document").ready(function() {
     // set variables for all functions
     var $buttonToggleLb = $("#b_toggle-lb"),
         $buttonToggleSidebar = $("#b_toggle-sidebar"),
-        $body = $("#body");
+        $body = $("#body"),
+        $sidebarButtons = $('#sidebar-buttons'),
+        $navigation = $("#navigation"),
+        $menuOpen = $("#menuOpen"),
+        $menuClose = $("#menuClose");
 
 // Event setup using a convenience method
 
@@ -87,26 +91,12 @@ $buttonToggleLb.on("click", function() {
 $buttonToggleSidebar.on("click", function() {
     // toggle class of button
     $buttonToggleSidebar.toggleClass("c_toggled");
-    // debugging
-    // test if state of button 
-    if ($buttonToggleSidebar.is(".c_toggled")) {
-        console.log("on"); 
-        // debugging: this works
-            // $body.addClass("toggle-is-true");
-            // console.log($body.attr("class"));
-        // if button is toggled open the sidebar
-        // try to set css on $body: invariably fails
-        // $("#sidebar-buttons").css("right", widthSidebar);
-        $body.css({
-            "margin-right": "300px",
-            "margin-left": "-300px"
-        });  
-    }
-    else {
-        console.log("off");
-        // revert to original state   
-        $("#body").addClass("toggle-is-false");
-    }
-
+    // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
+    // three elements must be moved: $body, $sidebarButtons, the sidebar
+    $body.toggleClass("c_sidebar-visible");
+    $sidebarButtons.toggleClass("c_sidebar-visible");
+    $navigation.toggleClass("c_sidebar-visible");
+    // $menuOpen.toggleClass("c_sidebar-visible");
+    // $menuClose.toggleClass("c_sidebar-visible");
 });
 });
