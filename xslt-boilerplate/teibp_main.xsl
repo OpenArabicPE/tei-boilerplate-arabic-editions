@@ -48,7 +48,8 @@
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
                 <!-- <script type="text/javascript" src="{$p_js-slideout}"></script> -->
-                <script src="../js/script.js"></script>
+                <!-- <script src="../js/script.js"></script> -->
+                <script src="{$p_js}" type="text/javascript"/>
             </body>
         </html>
     </xsl:template>
