@@ -50,8 +50,8 @@ function addElement(tag, addedElement, style, innerHTML){
 // jQuery
 $("document").ready(function() {
     // set variables for all functions
-    var $buttonToggleLb = $("#b_toggle-lb"),
-        $buttonToggleSidebar = $("#b_toggle-sidebar"),
+    var $buttonToggleLb = $("#toggleLb"),
+        $buttonToggleSidebar = $("#toggleSidebar"),
         $body = $("#body"),
         $sidebarButtons = $('#sidebar-buttons'),
         $navigation = $("#navigation"),
@@ -95,6 +95,7 @@ $buttonToggleSidebar.on("click", function() {
     // three elements must be moved: $body, $sidebarButtons, the sidebar
     $body.toggleClass("c_sidebar-visible");
     $sidebarButtons.toggleClass("c_sidebar-visible");
+    // this could used to slide out something different from the navigation
     $navigation.toggleClass("c_sidebar-visible");
     // $menuOpen.toggleClass("c_sidebar-visible");
     // $menuClose.toggleClass("c_sidebar-visible");
