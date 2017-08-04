@@ -113,3 +113,22 @@ slideout: using class c_sidebar-visible;
    margin-right: 300px;
    margin-left: -300px;
 }
+
+/**********************
+the settings panel
+**********************/
+#settings > div {
+   padding-left: 10px;
+   padding-right: 10px;
+}
+#settings .c_button > * {
+   /*clear: both;*/
+   float: left;
+}
+
+#settings .c_button > .c_icon {
+   left: 0px;
+}
+#settings .c_button > .c_label {
+   left: 40px;
+}
