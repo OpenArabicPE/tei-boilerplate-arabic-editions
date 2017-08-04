@@ -114,26 +114,31 @@ div.c_button-sidebar:focus > *.c_label {
     top:240px;
 }
 /* the first button toggling display features should have a leading gap*/
-#toggleLb {
+/*#toggleLb {
     bottom:0px;
-}
+}*/
 /* change toggled buttons*/
-#toggleLb.c_toggled{
+#toggleLb.c_toggled,
+#toggleLb.c_on{
     /*color: white;
     background-color: black;*/
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
 }
-.c_button-toggle >.c_on {
+.c_button-toggle >.c_on,
+.c_button-toggle.c_off >.c_on {
     display: block;
 }
-.c_button-toggle >.c_off {
+.c_button-toggle >.c_off,
+.c_button-toggle.c_off > .c_off {
     display: none;
 }
-.c_button-toggle.c_toggled >.c_on {
+.c_button-toggle.c_toggled >.c_on,
+.c_button-toggle.c_on >.c_on {
     display: none;
 }
-.c_button-toggle.c_toggled >.c_off {
+.c_button-toggle.c_toggled >.c_off,
+.c_button-toggle.c_on > .c_off {
     display: block;
 }
 /* content of buttons */

@@ -889,10 +889,6 @@
                 </span>
                 <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
-            <div id="toggleLb" class="c_button c_button-sidebar c_button-toggle c_off c_toggle-lb">
-                <span class="c_icon" lang="en">lb</span>
-                <span class="c_label" lang="en">Toggle line breaks</span>
-            </div>
         </div>
     </xsl:variable>
 
