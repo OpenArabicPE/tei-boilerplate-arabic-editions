@@ -37,21 +37,19 @@
                     <xsl:copy-of select="$v_navigation"/>
                 </div>
                 <div class="c_content" id="content">
-                    <!-- experimental buttons -->
-                    <button id="b_toggle-lb" class="c_button">&lt;lb/&gt;</button>
-                    <!-- <div id="b_toggle-sidebar" class="c_button c_button-sidebar"></div> -->
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
-                    <div id="tei_wrapper">
+                    <div id="tei_wrapper" onclick="closeNav()">
                         <xsl:apply-templates/>
                     </div>
                     <!-- this was moved to the back of the TEI document -->
                     <!--<xsl:copy-of select="$v_notes"/>-->
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
-                <script type="text/javascript" src="{$p_js-slideout}"></script>
-                <script src="../js/script.js"></script>
+                <!-- <script type="text/javascript" src="{$p_js-slideout}"></script> -->
+                <!-- <script src="../js/script.js"></script> -->
+                <script src="{$p_js}" type="text/javascript"/>
             </body>
         </html>
     </xsl:template>
@@ -804,71 +802,64 @@
     <xsl:variable name="v_buttons">
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
-            <!-- content button -->
-            <div class="c_button-sidebar" id="toggleSidebar"/>
-            <!-- <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
-                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+            <!-- button to toggle ToC -->
+            <div class="c_button-sidebar" id="toggleSidebar">
+                <span class="c_icon c_open">
+                    <xsl:copy-of select="document('../assets/icons/list.svg')"/>
+                </span>
+                <span class="c_icon c_close">
+                    <xsl:copy-of select="document('../assets/icons/x.svg')"/>
+                </span>
+                <span class="c_label" lang="en">Contents</span>
             </div>
-            <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
-                <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
-            </div> -->
-            <!--<div class="c_button-sidebar" id="menu">
-                <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
-                <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
-            </div>-->
             <!-- link to Github -->
             <div id="xmlSourceLink" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="{$v_url-file}">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/download.svg')"/>
+                </span>
+                <a href="{$v_url-file}" class="c_label" lang="en">
                             <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
                             <xsl:text>TEI source on GitHub</xsl:text>
                         </a>
-                    </li>
-                    
-                </ul>
             </div>
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
                 <div id="nextIssue" class="c_button-sidebar">
-                    <ul>
-                        <li>
-                            <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
-                            <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                    </span>
+                    <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_next-issue"/>
                             </a>
-                        </li>
-                    </ul>
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
                 <div id="prevIssue" class="c_button-sidebar">
-                    <ul>
-                        <li>
-                            <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
-                            <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                    </span>
+                    <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_previous-issue"/>
                             </a>
-                        </li>
-                    </ul>
                 </div>
             </xsl:if>
             <!-- top and bottom -->
             <div id="backToTop" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="#">Top of the page</a>
-                    </li>
-                </ul>
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
+                </span>
+                <a href="#" class="c_label" lang="en">Top of the page</a>
             </div>
             <div id="goToBottom" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="#footer">Bottom of the page</a>
-                    </li>
-                </ul>
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
+                </span>
+                <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
-            <div id="toggleLb" class="c_button c_button-sidebar"></div>
+            <div id="toggleLb" class="c_button-sidebar">
+                <span class="c_icon" lang="en">lb</span>
+                <span class="c_label" lang="en">Toggle line breaks</span>
+            </div>
         </div>
     </xsl:variable>
 
@@ -939,7 +930,7 @@
                 <!-- <xsl:text>link</xsl:text> -->
             </xsl:otherwise>
         </xsl:choose>
-            <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
+            <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
         </a>
     </xsl:template>
     
