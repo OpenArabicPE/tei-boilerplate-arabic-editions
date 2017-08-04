@@ -49,10 +49,5 @@ html {
     word-wrap: break-word;
 }
 /* basic classes */
-.c_hidden {
-    visibility: hidden;
-}
-.c_visible {
-    visibility: visible;
-}
+/* .c_hidden has been used for footnotes and should not be set to be generically hidden! */
 
