@@ -2,12 +2,12 @@
 $("document").ready(function() {
     // set variables for all functions
     var $buttonToggleLb = $("#toggleLb"),
-    $buttonToggleSidebar = $("#toggleSidebar"),
+    $buttonToggleNav = $("#toggleNav"),
+    $buttonToggleSettings = $("#toggleSettings"),
     $body = $("#body"),
     $sidebar = $('.c_sidebar'),
     $navigation = $("#navigation"),
-    $menuOpen = $("#menuOpen"),
-    $menuClose = $("#menuClose");
+    $settings = $("#settings");
 
 // toggle the display of line beginnings (<lb/>) by toggling a class
 $buttonToggleLb.on("click", function() {
@@ -20,14 +20,28 @@ $buttonToggleLb.on("click", function() {
 });
 
 // toggle the display of the navigation panel by toggling a class
-$buttonToggleSidebar.on("click", function() {
+$buttonToggleNav.on("click", function() {
     // toggle class of button
-    $buttonToggleSidebar.toggleClass("c_toggled");
+    $buttonToggleNav.toggleClass("c_toggled");
     // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
     // three elements must be moved: $body, $sidebar, the sidebar
     $body.toggleClass("c_sidebar-visible");
     $sidebar.toggleClass("c_sidebar-visible");
-    // this could used to slide out something different from the navigation
     $navigation.toggleClass("c_sidebar-visible");
+});
+// toggle the display of the navigation panel by toggling a class
+$buttonToggleSettings.on("click", function() {
+    // toggle class of button
+    $buttonToggleSettings.toggleClass("c_toggled");
+    // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
+    // three elements must be moved: $body, $sidebar, the sidebar
+    // 1. check the current state of these elements
+    if ($body.hasClass("c_sidebar-visible")) {
+
+    } else {
+        $body.toggleClass("c_sidebar-visible");
+        $sidebar.toggleClass("c_sidebar-visible");
+    };
+    $settings.toggleClass("c_sidebar-visible");
 });
 });
