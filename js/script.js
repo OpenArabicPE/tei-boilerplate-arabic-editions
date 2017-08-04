@@ -35,13 +35,27 @@ $buttonToggleSettings.on("click", function() {
     $buttonToggleSettings.toggleClass("c_toggled");
     // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
     // three elements must be moved: $body, $sidebar, the sidebar
-    // 1. check the current state of these elements
+    // check the current state of these elements
     if ($body.hasClass("c_sidebar-visible")) {
-
+        // a side panel is already visible
+        if ($settings.hasClass("c_sidebar-visible")) {
+            // if the settings panel is visible, everything should be closed
+            $body.removeClass("c_sidebar-visible");
+            $sidebar.removeClass("c_sidebar-visible");
+            $settings.removeClass("c_sidebar-visible");
+        } else {
+            // if the navigation panel is visible, it should be replace with 
+            // the settings panel
+            $navigation.removeClass("c_sidebar-visible");
+            $settings.addClass("c_sidebar-visible");
+            // the button to close the navigation panel should be untoggled
+            $buttonToggleNav.removeClass("c_toggled");
+        };
     } else {
-        $body.toggleClass("c_sidebar-visible");
-        $sidebar.toggleClass("c_sidebar-visible");
+        // no side panel is visible
+        $body.addClass("c_sidebar-visible");
+        $sidebar.addClass("c_sidebar-visible");
+        $settings.addClass("c_sidebar-visible");
     };
-    $settings.toggleClass("c_sidebar-visible");
 });
 });
