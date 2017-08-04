@@ -457,7 +457,7 @@
         <div class="c_sidenav" id="settings">
             <!--<ul lang="en">
             <li>-->
-                <div class="c_button c_button-toggle">
+                <div class="c_button c_button-toggle c_off c_toggle-lb">
                     <span class="c_icon c_on" lang="en">
                         <xsl:copy-of select="document('../assets/icons/circle.svg')"/>
                     </span>
@@ -826,7 +826,7 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- button to toggle settings pane -->
-            <div class="c_button c_button-toggle c_button-sidebar" id="toggleSettings">
+            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleSettings">
                 <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/settings.svg')"/>
                 </span>
@@ -836,7 +836,7 @@
                 <span class="c_label" lang="en">Settings</span>
             </div>
             <!-- button to toggle ToC -->
-            <div class="c_button c_button-toggle c_button-sidebar" id="toggleNav">
+            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleNav">
                 <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/list.svg')"/>
                 </span>
@@ -846,7 +846,7 @@
                 <span class="c_label" lang="en">Contents</span>
             </div>
             <!-- link to Github -->
-            <div id="xmlSourceLink" class="c_button-sidebar">
+            <div id="xmlSourceLink" class="c_button c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/download.svg')"/>
                 </span>
@@ -857,7 +857,7 @@
             </div>
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
-                <div id="nextIssue" class="c_button-sidebar">
+                <div id="nextIssue" class="c_button c_button-sidebar">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
                     </span>
@@ -867,7 +867,7 @@
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
-                <div id="prevIssue" class="c_button-sidebar">
+                <div id="prevIssue" class="c_button c_button-sidebar">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
                     </span>
@@ -877,19 +877,19 @@
                 </div>
             </xsl:if>
             <!-- top and bottom -->
-            <div id="backToTop" class="c_button-sidebar">
+            <div id="backToTop" class="c_button c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
                 </span>
                 <a href="#" class="c_label" lang="en">Top of the page</a>
             </div>
-            <div id="goToBottom" class="c_button-sidebar">
+            <div id="goToBottom" class="c_button c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
                 </span>
                 <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
-            <div id="toggleLb" class="c_button-sidebar c_button-toggle">
+            <div id="toggleLb" class="c_button c_button-sidebar c_button-toggle c_off c_toggle-lb">
                 <span class="c_icon" lang="en">lb</span>
                 <span class="c_label" lang="en">Toggle line breaks</span>
             </div>
