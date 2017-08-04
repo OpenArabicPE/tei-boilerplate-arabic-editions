@@ -54,7 +54,7 @@ div.c_button-sidebar > * {
     padding-right:0.2em;*/
 }
 /* show icon */
-div.c_button-sidebar > *.c_icon {
+div.c_button > .c_icon {
     display: block;
     /* icons should inherit the full width*/
     width: 24px;
@@ -62,7 +62,7 @@ div.c_button-sidebar > *.c_icon {
     margin-right: 8px;
 }
 /* do not display label */
-div.c_button-sidebar > *.c_label {
+div.c_button-sidebar > .c_label {
     visibility: hidden;
     /*padding-left: 40px;*/
     /*width: 200px;*/
