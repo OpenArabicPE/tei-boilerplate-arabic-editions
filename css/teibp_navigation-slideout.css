@@ -1,3 +1,6 @@
+/*****************
+CSS for styling slide-out panels
+*****************/
 .c_sidenav {
       background-color:white;
       border:1px solid #e5e5e5;
@@ -27,7 +30,8 @@ nav ul {
 
 /* set transition times */
 .c_sidenav,
-nav,
+.c_sidebar,
+/*nav,*/
 #body {
       transition: 0.5s
 }
@@ -99,7 +103,7 @@ nav a * {
 slideout: using class c_sidebar-visible;
 *************************/
 /*move everything left*/
-#navigation.c_sidebar-visible {
+.c_sidenav.c_sidebar-visible {
    width: 300px;
 }
 #sidebar-buttons.c_sidebar-visible {
