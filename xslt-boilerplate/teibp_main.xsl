@@ -33,9 +33,11 @@
                     <xsl:call-template name="teibpToolbox"/>
                 </xsl:if>-->
                 <!-- to prepare for the slideout, navigation and content are wrapped in divs  -->
-                <div class="c_sidenav" id="navigation">
                     <xsl:copy-of select="$v_navigation"/>
-                </div>
+                
+                <!-- add a settings panel  -->
+                    <xsl:copy-of select="$v_settings"/>
+                
                 <div class="c_content" id="content">
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
@@ -439,6 +441,7 @@
 
     <!-- provide a toc-style navigation -->
     <xsl:variable name="v_navigation">
+        <div class="c_sidenav" id="navigation">
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
             <nav lang="ar">
                 <ul>
@@ -446,6 +449,16 @@
                 </ul>
             </nav>
         </xsl:if>
+        </div>
+    </xsl:variable>
+    
+    <!-- provide a settings panel -->
+    <xsl:variable name="v_settings">
+        <div class="c_sidenav" id="settings">
+            <div lang="en">
+            <span>Toggle line breaks</span>
+        </div>
+        </div>
     </xsl:variable>
 
     <!-- create a sub-list and list item (li) for each bill, section, or article -->
@@ -802,8 +815,18 @@
     <xsl:variable name="v_buttons">
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
+            <!-- button to toggle settings pane -->
+            <div class="c_button-sidebar" id="toggleSettings">
+                <span class="c_icon c_open">
+                    <xsl:copy-of select="document('../assets/icons/settings.svg')"/>
+                </span>
+                <span class="c_icon c_close">
+                    <xsl:copy-of select="document('../assets/icons/x.svg')"/>
+                </span>
+                <span class="c_label" lang="en">Settings</span>
+            </div>
             <!-- button to toggle ToC -->
-            <div class="c_button-sidebar" id="toggleSidebar">
+            <div class="c_button-sidebar" id="toggleNav">
                 <span class="c_icon c_open">
                     <xsl:copy-of select="document('../assets/icons/list.svg')"/>
                 </span>
