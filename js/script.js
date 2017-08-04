@@ -5,7 +5,9 @@ $("document").ready(function() {
     $buttonToggleNav = $("#toggleNav"),
     $buttonToggleSettings = $("#toggleSettings"),
     $body = $("#body"),
+    $mainContent = $("#tei_wrapper"),
     $sidebar = $('.c_sidebar'),
+    $sidepanels = $(".c_sidenav"),
     $navigation = $("#navigation"),
     $settings = $("#settings");
 
@@ -30,7 +32,7 @@ $buttonToggleLb.on("click", function() {
 $buttonToggleNav.on("click", function() {
     // toggle class of button
     // $buttonToggleNav.toggleClass("c_toggled");
-     if ($buttonToggleNav.hasClass("c_on")) {
+    if ($buttonToggleNav.hasClass("c_on")) {
         $buttonToggleNav.removeClass("c_on");
         $buttonToggleNav.addClass("c_off");
     } else {
@@ -66,7 +68,7 @@ $buttonToggleNav.on("click", function() {
 $buttonToggleSettings.on("click", function() {
     // toggle class of button
     // $buttonToggleSettings.toggleClass("c_toggled");
-     if ($buttonToggleSettings.hasClass("c_on")) {
+    if ($buttonToggleSettings.hasClass("c_on")) {
         $buttonToggleSettings.removeClass("c_on");
         $buttonToggleSettings.addClass("c_off");
     } else {
@@ -97,6 +99,19 @@ $buttonToggleSettings.on("click", function() {
         $body.addClass("c_sidebar-visible");
         $sidebar.addClass("c_sidebar-visible");
         $settings.addClass("c_sidebar-visible");
+    };
+});
+// close any side panel upon clicking on the main content
+$mainContent.on("click", function(){
+    var $sidebarToggleButtonsOn = $(".c_button-sidebar.c_button-toggle.c_on");
+    // every click on the body should close the sidepanels
+    if ($body.hasClass("c_sidebar-visible")) {
+        // console.log("sidebar is visible")
+        $body.removeClass("c_sidebar-visible");
+        $sidebar.removeClass("c_sidebar-visible");
+        $sidepanels.removeClass("c_sidebar-visible");
+        $sidebarToggleButtonsOn.removeClass("c_on");
+        $sidebarToggleButtonsOn.addClass("c_off");
     };
 });
 });

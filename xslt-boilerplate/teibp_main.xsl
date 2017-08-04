@@ -42,7 +42,7 @@
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
                     <!-- this is the actual content -->
-                    <div id="tei_wrapper" onclick="closeNav()">
+                    <div id="tei_wrapper">
                         <xsl:apply-templates/>
                     </div>
                     <!-- this was moved to the back of the TEI document -->
