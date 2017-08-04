@@ -5,13 +5,16 @@ div.c_sidebar {
     display: block;
     width: 40px;
     right: 0px;
-    transition: 0.5s;
+    /*transition: 0.5s;*/
     /*set margin and padding to zero */
     margin: 0;
     padding: 0;
 }
+.c_button {
+    cursor: pointer;
+}
     
-div.c_button-sidebar{
+.c_button-sidebar{
     display: block;
     background-color:white;
     border:1px solid #e5e5e5;
@@ -51,7 +54,7 @@ div.c_button-sidebar > * {
     padding-right:0.2em;*/
 }
 /* show icon */
-div.c_button-sidebar > *.c_icon {
+div.c_button > .c_icon {
     display: block;
     /* icons should inherit the full width*/
     width: 24px;
@@ -59,7 +62,7 @@ div.c_button-sidebar > *.c_icon {
     margin-right: 8px;
 }
 /* do not display label */
-div.c_button-sidebar > *.c_label {
+div.c_button-sidebar > .c_label {
     visibility: hidden;
     /*padding-left: 40px;*/
     /*width: 200px;*/
@@ -89,126 +92,59 @@ div.c_button-sidebar:focus > *.c_label {
 
 /* sort order of buttons and stack them vertically */
 /*#menu,*/
-#menuOpen,
-#menuClose,
-#toggleSidebar {
-    top: 0px;
+#toggleSettings {
+    top:0px;
 }
-#xmlSourceLink{
+#toggleNav {
     top:40px;
 }
-#backToTop{
+#xmlSourceLink{
     top:80px;
 }
-#goToBottom {
+#backToTop{
     top:120px;
 }
-#prevIssue{
+#goToBottom {
     top:160px;
 }
-#nextIssue{
+#prevIssue{
     top:200px;
 }
-/* the first button toggling display features should have a leading gap*/
-#toggleLb {
+#nextIssue{
     top:240px;
 }
+/* the first button toggling display features should have a leading gap*/
+/*#toggleLb {
+    bottom:0px;
+}*/
 /* change toggled buttons*/
-#toggleLb.c_toggled{
+#toggleLb.c_toggled,
+#toggleLb.c_on{
     /*color: white;
     background-color: black;*/
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.6);
 }
-#toggleSidebar >.c_open {
+.c_button-toggle >.c_on,
+.c_button-toggle.c_off >.c_on {
     display: block;
 }
-#toggleSidebar >.c_close {
+.c_button-toggle >.c_off,
+.c_button-toggle.c_off > .c_off {
     display: none;
 }
-#toggleSidebar.c_toggled >.c_open {
+.c_button-toggle.c_toggled >.c_on,
+.c_button-toggle.c_on >.c_on {
     display: none;
 }
-#toggleSidebar.c_toggled >.c_close {
+.c_button-toggle.c_toggled >.c_off,
+.c_button-toggle.c_on > .c_off {
     display: block;
 }
 /* content of buttons */
-#c_sidebar svg {
+.c_button-sidebar svg,
+.c_button svg {
     display: block;
-    width: 100%;
-    height: 100%;
-}
-/*#toggleSidebar:before {
-   content: url("../assets/icons/list.svg");
-   display: block;
-   position: fixed;
-   margin: auto;
-   padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-}*/
-/*#toggleSidebar.c_toggled:before {
-   content: url("../assets/icons/x.svg");
-   display: block;
-   position: fixed;
-   margin: auto;
-   padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-}*/
-/*#xmlSourceLink:before{
-    content: url("../assets/icons/download.svg");
-    font-size:20px;
-   padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
-}*/
-/*#prevIssue:before{
-    content: url("../assets/icons/chevron-left.svg");
-    font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
-}*/
-/*#nextIssue:before{
-    content: url("../assets/icons/chevron-right.svg");
-    font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
-}*/
-/*#backToTop:before{
-    content: url("../assets/icons/arrow-up.svg");
-    font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
-}*/
-/*#goToBottom:before{
-    content: url("../assets/icons/arrow-down.svg");
-    font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
-}*/
-/*#toggleLb:before{
-    content:"lb";
-    font-size:20px;
-    padding-left:0.5em;
-    padding-right:0.5em;
-    padding-top:0.5em;
-    padding-bottom:0.5em;
-    position:fixed;
+    width: 22px;
+    height: 22px;
 }

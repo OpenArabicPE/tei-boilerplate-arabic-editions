@@ -1,18 +1,25 @@
 // jQuery
 $("document").ready(function() {
     // set variables for all functions
-    var $buttonToggleLb = $("#toggleLb"),
-    $buttonToggleSidebar = $("#toggleSidebar"),
+    var $buttonToggleLb = $(".c_toggle-lb"),
+    $buttonToggleNav = $("#toggleNav"),
+    $buttonToggleSettings = $("#toggleSettings"),
     $body = $("#body"),
     $sidebar = $('.c_sidebar'),
     $navigation = $("#navigation"),
-    $menuOpen = $("#menuOpen"),
-    $menuClose = $("#menuClose");
+    $settings = $("#settings");
 
 // toggle the display of line beginnings (<lb/>) by toggling a class
 $buttonToggleLb.on("click", function() {
     // toogle class of button
-    $buttonToggleLb.toggleClass("c_toggled");
+    // $buttonToggleLb.toggleClass("c_toggled");
+    if ($buttonToggleLb.hasClass("c_on")) {
+        $buttonToggleLb.removeClass("c_on");
+        $buttonToggleLb.addClass("c_off");
+    } else {
+        $buttonToggleLb.removeClass("c_off");
+        $buttonToggleLb.addClass("c_on");
+    };
     // change the class of all line breaks to "c_toggled". The display is then set to "display:block" in CSS
     $("lb").toggleClass("c_toggled");
     // or change <lb> to <br>, but <br> has currently no styles associated in CSS
@@ -20,14 +27,76 @@ $buttonToggleLb.on("click", function() {
 });
 
 // toggle the display of the navigation panel by toggling a class
-$buttonToggleSidebar.on("click", function() {
+$buttonToggleNav.on("click", function() {
     // toggle class of button
-    $buttonToggleSidebar.toggleClass("c_toggled");
-    // try to set css on $body: invariably fails. Instead, everything can done through toggling classes and CSS
+    // $buttonToggleNav.toggleClass("c_toggled");
+     if ($buttonToggleNav.hasClass("c_on")) {
+        $buttonToggleNav.removeClass("c_on");
+        $buttonToggleNav.addClass("c_off");
+    } else {
+        $buttonToggleNav.removeClass("c_off");
+        $buttonToggleNav.addClass("c_on");
+    };
     // three elements must be moved: $body, $sidebar, the sidebar
-    $body.toggleClass("c_sidebar-visible");
-    $sidebar.toggleClass("c_sidebar-visible");
-    // this could used to slide out something different from the navigation
-    $navigation.toggleClass("c_sidebar-visible");
+    // check the current state of these elements
+    if ($body.hasClass("c_sidebar-visible")) {
+        // a side panel is already visible
+        if ($navigation.hasClass("c_sidebar-visible")) {
+            // if the navigation panel is visible, everything should be closed
+            $body.removeClass("c_sidebar-visible");
+            $sidebar.removeClass("c_sidebar-visible");
+            $navigation.removeClass("c_sidebar-visible");
+        } else {
+            // if the settings panel is visible, it should be replace with 
+            // the navigation panel
+            $settings.removeClass("c_sidebar-visible");
+            $navigation.addClass("c_sidebar-visible");
+            // the button to close the settings panel should be untoggled
+            $buttonToggleSettings.removeClass("c_on");
+            $buttonToggleSettings.addClass("c_off");
+        };
+    } else {
+        // no side panel is visible
+        $body.addClass("c_sidebar-visible");
+        $sidebar.addClass("c_sidebar-visible");
+        $navigation.addClass("c_sidebar-visible");
+    };
+});
+// toggle the display of the navigation panel by toggling a class
+$buttonToggleSettings.on("click", function() {
+    // toggle class of button
+    // $buttonToggleSettings.toggleClass("c_toggled");
+     if ($buttonToggleSettings.hasClass("c_on")) {
+        $buttonToggleSettings.removeClass("c_on");
+        $buttonToggleSettings.addClass("c_off");
+    } else {
+        $buttonToggleSettings.removeClass("c_off");
+        $buttonToggleSettings.addClass("c_on");
+    };
+    // three elements must be moved: $body, $sidebar, the sidebar
+    // check the current state of these elements
+    if ($body.hasClass("c_sidebar-visible")) {
+        // a side panel is already visible
+        if ($settings.hasClass("c_sidebar-visible")) {
+            // if the settings panel is visible, everything should be closed
+            $body.removeClass("c_sidebar-visible");
+            $sidebar.removeClass("c_sidebar-visible");
+            $settings.removeClass("c_sidebar-visible");
+        } else {
+            // if the navigation panel is visible, it should be replace with 
+            // the settings panel
+            $navigation.removeClass("c_sidebar-visible");
+            $settings.addClass("c_sidebar-visible");
+            // the button to close the navigation panel should be untoggled
+            // $buttonToggleNav.removeClass("c_toggled");
+            $buttonToggleNav.removeClass("c_on");
+            $buttonToggleNav.addClass("c_off");
+        };
+    } else {
+        // no side panel is visible
+        $body.addClass("c_sidebar-visible");
+        $sidebar.addClass("c_sidebar-visible");
+        $settings.addClass("c_sidebar-visible");
+    };
 });
 });
