@@ -455,9 +455,19 @@
     <!-- provide a settings panel -->
     <xsl:variable name="v_settings">
         <div class="c_sidenav" id="settings">
-            <div lang="en">
-            <span>Toggle line breaks</span>
-        </div>
+            <!--<ul lang="en">
+            <li>-->
+                <div class="c_button c_button-toggle">
+                    <span class="c_icon c_on" lang="en">
+                        <xsl:copy-of select="document('../assets/icons/circle.svg')"/>
+                    </span>
+                    <span class="c_icon c_off" lang="en">
+                        <xsl:copy-of select="document('../assets/icons/check-circle.svg')"/>
+                    </span>
+                    <span class="c_label" lang="en">Toggle line breaks</span>
+                </div>
+            <!--</li>
+        </ul>-->
         </div>
     </xsl:variable>
 
@@ -816,21 +826,21 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- button to toggle settings pane -->
-            <div class="c_button-sidebar" id="toggleSettings">
-                <span class="c_icon c_open">
+            <div class="c_button c_button-toggle c_button-sidebar" id="toggleSettings">
+                <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/settings.svg')"/>
                 </span>
-                <span class="c_icon c_close">
+                <span class="c_icon c_off">
                     <xsl:copy-of select="document('../assets/icons/x.svg')"/>
                 </span>
                 <span class="c_label" lang="en">Settings</span>
             </div>
             <!-- button to toggle ToC -->
-            <div class="c_button-sidebar" id="toggleNav">
-                <span class="c_icon c_open">
+            <div class="c_button c_button-toggle c_button-sidebar" id="toggleNav">
+                <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/list.svg')"/>
                 </span>
-                <span class="c_icon c_close">
+                <span class="c_icon c_off">
                     <xsl:copy-of select="document('../assets/icons/x.svg')"/>
                 </span>
                 <span class="c_label" lang="en">Contents</span>
@@ -879,7 +889,7 @@
                 </span>
                 <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
-            <div id="toggleLb" class="c_button-sidebar">
+            <div id="toggleLb" class="c_button-sidebar c_button-toggle">
                 <span class="c_icon" lang="en">lb</span>
                 <span class="c_label" lang="en">Toggle line breaks</span>
             </div>
