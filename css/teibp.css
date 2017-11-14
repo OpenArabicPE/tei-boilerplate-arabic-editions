@@ -43,7 +43,7 @@
 }
 /* teibp classes */
 .c_teibp-thumbnail {
-  max-height: 60px;
+  /*max-height: 60px;*/
 }
 .c_teibp-pb {
   display: block;
@@ -835,10 +835,10 @@ layoutDesc {
 lb {
   /* Empty Rule Set */
 }
-lb:after {
+/*lb:after {
   content: '\a';
   white-space: pre;
-}
+}*/
 lbl {
   /* Empty Rule Set */
 }

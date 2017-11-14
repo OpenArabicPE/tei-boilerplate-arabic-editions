@@ -33,9 +33,11 @@
                     <xsl:call-template name="teibpToolbox"/>
                 </xsl:if>-->
                 <!-- to prepare for the slideout, navigation and content are wrapped in divs  -->
-                <div class="c_sidenav" id="navigation">
                     <xsl:copy-of select="$v_navigation"/>
-                </div>
+                
+                <!-- add a settings panel  -->
+                    <xsl:copy-of select="$v_settings"/>
+                
                 <div class="c_content" id="content">
                     <!-- the button design is not yet done -->
                     <xsl:copy-of select="$v_buttons"/>
@@ -47,7 +49,9 @@
                     <!--<xsl:copy-of select="$v_notes"/>-->
                     <xsl:copy-of select="$htmlFooter"/>
                 </div>
-                <script type="text/javascript" src="{$p_js-slideout}"></script>
+                <!-- <script type="text/javascript" src="{$p_js-slideout}"></script> -->
+                <!-- <script src="../js/script.js"></script> -->
+                <script src="{$p_js}" type="text/javascript"/>
             </body>
         </html>
     </xsl:template>
@@ -284,11 +288,14 @@
         <head>
             <meta charset="UTF-8"/>
             <xsl:call-template name="t_metadata-dc-file"/>
+            <!-- normalize all styles -->
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css"/>
             <link href="{$teibpCSS}" id="maincss" rel="stylesheet" type="text/css"/>
             <link href="{$customCSS}" id="customcss" rel="stylesheet" type="text/css"/>
             <link href="{$v_css-color}" id="css-color" rel="stylesheet" type="text/css"/>
-            <!--<script src="{$jqueryJS}" type="text/javascript"/>
-            <script src="{$jqueryBlockUIJS}" type="text/javascript"/>
+            <!-- re-added jquery -->
+            <script src="{$jqueryJS}" type="text/javascript"/>
+            <!--<script src="{$jqueryBlockUIJS}" type="text/javascript"/>
             <script src="{$teibpJS}" type="text/javascript"/>
             <script type="text/javascript">
 				$(document).ready(function() {
@@ -434,6 +441,7 @@
 
     <!-- provide a toc-style navigation -->
     <xsl:variable name="v_navigation">
+        <div class="c_sidenav" id="navigation">
         <xsl:if test="/descendant::tei:body/descendant::tei:head">
             <nav lang="ar">
                 <ul>
@@ -441,6 +449,26 @@
                 </ul>
             </nav>
         </xsl:if>
+        </div>
+    </xsl:variable>
+    
+    <!-- provide a settings panel -->
+    <xsl:variable name="v_settings">
+        <div class="c_sidenav" id="settings">
+            <!--<ul lang="en">
+            <li>-->
+                <div class="c_button c_button-toggle c_off c_toggle-lb">
+                    <span class="c_icon c_on" lang="en">
+                        <xsl:copy-of select="document('../assets/icons/circle.svg')"/>
+                    </span>
+                    <span class="c_icon c_off" lang="en">
+                        <xsl:copy-of select="document('../assets/icons/check-circle.svg')"/>
+                    </span>
+                    <span class="c_label" lang="en">Toggle line breaks</span>
+                </div>
+            <!--</li>
+        </ul>-->
+        </div>
     </xsl:variable>
 
     <!-- create a sub-list and list item (li) for each bill, section, or article -->
@@ -506,7 +534,7 @@
         <xsl:text> </xsl:text>
     </xsl:template>
     <!-- toggle the display of line breaks -->
-    <xsl:template match="tei:lb">
+    <!-- <xsl:template match="tei:lb">
         <xsl:choose>
             <xsl:when test="$p_display-line-breaks = true()">
                 <br/>
@@ -515,7 +543,7 @@
                 <xsl:text> </xsl:text>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
+    </xsl:template> -->
     <xsl:template match="tei:cb">
         <xsl:text> </xsl:text>
     </xsl:template>
@@ -797,68 +825,69 @@
     <xsl:variable name="v_buttons">
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
-            <!-- content button -->
-            <div class="c_button-sidebar" id="menuOpen" style="visibility:visible">
-                <span onclick="openNav()"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
+            <!-- button to toggle settings pane -->
+            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleSettings">
+                <span class="c_icon c_on">
+                    <xsl:copy-of select="document('../assets/icons/settings.svg')"/>
+                </span>
+                <span class="c_icon c_off">
+                    <xsl:copy-of select="document('../assets/icons/x.svg')"/>
+                </span>
+                <span class="c_label" lang="en">Settings</span>
             </div>
-            <div class="c_button-sidebar" id="menuClose" style="visibility:hidden">
-                <span onclick="closeNav()"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
+            <!-- button to toggle ToC -->
+            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleNav">
+                <span class="c_icon c_on">
+                    <xsl:copy-of select="document('../assets/icons/list.svg')"/>
+                </span>
+                <span class="c_icon c_off">
+                    <xsl:copy-of select="document('../assets/icons/x.svg')"/>
+                </span>
+                <span class="c_label" lang="en">Contents</span>
             </div>
-            <!--<div class="c_button-sidebar" id="menu">
-                <span onclick="openNav()" id="menuOpen" class="c_visible"><xsl:copy-of select=" document('../assets/icons/list.svg')"/></span>
-                <span onclick="closeNav()" id="menuClose" class="c_hidden"><xsl:copy-of select=" document('../assets/icons/x.svg')"/></span>
-            </div>-->
             <!-- link to Github -->
-            <div id="xmlSourceLink" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="{$v_url-file}">
+            <div id="xmlSourceLink" class="c_button c_button-sidebar">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/download.svg')"/>
+                </span>
+                <a href="{$v_url-file}" class="c_label" lang="en">
                             <!--<img src="http://www.tei-c.org/About/Logos/TEI-175.jpg" alt="TEI"/>-->
                             <xsl:text>TEI source on GitHub</xsl:text>
                         </a>
-                    </li>
-                    
-                </ul>
             </div>
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
-                <div id="nextIssue" class="c_button-sidebar">
-                    <ul>
-                        <li>
-                            <!-- <a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo +1,'.TEIP5.xml')}">-->
-                            <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml">
+                <div id="nextIssue" class="c_button c_button-sidebar">
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                    </span>
+                    <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_next-issue"/>
                             </a>
-                        </li>
-                    </ul>
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
-                <div id="prevIssue" class="c_button-sidebar">
-                    <ul>
-                        <li>
-                            <!--<a href="{concat(substring-before($vFileId,'-i_'),'-i_',$vFileIssueNo -1,'.TEIP5.xml')}">-->
-                            <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml">
+                <div id="prevIssue" class="c_button c_button-sidebar">
+                    <span class="c_icon">
+                        <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                    </span>
+                    <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label" lang="{$v_lang-interface}">
                                 <xsl:copy-of select="$p_text-nav_previous-issue"/>
                             </a>
-                        </li>
-                    </ul>
                 </div>
             </xsl:if>
             <!-- top and bottom -->
-            <div id="backToTop" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="#">Top of the page</a>
-                    </li>
-                </ul>
+            <div id="backToTop" class="c_button c_button-sidebar">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
+                </span>
+                <a href="#" class="c_label" lang="en">Top of the page</a>
             </div>
-            <div id="goToBottom" class="c_button-sidebar">
-                <ul>
-                    <li>
-                        <a href="#footer">Bottom of the page</a>
-                    </li>
-                </ul>
+            <div id="goToBottom" class="c_button c_button-sidebar">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
+                </span>
+                <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
             </div>
         </div>
     </xsl:variable>
@@ -930,7 +959,7 @@
                 <!-- <xsl:text>link</xsl:text> -->
             </xsl:otherwise>
         </xsl:choose>
-            <xsl:copy-of select=" document('../assets/icons/external-link.svg')"/>
+            <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
         </a>
     </xsl:template>
     

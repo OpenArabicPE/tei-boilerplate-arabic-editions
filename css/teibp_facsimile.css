@@ -128,7 +128,7 @@ span.c_teibp-pb img {
 	display: block;
 	width:430px;
 	height: 100% !important;
-	max-height: 100% !important;
+	/*max-height: 100% !important;*/
 	border-style: none;
 	/* make images sticky: "position: sticky" does not seem to work with floating elements */
     /*position: -webkit-sticky;
