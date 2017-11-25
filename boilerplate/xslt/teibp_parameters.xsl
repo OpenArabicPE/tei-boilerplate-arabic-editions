@@ -14,7 +14,7 @@
     </xd:doc>
     
     <!-- Load all other stylesheets -->
-    <!-- import the standard TEI Boilerplate stylesheets -->
+    <!-- import the standard TEI Boilerplate stylesheets. If you link to versions hosted on GitHub make sure to point to a stable version to ensure that future changes won't break your set-up -->
     <xsl:include href="teibp_main.xsl"/>
     <xsl:include href="teibp_sourcedesc.xsl"/>
     <xsl:include href="xml-to-string.xsl"/>
@@ -190,7 +190,7 @@
     <!-- parameters for file paths or URLs -->
     <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>
 	-->
-    <xsl:param name="filePrefix" select="'..'"/>
+    <xsl:param name="filePrefix" select="'../boilerplate/'"/>
     <!-- the following parameters should not be changed unless the folder structure and file names have been changed -->
     <xsl:param name="teibpCSS" select="concat($filePrefix, '/css/teibp.css')"/>
     <xsl:param name="customCSS" select="concat($filePrefix, '/css/teibp_custom.css')"/>

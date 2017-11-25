@@ -43,6 +43,12 @@
         <!-- select which online facsimile to display based on the order of preference: EAP, sakhrit, HathiTrust, other; and https over http -->
         <xsl:variable name="v_url-graphic">
             <xsl:choose>
+                <!-- sequence of providers and protocolls is currently hardcoded and can be changed to taste -->
+                <!-- iiif -->
+                <xsl:when test="$v_graphic[@type='iiif']">
+                    <!-- iiif allows for various paramters to be set. Currently, we opted for minimized traffic -->
+                    <xsl:value-of select="concat($v_graphic[@type='iiif'][1]/@url,'/full/400,/0/gray.jpg')"/>
+                </xsl:when>
                 <xsl:when test="$v_graphic[starts-with(@url, 'https://eap.')]">
                     <xsl:value-of select="$v_graphic[starts-with(@url, 'https://eap.')][1]/@url"/>
                 </xsl:when>
@@ -100,7 +106,17 @@
         <!-- constructing a link for every graphic element -->
         <xsl:variable name="v_facs-links">
             <xsl:for-each select="$v_graphic[starts-with(@url, 'http')]">
-                <a href="{@url}" target="_blank">
+                <a target="_blank">
+                    <xsl:attribute name="href">
+                        <xsl:choose>
+                            <xsl:when test="@type='iiif'">
+                                <xsl:value-of select="concat(@url,'/full/800,/0/gray.jpg')"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="@url"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
                     <xsl:call-template name="t_url-to-name">
                         <xsl:with-param name="p_input" select="@url"/>
                     </xsl:call-template>
@@ -148,13 +164,13 @@
     <xsl:template name="t_url-to-name">
         <xsl:param name="p_input"/>
         <xsl:choose>
-            <xsl:when test="contains($p_input, '://eap.')">
+            <xsl:when test="contains($p_input, 'eap.')">
                 <span lang="en">EAP</span>
             </xsl:when>
-            <xsl:when test="contains($p_input, '://archive.sakhrit.co')">
+            <xsl:when test="contains($p_input, 'archive.sakhrit.co')">
                 <span lang="en">archive.sakhrit.co</span>
             </xsl:when>
-            <xsl:when test="contains($p_input, '://babel.hathitrust.org')">
+            <xsl:when test="contains($p_input, 'hathitrust.')">
                 <span lang="en">HathiTrust</span>
             </xsl:when>
             <xsl:otherwise>
