@@ -340,6 +340,15 @@
                 automatic conversion from ePub using custom XSLT.</change>
         </revisionDesc>
     </teiHeader>
+    <facsimile xml:id="facs">
+        <surface xml:id="facs_6">
+            <graphic xml:id="facs_6-g_1" url="../images/oclc_4770057679-v_6/njp-32101073250910-img_006.tif" mimeType="image/tiff"/>
+            <graphic xml:id="facs_6-g_2" url="../images/oclc_4770057679-v_6/njp-32101073250910-img_006.jpg" mimeType="image/jpeg"/>
+            <graphic xml:id="facs_6-g_3" url="http://babel.hathitrust.org/cgi/imgsrv/image?id=njp.32101073250910;seq=6" mimeType="image/jpeg"/>
+            <graphic xml:id="facs_6-g_4" url="http://eap.bl.uk/EAPDigitalItems/EAP119/EAP119_1_4_5-EAP119_muq191102_002_L.jpg" mimeType="image/jpeg"/>
+            <graphic url="http://images.eap.bl.uk/EAP119/EAP119_1_4_5/2.jp2" xml:id="facs_6-g-5" type="iiif"/>
+        </surface>
+    </facsimile>
     <text n="i60" type="issue" xml:id="text" xml:lang="ar">
         <front xml:id="front_1.d1e1493" xml:lang="ar">
             <div xml:id="div_1.d1e1495" xml:lang="ar">
