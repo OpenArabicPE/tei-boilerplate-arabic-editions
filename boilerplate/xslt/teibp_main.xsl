@@ -971,6 +971,7 @@
 
     <!-- provide links to linked data -->
     <xsl:template match="tei:*[@ref][ancestor::tei:text]">
+        <span class="c_toggle-popup">
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
@@ -1023,6 +1024,13 @@
             <!-- add the arrow symbol -->
             <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
         </a>
+        <!--<xsl:call-template name="t_pop-up-note">
+            <xsl:with-param name="p_lang" select="'en'"/>
+            <xsl:with-param name="p_content">
+                <xsl:text>Test text</xsl:text>
+            </xsl:with-param>
+        </xsl:call-template>-->
+    </span>
     </xsl:template>
 
     <!-- template to provide permalinks to elements -->
@@ -1045,7 +1053,7 @@
                 </xsl:when>
             </xsl:choose>
         </xsl:variable>
-        <a href="#{$p_id}" class="c_link-self" title="{concat($p_text-permalink, $v_name-element)}">
+        <a href="#{$p_id}" class="c_link-self c_toggle-popup" title="{concat($p_text-permalink, $v_name-element)}">
             <xsl:copy-of select="$p_content"/>
             <!-- generate a pop-up label -->
             <span class="c_link-self c_id c_hidden" lang="en">
