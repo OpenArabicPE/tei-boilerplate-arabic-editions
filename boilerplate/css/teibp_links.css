@@ -54,7 +54,7 @@ a.c_link-self .c_number {
 }
 
 /* hide content of links that is marked as hidden */
-a .c_hidden {
+.c_hidden {
 	display: none;
 }
 
