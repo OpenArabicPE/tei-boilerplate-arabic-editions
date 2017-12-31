@@ -747,27 +747,38 @@
             </a>
         </note>
     </xsl:template>
-    <!-- generate the references to the block of endnotes in the text -->
+    <!-- generate the references to the block of endnotes in the text, including a potential pop-up -->
     <xsl:template match="tei:body//tei:note[@type='footnote' or @type='endnote']">
         <a href="#fn-{generate-id()}" id="fn-mark-{generate-id()}" class="c_fn cContent">
             <!-- one should have the full text of the note hidden by CSS -->
             <span class="c_fn-mark" lang="en"><xsl:value-of select="count(preceding::tei:note[ancestor::tei:body]) + 1"/></span>
-            <span class="c_fn-content c_hidden">
-                <xsl:call-template name="templHtmlAttrLang">
-                    <xsl:with-param name="pInput" select="."/>
-                </xsl:call-template>
-                <xsl:choose>
-                    <xsl:when test="string-length(.) &gt; 150">
-                        <xsl:value-of select="substring(.,1,150)"/>
-                        <xsl:text> [...]</xsl:text>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <!-- to catch all child nodes of a note, one needs apply-templates -->
-                        <xsl:apply-templates/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </span>
+            <xsl:call-template name="t_pop-up-note">
+                <xsl:with-param name="p_input" select="."/>
+                <xsl:with-param name="p_content">
+                    <xsl:choose>
+                        <xsl:when test="string-length(.) &gt; 150">
+                            <xsl:value-of select="substring(.,1,150)"/>
+                            <xsl:text> [...]</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <!-- to catch all child nodes of a note, one needs apply-templates -->
+                            <xsl:apply-templates/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:with-param>
+            </xsl:call-template>
         </a>
+    </xsl:template>
+    
+    <xsl:template name="t_pop-up-note">
+        <xsl:param name="p_input"/>
+        <xsl:param name="p_content"/>
+            <span class="c_fn-content c_popup c_hidden">
+                <xsl:call-template name="templHtmlAttrLang">
+                    <xsl:with-param name="pInput" select="$p_input"/>
+                </xsl:call-template>
+               <xsl:copy-of select="$p_content"/>
+            </span>
     </xsl:template>
     
     <!-- editorial changes to the text: as we are dealing with printed material only, all changes were made by editors of the digital text -->
