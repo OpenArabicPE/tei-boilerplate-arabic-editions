@@ -1020,6 +1020,7 @@
                     <!-- <xsl:text>link</xsl:text> -->
                 </xsl:otherwise>
             </xsl:choose>
+            <!-- add the arrow symbol -->
             <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
         </a>
     </xsl:template>
