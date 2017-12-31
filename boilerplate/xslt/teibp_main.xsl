@@ -782,7 +782,7 @@
     </xsl:template>
     <!-- generate the references to the block of endnotes in the text, including a potential pop-up -->
     <xsl:template match="tei:body//tei:note[@type = 'footnote' or @type = 'endnote']">
-        <a href="#fn-{generate-id()}" id="fn-mark-{generate-id()}" class="c_fn cContent">
+        <a href="#fn-{generate-id()}" id="fn-mark-{generate-id()}" class="c_fn cContent c_toggle-popup">
             <!-- one should have the full text of the note hidden by CSS -->
             <span class="c_fn-mark" lang="en">
                 <xsl:value-of select="count(preceding::tei:note[ancestor::tei:body]) + 1"/>
