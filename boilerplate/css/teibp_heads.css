@@ -28,7 +28,7 @@ div > head {
     position: -ms-sticky;
     position: -o-sticky;
     position: sticky;
-    z-index: 60;
+    z-index: 20;
 }
 
 
