@@ -914,8 +914,17 @@
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
                     </span>
-                    <a href="{descendant-or-self::tei:TEI/@next}.TEIP5.xml" class="c_label"
-                        lang="{$v_lang-interface}">
+                    <a class="c_label" lang="{$v_lang-interface}">
+                        <xsl:attribute name="href">
+                            <xsl:choose>
+                                <xsl:when test="substring-after(descendant-or-self::tei:TEI/@next,'.')='TEIP5.xml'">
+                                    <xsl:value-of select="descendant-or-self::tei:TEI/@next"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="concat(descendant-or-self::tei:TEI/@next,'.TEIP5.xml')"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:attribute>
                         <xsl:copy-of select="$p_text-nav_next-issue"/>
                     </a>
                 </div>
@@ -925,8 +934,17 @@
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
                     </span>
-                    <a href="{descendant-or-self::tei:TEI/@prev}.TEIP5.xml" class="c_label"
-                        lang="{$v_lang-interface}">
+                    <a class="c_label" lang="{$v_lang-interface}">
+                        <xsl:attribute name="href">
+                            <xsl:choose>
+                                <xsl:when test="substring-after(descendant-or-self::tei:TEI/@next,'.')='TEIP5.xml'">
+                                    <xsl:value-of select="descendant-or-self::tei:TEI/@next"/>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:value-of select="concat(descendant-or-self::tei:TEI/@next,'.TEIP5.xml')"/>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </xsl:attribute>
                         <xsl:copy-of select="$p_text-nav_previous-issue"/>
                     </a>
                 </div>
