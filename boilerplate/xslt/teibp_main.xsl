@@ -851,6 +851,8 @@
     <xsl:template match="tei:del[@resp = '#org_MS']">
         <xsl:apply-templates/>
     </xsl:template>
+    <!-- sometimes the editors at shamela.ws commented on the text. This should also be ignored -->
+    <xsl:template match="tei:note[@resp='#org_MS']"/>
 
     <!-- abbreviations: are dealt with in CSS -->
 
@@ -937,11 +939,11 @@
                     <a class="c_label" lang="{$v_lang-interface}">
                         <xsl:attribute name="href">
                             <xsl:choose>
-                                <xsl:when test="substring-after(descendant-or-self::tei:TEI/@next,'.')='TEIP5.xml'">
-                                    <xsl:value-of select="descendant-or-self::tei:TEI/@next"/>
+                                <xsl:when test="substring-after(descendant-or-self::tei:TEI/@prev,'.')='TEIP5.xml'">
+                                    <xsl:value-of select="descendant-or-self::tei:TEI/@prev"/>
                                 </xsl:when>
                                 <xsl:otherwise>
-                                    <xsl:value-of select="concat(descendant-or-self::tei:TEI/@next,'.TEIP5.xml')"/>
+                                    <xsl:value-of select="concat(descendant-or-self::tei:TEI/@prev,'.TEIP5.xml')"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:attribute>
