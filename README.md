@@ -24,7 +24,7 @@ In order to make use of XSLT 1 stylesheets in a web browser, one has to provide 
 
 ~~~{.xml}
 <?xml-stylesheet type="text/xsl" href="path-to-the-boilerplate-folder/teibp_parameters.xsl"?>
-~~~ 
+~~~
 
 The boilerplate can be installed / used in three different ways:
 
