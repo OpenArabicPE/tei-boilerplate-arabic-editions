@@ -827,6 +827,7 @@
                 <xsl:when test="tei:orig and tei:corr[not(@resp = '#org_MS')]">
                     <xsl:choose>
                         <xsl:when test="$p_display-editorial-changes = true()">
+                            <xsl:apply-templates select="tei:orig"/>
                             <xsl:apply-templates select="tei:corr"/>
                         </xsl:when>
                         <xsl:otherwise>
