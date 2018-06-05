@@ -1000,51 +1000,53 @@
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
         <!-- do something with private urls -->
-        <a class="c_linked-data" target="_blank" lang="en">
-            <xsl:choose>
-                <xsl:when test="starts-with(@ref, 'geon')">
-                    <xsl:attribute name="href">
-                        <xsl:value-of
-                            select="concat('http://www.geonames.org/', substring-after(@ref, 'geon:'))"
-                        />
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this toponym on GeoNames</xsl:text>
-                    </xsl:attribute>
-                    <!-- <xsl:text>geonames</xsl:text> -->
-                </xsl:when>
-                <xsl:when test="starts-with(@ref, 'oclc')">
-                    <xsl:attribute name="href">
-                        <xsl:value-of
-                            select="concat('https://www.worldcat.org/oclc/', substring-after(@ref, 'oclc:'))"
-                        />
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
-                    </xsl:attribute>
-                    <!-- <xsl:text>oclc</xsl:text> -->
-                </xsl:when>
-                <xsl:when test="starts-with(@ref, 'viaf')">
-                    <xsl:attribute name="href">
-                        <xsl:value-of
-                            select="concat('https://viaf.org/viaf/', substring-after(@ref, 'viaf:'))"
-                        />
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this entity at VIAF</xsl:text>
-                    </xsl:attribute>
-                    <!-- <xsl:text>viaf</xsl:text> -->
-                </xsl:when>
-                <xsl:otherwise>
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="@ref"/>
-                    </xsl:attribute>
-                    <!-- <xsl:text>link</xsl:text> -->
-                </xsl:otherwise>
-            </xsl:choose>
-            <!-- add the arrow symbol -->
-            <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
-        </a>
+            <a class="c_linked-data" lang="en" target="_blank">
+                <xsl:choose>
+                    <xsl:when test="starts-with(@ref, 'geon')">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('http://www.geonames.org/', substring-after(@ref, 'geon:'))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="title">
+                            <xsl:text>Link to this toponym on GeoNames</xsl:text>
+                        </xsl:attribute>
+                        <!-- <xsl:text>geonames</xsl:text>-->
+                        <!-- add a mapping symbol -->
+                        <xsl:copy-of select="document('../assets/icons/map-pin.svg')"/>
+                    </xsl:when>
+                    <xsl:when test="starts-with(@ref, 'oclc')">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('https://www.worldcat.org/oclc/', substring-after(@ref, 'oclc:'))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="title">
+                            <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
+                        </xsl:attribute>
+                        <!-- <xsl:text>oclc</xsl:text>-->
+                        <!-- add the arrow symbol -->
+                        <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
+                    </xsl:when>
+                    <xsl:when test="starts-with(@ref, 'viaf')">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('https://viaf.org/viaf/', substring-after(@ref, 'viaf:'))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="title">
+                            <xsl:text>Link to this entity at VIAF</xsl:text>
+                        </xsl:attribute>
+                        <!-- <xsl:text>viaf</xsl:text>-->
+                        <!-- add a symbol for a person -->
+                        <xsl:copy-of select="document('../assets/icons/user.svg')"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="@ref"/>
+                        </xsl:attribute>
+                        <!-- <xsl:text>link</xsl:text>-->
+                        <!-- add the arrow symbol -->
+                        <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+                <!-- add the arrow symbol -->
+                <!-- <xsl:copy-of select="document('../assets/icons/external-link.svg')"/> -->
+            </a>
         <!--<xsl:call-template name="t_pop-up-note">
             <xsl:with-param name="p_lang" select="'en'"/>
             <xsl:with-param name="p_content">
