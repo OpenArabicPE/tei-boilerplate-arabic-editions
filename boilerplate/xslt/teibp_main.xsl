@@ -1022,7 +1022,7 @@
                         </xsl:attribute>
                         <!-- <xsl:text>oclc</xsl:text>-->
                         <!-- add the arrow symbol -->
-                        <xsl:copy-of select="document('../assets/icons/external-link.svg')"/>
+                        <xsl:copy-of select="document('../assets/icons/book-open.svg')"/>
                     </xsl:when>
                     <xsl:when test="starts-with(@ref, 'viaf')">
                         <xsl:attribute name="href">
