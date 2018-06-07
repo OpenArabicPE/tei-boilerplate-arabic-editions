@@ -29,18 +29,18 @@ head a.c_link-self {
 
 /* footnote anchors and external references */
 .c_fn-mark, 
-a.c_linked-data,
+/*a.c_linked-data,*/
 a.c_corresp {
     vertical-align:top;
     font-size:10px !important;
     padding-left:0.5em;
     padding-right:0.5em;
 }
-/* size of the arrows following each link*/
-a.c_linked-data svg {
+/* size of the arrows following each link: this has been changed */
+/*a.c_linked-data svg {
 	width: 10px;
 	height: 10px;
-}
+}*/
 
 /* footnote back links */
 *[lang="ar"] >a.c_fn-back:after {
