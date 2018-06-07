@@ -1043,7 +1043,7 @@
         </span>
     </xsl:template>
 
-    <xsl:template match="tei:persName">
+    <xsl:template match="tei:persName[ancestor::tei:body]">
         <xsl:variable name="v_icon" select="document('../assets/icons/user.svg')"/>
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
@@ -1066,8 +1066,8 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:orgName">
-        <xsl:variable name="v_icon" select="document('../assets/icons/user.svg')"/>
+    <xsl:template match="tei:orgName[ancestor::tei:body]">
+        <xsl:variable name="v_icon" select="document('../assets/icons/users.svg')"/>
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
@@ -1089,7 +1089,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:placeName">
+    <xsl:template match="tei:placeName[ancestor::tei:body]">
         <xsl:variable name="v_icon" select="document('../assets/icons/map-pin.svg')"/>
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
@@ -1112,7 +1112,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="tei:title[@level=('m' or 'j')]">
+    <xsl:template match="tei:title[ancestor::tei:body][@level=('m' or 'j')]">
         <xsl:variable name="v_icon" select="document('../assets/icons/book-open.svg')"/>
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
