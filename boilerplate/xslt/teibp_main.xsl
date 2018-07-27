@@ -1093,6 +1093,17 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    <xsl:template match="tei:date[ancestor::tei:body]">
+        <xsl:variable name="v_icon" select="document('../assets/icons/calendar.svg')"/>
+        <xsl:copy>
+            <xsl:call-template name="templHtmlAttrLang">
+                <xsl:with-param name="pInput" select="."/>
+            </xsl:call-template>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+        <!-- add icon -->
+        <span class="c_icon-entity"><xsl:copy-of select="$v_icon"/></span>
+    </xsl:template>
 
 
 
