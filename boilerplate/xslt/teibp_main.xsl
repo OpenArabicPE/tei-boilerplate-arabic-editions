@@ -518,7 +518,8 @@
                             <xsl:text>تأليف: </xsl:text>
                         </xsl:when>
                     </xsl:choose>
-                    <xsl:value-of select="descendant::tei:byline/descendant::tei:persName"/>
+                    <!--<xsl:value-of select="descendant::tei:byline/descendant::tei:persName"/>-->
+                    <xsl:apply-templates select="descendant::tei:byline/descendant::tei:persName" mode="mToc"/>
                     <xsl:text>،</xsl:text>
                 </xsl:if>
                 <!-- add page numbers -->
@@ -542,12 +543,26 @@
             </xsl:if>
         </li>
     </xsl:template>
+    <xsl:template match="tei:persName" mode="mToc">
+        <!-- if there is more than forename and surname, strip that out -->
+        <xsl:choose>
+            <xsl:when test="child::tei:surname and child::tei:forename">
+                <xsl:apply-templates mode="mToc"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:value-of select="."/>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+    <xsl:template match="tei:surname | tei:forename | tei:nameLink" mode="mToc">
+        <xsl:value-of select="normalize-space(.)"/>
+    </xsl:template>
 
     <!-- omit all nodes that are not explicitly dealt with -->
     <xsl:template match="tei:head" mode="mToc">
         <xsl:apply-templates mode="mToc"/>
     </xsl:template>
-    <xsl:template match="tei:note" mode="mToc"/>
+    <xsl:template match="tei:note | tei:addName | tei:roleName" mode="mToc"/>
     <xsl:template match="tei:lb | tei:cb" mode="mToc">
         <xsl:text> </xsl:text>
     </xsl:template>
