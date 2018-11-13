@@ -30,7 +30,14 @@ The boilerplate can be installed / used in three different ways:
 
 1. By downloading the [latest release](https://github.com/tillgrallert/tei-boilerplate-arabic-editions/releases) or cloning the "master" branch of this repository and integrating it into one's own project. This gives you full command over the display of your files, guarantees that no dependencies will be broken, and allows you to display TEI files using boilerplate without an active internet connection.
 2. By downloading only [`xslt-boilerplate/teibp_parameters.xsl`](xslt-boilerplate/teibp_parameters.xsl) from the "online" branch of this repository. This allows you to independently set various display parameters (see below) but otherwise make use of the current stylesheets as hosted on GitHub.
-3. By linking [`xslt-boilerplate/teibp_parameters.xsl`](xslt-boilerplate/teibp_parameters.xsl) of this repository in the head of one's XML files. The repository comes with a (small) variety of standard settings all hosted in different branches that allow you to toggle between parameters. The two currently available branches are all set to display page breaks and facsimiles, to not display any line breaks, and to generate English interface text. They differ in which facsimiles are displayed:
+3. By linking [`xslt-boilerplate/teibp_parameters.xsl`](xslt-boilerplate/teibp_parameters.xsl) in the `gh-pages` branch of this repository of this repository in the head of one's XML files: 
+
+    `<?xml-stylesheet type="text/xsl" href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_parameters.xsl"?>`
+
+
+**NOTE 2018-11-12**: Since <http://rawgit.com> is shutting down, the following is depreciated.
+
+The repository comes with a (small) variety of standard settings all hosted in different branches that allow you to toggle between parameters. The two currently available branches are all set to display page breaks and facsimiles, to not display any line breaks, and to generate English interface text. They differ in which facsimiles are displayed:
     - display online facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online/xslt-boilerplate/teibp_parameters.xsl"?>`
     - display local facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online-local-facsimiles/xslt-boilerplate/teibp_parameters.xsl"?>`
 
