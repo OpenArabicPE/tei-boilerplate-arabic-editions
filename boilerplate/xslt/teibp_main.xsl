@@ -1110,14 +1110,37 @@
     </xsl:template>
     <xsl:template match="tei:date[ancestor::tei:body]">
         <xsl:variable name="v_icon" select="document('../assets/icons/calendar.svg')"/>
+        <span class="c_toggle-popup">
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
             <xsl:apply-templates select="@* | node()"/>
         </xsl:copy>
-        <!-- add icon -->
+            <!-- add icon -->
         <span class="c_icon-entity"><xsl:copy-of select="$v_icon"/></span>
+            <!-- generate a pop-up label -->
+            <xsl:if test="@datingMethod != ''">
+                <xsl:call-template name="t_pop-up-note">
+                    <xsl:with-param name="p_lang" select="'en'"/>
+                    <xsl:with-param name="p_content">
+                        <span class="c_li">@datingMethod: <xsl:value-of select="@datingMethod"/></span>
+                        <xsl:if test="@when-custom">
+                            <span class="c_li">@when-custom: <xsl:value-of select="@when-custom"/></span>
+                        </xsl:if>
+                        <xsl:if test="@when">
+                            <span class="c_li">@when: <xsl:value-of select="@when"/></span>
+                        </xsl:if>
+                        <xsl:if test="@notBefore">
+                            <span class="c_li">@notBefore: <xsl:value-of select="@notBefore"/></span>
+                        </xsl:if>
+                        <xsl:if test="@notAfter">
+                            <span class="c_li">@notAfter: <xsl:value-of select="@notAfter"/></span>
+                        </xsl:if>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>
+        </span>
     </xsl:template>
 
 
