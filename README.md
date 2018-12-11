@@ -37,9 +37,10 @@ The boilerplate can be installed / used in three different ways:
 
 **NOTE 2018-11-12**: Since <http://rawgit.com> is shutting down, the following is depreciated.
 
-The repository comes with a (small) variety of standard settings all hosted in different branches that allow you to toggle between parameters. The two currently available branches are all set to display page breaks and facsimiles, to not display any line breaks, and to generate English interface text. They differ in which facsimiles are displayed:
-    - display online facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online/xslt-boilerplate/teibp_parameters.xsl"?>`
-    - display local facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online-local-facsimiles/xslt-boilerplate/teibp_parameters.xsl"?>`
+>The repository comes with a (small) variety of standard settings all hosted in different branches that allow you to toggle between parameters. The two currently available branches are all set to display page breaks and facsimiles, to not display any line breaks, and to generate English interface text. They differ in which facsimiles are displayed:
+
+>- display online facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online/xslt-boilerplate/teibp_parameters.xsl"?>`
+>- display local facsimiles: `<?xml-stylesheet type="text/xsl" href="https://rawgit.com/tillgrallert/tei-boilerplate-arabic-editions/online-local-facsimiles/xslt-boilerplate/teibp_parameters.xsl"?>`
 
 # Set parameters:
 
