@@ -63,8 +63,8 @@
                         <title level="j" type="sub" xml:lang="fr">Pédagogie, sociologie, économie
                             politique, littérature, histoire, archéologie, philologie, ménagerie,
                             hygiène, bibliographie, civilisation arabe et occidentale</title>
-                        <idno change="#d2e595" type="oclc" xml:lang="en">4770057679</idno>
-                        <idno change="#d2e595" type="oclc" xml:lang="en">79440195</idno>
+                        <idno change="#d2e595" type="OCLC" xml:lang="en">4770057679</idno>
+                        <idno change="#d2e595" type="OCLC" xml:lang="en">79440195</idno>
                         <idno change="#d2e595" type="aucr" xml:lang="en">07201136864</idno>
                         <idno change="#d2e595" type="shamela" xml:lang="en">26523</idno>
                         <idno change="#d2e595" type="zenodo" xml:lang="en">45922152</idno>
