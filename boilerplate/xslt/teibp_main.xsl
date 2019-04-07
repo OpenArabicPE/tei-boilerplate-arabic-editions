@@ -971,6 +971,22 @@
             <!-- wrap everything in a link to external sources -->
             <a class="c_linked-data" lang="en" target="_blank">
                 <xsl:choose>
+                    <xsl:when test="contains(@ref, 'viaf')">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('https://viaf.org/viaf/', substring-after(@ref, 'viaf:'))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="title">
+                            <xsl:text>Link to this entity at VIAF</xsl:text>
+                        </xsl:attribute>
+                    </xsl:when>
+                    <xsl:when test="contains(@ref, 'geon')">
+                        <xsl:attribute name="href">
+                            <xsl:value-of select="concat('http://www.geonames.org/', substring-after(@ref, 'geon:'))"/>
+                        </xsl:attribute>
+                        <xsl:attribute name="title">
+                            <xsl:text>Link to this toponym on GeoNames</xsl:text>
+                        </xsl:attribute>
+                    </xsl:when>
                     <xsl:when test="starts-with(@ref, 'geon')">
                         <xsl:attribute name="href">
                             <xsl:value-of select="concat('http://www.geonames.org/', substring-after(@ref, 'geon:'))"/>
