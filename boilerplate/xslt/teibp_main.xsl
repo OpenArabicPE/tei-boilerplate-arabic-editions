@@ -987,7 +987,7 @@
                             <xsl:text>Link to this toponym on GeoNames</xsl:text>
                         </xsl:attribute>
                     </xsl:when>
-                     <xsl:when test="concat(@ref, 'oclc')">
+                     <xsl:when test="contains(@ref, 'oclc')">
                         <xsl:attribute name="href">
                             <xsl:value-of select="concat('https://www.worldcat.org/oclc/', substring-after(@ref, 'oclc:'))"/>
                         </xsl:attribute>
