@@ -987,39 +987,14 @@
                             <xsl:text>Link to this toponym on GeoNames</xsl:text>
                         </xsl:attribute>
                     </xsl:when>
-                    <xsl:when test="starts-with(@ref, 'geon')">
-                        <xsl:attribute name="href">
-                            <xsl:value-of select="concat('http://www.geonames.org/', substring-after(@ref, 'geon:'))"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="title">
-                            <xsl:text>Link to this toponym on GeoNames</xsl:text>
-                        </xsl:attribute>
-                        <!-- <xsl:text>geonames</xsl:text>-->
-                        <!-- add a mapping symbol -->
-                        <!-- <xsl:copy-of select="document('../assets/icons/map-pin.svg')"/> -->
-                    </xsl:when>
-                    <xsl:when test="starts-with(@ref, 'oclc')">
+                     <xsl:when test="concat(@ref, 'oclc')">
                         <xsl:attribute name="href">
                             <xsl:value-of select="concat('https://www.worldcat.org/oclc/', substring-after(@ref, 'oclc:'))"/>
                         </xsl:attribute>
                         <xsl:attribute name="title">
                             <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
                         </xsl:attribute>
-                        <!-- <xsl:text>oclc</xsl:text>-->
-                        <!-- add the arrow symbol -->
-                        <!-- <xsl:copy-of select="document('../assets/icons/book-open.svg')"/> -->
-                    </xsl:when>
-                    <xsl:when test="starts-with(@ref, 'viaf')">
-                        <xsl:attribute name="href">
-                            <xsl:value-of select="concat('https://viaf.org/viaf/', substring-after(@ref, 'viaf:'))"/>
-                        </xsl:attribute>
-                        <xsl:attribute name="title">
-                            <xsl:text>Link to this entity at VIAF</xsl:text>
-                        </xsl:attribute>
-                        <!-- <xsl:text>viaf</xsl:text>-->
-                        <!-- add a symbol for a person -->
-                        <!-- <xsl:copy-of select="document('../assets/icons/user.svg')"/> -->
-                    </xsl:when>
+                     </xsl:when>
                 </xsl:choose>
                 <xsl:copy-of select="$p_content"/>
             </a>
