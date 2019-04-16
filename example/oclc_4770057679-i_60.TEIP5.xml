@@ -2905,13 +2905,13 @@
 				<pb ed="print" facs="#facs_70" n="66" xml:id="pb_132.d1e4088"/>
 				<div type="article" xml:id="div_22.d1e4091" xml:lang="ar">
 					<head xml:id="head_22.d1e4093" xml:lang="ar">أسباب الهجرة النبوية           
-						<note n="1" type="footnote" xml:id="note_9.d1e4095" xml:lang="ar">
+						<note n="1" type="bibliographic" place="bottom" xml:id="note_9.d1e4095" xml:lang="ar">
 							<bibl xml:id="bibl_4.d1e4097" xml:lang="ar">
-								خطبة ل     
-								<persName change="#d2e587" ref="oape:pers:464 viaf:28125663" xml:id="persName_54.d1e4099" xml:lang="ar">
-									<forename xml:id="forename_8.d1e5129">رفيق</forename>
-									بك          
-									<surname xml:id="surname_10.d1e5132">العظم</surname></persName>القاها في حفلة الاحتفال برأس السنة الهجرية في القاهرة</bibl>
+								خطبة ل<author><persName change="#d2e587" ref="oape:pers:464 viaf:28125663" xml:id="persName_54.d1e4099" xml:lang="ar">
+ 									<forename xml:id="forename_8.d1e5129">رفيق</forename>
+ 									<roleName type="title">بك</roleName>          
+									<surname xml:id="surname_10.d1e5132">العظم</surname></persName></author>
+							القاها في حفلة الاحتفال برأس السنة الهجرية في القاهرة</bibl>
 						</note>
 					</head>
 					<salute xml:id="salute_2.d1e4105" xml:lang="ar">أيها السادة</salute>
@@ -3003,23 +3003,23 @@
 					</quote>
 					<p xml:id="p_270.d1e4248" xml:lang="ar">هذه شهادة عالم أجنبي عن أوطاننا ولغتنا وديننا تشعر أن المدنية العربية وآدابها عمت منافعها الشرق والغرب وأن العرب كانوا أساتذة العالم بلا نزاع وبالتالي كان لهم الفضل على العالم أجمع وقد شهد كثير من علماء أوروبا ومحققيها مثل هذه الشهادة كالعالم دساسي والعالم دربي والعالم كوستاف ليون وغيرهم ولمن كان الفضل في هذا كله؟ كان لصاحب الشريعة الإسلامية الذي نحتفل بعيد هجرته اليوم ولأمته النجيبة التي خدمت العلم والمدنية والإنسانية جمعاء خدمة لا ينكرها إلا العوام الجاهلون الذين في قلوبهم مرض وعلى أبصارهم غشاوة فهم لا يبصرون.</p>
 					<p xml:id="p_271.d1e4252" xml:lang="ar">فسلام على يثرب وسلام على ساكنها العظيم     وسلام على أمته النجيبة وعليكم أجمعين.</p>
-					<byline xml:id="byline_3.d1e5326">
+					<!-- <byline xml:id="byline_3.d1e5326">
 						<supplied resp="#pers_TG" xml:id="supplied_1.d1e5327">
 							<persName change="#d2e587" ref="oape:pers:464 viaf:28125663" xml:lang="ar">
 								<forename>رفيق</forename>بك      
 								<surname>العظم</surname></persName>
 						</supplied>
-					</byline>
+					</byline> -->
 				</div>
 				<div type="article" xml:id="div_23.d1e4256" xml:lang="ar">
 					<head xml:id="head_23.d1e4258" xml:lang="ar">رأس السنة الهجرية           
-						<note n="1" type="footnote" xml:id="note_10.d1e4260" xml:lang="ar">
+						<note n="1" type="bibliographic" place="bottom" xml:id="note_10.d1e4260" xml:lang="ar">
 							<bibl xml:id="bibl_5.d1e4261" xml:lang="ar">
 								ل     
 								<author xml:id="author_5.d1e4263" xml:lang="ar">
 									<persName change="#d2e587" ref="oape:pers:931 viaf:102460074" xml:id="persName_55.d1e4264" xml:lang="ar">
 										<forename xml:id="forename_10.d1e5346">خليل</forename>
-										افندي              
+										<roleName type="title">افندي</roleName>              
 										<surname xml:id="surname_12.d1e5349">مطران</surname></persName>
 								</author>من كبار شعراءِ      
 								<placeName change="#d5e601" ref="oape:place:36 geon:163843" xml:id="placeName_81.d1e4267" xml:lang="ar">سورية</placeName>
@@ -3373,13 +3373,13 @@
 							<seg xml:id="seg_226.d1e5468" xml:lang="ar">بخاتم النور زلات الدجى السود</seg>
 						</l>
 					</lg>
-					<byline xml:id="byline_4.d1e6136">
+					<!-- <byline xml:id="byline_4.d1e6136">
 						<supplied resp="#pers_TG" xml:id="supplied_2.d1e6137">
 							<persName change="#d2e587" ref="oape:pers:931 viaf:102460074" xml:id="persName_65.d1e6138" xml:lang="ar">
 								<forename xml:id="forename_11.d1e6139">خليل</forename>افندي      
 								<surname xml:id="surname_13.d1e6142">مطران</surname></persName>
 						</supplied>
-					</byline>
+					</byline> -->
 				</div>
 				<div type="article" xml:id="div_24.d1e5016" xml:lang="ar">
 					<head xml:id="head_24.d1e5018" xml:lang="ar">الصيد في انكلترا</head>
