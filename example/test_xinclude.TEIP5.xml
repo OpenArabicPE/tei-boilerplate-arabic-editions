@@ -209,8 +209,10 @@
             <pb n="cover" ed="print" facs="#facs_5" xml:id="pb_1.d1e577"/>
         </front>
         <group xml:id="group_1.d1e580">
+            <!-- online at https://www.sitzextase.de/ instead of ../../../OpenArabicPE/ -->
+            <xi:include href="../../../OpenArabicPE/digital-muqtabas/xml/oclc_4770057679-i_14.TEIP5.xml" parse="xml" xpointer="div_7.d1e1428"/>
             <xi:include href="oclc_4770057679-i_60.TEIP5.xml" xpointer="text" parse="xml"/>
-            <xi:include href="oclc_4770057679-i_61.TEIP5.xml" xpointer="text" parse="xml"/>
+            <!-- <xi:include href="oclc_4770057679-i_61.TEIP5.xml" xpointer="text" parse="xml"/>
             <xi:include href="oclc_4770057679-i_62.TEIP5.xml" xpointer="text" parse="xml"/>
             <xi:include href="oclc_4770057679-i_63.TEIP5.xml" xpointer="text" parse="xml"/>
             <xi:include href="oclc_4770057679-i_64.TEIP5.xml" xpointer="text" parse="xml"/>
@@ -220,7 +222,7 @@
             <xi:include href="oclc_4770057679-i_68.TEIP5.xml" xpointer="text" parse="xml"/>
             <xi:include href="oclc_4770057679-i_69.TEIP5.xml" xpointer="text" parse="xml"/>
             <xi:include href="oclc_4770057679-i_70.TEIP5.xml" xpointer="text" parse="xml"/>
-            <xi:include href="oclc_4770057679-i_71.TEIP5.xml" xpointer="text" parse="xml"/>
+            <xi:include href="oclc_4770057679-i_71.TEIP5.xml" xpointer="text" parse="xml"/> -->
         </group>
         <back xml:lang="ar" xml:id="back_1.d1e41824">
             <pb n="1" ed="print" facs="#facs_807" xml:id="pb_1382.d1e41826"/>

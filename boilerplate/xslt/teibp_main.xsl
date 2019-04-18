@@ -1226,6 +1226,14 @@
     <xsl:template match="xi:include">
         <xsl:if test="$p_process-xinclude = true()">
             <xsl:variable name="v_id-element" select="@xpointer"/>
+            <!-- provide some source information -->
+            <a href="{concat(@href,'#',$v_id-element)}">
+            <xsl:call-template name="t_source-reference-for-div">
+                <xsl:with-param name="p_input" select="document(@href)//node()[@xml:id = $v_id-element]"/>
+            </xsl:call-template>
+            </a>
+            <!-- add pb preceding the included fragment -->
+            <!-- include the XML fragment -->
             <xsl:apply-templates select="document(@href)//node()[@xml:id = $v_id-element]"/>
         </xsl:if>
     </xsl:template>
