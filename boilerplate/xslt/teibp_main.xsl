@@ -1233,6 +1233,7 @@
             </xsl:call-template>
             </a>
             <!-- add pb preceding the included fragment -->
+            <xsl:apply-templates select="document(@href)//node()[@xml:id = $v_id-element]/preceding::tei:pb[@ed = 'print'][1]"/>
             <!-- include the XML fragment -->
             <xsl:apply-templates select="document(@href)//node()[@xml:id = $v_id-element]"/>
         </xsl:if>
