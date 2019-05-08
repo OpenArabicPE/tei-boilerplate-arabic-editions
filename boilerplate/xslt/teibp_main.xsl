@@ -630,6 +630,12 @@
                     <xsl:call-template name="templHtmlAttrLang">
                         <xsl:with-param name="pInput" select="tei:head"/>
                     </xsl:call-template>
+                    <!-- content of the head -->
+                    <span class="c_content">
+                        <xsl:call-template name="templHtmlAttrLang">
+                            <xsl:with-param name="pInput" select="tei:head"/>
+                        </xsl:call-template>
+                        <!-- provide back link to the article -->
                     <xsl:choose>
                         <xsl:when test="@xml:id">
                             <a href="#{@xml:id}" class="c_link-self"
@@ -649,20 +655,41 @@
                                 </xsl:for-each>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <xsl:variable name="vBiblUrl"
-                        select="concat('../metadata/', $vFileId, '-', @xml:id)"/>
+                    </span>
+                    <span class="c_metadata">
+                        <!-- links to bibliographic metadata -->
                     <xsl:choose>
                         <!-- specify in which cases not to provide links to bibliographic metadata -->
-                        <xsl:when test="@type = 'section' and ancestor::tei:div[@type = 'item']">
-                        </xsl:when>
+                        <xsl:when test="@type = 'section' and ancestor::tei:div[@type = 'item']"/>
                         <xsl:when test="@type = 'section' and (ancestor::tei:div[@type = 'article'] or ancestor::tei:div[@type = 'bill'])"/>
                         <xsl:when test="(@type = 'article' or @type = 'item') and ancestor::tei:div[@type = 'bill']"/>
                         <xsl:otherwise>
+                            <xsl:variable name="vBiblUrl" select="concat('../metadata/', $vFileId, '-', @xml:id)"/>
                             <xsl:call-template name="templBiblDataLinks">
                                 <xsl:with-param name="pBiblUrl" select="$vBiblUrl"/>
                             </xsl:call-template>
                         </xsl:otherwise>
                     </xsl:choose>
+                    <!-- potentially provide links to previous / next article in a series -->
+                    <xsl:if test="@next or @prev">
+                        <span class="c_links">
+                    <xsl:if test="@next">
+                        <a href="{@next}" title="next article in this series">
+                            <span class="c_icon">
+                            <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                        </span>
+                        </a>
+                    </xsl:if>
+                            <xsl:if test="@prev">
+                            <a href="{@prev}" title="previous article in this series">
+                            <span class="c_icon">
+                                <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                            </span>
+                        </a>
+                    </xsl:if>
+                        </span>
+                    </xsl:if>
+                    </span>
                 </tei:head>
             </xsl:if>
             <!-- inject some author information -->
