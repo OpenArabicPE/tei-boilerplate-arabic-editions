@@ -22,7 +22,7 @@ In contrast to the original TEI Boilerplate, the display is built around modular
 
 In order to make use of XSLT 1 stylesheets in a web browser, one has to provide a link to the main stylesheet `teibp_parameters` in the head of one's TEI files:
 
-~~~{.xml}
+```
 <?xml-stylesheet type="text/xsl" href="path-to-the-boilerplate-folder/teibp_parameters.xsl"?>
 ~~~
 
@@ -50,19 +50,19 @@ Most features are toggled through parameters in [`xslt-boilerplate/teibp_paramet
 
 ## 1. Display of page breaks and facsimiles
 
-~~~{.xml}
+```
 <xsl:param name="p_display-page-breaks" select="true()"/>
 ~~~
 
 ## 2. Toggle between online and off-line facsimile files:
 
-~~~{.xml}
+```
 <xsl:param name="p_display-online-facsimiles" select="true()"/>
 ~~~
 
 ## 3. Display of line breaks
 
-~~~{.xml}
+```
 <xsl:param name="p_display-line-breaks" select="true()"/>
 ~~~
 
@@ -70,13 +70,13 @@ Most features are toggled through parameters in [`xslt-boilerplate/teibp_paramet
 
 Toggle between English and the language of your TEI encoded texts:
 
-~~~{.xml}
+```
 <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
 ~~~
 
 Currently our boilerplate supports English (as fall-back option) and Arabic, but one can easily add additional languages to all parameters that begin with `p_text-`; e.g.
 
-~~~{.xml}
+```
 <xsl:param name="p_text-page">
         <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
@@ -93,7 +93,7 @@ Currently our boilerplate supports English (as fall-back option) and Arabic, but
 
 To add another language just add another `<xsl:when>` option; e.g.
 
-~~~{.xml}
+```
 <xsl:param name="p_text-page">
         <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
