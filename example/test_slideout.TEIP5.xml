@@ -379,7 +379,7 @@
         <body xml:id="body_1.d1e1541" xml:lang="ar">
             <pb corresp="file:../epub/26523/OEBPS/xhtml/P3909.xhtml" ed="shamela" n="n60-p1" xml:id="pb_1.d1e1543"/>
             <pb ed="print" facs="#facs_6" n="2" xml:id="pb_2.d1e1545"/>
-            <div change="#d2e595" subtype="article" type="item" xml:id="div_2.d1e1547" xml:lang="ar">
+            <div change="#d2e595" subtype="article" type="item" xml:id="div_2.d1e1547" xml:lang="ar"  next="oclc_4770057679-i_35.TEIP5.xml#div_5.d1e1119" prev="oclc_4770057679-i_33.TEIP5.xml#div_4.d1e1074">
                 <salute xml:id="salute_1.d1e1780" xml:lang="ar">بسم الله الرحمن الرحيم</salute>
                 <head xml:id="head_1.d1e1549" xml:lang="ar">فاتحة السنة السادسة</head>
                 <p xml:id="p_17.d1e1554" xml:lang="ar">يفتتح
