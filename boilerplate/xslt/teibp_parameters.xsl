@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default" extension-element-prefixes="exsl
-    msxsl" version="1.0"
-    xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples" xmlns:exsl="http://exslt.org/common"
-    xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:msxsl="urn:schemas-microsoft-com:xslt"
+<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default"  version="1.0"
+    xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples" 
+     xmlns:html="http://www.w3.org/1999/xhtml" 
     xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     
     <xd:doc scope="stylesheet">
@@ -17,7 +16,7 @@
     <!-- import the standard TEI Boilerplate stylesheets. If you link to versions hosted on GitHub make sure to point to a stable version to ensure that future changes won't break your set-up -->
     <xsl:include href="teibp_main.xsl"/>
     <xsl:include href="teibp_sourcedesc.xsl"/>
-    <xsl:include href="xml-to-string.xsl"/>
+    <!-- <xsl:include href="xml-to-string.xsl"/> -->
     <!-- import the stylesheet formatting all bibliographic metadata -->
     <xsl:include href="teibp_bibl.xsl"/>
     <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
