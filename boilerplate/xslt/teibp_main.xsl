@@ -30,10 +30,6 @@
         <html id="html">
             <xsl:copy-of select="$v_html-head"/>
             <body ontouchstart="" id="body">
-                <!-- removed the toolbox altogether -->
-                <!--<xsl:if test="$includeToolbox = true()">
-                    <xsl:call-template name="teibpToolbox"/>
-                </xsl:if>-->
                 <!-- to prepare for the slideout, navigation and content are wrapped in divs  -->
                 <xsl:copy-of select="$v_navigation"/>
 
@@ -313,10 +309,6 @@
             <xsl:call-template name="rendition2style"/>
             <!-- <title>don't leave empty.</title> -->
             <xsl:call-template name="t_metadata-file"/>
-            <!-- removed analytics -->
-            <!--<xsl:if test="$includeAnalytics = true()">
-                <xsl:call-template name="analytics"/>
-            </xsl:if>-->
         </head>
     </xsl:variable>
     <xsl:template name="rendition2style">
@@ -400,37 +392,6 @@
             </span>
         </footer>
     </xsl:variable>
-    <!-- removed the toolbox -->
-    <!--<xsl:template name="teibpToolbox">
-        <div id="teibpToolbox">
-            <h1>Toolbox</h1>
-            <label for="pbToggle">Hide page breaks</label>
-            <input id="pbToggle" type="checkbox"/>
-            <div>
-                <h3>Themes:</h3>
-                <select id="themeBox" onchange="switchThemes(this);">
-                    <option value="{$theme.default}">Default</option>
-                    <option value="{$theme.sleepytime}">Sleepy Time</option>
-                    <option value="{$theme.terminal}">Terminal</option>
-                </select>
-            </div>
-        </div>
-    </xsl:template>-->
-    <!-- removed analytics -->
-    <!--<xsl:template name="analytics">
-        <script type="text/javascript">
-		  var _gaq = _gaq || [];
-		  //include analytics account below.
-		  _gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
-		  _gaq.push(['_trackPageview']);
-		
-		  (function() {
-		    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-		  })();
-		</script>
-    </xsl:template>-->
 
     <xd:doc>
         <xd:desc>

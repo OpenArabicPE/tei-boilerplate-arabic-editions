@@ -23,6 +23,7 @@
     <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
     <xsl:include href="teibp_pb.xsl"/>
     
+    <!-- PARAMETERS -->
     <!-- select whether you want to display page breaks and facsimiles; default: true() -->
     <xsl:param name="p_display-page-breaks" select="true()"/>
     <!-- select whether you want to display online or local facsimiles; default: true() -->
@@ -39,12 +40,11 @@
     <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
     <!-- select the colour scheme for heads; currently available options: red, blue, green -->
     <xsl:param name="p_color-scheme" select="'red'"/>
+    <!-- parameter to select the mimeType. In some cases tiff might be more efficient than jpeg -->
+    <xsl:param name="p_mimetype" select="'image/tiff'"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
-    <!-- toolbox and analytics have been removed -->
-    <xsl:param name="includeToolbox" select="false()"/>
-    <xsl:param name="includeAnalytics" select="false()"/>
     
     <!-- special characters -->
     <xsl:param name="quot">
