@@ -26,7 +26,7 @@
     <!-- select whether you want to display page breaks and facsimiles; default: true() -->
     <xsl:param name="p_display-page-breaks" select="true()"/>
     <!-- select whether you want to display online or local facsimiles; default: true() -->
-    <xsl:param name="p_display-online-facsimiles" select="true()"/>
+    <xsl:param name="p_display-online-facsimiles" select="false()"/>
     <!-- select whether you want to display line breaks; default: false() -->
     <xsl:param name="p_display-line-breaks" select="false()"/>
     <!-- select whether you want to display editorial changes; default: false() -->
@@ -190,7 +190,7 @@
     <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>. 
         Remember: relative paths are relative to the file they are called from
 	-->
-    <xsl:param name="filePrefix" select="'../boilerplate'"/>
+    <xsl:param name="filePrefix" select="'https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate'"/>
     <!-- the following parameters should not be changed unless the folder structure and file names have been changed -->
     <xsl:param name="teibpCSS" select="concat($filePrefix, '/css/teibp.css')"/>
     <xsl:param name="customCSS" select="concat($filePrefix, '/css/teibp_custom.css')"/>
