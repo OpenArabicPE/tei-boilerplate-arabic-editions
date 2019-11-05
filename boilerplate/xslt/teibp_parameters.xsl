@@ -14,13 +14,13 @@
     
     <!-- Load all other stylesheets -->
     <!-- import the standard TEI Boilerplate stylesheets. If you link to versions hosted on GitHub make sure to point to a stable version to ensure that future changes won't break your set-up -->
-    <xsl:include href="teibp_main.xsl"/>
-    <xsl:include href="teibp_sourcedesc.xsl"/>
+    <xsl:include href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_main.xsl"/>
+    <xsl:include href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_sourcedesc.xsl"/>
     <!-- <xsl:include href="xml-to-string.xsl"/> -->
     <!-- import the stylesheet formatting all bibliographic metadata -->
-    <xsl:include href="teibp_bibl.xsl"/>
+    <xsl:include href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_bibl.xsl"/>
     <!-- import the stylesheet dealing with the display of <pb> and facsimiles -->
-    <xsl:include href="teibp_pb.xsl"/>
+    <xsl:include href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_pb.xsl"/>
     
     <!-- PARAMETERS -->
     <!-- select whether you want to display page breaks and facsimiles; default: true() -->
