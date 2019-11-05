@@ -115,7 +115,7 @@ p span.c_id{
 }
 /* for ltr languages*/
 p span.c_id{
-    margin-left: -3em;
+    margin-left: -4em;
     float: left;
 }
 /* for rtl languages*/
@@ -124,7 +124,7 @@ p[lang = "ota"] span.c_id,
 p[lang = "fa"] span.c_id,
 p[lang = "he"] span.c_id,
 p[lang *="-Arab-AR"] span.c_id{
-    margin-right: -3em;
+    margin-right: -4em;
     float: right;
 }
 
@@ -148,7 +148,7 @@ p[lang = "ota"] lb>span.c_id,
 p[lang = "fa"] lb>span.c_id,
 p[lang = "he"] lb>span.c_id,
 p[lang *="-Arab-AR"] lb>span.c_id{
-    margin-right: -4em;
+    margin-right: -5em;
     float: right;
 }
 /*pb {
