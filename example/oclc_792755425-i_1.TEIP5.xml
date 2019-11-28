@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-model href="https://rawgit.com/OpenArabicPE/OpenArabicPE_ODD/v0.1/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-stylesheet type="text/xsl" href="../boilerplate/xslt/teibp_parameters.xsl"?><tei:TEI xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xml:id="oclc_792755425-i_1" next="oclc_792755425-i_2.TEIP5.xml">
+   <tei:teiHeader xml:lang="en">
+      <tei:fileDesc>
+         <tei:titleStmt>
+            <title>Ḥadīqat al-Akhbār #, 1 January 1858</title>
+            <title type="sub">TEI edition</title>
+            <respStmt xml:lang="en">
+               <resp>TEI edition</resp>
+               <persName xml:id="pers_TG">
+                  <forename>Till</forename>
+                  <surname>Grallert</surname>
+               </persName>
+            </respStmt>
+         </tei:titleStmt>
+         <tei:publicationStmt change="#d2e173" xml:lang="en">
+            <authority>
+               <tei:persName>
+                  <tei:forename>Till</tei:forename>
+                  <tei:surname>Grallert</tei:surname>
+               </tei:persName>
+            </authority>
+            <pubPlace>
+               <placeName>Beirut</placeName>
+            </pubPlace>
+            <date when="2019">2019</date>
+            <availability status="restricted">
+               <licence target="http://creativecommons.org/licenses/by-sa/4.0/">Distributed under a Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0) license</licence>
+            </availability>
+            <idno type="url">https://github.com/openarabicpe/newspaper_hadiqat-al-akhbar/blob/master/tei/oclc_792755425-i_1.TEIP5.xml</idno>
+            <idno type="url">https://openarabicpe.github.io/newspaper_hadiqat-al-akhbar/tei/oclc_792755425-i_1.TEIP5.xml</idno>
+         </tei:publicationStmt>
+         <tei:sourceDesc>
+            <biblStruct xml:lang="ar-Latn-x-ijmes">
+               <monogr xml:lang="ar-Latn-x-ijmes">
+                  <title level="j" xml:lang="ar">حديقة الاخبار</title>
+                        <title level="j" type="sub" xml:lang="ar">جرنال مدني علمي متجري تاريخي</title>
+                        <title level="j" xml:lang="ar-Latn-x-ijmes">Ḥadīqat al-Akhbār</title>
+                        <title level="j" type="sub" xml:lang="ar-Latn-x-ijmes">Jurnāl madanī ʿilmī matjarī tārīkhī</title>
+                        <!-- use as many identifiers as appropriate -->
+                        <idno type="OCLC" xml:lang="en">792755425</idno>
+                        <idno type="OCLC" xml:lang="en">745205670</idno>
+                        <idno type="OCLC" xml:lang="en">243441816</idno>
+                        <idno type="OCLC" xml:lang="en">503753305</idno>
+                        <idno type="OCLC" xml:lang="en">269135845</idno>
+                        <idno type="OCLC" xml:lang="en">499946227</idno>
+                  <idno type="SenteUUID" xml:lang="ar-Latn-x-ijmes">DA973B90-D213-490F-BD29-A5FD76414542</idno>
+                  <editor xml:lang="en" ref="viaf:41830998">
+                            <persName xml:lang="ar">
+                                <forename xml:lang="ar">خليل</forename>
+                                <surname xml:lang="ar">الخوري</surname>
+                            </persName>
+                            <persName xml:lang="ar-Latn-x-ijmes">
+                                <forename xml:lang="ar-Latn-x-ijmes">Khalīl</forename>
+                                <surname xml:lang="ar-Latn-x-ijmes">al-Khūrī</surname>
+                            </persName>
+                        </editor>
+                        <imprint xml:lang="en">
+                            <publisher xml:lang="en">
+                                <orgName xml:lang="ar">المطبعة السورية</orgName>
+                                <orgName xml:lang="ar-Latn-x-ijmes">al-Maṭbaʿa al-Sūriyya</orgName>
+                            </publisher>
+                            <pubPlace xml:lang="en">
+                                <placeName xml:lang="ar">بيروت</placeName>
+                                <placeName xml:lang="ar-Latn-x-ijmes">Bayrūt</placeName>
+                                <placeName xml:lang="en">Beirut</placeName>
+                                <placeName xml:lang="fr">Beyrouth</placeName>
+                            </pubPlace>
+                     <date when="1858-01-01" xml:lang="en">1 Jan 1858</date>
+                     <date when="1858-01-01" when-custom="1857-12-20" calendar="#cal_julian" datingMethod="#cal_julian" xml:lang="en">20 Kān I 1857, Friday</date>
+                     <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="1274-05-16" xml:lang="en">16 Jum I 1274</date>
+                     
+                     
+                     
+                  </imprint>
+               <biblScope unit="issue" from="1" to="1" xml:lang="en">1</biblScope><biblScope unit="volume" from="1" to="1" xml:lang="en">1</biblScope><biblScope unit="page" from="1" to="4" xml:lang="en">1-4</biblScope></monogr>
+            </biblStruct>
+         </tei:sourceDesc>
+      </tei:fileDesc>
+      <tei:revisionDesc><tei:change when="2019-11-28" who="#pers_TG" xml:lang="en">Corrected <tei:gi>biblStruct</tei:gi> by sorting child elements in the correct order.  Converted all <tei:att>n</tei:att> on <tei:gi>biblScope</tei:gi> to <tei:att>from</tei:att> and <tei:att>to</tei:att>with identical values.</tei:change><tei:change when="2019-11-28" who="#pers_TG" xml:id="d2e192" xml:lang="en">Mapped elements from version 1 of the ODD to version 2</tei:change>
+         <change when="2019-11-28" who="#pers_TG" xml:id="d2e173" xml:lang="en">Added <tei:gi>publicationStmt</tei:gi>.</change>
+         <tei:change when="2018-02-10">Created this file by automatic conversion of <tei:gi>biblStruct</tei:gi> from file:/Volumes/Dessau%20HD/BachUni/BachBibliothek/GitHub/OpenArabicPE/newspaper_hadiqat-al-akhbar/metadata/hadiqat-al-akhbar.TEIP5.xml.</tei:change>
+      </tei:revisionDesc>
+   </tei:teiHeader>
+   <tei:facsimile>
+      <tei:surface xml:id="facs_1">
+         <tei:graphic xml:id="facs_1-g_1" url="../images/150dpi/HA-1_Page_001_150dpi.jpg" mimeType="image/jpeg"/>
+      </tei:surface>
+      <tei:surface xml:id="facs_2">
+         <tei:graphic xml:id="facs_2-g_1" url="../images/150dpi/HA-1_Page_002_150dpi.jpg" mimeType="image/jpeg"/>
+      </tei:surface>
+      <tei:surface xml:id="facs_3">
+         <tei:graphic xml:id="facs_3-g_1" url="../images/150dpi/HA-1_Page_003_150dpi.jpg" mimeType="image/jpeg"/>
+      </tei:surface>
+      <tei:surface xml:id="facs_4">
+         <tei:graphic xml:id="facs_4-g_1" url="../images/150dpi/HA-1_Page_004_150dpi.jpg" mimeType="image/jpeg"/>
+      </tei:surface>
+   </tei:facsimile>
+   <tei:text xml:lang="ar">
+      <tei:pb ed="print" n="1" facs="#facs_1" edRef="#edition_1" change="#d2e192"/>
+      <tei:body>
+         <tei:div>
+            <tei:pb ed="print" n="2" facs="#facs_2" edRef="#edition_1" change="#d2e192"/>
+            <tei:pb ed="print" n="3" facs="#facs_3" edRef="#edition_1" change="#d2e192"/>
+            <tei:pb ed="print" n="4" facs="#facs_4" edRef="#edition_1" change="#d2e192"/>
+         </tei:div>
+      </tei:body>
+   </tei:text>
+</tei:TEI>

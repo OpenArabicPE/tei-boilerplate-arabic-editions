@@ -188,15 +188,34 @@
 
     <xsl:template match="tei:imprint/tei:date" mode="mBibl">
         <xsl:param name="pLang"/>
-        <xsl:variable name="vYear" select="substring(@when-custom, 1, 4)"/>
-        <xsl:variable name="vMonth" select="number(substring(@when-custom, 6, 2))"/>
-        <xsl:variable name="vDay" select="number(substring(@when-custom, 9, 2))"/>
+        <xsl:variable name="v_date-string">
+            <xsl:choose>
+                <xsl:when test="@when-custom">
+                    <xsl:value-of select="@when-custom"/>
+                </xsl:when>
+                <xsl:when test="@when">
+                    <xsl:value-of select="@when"/>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+        <xsl:variable name="vYear" select="substring($v_date-string, 1, 4)"/>
+        <xsl:variable name="vMonth" select="number(substring($v_date-string, 6, 2))"/>
+        <xsl:variable name="vDay" select="number(substring($v_date-string, 9, 2))"/>
         <xsl:value-of select="$vDay"/>
         <xsl:text> </xsl:text>
         <xsl:call-template name="t_month-names">
             <xsl:with-param name="p_lang" select="$pLang"/>
             <xsl:with-param name="p_month" select="$vMonth"/>
-            <xsl:with-param name="p_calendar" select="@datingMethod"/>
+            <xsl:with-param name="p_calendar">
+                <xsl:choose>
+                    <xsl:when test="@datingMethod">
+                        <xsl:value-of select="@datingMethod"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:text>#cal_julian</xsl:text>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </xsl:with-param>
         </xsl:call-template>
         <xsl:text> </xsl:text>
         <xsl:value-of select="$vYear"/>
@@ -218,6 +237,9 @@
                     <xsl:value-of select="@when"/>
                     <xsl:text>]</xsl:text>
                 </xsl:if>
+        </xsl:if>
+        <xsl:if test="following-sibling::tei:date">
+            <xsl:text> / </xsl:text>
         </xsl:if>
     </xsl:template>
     
