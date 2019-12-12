@@ -41,6 +41,8 @@
     <xsl:param name="p_color-scheme" select="'red'"/>
     <!-- parameter to select the mimeType. In some cases tiff might be more efficient than jpeg -->
     <xsl:param name="p_mimetype" select="'image/tiff'"/>
+    <!-- toggle the width of the columns. If set to true(), the facsimiles will take up most of the available space -->
+    <xsl:param name="p_facsimile-only" select="false()"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>

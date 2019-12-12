@@ -144,7 +144,18 @@
             <!-- span to draw a horizontal divider -->
             <span class="c_teibp-pbLine"> </span>
             <!-- span to act as container for information and facsimiles-->
-        <span class="c_teibp-pbImgInfo">
+        <span>
+            <xsl:attribute name="class">
+                <xsl:text>c_teibp-pbImgInfo </xsl:text>
+                <xsl:choose>
+                    <xsl:when test="$p_facsimile-only = true()">
+                        <xsl:text>c_facsimily-only</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$p_facsimile-only = false()">
+                        <xsl:text>c_text-and-facsimily</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:attribute>
             <!-- span containing all information on the page and the facsimile -->
             <span class="c_teibp-pageNum" lang="{$v_lang-interface}">
                 <!-- this should be a back-link -->
