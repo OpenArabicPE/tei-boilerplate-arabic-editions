@@ -1,7 +1,7 @@
 ---
 title: "read me"
 author: Till Grallert
-date: 2016-04-02 17:47:03
+date: 2020-02-27
 ---
 
 # TEI Boilerplate for editions of Arabic texts
@@ -22,9 +22,9 @@ In contrast to the original TEI Boilerplate, the display is built around modular
 
 In order to make use of XSLT 1 stylesheets in a web browser, one has to provide a link to the main stylesheet `teibp_parameters` in the head of one's TEI files:
 
-```
+```xml
 <?xml-stylesheet type="text/xsl" href="path-to-the-boilerplate-folder/teibp_parameters.xsl"?>
-~~~
+```
 
 The boilerplate can be installed / used in three different ways:
 
@@ -32,7 +32,7 @@ The boilerplate can be installed / used in three different ways:
 2. By downloading only [`xslt-boilerplate/teibp_parameters.xsl`](xslt-boilerplate/teibp_parameters.xsl) from the "online" branch of this repository. This allows you to independently set various display parameters (see below) but otherwise make use of the current stylesheets as hosted on GitHub.
 3. By linking [`xslt-boilerplate/teibp_parameters.xsl`](xslt-boilerplate/teibp_parameters.xsl) in the `gh-pages` branch of this repository of this repository in the head of one's XML files:
 
-``` xml
+```xml
 <?xml-stylesheet type="text/xsl" href="https://openarabicpe.github.io/tei-boilerplate-arabic-editions/boilerplate/xslt/teibp_parameters.xsl"?>
 ```
 
@@ -50,33 +50,33 @@ Most features are toggled through parameters in [`xslt-boilerplate/teibp_paramet
 
 ## 1. Display of page breaks and facsimiles
 
-```
+```xml
 <xsl:param name="p_display-page-breaks" select="true()"/>
-~~~
+```
 
 ## 2. Toggle between online and off-line facsimile files:
 
-```
+```xml
 <xsl:param name="p_display-online-facsimiles" select="true()"/>
-~~~
+```
 
 ## 3. Display of line breaks
 
-```
+```xml
 <xsl:param name="p_display-line-breaks" select="true()"/>
-~~~
+```
 
 ## 4. Toggle the language of interface text
 
 Toggle between English and the language of your TEI encoded texts:
 
-```
+```xml
 <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
-~~~
+```
 
 Currently our boilerplate supports English (as fall-back option) and Arabic, but one can easily add additional languages to all parameters that begin with `p_text-`; e.g.
 
-```
+```xml
 <xsl:param name="p_text-page">
         <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
@@ -89,11 +89,11 @@ Currently our boilerplate supports English (as fall-back option) and Arabic, but
             </xsl:choose>
         </span>
     </xsl:param>
-~~~
+```
 
 To add another language just add another `<xsl:when>` option; e.g.
 
-```
+```xml
 <xsl:param name="p_text-page">
         <span class="c_teibp-pbNote" lang="{$v_lang-interface}">
             <xsl:choose>
@@ -109,4 +109,4 @@ To add another language just add another `<xsl:when>` option; e.g.
             </xsl:choose>
         </span>
     </xsl:param>
-~~~
+```
