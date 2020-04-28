@@ -57,8 +57,11 @@
                 <xsl:when test="$v_graphic[starts-with(@url, 'http://eap.')]">
                     <xsl:value-of select="$v_graphic[starts-with(@url, 'http://eap.')][1]/@url"/>
                 </xsl:when>
-                <xsl:when test="$v_graphic[starts-with(@url, 'http://archive.sakhrit.co')]">
-                    <xsl:value-of select="$v_graphic[starts-with(@url, 'http://archive.sakhrit.co')][1]/@url"/>
+                <xsl:when test="$v_graphic[contains(@url, 'archive.alsharekh.org/')]">
+                    <xsl:value-of select="$v_graphic[contains(@url, 'archive.alsharekh.org/')][1]/@url"/>
+                </xsl:when>
+                <xsl:when test="$v_graphic[contains(@url, 'archive.sakhrit.co')]">
+                    <xsl:value-of select="$v_graphic[contains(@url, 'archive.sakhrit.co')][1]/@url"/>
                 </xsl:when>
                 <xsl:when test="$v_graphic[starts-with(@url, 'https://babel.hathitrust.org')]">
                     <xsl:value-of select="$v_graphic[starts-with(@url, 'https://babel.hathitrust.org')][1]/@url"/>
