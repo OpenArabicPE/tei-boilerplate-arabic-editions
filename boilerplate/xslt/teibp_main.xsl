@@ -901,7 +901,7 @@
         <!-- wrap all buttons in a div -->
         <div id="sidebar-buttons" class="c_sidebar">
             <!-- button to toggle settings pane -->
-            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleSettings">
+            <div class="c_button c_button-toggle c_off c_button-sidebar c_pos-1" id="toggleSettings">
                 <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/settings.svg')"/>
                 </span>
@@ -913,7 +913,7 @@
                 </span>
             </div>
             <!-- button to toggle ToC -->
-            <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleNav">
+            <div class="c_button c_button-toggle c_off c_button-sidebar c_pos-2" id="toggleNav">
                 <span class="c_icon c_on">
                     <xsl:copy-of select="document('../assets/icons/list.svg')"/>
                 </span>
@@ -924,8 +924,9 @@
                     <xsl:copy-of select="$p_text-menu_contents"/>
                 </span>
             </div>
+
             <!-- link to Github -->
-            <div id="xmlSourceLink" class="c_button c_button-sidebar">
+            <div id="xmlSourceLink" class="c_button c_button-sidebar c_pos-4">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/download.svg')"/>
                 </span>
@@ -934,9 +935,28 @@
                     <xsl:text>TEI source on GitHub</xsl:text>
                 </a>
             </div>
+            <!-- top and bottom -->
+            <div id="backToTop" class="c_button c_button-sidebar c_pos-5">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
+                </span>
+                <a href="#" class="c_label" lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-nav_top"/>
+                </a>
+            </div>
+            <div id="goToBottom" class="c_button c_button-sidebar c_pos-6">
+                <span class="c_icon">
+                    <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
+                </span>
+                <a href="#footer" class="c_label"  lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-nav_bottom"/>
+                </a>
+            </div>
+
+            
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
-                <div id="nextIssue" class="c_button c_button-sidebar">
+                <div id="nextIssue" class="c_button c_button-sidebar c_pos-7">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
                     </span>
@@ -956,7 +976,7 @@
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
-                <div id="prevIssue" class="c_button c_button-sidebar">
+                <div id="prevIssue" class="c_button c_button-sidebar c_pos-8">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
                     </span>
@@ -975,23 +995,6 @@
                     </a>
                 </div>
             </xsl:if>
-            <!-- top and bottom -->
-            <div id="backToTop" class="c_button c_button-sidebar">
-                <span class="c_icon">
-                    <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
-                </span>
-                <a href="#" class="c_label" lang="{$v_lang-interface}">
-                    <xsl:copy-of select="$p_text-nav_top"/>
-                </a>
-            </div>
-            <div id="goToBottom" class="c_button c_button-sidebar">
-                <span class="c_icon">
-                    <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
-                </span>
-                <a href="#footer" class="c_label"  lang="{$v_lang-interface}">
-                    <xsl:copy-of select="$p_text-nav_bottom"/>
-                </a>
-            </div>
         </div>
     </xsl:variable>
 
