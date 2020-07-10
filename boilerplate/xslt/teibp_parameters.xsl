@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default"  version="1.0"
+<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg  #default"  version="1.0"
     xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples" 
      xmlns:html="http://www.w3.org/1999/xhtml" 
     xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
@@ -218,6 +218,18 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:text>Contents</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+    </xsl:param>
+    <xsl:param name="p_text-menu_search">
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>بحث</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Search</xsl:text>
                 </xsl:otherwise>
             </xsl:choose>
         </span>

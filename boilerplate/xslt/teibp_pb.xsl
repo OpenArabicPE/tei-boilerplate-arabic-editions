@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default"  version="1.0"
+<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg #default"  version="1.0"
     xmlns="http://www.w3.org/1999/xhtml" 
     xmlns:eg="http://www.tei-c.org/ns/Examples" 
     

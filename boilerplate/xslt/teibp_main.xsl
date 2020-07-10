@@ -926,7 +926,7 @@
             </div>
 
             <!-- link to Github -->
-            <div id="xmlSourceLink" class="c_button c_button-sidebar c_pos-4">
+            <div id="xmlSourceLink" class="c_button c_button-sidebar c_pos-3">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/download.svg')"/>
                 </span>
@@ -936,7 +936,7 @@
                 </a>
             </div>
             <!-- top and bottom -->
-            <div id="backToTop" class="c_button c_button-sidebar c_pos-5">
+            <div id="backToTop" class="c_button c_button-sidebar c_pos-4">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
                 </span>
@@ -944,7 +944,7 @@
                     <xsl:copy-of select="$p_text-nav_top"/>
                 </a>
             </div>
-            <div id="goToBottom" class="c_button c_button-sidebar c_pos-6">
+            <div id="goToBottom" class="c_button c_button-sidebar c_pos-5">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
                 </span>
@@ -956,7 +956,7 @@
             
             <!-- links to previous and next issues -->
             <xsl:if test="descendant-or-self::tei:TEI/@next">
-                <div id="nextIssue" class="c_button c_button-sidebar c_pos-7">
+                <div id="nextIssue" class="c_button c_button-sidebar c_pos-6">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
                     </span>
@@ -976,7 +976,7 @@
                 </div>
             </xsl:if>
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
-                <div id="prevIssue" class="c_button c_button-sidebar c_pos-8">
+                <div id="prevIssue" class="c_button c_button-sidebar c_pos-7">
                     <span class="c_icon">
                         <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
                     </span>
