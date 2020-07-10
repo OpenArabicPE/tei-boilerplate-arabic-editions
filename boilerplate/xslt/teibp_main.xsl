@@ -584,6 +584,8 @@
             <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
+            <!-- call some template to generate bibliographic metadata that can be scraped by zotero -->
+            
             <!-- head: there are some divs without heads. they should nevertheless have a place-holder head -->
             <!--            <xsl:apply-templates select="tei:head"/>-->
             <xsl:if test="not(@type = 'masthead' or @subtype = 'masthead')">
