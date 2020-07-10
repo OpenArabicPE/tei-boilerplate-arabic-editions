@@ -908,7 +908,9 @@
                 <span class="c_icon c_off">
                     <xsl:copy-of select="document('../assets/icons/x.svg')"/>
                 </span>
-                <span class="c_label" lang="en">Settings</span>
+                <span class="c_label" lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-menu_settings"/>
+                </span>
             </div>
             <!-- button to toggle ToC -->
             <div class="c_button c_button-toggle c_off c_button-sidebar" id="toggleNav">
@@ -918,7 +920,9 @@
                 <span class="c_icon c_off">
                     <xsl:copy-of select="document('../assets/icons/x.svg')"/>
                 </span>
-                <span class="c_label" lang="en">Contents</span>
+                <span class="c_label" lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-menu_contents"/>
+                </span>
             </div>
             <!-- link to Github -->
             <div id="xmlSourceLink" class="c_button c_button-sidebar">
@@ -976,13 +980,17 @@
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-up.svg')"/>
                 </span>
-                <a href="#" class="c_label" lang="en">Top of the page</a>
+                <a href="#" class="c_label" lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-nav_top"/>
+                </a>
             </div>
             <div id="goToBottom" class="c_button c_button-sidebar">
                 <span class="c_icon">
                     <xsl:copy-of select="document('../assets/icons/arrow-down.svg')"/>
                 </span>
-                <a href="#footer" class="c_label" lang="en">Bottom of the page</a>
+                <a href="#footer" class="c_label"  lang="{$v_lang-interface}">
+                    <xsl:copy-of select="$p_text-nav_bottom"/>
+                </a>
             </div>
         </div>
     </xsl:variable>

@@ -36,7 +36,7 @@
     <!-- select whether you want to use inline CSS for the display; default: true() -->
     <xsl:param name="p_use-inline-css" select="true()"/>
     <!-- select whether the language of the interface should follow the main language of the text; default: false() -->
-    <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
+    <xsl:param name="p_lang-interface-same-as-text" select="true()"/>
     <!-- select the colour scheme for heads; currently available options: red, blue, green -->
     <xsl:param name="p_color-scheme" select="'red'"/>
     <!-- parameter to select the mimeType. In some cases tiff might be more efficient than jpeg -->
@@ -172,7 +172,6 @@
             </xsl:choose>
         </span>
     </xsl:param>
-    
     <xsl:param name="p_text-nav_previous-issue">
         <span lang="{$v_lang-interface}">
             <xsl:choose>
@@ -185,6 +184,57 @@
             </xsl:choose>
         </span>
     </xsl:param>
+    <xsl:param name="p_text-nav_top">
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>أعلى الصفحة</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Top of the page</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+    </xsl:param>
+    <xsl:param name="p_text-nav_bottom">
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>اسفل الصفحة</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Bottom of the page</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+    </xsl:param>
+
+    <!-- menu -->
+    <xsl:param name="p_text-menu_contents">
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>فهرس</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Contents</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+    </xsl:param>
+    <xsl:param name="p_text-menu_settings">
+        <span lang="{$v_lang-interface}">
+            <xsl:choose>
+                <xsl:when test="$v_lang-interface = 'ar'">
+                    <xsl:text>الإعدادات</xsl:text>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:text>Settings</xsl:text>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+    </xsl:param>
+    
     
     <!-- parameters for file paths or URLs -->
     <!-- modify filePrefix to point to boilerplate files on your own server, or to specify a relative path, e.g.: <xsl:param name="filePrefix" select="'http://dcl.slis.indiana.edu/teibp'"/>. 
