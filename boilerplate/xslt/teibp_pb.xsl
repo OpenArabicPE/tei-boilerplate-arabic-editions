@@ -10,6 +10,9 @@
     <!-- construct the image URL on the fly -->
     <xsl:variable name="v_volume" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@n"/>
     <xsl:variable name="v_issue" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@n"/>
+    <!-- IIIF URLs -->
+    <xsl:variable name="v_iiif-settings-max" select="'/full/2000,/0/default.jpg'"/>
+    <xsl:variable name="v_iiif-settings-display" select="'/full/800,/0/gray.jpg'"/>
 
     <!-- could also select pb[@facs] -->
     <xsl:template match="tei:pb[@ed = 'print']">
@@ -47,6 +50,9 @@
             <xsl:choose>
                 <!-- sequence of providers and protocolls is currently hardcoded and can be changed to taste -->
                 <!-- iiif -->
+                <xsl:when test="$v_graphic[contains(@url, $v_iiif-settings-max)]">
+                    <xsl:value-of select="concat(substring-before($v_graphic[contains(@url, $v_iiif-settings-max)][1]/@url, $v_iiif-settings-max), $v_iiif-settings-display)"/>
+                </xsl:when>
                 <xsl:when test="$v_graphic[@type='iiif']">
                     <!-- iiif allows for various paramters to be set. Currently, we opted for minimized traffic -->
                     <xsl:value-of select="concat($v_graphic[@type='iiif'][1]/@url,'/full/800,/0/gray.jpg')"/>
@@ -124,6 +130,9 @@
                 <a target="_blank">
                     <xsl:attribute name="href">
                         <xsl:choose>
+                            <xsl:when test="contains(@url, $v_iiif-settings-max)">
+                                <xsl:value-of select="concat(substring-before(@url, $v_iiif-settings-max), $v_iiif-settings-display)"/>
+                            </xsl:when>
                             <xsl:when test="@type='iiif'">
                                 <xsl:value-of select="concat(@url,'/full/800,/0/gray.jpg')"/>
                             </xsl:when>
