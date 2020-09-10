@@ -85,6 +85,17 @@
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
             <xsl:apply-templates select="@*"/>
+            <!-- add class attribute -->
+            <!-- <xsl:attribute name="class">
+                <xsl:choose>
+                    <xsl:when test="$p_facsimile-only = true()">
+                        <xsl:text>c_facsimily-only</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$p_facsimile-only = false()">
+                        <xsl:text>c_text-and-facsimily</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:attribute> -->
             <xsl:apply-templates select="child::node()[not(self::tei:back)]"/>
             <xsl:choose>
                 <xsl:when test="child::tei:back">
@@ -101,6 +112,23 @@
             </xsl:choose>
         </xsl:copy>
     </xsl:template>
+    <xsl:template match="tei:body">
+        <xsl:copy>
+            <xsl:apply-templates select="@*"/>
+            <!-- class to determine the width -->
+            <xsl:attribute name="class">
+                <xsl:choose>
+                    <xsl:when test="$p_facsimile-only = true()">
+                        <xsl:text>c_facsimily-only</xsl:text>
+                    </xsl:when>
+                    <xsl:when test="$p_facsimile-only = false()">
+                        <xsl:text>c_text-and-facsimily</xsl:text>
+                    </xsl:when>
+                </xsl:choose>
+            </xsl:attribute>
+            <xsl:apply-templates/>
+        </xsl:copy>
+    </xsl:template> 
     <xsl:template match="tei:back">
         <xsl:copy>
             <xsl:call-template name="templHtmlAttrLang">

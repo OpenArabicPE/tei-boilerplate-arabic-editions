@@ -76,6 +76,7 @@ l {
 /* divisions */
 
 div {
+    width: inherit;
 }
 
 /* paragraphs */
