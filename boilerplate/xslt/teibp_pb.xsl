@@ -10,9 +10,8 @@
     <!-- construct the image URL on the fly -->
     <xsl:variable name="v_volume" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'volume']/@n"/>
     <xsl:variable name="v_issue" select="$vgBiblStructSource/tei:monogr/tei:biblScope[@unit = 'issue']/@n"/>
-    <!-- IIIF URLs -->
+    <!-- IIIF URLs: establish the pattern to check for -->
     <xsl:variable name="v_iiif-settings-max" select="'/full/2000,/0/default.jpg'"/>
-    <xsl:variable name="v_iiif-settings-display" select="'/full/800,/0/gray.jpg'"/>
 
     <!-- could also select pb[@facs] -->
     <xsl:template match="tei:pb[@ed = 'print']">
@@ -51,10 +50,10 @@
                 <!-- sequence of providers and protocolls is currently hardcoded and can be changed to taste -->
                 <!-- iiif -->   
                 <xsl:when test="$v_graphic[contains(@url, $v_iiif-settings-max)]">
-                    <xsl:value-of select="concat(substring-before($v_graphic[contains(@url, $v_iiif-settings-max)][1]/@url, $v_iiif-settings-max), $v_iiif-settings-display)"/>
+                    <xsl:value-of select="concat(substring-before($v_graphic[contains(@url, $v_iiif-settings-max)][1]/@url, $v_iiif-settings-max), $p_iiif-settings-display)"/>
                 </xsl:when>
                 <xsl:when test="$v_graphic[@type='iiif']">
-                    <xsl:value-of select="concat($v_graphic[@type='iiif'][1]/@url, $v_iiif-settings-display)"/>
+                    <xsl:value-of select="concat($v_graphic[@type='iiif'][1]/@url, $p_iiif-settings-display)"/>
                 </xsl:when>
                 <xsl:when test="$v_graphic[starts-with(@url, 'https://eap.')]">
                     <xsl:value-of select="$v_graphic[starts-with(@url, 'https://eap.')][1]/@url"/>
@@ -130,10 +129,10 @@
                     <xsl:attribute name="href">
                         <xsl:choose>
                             <xsl:when test="contains(@url, $v_iiif-settings-max)">
-                                <xsl:value-of select="concat(substring-before(@url, $v_iiif-settings-max), $v_iiif-settings-display)"/>
+                                <xsl:value-of select="concat(substring-before(@url, $v_iiif-settings-max), $p_iiif-settings-display)"/>
                             </xsl:when>
                             <xsl:when test="@type='iiif'">
-                                <xsl:value-of select="concat(@url, $v_iiif-settings-display)"/>
+                                <xsl:value-of select="concat(@url, $p_iiif-settings-display)"/>
                             </xsl:when>
                             <xsl:otherwise>
                                 <xsl:value-of select="@url"/>
