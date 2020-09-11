@@ -462,7 +462,18 @@
         <div class="c_sidenav" id="settings">
             <!--<ul lang="en">
             <li>-->
-            <div class="c_button c_button-toggle c_off c_toggle-lb">
+            <div>
+                <xsl:attribute name="class">
+                    <xsl:text>c_button c_button-toggle c_toggle-lb </xsl:text>
+                    <xsl:choose>
+                        <xsl:when test="$p_display-line-breaks = true()">
+                            <xsl:text>c_on</xsl:text>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:text>c_off</xsl:text>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:attribute>
                 <span class="c_icon c_on" lang="en">
                     <xsl:copy-of select="document('../assets/icons/circle.svg')"/>
                 </span>
@@ -581,16 +592,16 @@
         <xsl:text> </xsl:text>
     </xsl:template>
     <!-- toggle the display of line breaks -->
-    <!-- <xsl:template match="tei:lb">
-        <xsl:choose>
-            <xsl:when test="$p_display-line-breaks = true()">
-                <br/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:text> </xsl:text>
-            </xsl:otherwise>
-        </xsl:choose>
-    </xsl:template> -->
+    <xsl:template match="tei:lb">
+        <xsl:copy>
+            <xsl:if test="$p_display-line-breaks = true()">
+                <xsl:attribute name="class">
+                    <xsl:text>c_toggled</xsl:text>
+                </xsl:attribute>
+            </xsl:if>
+            <xsl:apply-templates select="@* | node()"/>
+        </xsl:copy>
+    </xsl:template>
     <xsl:template match="tei:cb">
         <xsl:text> </xsl:text>
     </xsl:template>
