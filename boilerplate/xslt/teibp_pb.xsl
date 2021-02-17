@@ -96,8 +96,12 @@
                                     <xsl:value-of select="$v_graphic[not(starts-with(@url,'http'))][@mimeType = $p_mimetype][1]/@url"/>
                                 </xsl:when>
                                 <!-- fallback to JPG -->
+                                <xsl:when test="$v_graphic[not(starts-with(@url,'http'))]/@mimeType = 'image/jpeg'">
+                                    <xsl:value-of select="$v_graphic[not(starts-with(@url,'http'))][@mimeType = 'image/tiff'][1]/@url"/>
+                                </xsl:when>
+                                <!-- fallback 2: any image that is present -->
                                 <xsl:otherwise>
-                                    <xsl:value-of select="$v_graphic[not(starts-with(@url,'http'))][@mimeType = 'image/jpeg'][1]/@url"/>
+                                    <xsl:value-of select="$v_graphic[not(starts-with(@url,'http'))][1]/@url"/>
                                 </xsl:otherwise>
                             </xsl:choose>
                         </xsl:when>

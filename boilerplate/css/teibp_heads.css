@@ -55,25 +55,25 @@ head >.c_metadata .c_icon > svg {
 /* levels of heads: font size, width, padding */
 
 text > * > div > head {
-    font-size: 2em;
+    font-size: 2em !important;
     width: 90%;
     padding-top: 8px;
     padding-bottom: 8px;
 }
 text > * > div > div > head{
-    font-size: 1.5em;
+    font-size: 1.5em !important;
     width: 85%;
     padding-top: 8px;
     padding-bottom: 8px;
 }
 text > * > div > div > div > head {
-    font-size: 1.3em;
+    font-size: 1.3em !important;
     width: 80%;
     padding-top: 6px;
     padding-bottom: 6px;
 }
 text > * > div > div > div > div > head {
-    font-size: 1.1em;
+    font-size: 1.1em !important;
     width: 80%;
     padding-top: 6px;
     padding-bottom: 6px;
