@@ -1051,6 +1051,8 @@
         </xsl:call-template>-->
         </span>
     </xsl:template>
+    
+    <!-- this template isn't used -->
     <xsl:template name="t_link-to-authority-file">
         <!-- content: this is an icon only -->
         <xsl:param name="p_content"/>
@@ -1077,6 +1079,7 @@
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
+    <!-- this subsequent template isn't used either -->
     <xsl:template name="t_convert-ref-to-link">
         <xsl:param name="p_content"/>
         <xsl:param name="p_target"/>
@@ -1127,6 +1130,9 @@
         </xsl:call-template>-->
         </span>
     </xsl:template>
+    <xsl:template match="tei:surname | tei:forename | tei:addName | tei:roleName | tei:nameLink">
+        <xsl:text> </xsl:text><xsl:apply-templates/><xsl:text> </xsl:text>
+    </xsl:template>
     <xsl:template match="tei:persName[ancestor::tei:body] | tei:placeName[ancestor::tei:body] | tei:orgName[ancestor::tei:body] | tei:title[ancestor::tei:body][@level = ('m' or 'j')]" priority="10">
         <xsl:variable name="v_icon">
             <span class="c_icon-entity">
@@ -1153,22 +1159,61 @@
                     <xsl:with-param name="pInput" select="."/>
                 </xsl:call-template>
                 <xsl:apply-templates select="@* | node()"/>
-                <!--                <xsl:text>entity name</xsl:text>-->
             </xsl:copy>
         </xsl:variable>
+        <!-- check if the entity reference points to a dereferencable entity -->
+        <!-- problem: XSLT1 doesn't allow to access the content of a variable through xpath -->
+        <xsl:variable name="v_links">
+            <xsl:call-template name="t_derefence-ref">
+                <xsl:with-param name="p_ref" select="@ref"/>
+                <xsl:with-param name="p_content" select="$v_icon"/>
+            </xsl:call-template>
+        </xsl:variable>
         <xsl:copy-of select="$v_content"/>
-        <!-- add icon and link to authority files -->
+        <!-- icons and links -->
+        <xsl:copy-of select="$v_links"/>
+    </xsl:template>
+    <!-- input: @ref, output: a single <html:a> -->
+    <xsl:template name="t_derefence-ref">
+        <xsl:param name="p_ref"/>
+        <xsl:param name="p_content"/>
         <xsl:choose>
-            <xsl:when test="@ref">
-                <xsl:call-template name="t_link-to-authority-file">
-                    <xsl:with-param name="p_content">
-                        <xsl:copy-of select="$v_icon"/>
-                    </xsl:with-param>
-                    <xsl:with-param name="p_ref" select="@ref"/>
-                </xsl:call-template>
+            <xsl:when test="contains($p_ref, 'viaf:')">
+                <a class="c_linked-data" lang="en" target="_blank">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="concat('https://viaf.org/viaf/', substring-before(substring-after($p_ref, 'viaf:'),' '))"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="title">
+                        <xsl:text>Link to this entity at VIAF</xsl:text>
+                    </xsl:attribute>
+                    <xsl:copy-of select="$p_content"/>
+                </a>
             </xsl:when>
+            <xsl:when test="contains($p_ref, 'geon:')">
+                <a class="c_linked-data" lang="en" target="_blank">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="concat('http://www.geonames.org/', substring-before(substring-after($p_ref, 'geon:'), ' '))"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="title">
+                        <xsl:text>Link to this toponym on GeoNames</xsl:text>
+                    </xsl:attribute>
+                    <xsl:copy-of select="$p_content"/>
+                </a>
+            </xsl:when>
+            <xsl:when test="contains($p_ref, 'oclc:')">
+                <a class="c_linked-data" lang="en" target="_blank">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="concat('https://www.worldcat.org/oclc/', substring-before(substring-after($p_ref, 'oclc:'), ' '))"/>
+                    </xsl:attribute>
+                    <xsl:attribute name="title">
+                        <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
+                    </xsl:attribute>
+                    <xsl:copy-of select="$p_content"/>
+                </a>
+            </xsl:when>
+            <!-- fallback! -->
             <xsl:otherwise>
-                <xsl:copy-of select="$v_icon"/>
+                <xsl:copy-of select="$p_content"/>
             </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
