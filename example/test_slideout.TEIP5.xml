@@ -1,9 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!--<?xml-model href="https://rawgit.com/OpenArabicPE/OpenArabicPE_ODD/v0.1/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>-->
-<?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
-<?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
-<?xml-stylesheet type="text/xsl" href="../boilerplate/xslt/teibp_parameters.xsl"?>
+<?xml version="1.0" encoding="UTF-8"?><!--<?xml-model href="https://rawgit.com/OpenArabicPE/OpenArabicPE_ODD/v0.1/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>--><?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?><?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-model href="../../OpenArabicPE_ODD/schema/tei_periodical.sch" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?><?xml-stylesheet type="text/xsl" href="../boilerplate/xslt/teibp_parameters.xsl"?>
 <TEI next="oclc_4770057679-i_61" xml:id="oclc_4770057679-i_60" xmlns="http://www.tei-c.org/ns/1.0" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xi="http://www.w3.org/2001/XInclude">
     <teiHeader xml:lang="en">
         <fileDesc xml:lang="en">
@@ -11,33 +6,25 @@
                 <title xml:lang="ar">مجلة المقتبس</title>
                 <title xml:lang="en">Majallat al-Muqtabas, Vol. 6, no. 1</title>
                 <title type="sub" xml:lang="en">TEI edition</title>
-                <author ref="viaf:32272677" xml:lang="en">
-                    <persName xml:lang="ar">
-                        <forename xml:lang="ar">محمد</forename>
-                        <surname xml:lang="ar">كرد علي</surname>
-                    </persName>
-                    <persName xml:lang="ar-Latn-x-ijmes">
-                        <forename xml:lang="ar-Latn-x-ijmes">Muḥammad</forename>
-                        <surname xml:lang="ar-Latn-x-ijmes">Kurd ʿAlī</surname>
-                    </persName>
-                </author>
+                <author ref="viaf:32272677" xml:lang="en"> <persName change="#d9e602" ref="viaf:32272677 oape:pers:878 wiki:Q3123742" xml:lang="ar"> <forename xml:lang="ar">محمد</forename> <surname
+                    xml:lang="ar">كرد علي</surname> </persName> <persName change="#d9e602" ref="viaf:32272677 oape:pers:878 wiki:Q3123742" xml:lang="ar-Latn-x-ijmes"> <forename
+                    xml:lang="ar-Latn-x-ijmes">Muḥammad</forename> <surname xml:lang="ar-Latn-x-ijmes">Kurd ʿAlī</surname> </persName> </author>
                 <respStmt xml:lang="en">
                     <resp xml:lang="en">Transcription</resp>
                     <orgName xml:id="org_MS" xml:lang="en">المكتبة الشاملة</orgName>
                 </respStmt>
                 <respStmt xml:lang="en">
                     <resp xml:lang="en">TEI edition</resp>
-                    <persName xml:id="pers_TG" xml:lang="en">Till Grallert</persName>
+                    <persName change="#d9e602" ref="jaraid:pers:4 oape:pers:4312" xml:id="pers_TG" xml:lang="en">Till Grallert</persName>
                 </respStmt>
             </titleStmt>
             <publicationStmt xml:lang="en">
-                <authority xml:lang="en">
-                    <persName xml:lang="en">Till Grallert</persName>
-                </authority>
+                <authority xml:lang="en"> <persName change="#d9e602" ref="jaraid:pers:4 oape:pers:4312" xml:lang="en">Till Grallert</persName> </authority>
                 <pubPlace xml:lang="en">Beirut</pubPlace>
                 <date when="2015" xml:lang="en">2015</date>
                 <availability status="restricted" xml:lang="en">
-                    <licence target="http://creativecommons.org/licenses/by-sa/4.0/" xml:lang="en">Distributed under a Creative Commons Attribution-ShareAlike 4.0
+                    <licence target="http://creativecommons.org/licenses/by-sa/4.0/" xml:lang="en"
+                        >Distributed under a Creative Commons Attribution-ShareAlike 4.0
                         International (CC BY-SA 4.0) license</licence>
                 </availability>
                 <idno type="url" xml:lang="en">https://github.com/tillgrallert/digital-muqtabas/blob/master/xml/oclc_4770057679-i_60.TEIP5.xml</idno>
@@ -46,12 +33,14 @@
                 <biblStruct change="#d2e595" xml:lang="en">
                     <monogr change="#d2e595" xml:lang="en">
                         <title level="j" xml:lang="ar">المقتبس</title>
-                        <title level="j" type="sub" xml:lang="ar">مجلة تبحث في التربية والتعليم
+                        <title level="j" type="sub" xml:lang="ar"
+                            >مجلة تبحث في التربية والتعليم
                             والاجتماع والاقتصاد والاداب والتاريخ والآثار واللغة و تدبير المنزل
                             والصحة والكتب وحضارة العرب والغرب</title>
                         <title level="j" type="sub" xml:lang="ar">تصدر في كل شهر عربي بدمشق</title>
                         <title level="j" xml:lang="ar-Latn-x-ijmes">[Majallat] al-Muqtabas</title>
-                        <title level="j" type="sub" xml:lang="ar-Latn-x-ijmes">Majalla tabḥath fī
+                        <title level="j" type="sub" xml:lang="ar-Latn-x-ijmes"
+                            >Majalla tabḥath fī
                             al-tarbiyya wa-l-taʿlīm wa-l-ijtimāʿ wa-l-iqtiṣād wa-l-adab wa-l-tārīkh
                             wa-l-āthār wa-l-lugha wa tadbīr al-manzil wa-l-ṣaḥḥa wa-l-kutub wa
                             ḥaḍāra al-ʿarab wa ḥadāra al-gharb</title>
@@ -60,7 +49,8 @@
                         <title level="j" xml:lang="fr">Al-Moktabas</title>
                         <title level="j" type="sub" xml:lang="fr">Revue mensuelle paraissant à Damas
                             (Syrie)</title>
-                        <title level="j" type="sub" xml:lang="fr">Pédagogie, sociologie, économie
+                        <title level="j" type="sub" xml:lang="fr"
+                            >Pédagogie, sociologie, économie
                             politique, littérature, histoire, archéologie, philologie, ménagerie,
                             hygiène, bibliographie, civilisation arabe et occidentale</title>
                         <idno change="#d2e595" type="OCLC" xml:lang="en">4770057679</idno>
@@ -68,25 +58,13 @@
                         <idno change="#d2e595" type="aucr" xml:lang="en">07201136864</idno>
                         <idno change="#d2e595" type="shamela" xml:lang="en">26523</idno>
                         <idno change="#d2e595" type="zenodo" xml:lang="en">45922152</idno>
-                        <editor ref="viaf:32272677" xml:lang="en">
-                            <persName xml:lang="ar">
-                                <forename xml:lang="ar">محمد</forename>
-                                <surname xml:lang="ar">كرد علي</surname>
-                            </persName>
-                            <persName xml:lang="ar-Latn-x-ijmes">
-                                <forename xml:lang="ar-Latn-x-ijmes">Muḥammad</forename>
-                                <surname xml:lang="ar-Latn-x-ijmes">Kurd ʿAlī</surname>
-                            </persName>
-                        </editor>
+                        <editor ref="viaf:32272677" xml:lang="en"> <persName change="#d9e602" ref="viaf:32272677 oape:pers:878 wiki:Q3123742" xml:lang="ar"> <forename xml:lang="ar">محمد</forename>
+                            <surname xml:lang="ar">كرد علي</surname> </persName> <persName change="#d9e602" ref="viaf:32272677 oape:pers:878 wiki:Q3123742" xml:lang="ar-Latn-x-ijmes"> <forename
+                            xml:lang="ar-Latn-x-ijmes">Muḥammad</forename> <surname xml:lang="ar-Latn-x-ijmes">Kurd ʿAlī</surname> </persName> </editor>
                         <imprint xml:lang="en">
-                            <publisher xml:lang="en">
-                                <orgName xml:lang="ar">مطبعة المقتبس</orgName>
-                                <orgName notAfter="1914" notBefore="1908" xml:lang="ar-Latn-x-ijmes">Maṭbaʿa al-Muqtabas</orgName>
-                            </publisher>
-                            <pubPlace xml:lang="en">
-                                <placeName xml:lang="ar">دمشق</placeName>
-                                <placeName xml:lang="en">Damascus</placeName>
-                            </pubPlace>
+                            <publisher xml:lang="en"> <orgName xml:lang="ar">مطبعة المقتبس</orgName> <orgName notAfter="1914" notBefore="1908" xml:lang="ar-Latn-x-ijmes">Maṭbaʿa al-Muqtabas</orgName> </publisher>
+                            <pubPlace xml:lang="en"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:lang="ar">دمشق</placeName> <placeName change="#d9e617"
+                                ref="geon:170654 oape:place:61" xml:lang="en">Damascus</placeName> </pubPlace>
                             <date calendar="#cal_islamic" datingMethod="#cal_islamic" type="official" when="1911-01-02" when-custom="1329-01-01" xml:lang="ar-Latn-x-ijmes">1 Muḥ 1329</date>
                         </imprint>
                         <biblScope from="6" to="6" unit="volume"/>
@@ -98,128 +76,156 @@
         </fileDesc>
         <!-- <xi:include href="oclc_4770057679-master_teiHeader.TEIP5.xml" parse="xml" xpointer="encodingDesc"/><xi:include href="oclc_4770057679-master_teiHeader.TEIP5.xml" parse="xml" xpointer="profileDesc"/>-->
         <revisionDesc>
+            <tei:change when="2021-07-02" who="#pers_TG" xml:id="d9e617" xml:lang="en">Added references to local authority file (<tei:ref
+                target="/BachUni/BachBibliothek/GitHub/OpenArabicPE/authority-files/data/tei/gazetteer_OpenArabicPE.TEIP5.xml"
+                >/BachUni/BachBibliothek/GitHub/OpenArabicPE/authority-files/data/tei/gazetteer_OpenArabicPE.TEIP5.xml</tei:ref>) and to GeoNames IDs to <tei:gi>placeName</tei:gi>s without such references based on  <tei:gi>place</tei:gi>s mentioned in the authority file.</tei:change>
+            <tei:change when="2021-07-02" who="#pers_TG" xml:id="d9e602" xml:lang="en">Added references to local authority file (<tei:ref
+                target="/BachUni/BachBibliothek/GitHub/OpenArabicPE/authority-files/data/tei/personography_OpenArabicPE.TEIP5.xml"
+                >/BachUni/BachBibliothek/GitHub/OpenArabicPE/authority-files/data/tei/personography_OpenArabicPE.TEIP5.xml</tei:ref>) and VIAF to <tei:gi>persName</tei:gi>s without such references based on <tei:gi>person</tei:gi>s in the local authority file. If the source <tei:gi>persName</tei:gi> did not contain any further TEI mark-up, this has been added from the local authority file.</tei:change>
             <tei:change when="2018-06-27" who="#pers_TG" xml:id="d2e595" xml:lang="en">Mapped elements from version 1 of the ODD to version 2</tei:change>
-            <change when="2016-12-05" who="#pers_TG">Added automated mark-up of strings wrapped in brackets with 
-                <tag>tei:q rend=&quot;brackets&quot;</tag>
+            <change when="2016-12-05" who="#pers_TG"
+                >Added automated mark-up of strings wrapped in brackets with 
+                <tag>tei:q rend="brackets"</tag>
                 and 
                 <att>rend</att>
                 on existing nodes.</change>
-            <change when="2016-11-25" who="#pers_TG">Added bylines, added text for some notes, corrected mark-up of some notes. Added automated 
+            <change when="2016-11-25" who="#pers_TG"
+                >Added bylines, added text for some notes, corrected mark-up of some notes. Added automated 
                 <att>xml:id</att>
                 s for every element that is a descendant of 
                 <gi>tei:text</gi>
                 and had no existing 
                 <att>xml:id</att>
-                following the pattern &quot;name()_generate-id()&quot;</change>
-            <tei:change when="2016-09-25">Added the 
+                following the pattern "name()_generate-id()"</change>
+            <tei:change when="2016-09-25"
+                >Added the 
                 <tei:att>xml:lang</tei:att>
                 attribute to all nodes that lacked this attribute. The value is based on the closest ancestor.</tei:change>
-            <change when="2016-06-15" who="#pers_TG" xml:lang="en">Replaced 
+            <change when="2016-06-15" who="#pers_TG" xml:lang="en"
+                >Replaced 
                 <gi>encodingDesc</gi>
                 and 
                 <gi>profileDesc</gi>
                 with XPointers pointing to a master file.</change>
-            <change when="2016-05-09" who="#pers_TG" xml:lang="en">Added automated mark-up of Arabic numerals that are written as words instead of digits (i.e. خمسة instead of 5) as 
+            <change when="2016-05-09" who="#pers_TG" xml:lang="en"
+                >Added automated mark-up of Arabic numerals that are written as words instead of digits (i.e. خمسة instead of 5) as 
                 <gi>tei:num</gi>
                 and 
                 <att>xml:value</att>
                 recording the normalised value.</change>
-            <change when="2016-04-02" who="#pers_TG" xml:lang="en">Corrected the faulty mark-up of numbers containing commas or group separatours for thousands (i.e. &quot;.&quot;) by grouping successive 
+            <change when="2016-04-02" who="#pers_TG" xml:lang="en"
+                >Corrected the faulty mark-up of numbers containing commas or group separatours for thousands (i.e. ".") by grouping successive 
                 <gi>num</gi>
-                elements separated by &quot; . &quot; into a single 
+                elements separated by " . " into a single 
                 <gi>num</gi>
                 element. The 
                 <att>resp</att>
                 and 
                 <att>type</att>
-                indicate the responsible editor and the automated mark-up; i.e. the string &quot;٣١.٦٧٠،٤٠&quot; is marked up as 
-                <tag xml:lang="en">num resp=&quot;#pers_TG&quot; type=&quot;auto-markup&quot; value=&quot;31670.40&quot;</tag>
+                indicate the responsible editor and the automated mark-up; i.e. the string "٣١.٦٧٠،٤٠" is marked up as 
+                <tag
+                xml:lang="en">num resp="#pers_TG" type="auto-markup" value="31670.40"</tag>
                 .</change>
             <change when="2016-01-12" who="#pers_TG" xml:lang="en">Added a number of footnotes for the first 14 pages</change>
-            <change when="2016-01-12" who="#pers_TG" xml:lang="en">Added automated 
+            <change when="2016-01-12" who="#pers_TG" xml:lang="en"
+                >Added automated 
                 <att>xml:id</att>
                 s for every element that is a descendant of 
                 <gi>tei:text</gi>
                 and had no existing 
                 <att>xml:id</att>
-                following the pattern &quot;name()_generate-id()&quot;</change>
+                following the pattern "name()_generate-id()"</change>
             <change when="2016-01-12" who="#pers_TG" xml:lang="en">Converted the mark-up of lines of 
-                <foreign xml:lang="ar-Latn-x-ijmes">qaṣīda</foreign>
+                <foreign xml:lang="ar-Latn-x-ijmes"
+                >qaṣīda</foreign>
                 s from 
-                <tag xml:lang="en">lg type=&quot;bayt&quot;</tag>
+                <tag xml:lang="en"
+                >lg type="bayt"</tag>
                 s divided into two 
                 <gi>l</gi>
                 to 
-                <tag xml:lang="en">l type=&quot;bayt&quot;</tag>
+                <tag xml:lang="en"
+                >l type="bayt"</tag>
                 , each consisting of two 
                 <gi>seg</gi>
                 .</change>
-            <change when="2015-12-17" who="#pers_TG" xml:lang="en">Added automated 
+            <change when="2015-12-17" who="#pers_TG" xml:lang="en"
+                >Added automated 
                 <att>xml:id</att>
                 s for every element that is a descendant of 
                 <gi>tei:text</gi>
                 and had no existing 
                 <att>xml:id</att>
-                following the pattern &quot;name()_generate-id()&quot;</change>
+                following the pattern "name()_generate-id()"</change>
             <change xml:lang="en">Added a couple of footnotes based on the facsimile and added some mark-up to
-                <tag xml:lang="en">p xml:id=&quot;p_69.d1e2377&quot;</tag>
+                <tag xml:lang="en"
+                >p xml:id="p_69.d1e2377"</tag>
                 .</change>
-            <change when="2015-11-28" who="#pers_TG" xml:lang="en">Corrected the faulty mark-up of numbers containing commas or group separatours for thousands (i.e. &quot;.&quot;) by grouping successive 
+            <change when="2015-11-28" who="#pers_TG" xml:lang="en"
+                >Corrected the faulty mark-up of numbers containing commas or group separatours for thousands (i.e. ".") by grouping successive 
                 <gi>num</gi>
-                elements separated by &quot; . &quot; into a single 
+                elements separated by " . " into a single 
                 <gi>num</gi>
                 element. The 
                 <att>resp</att>
                 and 
                 <att>type</att>
-                indicate the responsible editor and the automated mark-up; i.e. the string &quot;٣١.٦٧٠،٤٠&quot; is marked up as 
-                <tag xml:lang="en">num resp=&quot;#pers_TG&quot; type=&quot;auto-markup&quot; value=&quot;31670.40&quot;</tag>
+                indicate the responsible editor and the automated mark-up; i.e. the string "٣١.٦٧٠،٤٠" is marked up as 
+                <tag
+                xml:lang="en">num resp="#pers_TG" type="auto-markup" value="31670.40"</tag>
                 .</change>
             <change when="2015-11-16" xml:lang="en">Created 
                 <att>xml:id</att>
                 for 
                 <gi>TEI</gi>
                 and added 
-                <tag xml:lang="en">idno type=&quot;url&quot;</tag>
+                <tag
+                xml:lang="en">idno type="url"</tag>
                 containing the file's URL on GitHub to 
                 <gi>publicationStmt</gi></change>
             <change when="2015-11-10" who="#pers_TG" xml:lang="en">added 
                 <gi>graphic</gi>
                 for 88 pages with
                 references to the EAP.</change>
-            <change when="2015-10-26" who="#pers_TG" xml:lang="en">Added automated 
+            <change when="2015-10-26" who="#pers_TG" xml:lang="en"
+                >Added automated 
                 <att>xml:id</att>
                 s for every
                 element that is a descendant of 
                 <gi>tei:text</gi>
                 and had no existing
                 <att>xml:id</att>
-                following the pattern &quot;name()_generate-id()&quot;</change>
-            <change when="2015-10-11" xml:lang="en">Created 
+                following the pattern "name()_generate-id()"</change>
+            <change when="2015-10-11" xml:lang="en"
+                >Created 
                 <att>xml:id</att>
                 for 
                 <gi>tei:TEI</gi>
                 and changed the
                 file name to reflect my URI design.</change>
-            <change when="2015-09-21" xml:lang="en">Added the 
+            <change when="2015-09-21" xml:lang="en"
+                >Added the 
                 <att>xml:lang</att>
                 attribute to all nodes that
                 lacked this attribute. The value is based on the closest ancestor.</change>
-            <change when="2015-09-21" xml:lang="en">Wrapped all numerals in 
+            <change when="2015-09-21" xml:lang="en"
+                >Wrapped all numerals in 
                 <gi>num</gi>
                 with 
                 <att>value</att>
                 recording their value in
                 standardised form and converted them into Arabic numerals to reflect the original
                 text.</change>
-            <change when="2015-09-12" who="#pers_TG" xml:lang="en">Made significant changes to the
+            <change when="2015-09-12" who="#pers_TG" xml:lang="en"
+                >Made significant changes to the
                 bibliographic information in 
                 <gi>biblStruct</gi>
                 in the 
                 <gi>teiHeader</gi>
                 and added some language information for English and
                 French in Arabic script</change>
-            <change when="2015-09-10" who="#pers_TG" xml:lang="en">Added markup for 
+            <change when="2015-09-10" who="#pers_TG" xml:lang="en"
+                >Added markup for 
                 <gi>persName</gi>
                 , 
                 <gi>date</gi>
@@ -228,10 +234,12 @@
                 to the first few paragraphs.</change>
             <change when="2015-09-03" who="#pers_TG" xml:lang="en">Completed the mark-up of page
                 breaks based on the printed copies (
-                <tag xml:lang="en">pb ed=&quot;print&quot;</tag>
+                <tag xml:lang="en"
+                >pb ed="print"</tag>
                 ) and
                 added some structural mark-up.</change>
-            <change when="2015-08-29" who="#pers_TG" xml:lang="en">Created additional links to the
+            <change when="2015-08-29" who="#pers_TG" xml:lang="en"
+                >Created additional links to the
                 facsimile on HathiTrust for each 
                 <gi>surface</gi>
                 .</change>
@@ -241,8 +249,9 @@
                 <gi>graphic</gi>
                 .</change>
             <change when="2015-08-27" who="#pers_TG" xml:lang="en">Added reference to schema
-                &quot;tei_dape&quot; on 
-                <ref target="https://rawgit.com/tillgrallert/TeachingTei/master/schema/tei_dape.rng" xml:lang="en">GitHub</ref>
+                "tei_dape" on 
+                <ref
+                target="https://rawgit.com/tillgrallert/TeachingTei/master/schema/tei_dape.rng" xml:lang="en">GitHub</ref>
                 .</change>
             <change when="2015-08-27" who="#pers_TG" xml:lang="en">Added and corrected some
                 text.</change>
@@ -250,15 +259,18 @@
                 people, organisations, dates, measures, and tables.</change>
             <change when="2015-08-27" who="#pers_TG" xml:lang="en">Added page breaks based on the
                 facsimile (not complete) using 
-                <tag xml:lang="en">pb ed=&quot;print&quot;</tag>
+                <tag xml:lang="en"
+                >pb ed="print"</tag>
                 .</change>
             <change when="2015-08-27" who="#pers_TG" xml:lang="en">Split the content of all 
-                <tag xml:lang="en">div type=&quot;section&quot;</tag>
+                <tag xml:lang="en"
+                >div type="section"</tag>
                 into child 
                 <gi>div</gi>
                 s.</change>
             <change when="2015-08-26" who="#pers_TG" xml:lang="en">Added page breaks until 
-                <tag xml:lang="en">pb ed=&quot;print&quot; n=&quot;17&quot;</tag>
+                <tag xml:lang="en"
+                >pb ed="print" n="17"</tag>
                 based on the facsimiles.</change>
             <change when="2015-08-26" who="#pers_TG" xml:lang="en">Removed the first shamela page
                 from the 
@@ -267,41 +279,47 @@
             <change when="2015-08-26" who="#pers_TG" xml:lang="en">Created facsimile for 88 pages
                 with references to a .tif and .jpeg for each page.</change>
             <change when="2015-08-25" who="#pers_TG" xml:lang="en">Created this file by splitting
-                <ref target="file:/BachUni/BachBibliothek/GitHub/ArabicTeiEdition/MajallatMuqtabas/xml/muqtabas-Edited.TEIP5.xml" xml:lang="en">the master file</ref>
+                <ref
+                target="file:/BachUni/BachBibliothek/GitHub/ArabicTeiEdition/MajallatMuqtabas/xml/muqtabas-Edited.TEIP5.xml" xml:lang="en"
+                >the master file</ref>
                 into individual files for each issue that
                 are linked to the master file by means of xPointer.</change>
-            <change when="2015-08-25" who="#pers_TG" xml:lang="en">Marked all original 
+            <change when="2015-08-25" who="#pers_TG" xml:lang="en"
+                >Marked all original 
                 <gi>pb</gi>
                 as 
                 <att>ed</att>
-                =&quot;shamela&quot; as they do not
+                ="shamela" as they do not
                 correspond to the original print edition.</change>
             <change when="2015-08-25" who="#pers_TG" xml:lang="en">Wrote the 
                 <gi>teiHeader</gi>
                 .</change>
-            <change when="2015-08-25" who="#pers_TG" xml:lang="en">Changed 
+            <change when="2015-08-25" who="#pers_TG" xml:lang="en"
+                >Changed 
                 <att>type</att>
-                from &quot;article&quot; to &quot;section&quot; for all 
+                from "article" to "section" for all 
                 <gi>div</gi>
                 whose
                 <gi>head</gi>
                 was equal to the following values: 
-                <list xml:lang="en">
-                    <item xml:lang="en">تدبير الصحة</item>
-                    <item xml:lang="en">سير العلم</item>
-                    <item xml:lang="en">سيرة العلم</item>
-                    <item xml:lang="en">مقالات المجلات</item>
-                    <item xml:lang="en">مطبوعات ومخطوطات</item>
-                    <item xml:lang="en">سير العلم والاجتماع</item>
-                    <item xml:lang="en">أخبار وأفكار</item></list>
-            </change>
+                <list
+                xml:lang="en">
+                <item xml:lang="en">تدبير الصحة</item>
+                <item xml:lang="en">سير العلم</item>
+                <item xml:lang="en">سيرة العلم</item>
+                <item xml:lang="en">مقالات المجلات</item>
+                <item xml:lang="en">مطبوعات ومخطوطات</item>
+                <item xml:lang="en">سير العلم والاجتماع</item>
+                <item xml:lang="en">أخبار وأفكار</item>
+                </list> </change>
             <change when="2015-08-25" who="#pers_TG" xml:lang="en">Added 
                 <att>type</att>
-                =&quot;article&quot; to all 
+                ="article" to all 
                 <gi>div</gi>
                 s.</change>
             <change when="2015-08-25" who="#pers_TG" xml:lang="en">Converted the mark-up of 
-                <foreign xml:lang="ar-Latn-x-ijmes">qaṣīda</foreign>
+                <foreign xml:lang="ar-Latn-x-ijmes"
+                >qaṣīda</foreign>
                 s from 
                 <gi>p</gi>
                 s
@@ -311,20 +329,23 @@
                 <gi>lg</gi>
                 of 
                 <att>type</att>
-                =&quot;bayt&quot; comprising two 
+                ="bayt" comprising two 
                 <gi>l</gi>
                 nodes.</change>
-            <change when="2015-08-25" who="#pers_TG" xml:lang="en">Corrected the problem of trailing
+            <change when="2015-08-25" who="#pers_TG" xml:lang="en"
+                >Corrected the problem of trailing
                 <gi>pb</gi>
                 s by moving them to the beginning of the following 
                 <gi>body</gi>
                 .</change>
-            <change when="2015-08-25" who="#pers_TG" xml:lang="en">Converted all 
+            <change when="2015-08-25" who="#pers_TG" xml:lang="en"
+                >Converted all 
                 <gi>lb</gi>
                 into proper parapgraphs (
                 <gi>p</gi>
                 ).</change>
-            <change when="2015-08-25" who="#pers_TG" xml:lang="en">Divided the 
+            <change when="2015-08-25" who="#pers_TG" xml:lang="en"
+                >Divided the 
                 <gi>body</gi>
                 into a 
                 <gi>group</gi>
@@ -353,21 +374,16 @@
                 <biblStruct xml:id="biblStruct_2.d1e1497" xml:lang="ar">
                     <monogr change="#d2e595" xml:id="monogr_2.d1e1499" xml:lang="ar">
                         <title level="j" xml:id="title_13.d1e1501" xml:lang="ar">المقتبس</title>
-                        <editor xml:id="editor_2.d1e1504" xml:lang="ar">
-                            <persName xml:id="persName_5.d1e1505" xml:lang="ar">محمد كرد
-                                علي</persName>
-                        </editor>
+                        <editor xml:id="editor_2.d1e1504" xml:lang="ar"> <persName change="#d9e602" ref="viaf:32272677 oape:pers:878 wiki:Q3123742" xml:id="persName_5.d1e1505" xml:lang="ar"> <forename
+                            xml:lang="ar">محمد</forename> <surname xml:lang="ar">كرد علي</surname> </persName> </editor>
                         <imprint xml:id="imprint_2.d1e1508" xml:lang="ar">
-                            <pubPlace xml:id="pubPlace_3.d1e1510" xml:lang="ar">
-                                <placeName xml:id="placeName_3.d1e1511" xml:lang="ar">دمشق</placeName>
-                            </pubPlace>
-                            <publisher xml:id="publisher_2.d1e1514" xml:lang="ar">
-                                <orgName xml:id="orgName_4.d1e1515" xml:lang="ar">المطبعة
-                                    المقتبس</orgName>
-                            </publisher>
-                            <date calendar="#cal_islamic" datingMethod="#cal_islamic" when="1911-01-02" when-custom="1329-01-01" xml:id="date_12.d1e1518" xml:lang="ar">
-                                <num resp="#pers_TG" type="auto-markup" value="1" xml:id="num_1.d1e1520" xml:lang="ar">١</num>محرم
-                                <num resp="#pers_TG" type="auto-markup" value="1329" xml:id="num_2.d1e1523" xml:lang="ar">١٣٢٩</num></date>
+                            <pubPlace xml:id="pubPlace_3.d1e1510" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_3.d1e1511" xml:lang="ar">دمشق</placeName> </pubPlace>
+                            <publisher xml:id="publisher_2.d1e1514" xml:lang="ar"> <orgName xml:id="orgName_4.d1e1515" xml:lang="ar">المطبعة
+                                    المقتبس</orgName> </publisher>
+                            <date calendar="#cal_islamic" datingMethod="#cal_islamic" when="1911-01-02" when-custom="1329-01-01" xml:id="date_12.d1e1518" xml:lang="ar"> <num resp="#pers_TG"
+                                type="auto-markup" value="1" xml:id="num_1.d1e1520" xml:lang="ar">١</num>محرم
+                                <num resp="#pers_TG" type="auto-markup" value="1329"
+                                xml:id="num_2.d1e1523" xml:lang="ar">١٣٢٩</num></date>
                         </imprint>
                         <biblScope n="6" unit="volume" xml:id="biblScope_4.d1e1528" xml:lang="ar">المجلد السادس</biblScope>
                         <biblScope n="1" unit="issue" xml:id="biblScope_5.d1e1531" xml:lang="ar">الجزء الاول</biblScope>
@@ -379,7 +395,8 @@
         <body xml:id="body_1.d1e1541" xml:lang="ar">
             <pb corresp="file:../epub/26523/OEBPS/xhtml/P3909.xhtml" ed="shamela" n="n60-p1" xml:id="pb_1.d1e1543"/>
             <pb ed="print" facs="#facs_6" n="2" xml:id="pb_2.d1e1545"/>
-            <div change="#d2e595" subtype="article" type="item" xml:id="div_2.d1e1547" xml:lang="ar"  next="oclc_4770057679-i_35.TEIP5.xml#div_5.d1e1119" prev="oclc_4770057679-i_33.TEIP5.xml#div_4.d1e1074">
+            <div change="#d2e595" next="oclc_4770057679-i_35.TEIP5.xml#div_5.d1e1119" prev="oclc_4770057679-i_33.TEIP5.xml#div_4.d1e1074" subtype="article" type="item" xml:id="div_2.d1e1547"
+                xml:lang="ar">
                 <salute xml:id="salute_1.d1e1780" xml:lang="ar">بسم الله الرحمن الرحيم</salute>
                 <head xml:id="head_1.d1e1549" xml:lang="ar">فاتحة السنة السادسة</head>
                 <p xml:id="p_17.d1e1554" xml:lang="ar">يفتتح
@@ -390,313 +407,336 @@
                     <lb/>
                     إلى الانتشار بين الخاصة في كل بلد يتكلم أهلها باللغة العربية أو يرغبون في تلقفها، ويعود فيعاهد قراءه على أن يتعاهدهم كل شهر كما عودهم 
                     <choice>
-                        <corr resp="#org_MS">الأبحاث بنشر</corr>
-                        <orig>النضيجة مشبعاً</orig></choice>إياها درساً وتمحيصاً ما ساعدته بيئته ومادته فينقل لل
+                    <corr resp="#org_MS">الأبحاث بنشر</corr>
+                    <orig>النضيجة مشبعاً</orig>
+                    </choice>إياها درساً وتمحيصاً ما ساعدته بيئته ومادته فينقل لل
                     <choice>
-                        <abbr>ش</abbr>
-                        <expan>رقيين</expan></choice>ما تبرزه عقول الغربيين ويمثل للغربيين ما أنتجته قرائح الشرقيين من الأقدمين والمحدثين ويعنى من المباحث عناية خاصة بعلوم 
-                    <del resp="#org_MS">التربية والتعليم والاجتماع</del>
+                    <abbr>ش</abbr>
+                    <expan>رقيين</expan>
+                    </choice>ما تبرزه عقول الغربيين ويمثل للغربيين ما أنتجته قرائح الشرقيين من الأقدمين والمحدثين ويعنى من المباحث عناية خاصة بعلوم 
+                    <del resp="#org_MS"
+                    >التربية والتعليم والاجتماع</del>
                     والاقتصاد واللغة والأدب والتاريخ والآثار وتدبير المنزل والصحة والكتب وحضارة العرب وحضارة الغرب ولا يتعرض للعلوم الأخرى إلا بقدر ماله علاقة بالموضوع 
-                    <add resp="#org_MS">ويتجافى عن مس العواطف</add>
+                    <add
+                    resp="#org_MS">ويتجافى عن مس العواطف</add>
                     الدينية والمنازع السياسية عملاً بالخطة التي رسمها في أول جزء صدر منه على ضفاف النيل.</p>
-                <p xml:id="p_18.d1e1557" xml:lang="ar">ولقد هيأ الزمان لهذه المجلة طائفة من العلماء
+                <p xml:id="p_18.d1e1557" xml:lang="ar"
+                    >ولقد هيأ الزمان لهذه المجلة طائفة من العلماء
                     الباحثين والكاتبين المفكرين أخذوا على أنفسهم كما فعلوا في السنين الغابرة أن
                     يوافوها أثابهم الله الشهر بعد الشهر بخلاصة أبحاثهم ويعلموا الناس مما علموا
                     وزكنوا وهذا مما يزيد الثقة بهذا العمل العلمي وعمل الجماعة أمتع وأنفع وعمل الفرد
                     لا يخلو من ضعف وضؤولة، وهاك أسماءهم إقراراً بأفضالهم على العلوم والآداب:</p>
-                <p xml:id="p_19.d1e1560" xml:lang="ar">
-                    <persName rend="quotation-marks" xml:id="persName_6.d1e1562" xml:lang="fr-Arab-AR">أحمد بك تيمور</persName>
-                    <placeName rend="brackets" xml:id="placeName_4.d1e1565" xml:lang="ar">القاهرة</placeName>
-                    <persName xml:id="persName_7.d1e1568" xml:lang="ar">أحمد بك زكي</persName>
-                    <placeName rend="brackets" xml:id="placeName_5.d1e1571" xml:lang="ar">القاهرة</placeName>
-                    <persName xml:id="persName_8.d1e1574" xml:lang="ar">أمين أفندي
-                        ريحاني</persName>
-                    <placeName rend="brackets" xml:id="placeName_6.d1e1578" xml:lang="ar">نيويورك</placeName>
-                    <persName ref="viaf:93607460" xml:lang="ar">الشيخ 
-                        <forename>جمال الدين</forename>
-                        <surname>القاسمي</surname></persName>
-                    <q xml:id="q_1.d1e1584" xml:lang="ar">
-                        <placeName xml:id="placeName_7.d1e1586" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName ref="viaf:305214884" xml:id="persName_10.d1e1590" xml:lang="ar">
-                        <forename xml:id="forename_5.d1e1650">جرجي</forename>أفندي 
-                        <surname xml:id="surname_5.d1e1653">الحداد</surname></persName>
-                    <q xml:id="q_2.d1e1593" xml:lang="ar">
-                        <placeName xml:id="placeName_8.d1e1595" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_11.d1e1599" xml:lang="ar">خليل أفندي رفعت</persName>
-                    <q xml:id="q_3.d1e1603" xml:lang="ar">
-                        <placeName xml:id="placeName_9.d1e1605" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_12.d1e1609" xml:lang="ar">خليل بك سعد</persName>
-                    <q xml:id="q_4.d1e1612" xml:lang="ar">
-                        <placeName xml:id="placeName_10.d1e1614" xml:lang="ar">بيروت</placeName>
-                    </q>
-                    <persName xml:id="persName_13.d1e1618" xml:lang="ar">رشيد أفندي
-                        بقدونس</persName>
-                    <q xml:id="q_5.d1e1621" xml:lang="ar">
-                        <placeName xml:id="placeName_11.d1e1623" xml:lang="ar">سلانيك</placeName>
-                    </q>
-                    <persName ref="viaf:28125663" xml:lang="ar">
-                        <forename>رفيق</forename>بك 
-                        <surname>العظم</surname></persName>
-                    <q xml:id="q_6.d1e1631" xml:lang="ar">
-                        <placeName xml:id="placeName_12.d1e1633" xml:lang="ar">القاهرة</placeName>
-                    </q>
-                    <persName xml:id="persName_15.d1e1637" xml:lang="ar">زكي أفندي الخطيب</persName>
-                    <q xml:id="q_7.d1e1640" xml:lang="ar">
-                        <placeName xml:id="placeName_13.d1e1642" xml:lang="ar">سنجار</placeName>
-                    </q>
-                    <persName xml:id="persName_16.d1e1646" xml:lang="ar">صلاح الدين أفندي
-                        القاسمي</persName>
-                    <q xml:id="q_8.d1e1649" xml:lang="ar">
-                        <placeName xml:id="placeName_14.d1e1651" xml:lang="ar">دمشق</placeName>
-                    </q>ساتسنا 
-                    <q xml:id="q_9.d1e1655" xml:lang="ar">
-                        <placeName xml:id="placeName_15.d1e1657" xml:lang="ar">بغداد</placeName></q>
-                    <persName xml:id="persName_17.d1e1662" xml:lang="ar">سليم أفندي
-                        البخاري</persName>
-                    <q xml:id="q_10.d1e1665" xml:lang="ar">
-                        <placeName xml:id="placeName_16.d1e1667" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_18.d1e1671" xml:lang="ar">شكري أفندي العلي</persName>
-                    <q xml:id="q_11.d1e1674" xml:lang="ar">
-                        <placeName xml:id="placeName_17.d1e1676" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_19.d1e1680" xml:lang="ar">الشيخ طاهر
-                        الجزائري</persName>
-                    <q xml:id="q_12.d1e1683" xml:lang="ar">
-                        <placeName xml:id="placeName_18.d1e1685" xml:lang="ar">القاهرة</placeName>
-                    </q>
-                    <persName xml:id="persName_20.d1e1690" xml:lang="ar">الدكتور عبد الرحمن
-                        شهبندر</persName>
-                    <q xml:id="q_13.d1e1693" xml:lang="ar">
-                        <placeName xml:id="placeName_19.d1e1695" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_21.d1e1699" xml:lang="ar">عبد القادر أفندي
-                        المغربي</persName>
-                    <q xml:id="q_14.d1e1702" xml:lang="ar">
-                        <placeName xml:id="placeName_20.d1e1704" xml:lang="ar">طرابلس
-                            الشام</placeName>
-                    </q>
-                    <persName xml:id="persName_22.d1e1708" xml:lang="ar">عبد الله أفندي
-                        مخلص</persName>
-                    <q xml:id="q_15.d1e1711" xml:lang="ar">
-                        <placeName xml:id="placeName_21.d1e1713" xml:lang="ar">حيفا</placeName>
-                    </q>
-                    <persName xml:id="persName_23.d1e1718" xml:lang="ar">عبد الوهاب أفندي
-                        الإنكليزي</persName>
-                    <q xml:id="q_16.d1e1721" xml:lang="ar">الباب</q>
-                    <persName xml:id="persName_24.d1e1724" xml:lang="ar">عيسى أفندي اسكندر
-                        معلوف</persName>
-                    <q xml:id="q_17.d1e1727" xml:lang="ar">
-                        <placeName xml:id="placeName_22.d1e1729" xml:lang="ar">زحلة</placeName>
-                    </q>
-                    <persName xml:id="persName_25.d1e1733" xml:lang="ar">فارس أفندي
-                        الخوري</persName>
-                    <q xml:id="q_18.d1e1736" xml:lang="ar">
-                        <placeName xml:id="placeName_23.d1e1738" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName xml:id="persName_26.d1e1743" xml:lang="ar">فارس أفندي فياض</persName>
-                    <q xml:id="q_19.d1e1746" xml:lang="ar">
-                        <placeName xml:id="placeName_24.d1e1748" xml:lang="ar">دمشق</placeName>
-                    </q>
-                    <persName ref="viaf:47005120" xml:id="persName_27.d1e1752" xml:lang="ar">
-                        <forename>محمود</forename>
-                        <forename>شكري</forename>أفندي 
-                        <surname>الآلوسي</surname></persName>
-                    <q xml:id="q_20.d1e1755" xml:lang="ar">
-                        <placeName xml:id="placeName_25.d1e1757" xml:lang="ar">بغداد</placeName>
-                    </q>
-                    <persName xml:id="persName_28.d1e1761" xml:lang="ar">يوسف أفندي جرجس
-                        زخم</persName>
-                    <pb corresp="file:../epub/26523/OEBPS/xhtml/P3910.xhtml" ed="shamela" n="n60-p2" xml:id="pb_3.d1e1764"/>
-                    <q xml:id="q_21.d1e1767" xml:lang="ar">
-                        <placeName xml:id="placeName_26.d1e1769" xml:lang="ar">نبراسكا</placeName>
-                    </q>. </p>
+                <p xml:id="p_19.d1e1560" xml:lang="ar"> <persName change="#d9e602" ref="viaf:19737865 oape:pers:613 wiki:Q8510488" rend="quotation-marks" xml:id="persName_6.d1e1562"
+                    xml:lang="fr-Arab-AR"> <forename xml:lang="ar">احمد</forename> <roleName type="title" xml:lang="ar">بك</roleName> <surname xml:lang="ar">تيمور</surname> </persName> <placeName
+                    change="#d9e617" ref="geon:360630 oape:place:226" rend="brackets" xml:id="placeName_4.d1e1565" xml:lang="ar">القاهرة</placeName> <persName change="#d9e602"
+                    ref="viaf:49218655 jaraid:pers:486 oape:pers:707 wiki:Q3361879" xml:id="persName_7.d1e1568" xml:lang="ar"> <forename xml:lang="ar">احمد</forename> <roleName type="title"
+                    xml:lang="ar">بك</roleName> <surname xml:lang="ar">زكي</surname> </persName> <placeName change="#d9e617" ref="geon:360630 oape:place:226" rend="brackets"
+                    xml:id="placeName_5.d1e1571" xml:lang="ar">القاهرة</placeName> <persName change="#d9e602" ref="viaf:17374300 oape:pers:698 wiki:Q471451" xml:id="persName_8.d1e1574" xml:lang="ar">
+                    <forename xml:lang="ar">امين</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar">ريحاني</surname> </persName> <placeName change="#d9e617"
+                    ref="geon:5128581 oape:place:303" rend="brackets" xml:id="placeName_6.d1e1578" xml:lang="ar">نيويورك</placeName> <persName change="#d9e602"
+                    ref="viaf:93607460 oape:pers:482 wiki:Q4308814" xml:lang="ar"> <roleName type="honorific" xml:lang="ar">الشيخ</roleName> <forename xml:lang="ar"> <addName type="khitab"
+                    xml:lang="ar">جمال الدين</addName> </forename> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">القاسمي</addName> </surname> </persName> <q xml:id="q_1.d1e1584"
+                    xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_7.d1e1586" xml:lang="ar">دمشق</placeName> </q> <persName change="#d9e602"
+                    ref="viaf:305214884 jaraid:pers:2127 oape:pers:632" xml:id="persName_10.d1e1590" xml:lang="ar"> <forename xml:id="forename_5.d1e1650"
+                    >جرجي</forename>أفندي 
+                        <surname xml:id="surname_5.d1e1653">الحداد</surname></persName> <q xml:id="q_2.d1e1593" xml:lang="ar"> <placeName change="#d9e617"
+                    ref="geon:170654 oape:place:61" xml:id="placeName_8.d1e1595" xml:lang="ar">دمشق</placeName> </q> <persName change="#d9e602" ref="oape:pers:691" xml:id="persName_11.d1e1599"
+                    xml:lang="ar"> <forename xml:lang="ar">خليل</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar">رفعت</surname> </persName> <q
+                    xml:id="q_3.d1e1603" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_9.d1e1605" xml:lang="ar">دمشق</placeName> </q> <persName
+                    change="#d9e602" ref="oape:pers:724" xml:id="persName_12.d1e1609" xml:lang="ar"> <forename xml:lang="ar">خليل</forename> <roleName type="title" xml:lang="ar">بك</roleName> <surname
+                    xml:lang="ar">سعد</surname> </persName> <q xml:id="q_4.d1e1612" xml:lang="ar"> <placeName change="#d9e617" ref="geon:276781 oape:place:26" xml:id="placeName_10.d1e1614"
+                    xml:lang="ar">بيروت</placeName> </q> <persName change="#d9e602" ref="oape:pers:3645" xml:id="persName_13.d1e1618" xml:lang="ar">رشيد<roleName type="title" xml:lang="ar"
+                    >أفندي</roleName>بقدونس</persName> <q xml:id="q_5.d1e1621" xml:lang="ar"> <placeName change="#d9e617" ref="geon:734077 oape:place:236" xml:id="placeName_11.d1e1623" xml:lang="ar"
+                    >سلانيك</placeName> </q> <persName change="#d9e602" ref="viaf:28125663 oape:pers:464 wiki:Q17479639" xml:lang="ar"> <forename xml:lang="ar">رفيق</forename> <roleName type="title"
+                    xml:lang="ar">بك</roleName> <surname xml:lang="ar">العظم</surname> </persName> <q xml:id="q_6.d1e1631" xml:lang="ar"> <placeName change="#d9e617" ref="geon:360630 oape:place:226"
+                    xml:id="placeName_12.d1e1633" xml:lang="ar">القاهرة</placeName> </q> <persName change="#d9e602" ref="oape:pers:372" xml:id="persName_15.d1e1637" xml:lang="ar"> <forename
+                    xml:lang="ar">زكي</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar">الخطيب</surname> </persName> <q xml:id="q_7.d1e1640" xml:lang="ar">
+                    <placeName xml:id="placeName_13.d1e1642" xml:lang="ar">سنجار</placeName> </q> <persName change="#d9e602" ref="viaf:305212906 oape:pers:483" xml:id="persName_16.d1e1646"
+                    xml:lang="ar"> <forename xml:lang="ar"> <addName type="khitab" xml:lang="ar">صلاح الدين</addName> </forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname
+                    xml:lang="ar"> <addName type="nisbah" xml:lang="ar">القاسمي</addName> </surname> </persName> <q xml:id="q_8.d1e1649" xml:lang="ar"> <placeName change="#d9e617"
+                    ref="geon:170654 oape:place:61" xml:id="placeName_14.d1e1651" xml:lang="ar">دمشق</placeName> </q><persName>ساتسنا</persName> 
+                    <q xml:id="q_9.d1e1655" xml:lang="ar"> <placeName
+                    change="#d9e617" ref="geon:98182 oape:place:216" xml:id="placeName_15.d1e1657" xml:lang="ar">بغداد</placeName></q> <persName change="#d9e602" ref="oape:pers:298"
+                    xml:id="persName_17.d1e1662" xml:lang="ar"> <forename xml:lang="ar">سليم</forename> <roleName type="title" xml:lang="ar">افندي</roleName> <surname xml:lang="ar"> <addName
+                    type="nisbah" xml:lang="ar">البخاري</addName> </surname> </persName> <q xml:id="q_10.d1e1665" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61"
+                    xml:id="placeName_16.d1e1667" xml:lang="ar">دمشق</placeName> </q> <persName change="#d9e602" ref="oape:pers:469" xml:id="persName_18.d1e1671" xml:lang="ar"> <forename xml:lang="ar"
+                    >شكري</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">العلي</addName> </surname> </persName> <q
+                    xml:id="q_11.d1e1674" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_17.d1e1676" xml:lang="ar">دمشق</placeName> </q> <persName
+                    change="#d9e602" ref="viaf:90067250 oape:pers:324 wiki:Q12221552" xml:id="persName_19.d1e1680" xml:lang="ar"> <roleName type="honorific" xml:lang="ar">الشيخ</roleName> <forename
+                    xml:lang="ar">طاهر</forename> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">الجزائري</addName> </surname> </persName> <q xml:id="q_12.d1e1683" xml:lang="ar">
+                    <placeName change="#d9e617" ref="geon:360630 oape:place:226" xml:id="placeName_18.d1e1685" xml:lang="ar">القاهرة</placeName> </q> <persName change="#d9e602"
+                    ref="viaf:65658340 oape:pers:766 wiki:Q4664585" xml:id="persName_20.d1e1690" xml:lang="ar"> <roleName type="title" xml:lang="ar">الدكتور</roleName> <forename xml:lang="ar">
+                    <addName type="theophoric" xml:lang="ar">عبد الرحمن</addName> </forename> <surname xml:lang="ar">شهبندر</surname> </persName> <q xml:id="q_13.d1e1693" xml:lang="ar"> <placeName
+                    change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_19.d1e1695" xml:lang="ar">دمشق</placeName> </q> <persName change="#d9e602"
+                    ref="viaf:118432135 jaraid:pers:2055 oape:pers:536" xml:id="persName_21.d1e1699" xml:lang="ar"> <forename xml:lang="ar"> <addName type="theophoric" xml:lang="ar"
+                    >عبد القادر</addName> </forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">المغربي</addName> </surname>
+                    </persName> <q xml:id="q_14.d1e1702" xml:lang="ar"> <placeName change="#d9e617" ref="geon:266826 oape:place:30" xml:id="placeName_20.d1e1704" xml:lang="ar"
+                    >طرابلس
+                            الشام</placeName> </q> <persName change="#d9e602" ref="viaf:299037057 oape:pers:917" xml:id="persName_22.d1e1708" xml:lang="ar"> <forename
+                    xml:lang="ar"> <addName type="theophoric" xml:lang="ar">عبد الله</addName> </forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar">مخلص</surname>
+                    </persName> <q xml:id="q_15.d1e1711" xml:lang="ar"> <placeName change="#d9e617" ref="geon:294801 oape:place:35" xml:id="placeName_21.d1e1713" xml:lang="ar">حيفا</placeName> </q>
+                    <persName change="#d9e602" ref="oape:pers:271" xml:id="persName_23.d1e1718" xml:lang="ar"> <forename xml:lang="ar"> <addName type="theophoric" xml:lang="ar">عبد الوهاب</addName>
+                    </forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">الانكليزي</addName> </surname> </persName> <q
+                    xml:id="q_16.d1e1721" xml:lang="ar">الباب</q> <persName xml:id="persName_24.d1e1724" xml:lang="ar">عيسى <roleName cert="high" change="#d9e602" resp="#xslt" type="title"
+                    >افندي</roleName>  اسكندر معلوف</persName> <q xml:id="q_17.d1e1727" xml:lang="ar"> <placeName change="#d9e617" ref="geon:266045 oape:place:166" xml:id="placeName_22.d1e1729"
+                    xml:lang="ar">زحلة</placeName> </q> <persName change="#d9e602" ref="viaf:30478485 oape:pers:386 wiki:Q19999723" xml:id="persName_25.d1e1733" xml:lang="ar"> <forename xml:lang="ar"
+                    >فارس</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar">الخوري</addName> </surname> </persName> <q
+                    xml:id="q_18.d1e1736" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_23.d1e1738" xml:lang="ar">دمشق</placeName> </q> <persName
+                    change="#d9e602" ref="oape:pers:853" xml:id="persName_26.d1e1743" xml:lang="ar"> <forename xml:lang="ar">فارس</forename> <roleName type="title" xml:lang="ar">أفندي</roleName>
+                    <surname xml:lang="ar">فياض</surname> </persName> <q xml:id="q_19.d1e1746" xml:lang="ar"> <placeName change="#d9e617" ref="geon:170654 oape:place:61" xml:id="placeName_24.d1e1748"
+                    xml:lang="ar">دمشق</placeName> </q> <persName change="#d9e602" ref="viaf:47005120 oape:pers:264" xml:id="persName_27.d1e1752" xml:lang="ar"> <forename xml:lang="ar"
+                    >محمود</forename> <forename xml:lang="ar">شكري</forename> <roleName type="title" xml:lang="ar">أفندي</roleName> <surname xml:lang="ar"> <addName type="nisbah" xml:lang="ar"
+                    >الالوسي</addName> </surname> </persName> <q xml:id="q_20.d1e1755" xml:lang="ar"> <placeName change="#d9e617" ref="geon:98182 oape:place:216" xml:id="placeName_25.d1e1757"
+                    xml:lang="ar">بغداد</placeName> </q> <persName change="#d9e602" ref="oape:pers:704" xml:id="persName_28.d1e1761" xml:lang="ar"> <forename xml:lang="ar">يوسف</forename> <roleName
+                    type="title" xml:lang="ar">أفندي</roleName> <forename xml:lang="ar">جرجس</forename> <surname xml:lang="ar">زخم</surname> </persName> <pb
+                    corresp="file:../epub/26523/OEBPS/xhtml/P3910.xhtml" ed="shamela" n="n60-p2" xml:id="pb_3.d1e1764"/> <q xml:id="q_21.d1e1767" xml:lang="ar"> <placeName change="#d9e617"
+                    ref="geon:5073708 oape:place:304" xml:id="placeName_26.d1e1769" xml:lang="ar">نبراسكا</placeName> </q>. </p>
             </div>
             <pb ed="print" facs="#facs_7" n="3" xml:id="pb_4.d1e1775"/>
             <pb corresp="file:../epub/26523/OEBPS/xhtml/P3911.xhtml" ed="shamela" n="n60-p3" xml:id="pb_5.d1e1779"/>
             <div change="#d2e595" subtype="article" type="item" xml:id="div_3.d1e1777" xml:lang="ar">
                 <head xml:id="head_2.d1e1781" xml:lang="ar">كتاب البئر</head>
-                <byline xml:id="byline_1.d1e1784" xml:lang="ar">
-                    <ref xml:id="ref_7.d1e1786" xml:lang="ar">من 
-                        <bibl xml:id="bibl_1.d1e1788" xml:lang="ar">
+                <byline xml:id="byline_1.d1e1784" xml:lang="ar"> <ref xml:id="ref_7.d1e1786" xml:lang="ar">من 
+                        <bibl xml:id="bibl_1.d1e1788" xml:lang="ar"
+                    >
                             مصنفات إمام أئمة اللغة والأدب 
-                            <author xml:id="author_3.d1e1790" xml:lang="ar">
-                                <persName xml:id="persName_29.d1e1792" xml:lang="ar">أبي عبد الله محمد بن زياد المعروف بابن الأعرابي</persName></author>
-                            <lb xml:id="lb_2.d1e1796"/>توفي 
-                            <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="230" xml:id="date_13.d1e1798" xml:lang="ar">
+                            <author xml:id="author_3.d1e1790" xml:lang="ar"> <persName xml:id="persName_29.d1e1792"
+                    xml:lang="ar"><addName cert="medium" change="#d9e602" resp="#xslt" type="kunyah"><nameLink cert="high" change="#d9e602" resp="#xslt">ابي</nameLink> <addName cert="high"
+                    change="#d9e602" resp="#xslt" type="theophoric">عبد الله</addName> محمد</addName><addName cert="medium" change="#d9e602" resp="#xslt" type="nasab"><nameLink cert="high"
+                    change="#d9e602" resp="#xslt">بن</nameLink> زياد المعروف بابن</addName> <addName cert="high" change="#d9e602" resp="#xslt" type="nisbah">الاعرابي</addName></persName></author> <lb
+                    xml:id="lb_2.d1e1796"/>توفي 
+                            <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="230" xml:id="date_13.d1e1798" xml:lang="ar"
+                    >
                                 سنة 
-                                <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_3.d1e1864" xml:lang="ar">ثلاثين</num>
+                                <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_3.d1e1864" xml:lang="ar"
+                    >ثلاثين</num>
                                 ومائتين</date>رحمة الله علي
-                            <lb xml:id="lb_3.d1e1801"/>
+                            <lb xml:id="lb_3.d1e1801"
+                    />
                             ترجمته في ص 
-                            <num resp="#pers_TG" type="auto-markup" value="207" xml:id="num_3.d1e1803" xml:lang="ar">٢٠٧</num>
+                            <num resp="#pers_TG" type="auto-markup" value="207" xml:id="num_3.d1e1803" xml:lang="ar"
+                    >٢٠٧</num>
                             من كتاب نزهة الأدباء
-                            <lb xml:id="lb_4.d1e1807"/>
+                            <lb xml:id="lb_4.d1e1807"
+                    />
                             عني بنشره وتعليق حواشيه السيد 
-                            <publisher xml:id="publisher_3.d1e1809" xml:lang="ar">
-                                <persName ref="viaf:47005120" xml:id="persName_30.d1e1811" xml:lang="ar">
-                                    <forename>محمود</forename>
-                                    <forename>شكري</forename>
-                                    <surname>الآلوسي</surname></persName>
-                            </publisher>
-                        </bibl>
-                    </ref>
-                </byline>
+                            <publisher xml:id="publisher_3.d1e1809" xml:lang="ar"> <persName change="#d9e602"
+                    ref="viaf:47005120 oape:pers:264" xml:id="persName_30.d1e1811" xml:lang="ar"> <forename xml:lang="ar">محمود</forename> <forename xml:lang="ar">شكري</forename> <surname
+                    xml:lang="ar"> <addName type="nisbah" xml:lang="ar">الالوسي</addName> </surname> </persName> </publisher> </bibl> </ref> </byline>
                 <salute xml:id="salute_1.d1e1818" xml:lang="ar">بسم الله الرحمن الرحيم</salute>
                 <p xml:id="p_20.d1e1821" xml:lang="ar">أخبرنا
-                    <persName xml:id="persName_31.d1e1823" xml:lang="ar">الشيخ الإمام أبو محمد عبد الله بن أحمد بن أحمد
-                        بن الخشاب النحوي</persName>
+                    <persName change="#d9e602" ref="oape:pers:3366" xml:id="persName_31.d1e1823" xml:lang="ar"> <roleName type="honorific"
+                    xml:lang="ar">الشيخ</roleName>الامام<addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> محمد <addName type="theophoric" xml:lang="ar"
+                    >عبد الله</addName></addName><addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> احمد <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> احمد <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> الخشاب</addName></addName></addName> <addName type="nisbah" xml:lang="ar"
+                    >النحوي</addName></persName>
                     قراءة عليها وأنا أسمع بجامع القصر من 
-                    <placeName xml:id="placeName_27.d1e1826" xml:lang="ar">مدينة السلام</placeName>
-                    <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="555" xml:id="date_14.d1e1829" xml:lang="ar">
+                    <placeName xml:id="placeName_27.d1e1826" xml:lang="ar"
+                    >مدينة السلام</placeName> <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="555" xml:id="date_14.d1e1829" xml:lang="ar"
+                    >
                         يوم الجمعة ثالث عشري شهر الله الأصب
                         من سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="5" xml:id="num_5.d1e1898" xml:lang="ar">خمس</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="5"
+                    xml:id="num_5.d1e1898" xml:lang="ar">خمس</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50" xml:id="num_6.d1e1901" xml:lang="ar">خمسين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50"
+                    xml:id="num_6.d1e1901" xml:lang="ar">خمسين</num>
                         وخمسمائة</date>، قال أخبرنا 
-                    <persName xml:id="persName_32.d1e1832" xml:lang="ar">القاضي أبو الحسين محمد بن محمد بن الحسين
-                        الفراء</persName>
+                    <persName change="#d9e602" ref="oape:pers:3451"
+                    xml:id="persName_32.d1e1832" xml:lang="ar"> <addName type="nisbah" xml:lang="ar">القاضي</addName> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar"
+                    >ابو</nameLink> الحسين محمد</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> محمد <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> الحسين الفراء</addName></addName> </persName>
                     قال أنبأنا 
-                    <persName xml:id="persName_33.d1e1835" xml:lang="ar">الشيخ أبو محمد الحسن بن علي بن محمد
-                        الجوهري</persName>
+                    <persName change="#d9e602" ref="oape:pers:3352"
+                    xml:id="persName_33.d1e1835" xml:lang="ar"> <roleName type="honorific" xml:lang="ar">الشيخ</roleName> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar"
+                    >ابو</nameLink> محمد الحسن</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> علي <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> محمد</addName></addName> <addName type="nisbah" xml:lang="ar">الجوهري</addName> </persName>
                     ، قال أخبرنا 
-                    <persName xml:id="persName_34.d1e1839" xml:lang="ar">أبو عمر محمد بن العباس بن حيويه
-                        الحزاز</persName>
+                    <persName
+                    change="#d9e602" ref="oape:pers:3019" xml:id="persName_34.d1e1839" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> عمر محمد</addName>
+                    <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> العباس <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> حيويه الحزاز</addName></addName> </persName>
                     قراءة عليها في 
-                    <date calendar="#cal_islamic" datingMethod="#cal_islamic" when-custom="381" xml:id="date_15.d1e1842" xml:lang="ar">
+                    <date calendar="#cal_islamic" datingMethod="#cal_islamic"
+                    when-custom="381" xml:id="date_15.d1e1842" xml:lang="ar">
                         شهر رمضان سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_7.d1e1917" xml:lang="ar">إحدى</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup"
+                    value="1" xml:id="num_7.d1e1917" xml:lang="ar">إحدى</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="80" xml:id="num_8.d1e1920" xml:lang="ar">ثمانين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="80"
+                    xml:id="num_8.d1e1920" xml:lang="ar">ثمانين</num>
                         وثلاثمائة</date>.</p>
                 <p xml:id="p_21.d1e1847" xml:lang="ar">قال قرأ هذا الكتاب 
-                    <persName xml:id="persName_35.d1e1849" xml:lang="ar">أبو الحسن
-                    الرزاز علي بن عبد الله محمد بن أحمد الحكيمي</persName>
-                    <date xml:id="date_16.d1e1852" xml:lang="ar">
+                    <persName change="#d9e602" ref="oape:pers:2997" xml:id="persName_35.d1e1849" xml:lang="ar"> <addName
+                    type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> الحسن الرزاز علي</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> <addName
+                    type="theophoric" xml:lang="ar">عبد الله</addName> محمد <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> احمد</addName></addName> <addName type="nisbah"
+                    xml:lang="ar">الحكيمي</addName> </persName> <date xml:id="date_16.d1e1852" xml:lang="ar">
                         سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="4" xml:id="num_9.d1e1932" xml:lang="ar">أربع</num>
+                        <num resp="#pers_TG" subtype="d1"
+                    type="auto-markup" value="4" xml:id="num_9.d1e1932" xml:lang="ar">أربع</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_10.d1e1935" xml:lang="ar">ثلاثين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup"
+                    value="30" xml:id="num_10.d1e1935" xml:lang="ar">ثلاثين</num>
                         وثلاثمائة</date>وأنا حاضر أسمع قال حدثنا 
-                    <persName xml:id="persName_36.d1e1855" xml:lang="ar">
-                        أبو العباس أحمد
-                        <note n="1" type="footnote" xml:id="note_1.d1e1941" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_1.d1e1943"/></note>يحيى</persName>ثعلب عن 
-                    <persName xml:id="persName_37.d1e1858" xml:lang="ar">ابن الأعرابي</persName>
+                    <persName change="#d9e602"
+                    ref="oape:pers:3002" xml:id="persName_36.d1e1855" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> العباس احمد يحيى</addName>
+                    </persName>ثعلب عن 
+                    <persName xml:id="persName_37.d1e1858" xml:lang="ar">ابن<addName cert="high" change="#d9e602" resp="#xslt" type="nisbah"
+                    >الاعرابي</addName></persName>
                     قال وقرأه
                     الرزاز أيضاً على 
-                    <persName xml:id="persName_38.d1e1861" xml:lang="ar">أبي عمر محمد بن عبد الواحد غلام</persName>
+                    <persName change="#d9e602" ref="oape:pers:3068"
+                    xml:id="persName_38.d1e1861" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابي</nameLink> عمر محمد</addName> <addName type="nasab" xml:lang="ar"
+                    ><nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar">عبد الواحد</addName> غلام</addName>
+                    </persName>
                     ثعلب
                     على معنى التصحيح قال: صفة البئر عن 
-                    <persName xml:id="persName_39.d1e1865" xml:lang="ar">ابن الأعرابي</persName>
+                    <persName xml:id="persName_39.d1e1865" xml:lang="ar">ابن<addName
+                    cert="high" change="#d9e602" resp="#xslt" type="nisbah">الاعرابي</addName></persName>
                     .</p>
                 <p xml:id="p_22.d1e1869" xml:lang="ar">قال وأخبرني أيضاً 
-                    <persName xml:id="persName_40.d1e1871" xml:lang="ar">الشيخ الإمام المهذب أبو الحسن علي بن عبد الرحيم
-                        بن الحسن بن عبد الملك بن إبراهيم بن عبد الملك السلمي الرقي</persName>
+                    <persName change="#d9e602" ref="oape:pers:3368" xml:id="persName_40.d1e1871" xml:lang="ar"> <roleName
+                    type="honorific" xml:lang="ar">الشيخ</roleName>الامام المهذب<addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> الحسن علي</addName><addName type="nasab"
+                    xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar">عبد الرحيم</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> الحسن <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar">عبد الملك</addName> <addName type="nasab"
+                    xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> ابراهيم <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar"
+                    >عبد الملك</addName></addName></addName></addName></addName></addName> <addName type="nisbah" xml:lang="ar">السلمي</addName><addName type="nisbah" xml:lang="ar"
+                    >الرقي</addName></persName>
                     قراءة
                     عليه ب
-                    <placeName xml:id="placeName_28.d1e1874" xml:lang="ar">مدينة
+                    <placeName xml:id="placeName_28.d1e1874" xml:lang="ar"
+                    >مدينة
                         السلام</placeName>
                     في منزله في 
-                    <date xml:id="date_17.d1e1877" xml:lang="ar">
+                    <date xml:id="date_17.d1e1877" xml:lang="ar"
+                    >
                         شعبان من سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="5" xml:id="num_11.d1e1969" xml:lang="ar">خمس</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="5" xml:id="num_11.d1e1969" xml:lang="ar"
+                    >خمس</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50" xml:id="num_12.d1e1972" xml:lang="ar">خمسين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50" xml:id="num_12.d1e1972" xml:lang="ar"
+                    >خمسين</num>
                         وخمسمائة</date>، وسمعته أيضاً من قراءته قال: أخبرنا
-                    <persName xml:id="persName_41.d1e1880" xml:lang="ar">الشيخ الحافظ أبو الفضل
-                        محمد بن الناصر بن محمد بن علي بن عمر السلامي</persName>
+                    <persName change="#d9e602" ref="oape:pers:3370"
+                    xml:id="persName_41.d1e1880" xml:lang="ar"> <roleName type="honorific" xml:lang="ar">الشيخ</roleName>الحافظ<addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar"
+                    >ابو</nameLink> الفضل محمد</addName><addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> الناصر <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> محمد <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> علي <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> عمر</addName></addName></addName></addName> <addName type="nisbah" xml:lang="ar"
+                    >السلامي</addName></persName>
                     والفقيه 
-                    <persName xml:id="persName_42.d1e1883" xml:lang="ar">أبو الحسن سعد الخير بن محمد بن
-                        سهل الأنصار</persName>
+                    <persName change="#d9e602" ref="oape:pers:2998" xml:id="persName_42.d1e1883" xml:lang="ar"> <addName
+                    type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> الحسن سعد الخير</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> محمد <addName
+                    type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> سهل الانصار</addName></addName> </persName>
                     في قراءة عليهما في 
-                    <date xml:id="date_18.d1e1887" xml:lang="ar">
+                    <date
+                    xml:id="date_18.d1e1887" xml:lang="ar">
                         صفر سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="2" xml:id="num_13.d1e1985" xml:lang="ar">اثنتين</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="2"
+                    xml:id="num_13.d1e1985" xml:lang="ar">اثنتين</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_14.d1e1988" xml:lang="ar">ثلاثين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30"
+                    xml:id="num_14.d1e1988" xml:lang="ar">ثلاثين</num>
                         وخمسمائة</date>فأقر به قال:
                     أخبرنا 
-                    <persName xml:id="persName_43.d1e1890" xml:lang="ar">الشيخ أبو الحسين
-                        المبارك بن عبد الجبار الصيرفي</persName>
+                    <persName change="#d9e602"
+                    ref="oape:pers:3351" xml:id="persName_43.d1e1890" xml:lang="ar"> <roleName type="honorific" xml:lang="ar">الشيخ</roleName> <addName type="kunyah" xml:lang="ar"><nameLink
+                    xml:lang="ar">ابو</nameLink> الحسين المبارك</addName> <addName type="nasab" xml:lang="ar"> <nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar"
+                    >عبد الجبار</addName> </addName> <addName type="nisbah" xml:lang="ar">الصيرفي</addName> </persName>
                     قراءة عليه في 
-                    <date xml:id="date_19.d1e1893" xml:lang="ar">
+                    <date
+                    xml:id="date_19.d1e1893" xml:lang="ar">
                         يوم الجمعة خامس 
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="10" xml:id="num_15.d1e1997" xml:lang="ar">عشر</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="10"
+                    xml:id="num_15.d1e1997" xml:lang="ar">عشر</num>
                         صفر من سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_16.d1e2000" xml:lang="ar">إحدى</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1"
+                    xml:id="num_16.d1e2000" xml:lang="ar">إحدى</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="90" xml:id="num_17.d1e2003" xml:lang="ar">تسعين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="90"
+                    xml:id="num_17.d1e2003" xml:lang="ar">تسعين</num>
                         وأربعمائة</date>فأقر به قال: أخبرنا 
-                    <persName xml:id="persName_44.d1e1896" xml:lang="ar">أبو محمد الحسن بن علي بن محمد
-                        الجوهري</persName>
+                    <persName change="#d9e602" ref="oape:pers:3022"
+                    xml:id="persName_44.d1e1896" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> محمد الحسن</addName> <addName type="nasab" xml:lang="ar"
+                    ><nameLink xml:lang="ar">بن</nameLink> علي <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> محمد</addName></addName> <addName type="nisbah" xml:lang="ar"
+                    >الجوهري</addName> </persName>
                     قراءة عليه وأنا أسمع في 
-                    <date xml:id="date_20.d1e1899" xml:lang="ar">
+                    <date xml:id="date_20.d1e1899" xml:lang="ar"
+                    >
                         المحرم سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_18.d1e2012" xml:lang="ar">إحدى</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_18.d1e2012" xml:lang="ar"
+                    >إحدى</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50" xml:id="num_19.d1e2015" xml:lang="ar">خمسين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="50" xml:id="num_19.d1e2015" xml:lang="ar"
+                    >خمسين</num>
                         وأربعمائة</date>قال: أخبرنا
-                    <persName xml:id="persName_45.d1e1902" xml:lang="ar">
-                        أبو عمر محمد بن العباس
-                        بن زكريا ابن حيويه 
-                        <pb corresp="file:../epub/26523/OEBPS/xhtml/P3912.xhtml" ed="shamela" n="n60-p4" xml:id="pb_6.d1e1904"/>
-                        الحزاز</persName>قراءة 
-                    <pb ed="print" facs="#facs_8" n="4" xml:id="pb_7.d1e1908"/>
+                    <persName change="#d9e602" ref="oape:pers:3020" xml:id="persName_45.d1e1902" xml:lang="ar">
+                    <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> عمر محمد</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >بن</nameLink> العباس <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> زكريا <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar"
+                    >ابن</nameLink> حيويه الحزاز</addName></addName></addName> </persName>قراءة 
+                    <pb ed="print" facs="#facs_8" n="4" xml:id="pb_7.d1e1908"
+                    />
                     عليه 
-                    <date xml:id="date_21.d1e1910" xml:lang="ar">
+                    <date xml:id="date_21.d1e1910" xml:lang="ar"
+                    >
                         في يوم الأربعاء النصف من شهر رمضان سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_20.d1e2029" xml:lang="ar">إحدى</num>
+                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_20.d1e2029"
+                    xml:lang="ar">إحدى</num>
                         و
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="80" xml:id="num_21.d1e2032" xml:lang="ar">ثمانين</num>
+                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="80" xml:id="num_21.d1e2032" xml:lang="ar"
+                    >ثمانين</num>
                         وثلاثمائة</date>قال: قرأ 
-                    <persName xml:id="persName_46.d1e1913" xml:lang="ar">أبو الحسن الرزاز</persName>
+                    <persName change="#d9e602" ref="oape:pers:2996" xml:id="persName_46.d1e1913" xml:lang="ar">
+                    <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابو</nameLink> الحسن الرزاز</addName> </persName>
                     رحمة الله تعلى على
-                    <persName xml:id="persName_47.d1e1916" xml:lang="ar">أبي عبيد الله محمد ابن
-                        أحمد الحكيمي</persName>
-                    <date xml:id="date_22.d1e1919" xml:lang="ar">
+                    <persName
+                    change="#d9e602" ref="oape:pers:3063" xml:id="persName_47.d1e1916" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابي</nameLink> <addName
+                    type="theophoric" xml:lang="ar">عبيد الله</addName> محمد</addName> <addName type="nasab" xml:lang="ar"><nameLink xml:lang="ar">ابن</nameLink> احمد</addName> <addName type="nisbah"
+                    xml:lang="ar">الحكيمي</addName> </persName> <date xml:id="date_22.d1e1919" xml:lang="ar">
                         سنة 
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="4" xml:id="num_22.d1e2044" xml:lang="ar">أربع</num>
+                        <num resp="#pers_TG" subtype="d1"
+                    type="auto-markup" value="4" xml:id="num_22.d1e2044" xml:lang="ar"
+                    >أربع</num>
                         وثلاثين</date>وأنا حاضر
                     أسمع، قال: أخبرنا 
-                    <persName xml:id="persName_48.d1e1922" xml:lang="ar">أبو
-                        العباس أحمد بن يحيى ثعلب عن ابن الأعرابي</persName>
+                    <persName xml:id="persName_48.d1e1922" xml:lang="ar"><addName
+                    cert="medium" change="#d9e602" resp="#xslt" type="kunyah"><nameLink cert="high" change="#d9e602" resp="#xslt">ابو</nameLink> العباس احمد</addName><addName cert="medium"
+                    change="#d9e602" resp="#xslt" type="nasab"><nameLink cert="high" change="#d9e602" resp="#xslt">بن</nameLink> يحيى ثعلب عن ابن</addName> <addName cert="high" change="#d9e602"
+                    resp="#xslt" type="nisbah">الاعرابي</addName></persName>
                     وقرأه الرزاز وأنا حاضر
                     أسمع على 
-                    <persName xml:id="persName_49.d1e1926" xml:lang="ar">أبي عمر محمد بن
-                        عبد الواحد غلام</persName>
+                    <persName change="#d9e602"
+                    ref="oape:pers:3068" xml:id="persName_49.d1e1926" xml:lang="ar"> <addName type="kunyah" xml:lang="ar"><nameLink xml:lang="ar">ابي</nameLink> عمر محمد</addName> <addName
+                    type="nasab" xml:lang="ar"><nameLink xml:lang="ar">بن</nameLink> <addName type="theophoric" xml:lang="ar">عبد الواحد</addName> غلام</addName>
+                    </persName>
                     ثعلب على معنى التصحيح قال:</p>
                 <div type="section" xml:id="div_3.d1e1930" xml:lang="ar">
                     <head xml:id="head_3.d1e1932" xml:lang="ar">صفة البئر</head>
-                    <p xml:id="p_23.d1e1935" xml:lang="ar">عن ابن الأعرابي قراءة على أبي العباس أحمد
+                    <p xml:id="p_23.d1e1935" xml:lang="ar"
+                        >عن ابن الأعرابي قراءة على أبي العباس أحمد
                         بن يحيى النحوي عن أبي عبد الله محمد بن زياد الأعرابي قال: يقال للأرض إذا لم
                         يكن فيها حفر فحفر فيها أرض مظلومة قال الشماخ:</p>
                     <lg xml:id="lg_1.d1e2205" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2207" xml:lang="ar">
-                            <seg xml:id="seg_1.d1e2209" xml:lang="ar">وأس رماد كالحمامة ماثل </seg>
-                            <seg xml:id="seg_2.d1e2212" xml:lang="ar">ونؤيان في مظلومتين كلاهما</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2207" xml:lang="ar"> <seg xml:id="seg_1.d1e2209" xml:lang="ar">وأس رماد كالحمامة ماثل </seg> <seg xml:id="seg_2.d1e2212" xml:lang="ar"
+                            >ونؤيان في مظلومتين كلاهما</seg> </l>
                     </lg>
                     <p xml:id="p_24.d1e1947" xml:lang="ar">ويقال إذا حفر قعدة الرجل أو قعدتين قيل حفراوقة
                         <note n="1" type="footnote" xml:id="note_2.d1e2078" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_2.d1e2080"/></note>أو اوفتين قال الشاعر:</p>
+                        <gap resp="#org_MS" xml:id="gap_2.d1e2080"/></note>أو اوفتين قال الشاعر:</p>
                     <p xml:id="p_25.d1e1950" xml:lang="ar">وانغمس الرامي لها بين الأوق
-                        <note n="2" type="footnote" xml:id="note_3.d1e2086" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_3.d1e2088"/></note>
-                    </p>
-                    <p xml:id="p_26.d1e1954" xml:lang="ar">قال أبو عمر: هو أوقة بالفتح وجمعها أوق كذا سماعي من ثعلب قال أبو العباس: الأوقة
+                        <note n="2" type="footnote" xml:id="note_3.d1e2086" xml:lang="ar"> <gap resp="#org_MS"
+                        xml:id="gap_3.d1e2088"/></note> </p>
+                    <p xml:id="p_26.d1e1954" xml:lang="ar"
+                        >قال أبو عمر: هو أوقة بالفتح وجمعها أوق كذا سماعي من ثعلب قال أبو العباس: الأوقة
                         بئر الصائد التي يستتر فيها من الوحش فإذا ابتدأ حفر البئر فهي بدء فإذا حفر إلى أسفل قيل قد اعتمق وامتعق وحفر معيق
                         وعميق وإذا أخذ جانبها قيل قد لجف
-                        <note n="3" type="footnote" xml:id="note_4.d1e2094" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_4.d1e2096"/></note>قال الشاعر:</p>
+                        <note
+                        n="3" type="footnote" xml:id="note_4.d1e2094" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_4.d1e2096"/></note>قال الشاعر:</p>
                     <p xml:id="p_27.d1e1957" xml:lang="ar">إذا انتحى معتمقاً أو لجفا</p>
                     <p xml:id="p_28.d1e1960" xml:lang="ar">ويقال لجانب البئر الجال والجول وأنه لغير
                         ذي جول أي أنه قليل العقل وأنه لغير
-                        <pb ed="print" facs="#facs_9" n="5" xml:id="pb_8.d1e1962"/>
+                        <pb ed="print"
+                        facs="#facs_9" n="5" xml:id="pb_8.d1e1962"
+                        />
                         متماسك الجول يقال ذلك للرجل إذا كان يحمق فغذا
                         حفرها حتى يبلغ الماء قيل قد أنبطها والماء هو النبط وفطرها إذا كان هو
                         ابتدأها</p>
@@ -705,83 +745,91 @@
                     <p xml:id="p_30.d1e1968" xml:lang="ar">فإذا أنفذتها في الجبل قيل بئر خسيف وهي
                         التي خسف جبلها قال الشماخ:</p>
                     <p xml:id="p_31.d1e1971" xml:lang="ar">من الكلى في خسف رويات</p>
-                    <p xml:id="p_32.d1e1975" xml:lang="ar">ويقال حفر حتى أعان وأعين أي حتى استخرج
+                    <p xml:id="p_32.d1e1975" xml:lang="ar"
+                        >ويقال حفر حتى أعان وأعين أي حتى استخرج
                         الماء وحفر حتى أصلد إذا وقع موضع صلب أو على حجر وكذلك اكدى قال أبو زبيد: 
-                        <pb corresp="file:../epub/26523/OEBPS/xhtml/P3913.xhtml" ed="shamela" n="n60-p5" xml:id="pb_9.d1e1977"/></p>
+                        <pb
+                        corresp="file:../epub/26523/OEBPS/xhtml/P3913.xhtml" ed="shamela" n="n60-p5" xml:id="pb_9.d1e1977"/></p>
                     <lg xml:id="lg_1.d1e2250" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2252" xml:lang="ar">
-                            <seg xml:id="seg_3.d1e2254" xml:lang="ar">يا عثم أدركني فإن ركيتي</seg>
-                            <seg xml:id="seg_4.d1e2257" xml:lang="ar">صلدت فأعيت أن تبض بمائها</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2252" xml:lang="ar"> <seg xml:id="seg_3.d1e2254" xml:lang="ar">يا عثم أدركني فإن ركيتي</seg> <seg xml:id="seg_4.d1e2257" xml:lang="ar"
+                            >صلدت فأعيت أن تبض بمائها</seg> </l>
                     </lg>
                     <p xml:id="p_33.d1e1989" xml:lang="ar">وحفر فاجبل وقع على جبل وأسهب وقع على رمل
                         أو تراب يغلبه.</p>
                     <p xml:id="p_34.d1e1992" xml:lang="ar">ويقال لتراب البئر البغيثة والنبيثة
-                        <note n="1" type="footnote" xml:id="note_5.d1e2140" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_5.d1e2142"/></note>والنثيلة والثلة والسفاة قال الهذلي:</p>
+                        <note n="1" type="footnote" xml:id="note_5.d1e2140" xml:lang="ar"> <gap
+                        resp="#org_MS" xml:id="gap_5.d1e2142"/></note>والنثيلة والثلة والسفاة قال الهذلي:</p>
                     <lg xml:id="lg_1.d1e2268" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2270" xml:lang="ar">
-                            <seg xml:id="seg_5.d1e2272" xml:lang="ar">وقد أرسلوا فراطهم فتأثلوا </seg>
-                            <seg xml:id="seg_6.d1e2275" xml:lang="ar">قليبا سفاها كالاماء القواعد</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2270" xml:lang="ar"> <seg xml:id="seg_5.d1e2272" xml:lang="ar">وقد أرسلوا فراطهم فتأثلوا </seg> <seg xml:id="seg_6.d1e2275" xml:lang="ar"
+                            >قليبا سفاها كالاماء القواعد</seg> </l>
                     </lg>
                     <p xml:id="p_35.d1e2004" xml:lang="ar">ويقال ماء نمير إذا كان يوافق الشاربة
                         وينجع في جلودها وأجسامها عذبا كان أو غير ذلك قال حاتم:</p>
                     <lg xml:id="lg_1.d1e2284" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2286" xml:lang="ar">
-                            <seg xml:id="seg_7.d1e2288" xml:lang="ar">قد جعلت والحمد لله تقر </seg>
-                            <seg xml:id="seg_8.d1e2291" xml:lang="ar">من ماء عد في جلودها نمر</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2286" xml:lang="ar"> <seg xml:id="seg_7.d1e2288" xml:lang="ar">قد جعلت والحمد لله تقر </seg> <seg xml:id="seg_8.d1e2291" xml:lang="ar"
+                            >من ماء عد في جلودها نمر</seg> </l>
                     </lg>
-                    <p xml:id="p_36.d1e2017" xml:lang="ar">قال أبو عمر: تقر تسكن من قولك وقر يقر إذا
+                    <p xml:id="p_36.d1e2017" xml:lang="ar"
+                        >قال أبو عمر: تقر تسكن من قولك وقر يقر إذا
                         سكن ويقال ماء شريب عذب وشريب أيضاً ثقيل وماء مأج وقد مؤج يمؤج مؤجة ومياه
                         مائجة.</p>
                 </div>
                 <div type="section" xml:id="div_4.d1e2021" xml:lang="ar">
                     <head xml:id="head_4.d1e2023" xml:lang="ar">وأسماء البئر</head>
-                    <p xml:id="p_37.d1e2026" xml:lang="ar">الركية والجمع ركايا، والقليب والجمع قلب، والفقير وهي التلي فقر جبلها فاتخذت
+                    <p xml:id="p_37.d1e2026" xml:lang="ar"
+                        >الركية والجمع ركايا، والقليب والجمع قلب، والفقير وهي التلي فقر جبلها فاتخذت
                         حديثاً، والطوي والجمع أطواء، والبدني وهي الجديدة الحفر وهي الواسعة الرأس لأنها ربما تقوضت وا
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="9" xml:id="num_23.d1e2185" xml:lang="ar">تسع</num>
+                        <num
+                        resp="#pers_TG" subtype="d1" type="auto-markup" value="9" xml:id="num_23.d1e2185" xml:lang="ar"
+                        >تسع</num>
                         رأسها وربما كانت غير
                         بعيدة القعر، والبدي حي تبتدأ وهي 
-                        <pb ed="print" facs="#facs_10" n="6" xml:id="pb_10.d1e2028"/>
+                        <pb ed="print" facs="#facs_10" n="6"
+                        xml:id="pb_10.d1e2028"/>
                         القريح وقال بعض
                         الأعراب البدي يحفر للغرس يريد الغسيل والماتح
-                        <note n="1" type="footnote" xml:id="note_6.d1e2190" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_6.d1e2192"/></note>يضع رجلاً على هذا الجانب ورجلاً على هذا الجانب الآخر.</p>
-                    <p xml:id="p_38.d1e2031" xml:lang="ar">والبدي مربعة وهو يمنح منها بيده بغير قامة
+                        <note n="1"
+                        type="footnote" xml:id="note_6.d1e2190" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_6.d1e2192"/></note>يضع رجلاً على هذا الجانب ورجلاً على هذا الجانب الآخر.</p>
+                    <p xml:id="p_38.d1e2031" xml:lang="ar"
+                        >والبدي مربعة وهو يمنح منها بيده بغير قامة
                         فإذا دور رأسها فهي القليب ويقال لفم البئر شحوتها وجرابها جوفها من أعلاها إلى
                         أسفلها ويقال بئر شديدة الجراب إذا لم تحتج أن تطوى والبئر والركية انثيان
                         والقليب والعلوي ذكران قال أبو عمر: القليب والطوي يذكران ويؤنثان والشطون من
                         الركايا التي في جوانبها عوج لا يخرج دلوها إلا بحبلين.</p>
-                    <p xml:id="p_39.d1e2034" xml:lang="ar">فإذا طويت بخشب فهي معروشة وقد عرشت تعرش عرشا والمزبيرة المطوية بالحجارة وغير
+                    <p xml:id="p_39.d1e2034" xml:lang="ar"
+                        >فإذا طويت بخشب فهي معروشة وقد عرشت تعرش عرشا والمزبيرة المطوية بالحجارة وغير
                         الحجارة يقال زبرئها زبرا وضرستها
-                        <note n="2" type="footnote" xml:id="note_7.d1e2201" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_7.d1e2203"/></note>اضرسها ضرسا طويتها بالحجارة وإذا استقي بالدلو من البئر باليد قيل بئر متوح وإذا كانت على بكرة بنزع باليد نزعا
+                        <note n="2"
+                        type="footnote" xml:id="note_7.d1e2201" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_7.d1e2203"
+                        /></note>اضرسها ضرسا طويتها بالحجارة وإذا استقي بالدلو من البئر باليد قيل بئر متوح وإذا كانت على بكرة بنزع باليد نزعا
                         قيل نزوع ونشوط التي إنما حبلها نشطة واحدة وبئر أنشاط إذا خرج دلوها بجذبة واحدة قال أبو عمر: إنما هو أنشاط بالفتح جمع
                         نشوط قال أبو محمد يوسف بن الحسن: روى الطوسي وغيره إنشاط بالكسر ويجوز أنشاط بالفتح جميعا ويقال ماء رفق وهو القريب
                         الغشا 
-                        <pb corresp="file:../epub/26523/OEBPS/xhtml/P3914.xhtml" ed="shamela" n="n60-p6" xml:id="pb_11.d1e2036"/>
+                        <pb
+                        corresp="file:../epub/26523/OEBPS/xhtml/P3914.xhtml" ed="shamela" n="n60-p6" xml:id="pb_11.d1e2036"/>
                         القصير الرشا وماء عضوض بعيد القعر وأنشدنا:</p>
                     <lg xml:id="lg_1.d1e2318" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2320" xml:lang="ar">
-                            <seg xml:id="seg_9.d1e2322" xml:lang="ar">أبيت على الماء العضوض كأنني </seg>
-                            <seg xml:id="seg_10.d1e2325" xml:lang="ar">رقوب وما ذو 
-                                <num resp="#pers_TG" subtype="d1" type="auto-markup" value="7" xml:id="num_24.d1e2218" xml:lang="ar">سبعة</num>
-                                برقوب</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2320" xml:lang="ar"> <seg xml:id="seg_9.d1e2322" xml:lang="ar">أبيت على الماء العضوض كأنني </seg> <seg xml:id="seg_10.d1e2325" xml:lang="ar"
+                            >رقوب وما ذو 
+                                <num resp="#pers_TG" subtype="d1" type="auto-markup" value="7" xml:id="num_24.d1e2218" xml:lang="ar"
+                            >سبعة</num>
+                                برقوب</seg> </l>
                     </lg>
                     <p xml:id="p_40.d1e2049" xml:lang="ar">ومآء مدرع
-                        <note n="3" type="footnote" xml:id="note_8.d1e2227" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_8.d1e2229"/></note>قريب من المرعى قال أبو عمر: إنما هو مدرع بفتح الراء وباسط بعيد وماء مطلب إذا أبى أن يطلب وبئر نضوض وبروض
+                        <note n="3" type="footnote" xml:id="note_8.d1e2227" xml:lang="ar"> <gap resp="#org_MS"
+                        xml:id="gap_8.d1e2229"
+                        /></note>قريب من المرعى قال أبو عمر: إنما هو مدرع بفتح الراء وباسط بعيد وماء مطلب إذا أبى أن يطلب وبئر نضوض وبروض
                         ورشوح الأصل رشوج بالجيم قال أبو عمر إنما رشوخ بخاء معجمة ومكول هي التي يجتمع ماؤها قليلا يقال قد اجتمعت فيها مكلة
                         وإذا كانت لا يؤخذ ماؤها إلا غرفاً فهي قدوح ويقال قدحتها أقدحها قدحا وإذا كانت بأتي ماؤها مرة ويذهب أخرى فهي الظنون
                         وإذا كانت إذا استقي ماؤها 
-                        <pb ed="print" facs="#facs_11" n="7" xml:id="pb_12.d1e2051"/>
+                        <pb
+                        ed="print" facs="#facs_11" n="7" xml:id="pb_12.d1e2051"
+                        />
                         جمت بماء آخر قيل بئر جموم
                         وإذا كانت إذا قلت الأمطار قل ماؤها قيل بئر قطوع وأصابت الناس قطعة إذا غار ماؤهم واقطع الماء وهو مقطع وقاطع وقد
                         قطع.</p>
-                    <p xml:id="p_41.d1e2054" xml:lang="ar">وإذا كانت البئر حبلها عن لعوج في جرابها
+                    <p xml:id="p_41.d1e2054" xml:lang="ar"
+                        >وإذا كانت البئر حبلها عن لعوج في جرابها
                         قيل بئر يون وبئر زوراء ودحول إذا كان في خلقها عوج وإذا كانت البئر إلى جنبها
                         بئر أخرى تضر بها قيل بئر ضنيط وبئر مأطورة مثلها وبئر سك إذا كانت ضيقة
                         وأنشدنا:</p>
@@ -790,7 +838,9 @@
                     <head xml:id="head_5.d1e2060" xml:lang="ar">صبحن من وشجى قليبا سكا</head>
                     <p xml:id="p_42.d1e2063" xml:lang="ar">قال أبو عمر: وشجى محركة ويقال بئر ذمة
                         قليلة الماء وبئر فراط وهي التي من سبق إليها ليس ل
-                        <num resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_25.d1e2246" xml:lang="ar">أحد</num>
+                        <num
+                        resp="#pers_TG" subtype="d1" type="auto-markup" value="1" xml:id="num_25.d1e2246" xml:lang="ar"
+                        >أحد</num>
                         أن يمنعه وبئر جموم
                         سريعة رجوع الماء ويقال للماء إذا خرج من عيونه فارتفع في البئر جم يجم جما
                         والماء نف الجم ويقال استق من جم بئرك وقال الغنوي: وسئل ما مالك فقال ساحات
@@ -799,44 +849,46 @@
                         قال وإذا كان يغرف منها باليد قيل بئر غروف وإذا دام ماؤها في المطر والقيظ قيل
                         بئر واتنة وقد وتنت تتن وتونا وإذا كانت كثيرة الماء قيل بئر قليذم وأنشد:</p>
                     <lg xml:id="lg_1.d1e2348" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2350" xml:lang="ar">
-                            <seg xml:id="seg_11.d1e2352" xml:lang="ar">إن لنا قليذما هموما </seg>
-                            <seg xml:id="seg_12.d1e2355" xml:lang="ar">يزيدها مخض الدلا جموما</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2350" xml:lang="ar"> <seg xml:id="seg_11.d1e2352" xml:lang="ar">إن لنا قليذما هموما </seg> <seg xml:id="seg_12.d1e2355" xml:lang="ar"
+                            >يزيدها مخض الدلا جموما</seg> </l>
                     </lg>
-                    <p xml:id="p_43.d1e2075" xml:lang="ar">وإذا لم ينزح ماؤها قيل بحرها لا ينكف ولا
+                    <p xml:id="p_43.d1e2075" xml:lang="ar"
+                        >وإذا لم ينزح ماؤها قيل بحرها لا ينكف ولا
                         ينكش ولا يوبى ولا يغضغض ولا يفرض ولا يفثخ وبئر سعبر والخضرم والعليم الغزيرة
                         وبئر ماهة وبئر 
-                        <num resp="#pers_TG" subtype="d3" type="auto-markup" value="100" xml:id="num_26.d1e2264" xml:lang="ar">مئة</num>
+                        <num
+                        resp="#pers_TG" subtype="d3" type="auto-markup" value="100" xml:id="num_26.d1e2264" xml:lang="ar"
+                        >مئة</num>
                         كثيرة الماء وبئر نبط التي يخرج ماؤها من عرضها ويقال للبئر
                         إذا قل ماؤها غار يغور غورا وغؤرا وقد نكزت 
-                        <pb corresp="file:../epub/26523/OEBPS/xhtml/P3915.xhtml" ed="shamela" n="n60-p7" xml:id="pb_13.d1e2077"/>
+                        <pb
+                        corresp="file:../epub/26523/OEBPS/xhtml/P3915.xhtml" ed="shamela" n="n60-p7" xml:id="pb_13.d1e2077"/>
                         أيضاً قال:</p>
                     <lg xml:id="lg_1.d1e2365" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2367" xml:lang="ar">
-                            <seg xml:id="seg_13.d1e2369" xml:lang="ar">فظلت بأعراف كأن عيونها </seg>
-                            <seg xml:id="seg_14.d1e2372" xml:lang="ar">إلى الشمس بل تدنو ركين واكز</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2367" xml:lang="ar"> <seg xml:id="seg_13.d1e2369" xml:lang="ar">فظلت بأعراف كأن عيونها </seg> <seg xml:id="seg_14.d1e2372" xml:lang="ar"
+                            >إلى الشمس بل تدنو ركين واكز</seg> </l>
                     </lg>
-                    <p xml:id="p_44.d1e2090" xml:lang="ar">أنكزت تنكز نكوزاً وهي ناكز وإذا اندفنت ثم
+                    <p xml:id="p_44.d1e2090" xml:lang="ar"
+                        >أنكزت تنكز نكوزاً وهي ناكز وإذا اندفنت ثم
                         أخرج ترابها وليس بجديد قيل بئر نثول والجمع نثل وإذا اندفنت قيل بئر دفن ودفان
                         وإذا عطلت حتى تخرب قيل بئر سدم والجمع اسدام فإذا كانت عادية فالتقطت
                         والتقاطهم إياها وقوعهم عليها قيل بئر لقيط وبئر خفية مثلا وكانت قديمة لأمة من
                         الأمم فالتقطت وعد ما كان نبضه من الأرض يجم 
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="10" xml:id="num_27.d1e2285" xml:lang="ar">عشر</num>
+                        <num
+                        resp="#pers_TG" subtype="d2" type="auto-markup" value="10" xml:id="num_27.d1e2285" xml:lang="ar">عشر</num>
                         قيم إلى 
-                        <num resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_28.d1e2288" xml:lang="ar">ثلاثين</num>
+                        <num
+                        resp="#pers_TG" subtype="d2" type="auto-markup" value="30" xml:id="num_28.d1e2288" xml:lang="ar"
+                        >ثلاثين</num>
                         قامة وإذا كان
                         في طي البئر حجر نادر فهو العقاب يقال لصلح عقاب بئرك فيخرج حجراً في الطي
                         فيقدم ليقوم عليه قال والثعلبة أن يجذب الحيل عن حجر ناتئ في جانب البئر
                         قال:</p>
                     <pb ed="print" facs="#facs_12" n="8" xml:id="pb_14.d1e2093"/>
                     <lg xml:id="lg_1.d1e2383" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2385" xml:lang="ar">
-                            <seg xml:id="seg_15.d1e2387" xml:lang="ar">لو أن سلمى شهدت
-                                <note n="1" type="footnote" xml:id="note_9.d1e2300" xml:lang="ar">
-                                    <gap resp="#org_MS" xml:id="gap_9.d1e2302"/></note>مطلي </seg>
-                            <seg xml:id="seg_16.d1e2390" xml:lang="ar">تمتح أو تدلج أو تعلي</seg>
+                        <l type="bayt" xml:id="l_1.d1e2385" xml:lang="ar"> <seg xml:id="seg_15.d1e2387" xml:lang="ar">لو أن سلمى شهدت
+                                <note n="1" type="footnote"
+                            xml:id="note_9.d1e2300" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_9.d1e2302"/></note>مطلي </seg> <seg xml:id="seg_16.d1e2390" xml:lang="ar">تمتح أو تدلج أو تعلي</seg>
                         </l>
                     </lg>
                 </div>
@@ -844,111 +896,102 @@
                     <head xml:id="head_6.d1e2107" xml:lang="ar">إذاً لراحت غير ذات دل</head>
                     <p xml:id="p_45.d1e2110" xml:lang="ar">وقال آخر:</p>
                     <lg xml:id="lg_1.d1e2404" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2406" xml:lang="ar">
-                            <seg xml:id="seg_17.d1e2408" xml:lang="ar">أكل يوم قائل أبن أبن </seg>
-                            <seg xml:id="seg_18.d1e2411" xml:lang="ar">دلوك عن حد الصفيح واللبن</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2406" xml:lang="ar"> <seg xml:id="seg_17.d1e2408" xml:lang="ar">أكل يوم قائل أبن أبن </seg> <seg xml:id="seg_18.d1e2411" xml:lang="ar"
+                            >دلوك عن حد الصفيح واللبن</seg> </l>
                     </lg>
-                    <p xml:id="p_46.d1e2122" xml:lang="ar">والثمت أن تكون كالبئر إلا أنه لا تكون من عيون إذا انقطع حفر ذراعان أو قامة فيخرج
+                    <p xml:id="p_46.d1e2122" xml:lang="ar"
+                        >والثمت أن تكون كالبئر إلا أنه لا تكون من عيون إذا انقطع حفر ذراعان أو قامة فيخرج
                         فيشرب أياماً ثم ينقطع والحسى دائم لا ينقطع والجمع
-                        <note n="2" type="footnote" xml:id="note_10.d1e2334" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_10.d1e2336"/></note>احسآء وحسآء، والحسى يسمى الكر وإذا تغير الماء في القليب قيل قد عرمض وسجس الماء في القليب وهو الصرى والصرى
+                        <note
+                        n="2" type="footnote" xml:id="note_10.d1e2334" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_10.d1e2336"
+                        /></note>احسآء وحسآء، والحسى يسمى الكر وإذا تغير الماء في القليب قيل قد عرمض وسجس الماء في القليب وهو الصرى والصرى
                         مقصوران يقال ماؤها صرى فاستق من غيرها ويقال أجن وأسن يأجن وبأسن اسنا واجونا وأسن أسنا وإذا علته جليدة من طول الترك
                         قيل دوى يدوي تدوية وماء داو كما ترى فإذا علنها خضرة قيل قد طحلب وعرمض وغلفق ويقال بئر ذات طاق إذا كان فيها دور وهي
                         حروف نادرة وعرش البئرة خثبلتها التي يستظل بها عليها يطرح الثمام قال الراجز:</p>
                     <lg xml:id="lg_1.d1e2419" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2421" xml:lang="ar">
-                            <seg xml:id="seg_19.d1e2423" xml:lang="ar">أكل يوم عرشها مقيلي </seg>
-                            <seg xml:id="seg_20.d1e2426" xml:lang="ar">حتى ترى المئزر ذا الفضول</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2421" xml:lang="ar"> <seg xml:id="seg_19.d1e2423" xml:lang="ar">أكل يوم عرشها مقيلي </seg> <seg xml:id="seg_20.d1e2426" xml:lang="ar"
+                            >حتى ترى المئزر ذا الفضول</seg> </l>
                     </lg>
                 </div>
                 <div type="section" xml:id="div_7.d1e2136" xml:lang="ar">
                     <head xml:id="head_7.d1e2138" xml:lang="ar">مثل جناح السيد الغسيل</head>
-                    <p xml:id="p_47.d1e2141" xml:lang="ar">ويقال محشوشة وحشوا بئركم أي اكسوها وبئر مجهودة إذا نقيت حتى حمأتها ويظهر حر طينها
+                    <p xml:id="p_47.d1e2141" xml:lang="ar"
+                        >ويقال محشوشة وحشوا بئركم أي اكسوها وبئر مجهودة إذا نقيت حتى حمأتها ويظهر حر طينها
                         فقد جهرت تجهر جهراً والاذاء حجر يجعل في مصب الدوا لئلا يخرق الماء الحوض وهو في بئر الماشية والإبل وفي بئر الذرع
                         والقف والدعامة مقام الساقي في أعلى 
-                        <pb corresp="file:../epub/26523/OEBPS/xhtml/P3916.xhtml" ed="shamela" n="n60-p8" xml:id="pb_15.d1e2143"/>
+                        <pb
+                        corresp="file:../epub/26523/OEBPS/xhtml/P3916.xhtml" ed="shamela" n="n60-p8" xml:id="pb_15.d1e2143"
+                        />
                         البئر
                         وإنما سميت دعامة لأنه يدعم بها طي البئر فيضغطه وهما شجرتان يدعمان طي البئر قال الشاعر:</p>
                     <lg xml:id="lg_1.d1e2442" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2444" xml:lang="ar">
-                            <seg xml:id="seg_21.d1e2446" xml:lang="ar">لما رأيت أنها
-                                <note n="3" type="footnote" xml:id="note_11.d1e2369" xml:lang="ar">
-                                    <gap resp="#org_MS" xml:id="gap_11.d1e2371"/></note>لإقامه </seg>
-                            <seg xml:id="seg_22.d1e2449" xml:lang="ar">واتني ساق على سامه</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2444" xml:lang="ar"> <seg xml:id="seg_21.d1e2446" xml:lang="ar">لما رأيت أنها
+                                <note n="3" type="footnote"
+                            xml:id="note_11.d1e2369" xml:lang="ar"> <gap resp="#org_MS" xml:id="gap_11.d1e2371"/></note>لإقامه </seg> <seg xml:id="seg_22.d1e2449" xml:lang="ar"
+                            >واتني ساق على سامه</seg> </l>
                     </lg>
                     <p xml:id="p_48.d1e2155" xml:lang="ar">جذبت جذبا
-                        <note n="4" type="footnote" xml:id="note_12.d1e2382" xml:lang="ar">
-                            <gap resp="#org_MS" xml:id="gap_12.d1e2384"/></note>زعزع الدعامة</p>
+                        <note n="4" type="footnote" xml:id="note_12.d1e2382" xml:lang="ar"> <gap resp="#org_MS"
+                        xml:id="gap_12.d1e2384"/></note>زعزع الدعامة</p>
                     <p xml:id="p_49.d1e2158" xml:lang="ar">والمثابة مقام الساقي أنشد أبو الجراح:</p>
                     <lg xml:id="lg_1.d1e2461" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2463" xml:lang="ar">
-                            <seg xml:id="seg_23.d1e2465" xml:lang="ar">يا عين بكي عامراً يوم النهل </seg>
-                            <seg xml:id="seg_24.d1e2468" xml:lang="ar">قام على مثابة زلج فزل</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2463" xml:lang="ar"> <seg xml:id="seg_23.d1e2465" xml:lang="ar">يا عين بكي عامراً يوم النهل </seg> <seg xml:id="seg_24.d1e2468" xml:lang="ar"
+                            >قام على مثابة زلج فزل</seg> </l>
                     </lg>
                     <p xml:id="p_50.d1e2171" xml:lang="ar">والشجار خشبتان على جانبي البئر عليهما
                         عارضة ودون العارضة بقدر ذراع أو ذراعين 
-                        <pb ed="print" facs="#facs_13" n="9" xml:id="pb_16.d1e2173"/>
+                        <pb ed="print"
+                        facs="#facs_13" n="9" xml:id="pb_16.d1e2173"
+                        />
                         عارضة أخرى والنعامتان خشبتان فيما بين العارضتين
                         في كل جنب واحدة فتانك النعامتان وفيها المحور والمحور مشدود بحبل إلى العارضة
                         وأنشد:</p>
                     <lg xml:id="lg_1.d1e2478" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2480" xml:lang="ar">
-                            <seg xml:id="seg_25.d1e2482" xml:lang="ar">لولا الزمام اقتحم الاجاردا </seg>
-                            <seg xml:id="seg_26.d1e2485" xml:lang="ar">بالغرب أو دق النعام الساجدا</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2480" xml:lang="ar"> <seg xml:id="seg_25.d1e2482" xml:lang="ar">لولا الزمام اقتحم الاجاردا </seg> <seg xml:id="seg_26.d1e2485" xml:lang="ar"
+                            >بالغرب أو دق النعام الساجدا</seg> </l>
                     </lg>
-                    <p xml:id="p_51.d1e2185" xml:lang="ar">وإذا كانت عارضتا البكرة وعضدها من حديد
+                    <p xml:id="p_51.d1e2185" xml:lang="ar"
+                        >وإذا كانت عارضتا البكرة وعضدها من حديد
                         كان أو خشب الوالج فيها والبكرة إذا كانت على ركية جرود فهي محالة الإبل واذا
                         قالوا تعوب فهو خشبة مدورة عظيمة لها أسنان فيها كأسنان الرحى قال الشاعر:</p>
                     <lg xml:id="lg_1.d1e2493" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2495" xml:lang="ar">
-                            <seg xml:id="seg_27.d1e2497" xml:lang="ar">كأن صوت نابه الاذب </seg>
-                            <seg xml:id="seg_28.d1e2500" xml:lang="ar">صريف خطاف بقعوقب</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2495" xml:lang="ar"> <seg xml:id="seg_27.d1e2497" xml:lang="ar">كأن صوت نابه الاذب </seg> <seg xml:id="seg_28.d1e2500" xml:lang="ar"
+                            >صريف خطاف بقعوقب</seg> </l>
                     </lg>
-                    <p xml:id="p_52.d1e2197" xml:lang="ar">ويقال للذي يجري عليه الحبل من البكرة
+                    <p xml:id="p_52.d1e2197" xml:lang="ar"
+                        >ويقال للذي يجري عليه الحبل من البكرة
                         الحرث واذا كان الشجاران من بناء طين أو حجارة فهما الزرنوقان والقرنان قال
                         الشاعر:</p>
                     <lg xml:id="lg_1.d1e2509" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2511" xml:lang="ar">
-                            <seg xml:id="seg_29.d1e2513" xml:lang="ar">تأمل القرنين فانظر ماهما </seg>
-                            <seg xml:id="seg_30.d1e2516" xml:lang="ar">احجرا ام مدرا تراهما</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2511" xml:lang="ar"> <seg xml:id="seg_29.d1e2513" xml:lang="ar">تأمل القرنين فانظر ماهما </seg> <seg xml:id="seg_30.d1e2516" xml:lang="ar"
+                            >احجرا ام مدرا تراهما</seg> </l>
                     </lg>
                     <p xml:id="p_53.d1e2210" xml:lang="ar">فإذا وقع الحبل من البكرة وعضد بها قيل مرس
                         الحبل وامرسته انا فيقال امرسه اي أخرجه قال الشاعر:</p>
                     <lg xml:id="lg_1.d1e2524" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2526" xml:lang="ar">
-                            <seg xml:id="seg_31.d1e2528" xml:lang="ar">بئس مقام الشيخ امرس امرس </seg>
-                            <seg xml:id="seg_32.d1e2531" xml:lang="ar">اما علي قعو واما اقعلسس</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2526" xml:lang="ar"> <seg xml:id="seg_31.d1e2528" xml:lang="ar">بئس مقام الشيخ امرس امرس </seg> <seg xml:id="seg_32.d1e2531" xml:lang="ar"
+                            >اما علي قعو واما اقعلسس</seg> </l>
                     </lg>
                     <p xml:id="p_54.d1e2222" xml:lang="ar">والمرس اسم الحبل قال أبو العباس امرسه
                         القاه بين الخد والبكرة وامرسه اخرجه وقد مرس الحبل نفسه قال الشاعر:</p>
                     <lg xml:id="lg_1.d1e2539" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2541" xml:lang="ar">
-                            <seg xml:id="seg_33.d1e2543" xml:lang="ar">ولا تلمسوا لي الأرض فيا فإنني </seg>
-                            <seg xml:id="seg_34.d1e2546" xml:lang="ar">اخاف عليكم قامتى حين تمرس</seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2541" xml:lang="ar"> <seg xml:id="seg_33.d1e2543" xml:lang="ar">ولا تلمسوا لي الأرض فيا فإنني </seg> <seg xml:id="seg_34.d1e2546" xml:lang="ar"
+                            >اخاف عليكم قامتى حين تمرس</seg> </l>
                     </lg>
                     <p xml:id="p_55.d1e2234" xml:lang="ar">في نوادر ابن الأعرابي وليس من الكتاب:</p>
                     <lg xml:id="lg_1.d1e2555" xml:lang="ar">
-                        <l type="bayt" xml:id="l_1.d1e2557" xml:lang="ar">
-                            <seg xml:id="seg_35.d1e2559" xml:lang="ar">ولا يلمسوا لي الأرض فيا فإنني </seg>
-                            <seg xml:id="seg_36.d1e2562" xml:lang="ar">اخاف عليكم حيتي حين تلمس </seg>
-                        </l>
+                        <l type="bayt" xml:id="l_1.d1e2557" xml:lang="ar"> <seg xml:id="seg_35.d1e2559" xml:lang="ar">ولا يلمسوا لي الأرض فيا فإنني </seg> <seg xml:id="seg_36.d1e2562" xml:lang="ar"
+                            >اخاف عليكم حيتي حين تلمس </seg> </l>
                     </lg>
                 </div>
                 <ab xml:id="ab_1.d1e2248" xml:lang="ar">---</ab>
                 <postscript xml:id="postscript_1.d1e2251" xml:lang="ar">
                     <p xml:id="p_56.d1e2253" xml:lang="ar">هذا آخر كتاب 
-                        <title level="m" xml:id="title_14.d1e2507">صفة البئر</title>
+                        <title level="m" xml:id="title_14.d1e2507"
+                        >صفة البئر</title>
                         عن 
-                        <persName xml:id="persName_50.d1e2255" xml:lang="ar">ابن الاعرابي</persName></p>
+                        <persName xml:id="persName_50.d1e2255" xml:lang="ar">ابن<addName cert="high" change="#d9e602"
+                        resp="#xslt" type="nisbah">الاعرابي</addName></persName></p>
                 </postscript>
             </div>
             <pb ed="print" facs="#facs_14" n="10" xml:id="pb_17.d1e2262"/>
