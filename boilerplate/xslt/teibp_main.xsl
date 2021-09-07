@@ -793,6 +793,11 @@
             <a class="c_fn-mark" href="#fn-mark-{generate-id()}" lang="en">
                 <xsl:value-of select="count(preceding::tei:note[@type = 'footnote' or @type = 'endnote' or not(@place = 'inline')][ancestor::tei:body]) + 1"/>
             </a>
+            <!-- editorial notes -->
+            <xsl:if test="@type = 'editorial' and @resp">
+                <xsl:variable name="v_resp" select="substring-after(@resp, '#')"/>
+                <span>[<xsl:value-of select="ancestor::tei:TEI/tei:teiHeader/descendant::tei:respStmt/node()[@xml:id = $v_resp]"/>] </span>
+            </xsl:if>
             <xsl:apply-templates/>
             <!-- add a back link -->
             <a class="c_fn-back" href="#fn-mark-{generate-id()}">
@@ -871,7 +876,7 @@
         <xsl:apply-templates/>
     </xsl:template>
     <!-- sometimes the editors at shamela.ws commented on the text. This should also be ignored -->
-    <xsl:template match="tei:note[@resp = '#org_MS']"/>
+    <!-- <xsl:template match="tei:note[@resp = '#org_MS']"/> -->
     <!-- abbreviations: are dealt with in CSS -->
     <!-- the file's id -->
     <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
@@ -1051,7 +1056,6 @@
         </xsl:call-template>-->
         </span>
     </xsl:template>
-    
     <!-- this template isn't used -->
     <xsl:template name="t_link-to-authority-file">
         <!-- content: this is an icon only -->
@@ -1131,7 +1135,9 @@
         </span>
     </xsl:template>
     <xsl:template match="tei:surname | tei:forename | tei:addName | tei:roleName | tei:nameLink">
-        <xsl:text> </xsl:text><xsl:apply-templates/><xsl:text> </xsl:text>
+        <xsl:text> </xsl:text>
+        <xsl:apply-templates/>
+        <xsl:text> </xsl:text>
     </xsl:template>
     <xsl:template match="tei:persName[ancestor::tei:body] | tei:placeName[ancestor::tei:body] | tei:orgName[ancestor::tei:body] | tei:title[ancestor::tei:body][@level = ('m' or 'j')]" priority="10">
         <xsl:variable name="v_icon">
@@ -1179,43 +1185,71 @@
         <xsl:param name="p_content"/>
         <xsl:choose>
             <xsl:when test="contains($p_ref, 'viaf:')">
-                <a class="c_linked-data" lang="en" target="_blank">
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="concat('https://viaf.org/viaf/', substring-before(substring-after($p_ref, 'viaf:'),' '))"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this entity at VIAF</xsl:text>
-                    </xsl:attribute>
-                    <xsl:copy-of select="$p_content"/>
-                </a>
+                <xsl:call-template name="t_derefence-ref-link">
+                    <xsl:with-param name="p_ref" select="$p_ref"/>
+                    <xsl:with-param name="p_content" select="$p_content"/>
+                    <xsl:with-param name="p_authority" select="'viaf:'"/>
+                    <xsl:with-param name="p_authority-url" select="'https://viaf.org/viaf/'"/>
+                    <xsl:with-param name="p_authority-name" select="'VIAF'"/>
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="contains($p_ref, 'geon:')">
-                <a class="c_linked-data" lang="en" target="_blank">
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="concat('http://www.geonames.org/', substring-before(substring-after($p_ref, 'geon:'), ' '))"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this toponym on GeoNames</xsl:text>
-                    </xsl:attribute>
-                    <xsl:copy-of select="$p_content"/>
-                </a>
+                <xsl:call-template name="t_derefence-ref-link">
+                    <xsl:with-param name="p_ref" select="$p_ref"/>
+                    <xsl:with-param name="p_content" select="$p_content"/>
+                    <xsl:with-param name="p_authority" select="'geon:'"/>
+                    <xsl:with-param name="p_authority-url" select="'https://www.geonames.org/'"/>
+                    <xsl:with-param name="p_authority-name" select="'GeoNames'"/>
+                </xsl:call-template>
             </xsl:when>
             <xsl:when test="contains($p_ref, 'oclc:')">
-                <a class="c_linked-data" lang="en" target="_blank">
-                    <xsl:attribute name="href">
-                        <xsl:value-of select="concat('https://www.worldcat.org/oclc/', substring-before(substring-after($p_ref, 'oclc:'), ' '))"/>
-                    </xsl:attribute>
-                    <xsl:attribute name="title">
-                        <xsl:text>Link to this bibliographic item on WorldCat</xsl:text>
-                    </xsl:attribute>
-                    <xsl:copy-of select="$p_content"/>
-                </a>
+                <xsl:call-template name="t_derefence-ref-link">
+                    <xsl:with-param name="p_ref" select="$p_ref"/>
+                    <xsl:with-param name="p_content" select="$p_content"/>
+                    <xsl:with-param name="p_authority" select="'oclc:'"/>
+                    <xsl:with-param name="p_authority-url" select="'https://www.worldcat.org/oclc/'"/>
+                    <xsl:with-param name="p_authority-name" select="'WorldCat'"/>
+                </xsl:call-template>
             </xsl:when>
             <!-- fallback! -->
             <xsl:otherwise>
                 <xsl:copy-of select="$p_content"/>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+    <xsl:template name="t_derefence-ref-link">
+        <xsl:param name="p_ref"/>
+        <xsl:param name="p_content"/>
+        <xsl:param name="p_authority"/>
+        <xsl:param name="p_authority-url"/>
+        <xsl:param name="p_authority-name"/>
+        <xsl:variable name="v_multiple-values">
+                    <xsl:choose>
+                        <xsl:when test="contains(substring-after($p_ref, $p_authority), ' ')">
+                            <xsl:copy-of select="true()"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:copy-of select="false()"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <a class="c_linked-data" lang="en" target="_blank">
+                    <xsl:attribute name="href">
+                        <xsl:value-of select="$p_authority-url"/>
+                        <xsl:choose>
+                            <xsl:when test="$v_multiple-values = 'false'">
+                                <xsl:value-of select="substring-after($p_ref, $p_authority)"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:value-of select="substring-before(substring-after($p_ref, $p_authority), ' ')"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:attribute>
+                    <xsl:attribute name="title">
+                        <xsl:text>Link to this entity at </xsl:text><xsl:value-of select="$p_authority-name"/>
+                    </xsl:attribute>
+                    <xsl:copy-of select="$p_content"/>
+                </a>
     </xsl:template>
     <!-- dates -->
     <xsl:template match="tei:date[ancestor::tei:body]">
