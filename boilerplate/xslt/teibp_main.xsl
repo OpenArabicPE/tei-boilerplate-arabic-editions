@@ -793,6 +793,11 @@
             <a class="c_fn-mark" href="#fn-mark-{generate-id()}" lang="en">
                 <xsl:value-of select="count(preceding::tei:note[@type = 'footnote' or @type = 'endnote' or not(@place = 'inline')][ancestor::tei:body]) + 1"/>
             </a>
+            <!-- editorial notes -->
+            <xsl:if test="@type = 'editorial' and @resp">
+                <xsl:variable name="v_resp" select="substring-after(@resp, '#')"/>
+                <span>[<xsl:value-of select="ancestor::tei:TEI/tei:teiHeader/descendant::tei:respStmt/node()[@xml:id = $v_resp]"/>] </span>
+            </xsl:if>
             <xsl:apply-templates/>
             <!-- add a back link -->
             <a class="c_fn-back" href="#fn-mark-{generate-id()}">
@@ -871,7 +876,8 @@
         <xsl:apply-templates/>
     </xsl:template>
     <!-- sometimes the editors at shamela.ws commented on the text. This should also be ignored -->
-    <xsl:template match="tei:note[@resp = '#org_MS']"/>
+    <!-- <xsl:template match="tei:note[@resp = '#org_MS']"/> -->
+    
     <!-- abbreviations: are dealt with in CSS -->
     <!-- the file's id -->
     <xsl:variable name="vFileId" select="/descendant-or-self::tei:TEI/@xml:id"/>
