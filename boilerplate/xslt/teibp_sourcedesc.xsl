@@ -37,7 +37,9 @@
     <xsl:template match="tei:sourceDesc/tei:biblStruct[child::tei:monogr/tei:title]">
         <div class="cSource">
             <xsl:for-each select="child::tei:monogr/tei:title[not(@type = 'sub')]">
-                <xsl:apply-templates select="." mode="mBibl"/>
+                <div>
+                    <xsl:apply-templates select="." mode="mBibl"/>
+                </div>
             </xsl:for-each>
         </div>
     </xsl:template>
@@ -48,8 +50,7 @@
     
     <xsl:template match="tei:monogr/tei:title[not(@type = 'sub')]" mode="mBibl">
         <xsl:variable name="vLang" select="@xml:lang"/>
-        <div>
-            <xsl:call-template name="templHtmlAttrLang">
+        <xsl:call-template name="templHtmlAttrLang">
                 <xsl:with-param name="pInput" select="."/>
             </xsl:call-template>
             <title>
@@ -174,16 +175,15 @@
             <!-- publisher and place of publication -->
             <span class="cImprint">
                 <xsl:text>, </xsl:text>
-                <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $vLang]"/>
+                <xsl:value-of select="parent::tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $vLang]"/>
                 <xsl:text>, </xsl:text>
-                <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:publisher/tei:orgName[@xml:lang = $vLang]"/>
+                <xsl:value-of select="parent::tei:monogr/tei:imprint/tei:publisher/tei:orgName[@xml:lang = $vLang]"/>
                 <xsl:text>, </xsl:text>
                 <!-- publication date(s) -->
                 <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:date" mode="mBibl">
                     <xsl:with-param name="pLang" select="$vLang"/>
                 </xsl:apply-templates>
             </span>
-        </div>
     </xsl:template>
 
     <xsl:template match="tei:imprint/tei:date" mode="mBibl">

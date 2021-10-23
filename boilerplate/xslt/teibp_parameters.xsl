@@ -12,7 +12,7 @@
         </xd:desc>
     </xd:doc>
     
-    <!-- Load all other stylesheets -->
+    <!-- Load all other stylesheets: this should be moved to the main stylesheet as this is not going to be something one will want to change -->
     <!-- import the standard TEI Boilerplate stylesheets. If you link to versions hosted on GitHub make sure to point to a stable version to ensure that future changes won't break your set-up -->
     <xsl:include href="teibp_main.xsl"/>
     <xsl:include href="teibp_sourcedesc.xsl"/>
