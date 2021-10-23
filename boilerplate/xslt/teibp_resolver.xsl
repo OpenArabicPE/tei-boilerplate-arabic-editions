@@ -61,33 +61,43 @@
                     </xsl:choose>
                 </xsl:variable>
                 <xsl:variable name="v_local-uri-scheme" select="concat($v_authority, ':', $v_entity-type, ':')"/>
-                <xsl:variable name="v_idno">
+        <xsl:variable name="v_idno">
+            <xsl:variable name="v_temp">
                     <xsl:choose>
                         <!-- the sort order here must match the one in $v_authority -->
                         <xsl:when test="contains($v_ref, $v_local-uri-scheme)">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, $v_local-uri-scheme), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, $v_local-uri-scheme)"/>
                         </xsl:when>
                         <xsl:when test="contains($v_ref, 'viaf:')">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, 'viaf:'), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, 'viaf:')"/>
                         </xsl:when>
                         <xsl:when test="contains($v_ref, 'geon:')">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, 'geon:'), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, 'geon:')"/>
                         </xsl:when>
                         <xsl:when test="contains($v_ref, 'geonames.org/')">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, 'geonames.org/'), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, 'geonames.org/')"/>
                         </xsl:when>
                         <xsl:when test="contains($v_ref, 'oclc:')">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, 'oclc:'), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, 'oclc:')"/>
                         </xsl:when>
                         <xsl:when test="contains($v_ref, '^http')">
-                            <xsl:value-of select="substring-before(substring-after($v_ref, 'http'), ' ')"/>
+                            <xsl:value-of select="substring-after($v_ref, 'http')"/>
                         </xsl:when>
                         <!--<xsl:when test="contains($v_ref, $v_local-uri-scheme)">
                             <!-\- local IDs in Project Jaraid are not nummeric for biblStructs -\->
                             <xsl:value-of select="replace($v_ref, concat('.*', $v_local-uri-scheme, '(\w+).*'), '$1')"/>
                         </xsl:when>-->
                     </xsl:choose>
-                </xsl:variable>
+            </xsl:variable>
+            <xsl:choose>
+                <xsl:when test="contains($v_temp, ' ')">
+                    <xsl:value-of select="substring-before($v_temp, ' ')"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="$v_temp"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
         <!-- output -->
         <xsl:choose>
             <xsl:when test="$v_entity-type = 'pers'">
@@ -132,6 +142,8 @@
                             <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                             <xsl:otherwise>
                                 <xsl:value-of select="'NA'"/>
+                                <xsl:value-of select="$v_local-uri-scheme"/>
+                                <xsl:value-of select="$v_idno"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
