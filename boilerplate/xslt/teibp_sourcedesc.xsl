@@ -149,7 +149,7 @@
                 </span>
             </xsl:if>
             <!-- editors -->
-            <xsl:if test="parent::tei:monogr/tei:editor[./tei:persName/@xml:lang = $vLang]">
+            <xsl:if test="parent::tei:monogr/tei:editor[tei:persName/@xml:lang = $vLang]">
                 <span class="cAuthors">
                     <xsl:text>, </xsl:text>
                     <xsl:choose>
@@ -166,9 +166,9 @@
                             <xsl:text>edited by </xsl:text>
                         </xsl:otherwise>
                     </xsl:choose>
-                    <xsl:for-each select="parent::tei:monogr/tei:editor/tei:persName[@xml:lang = $vLang]">
-                        <xsl:apply-templates select="node()"/>
-                        <xsl:if test="not(position() = last())">, </xsl:if>
+                    <xsl:for-each select="parent::tei:monogr/tei:editor">
+                        <xsl:apply-templates select="tei:persName[@xml:lang = $vLang]"/>
+                        <xsl:if test="not(position() = last())"><xsl:text>, </xsl:text></xsl:if>
                     </xsl:for-each>
                 </span>
             </xsl:if>
@@ -180,14 +180,19 @@
                 <xsl:value-of select="parent::tei:monogr/tei:imprint/tei:publisher/tei:orgName[@xml:lang = $vLang]"/>
                 <xsl:text>, </xsl:text>
                 <!-- publication date(s) -->
-                <xsl:apply-templates select="parent::tei:monogr/tei:imprint/tei:date" mode="mBibl">
-                    <xsl:with-param name="pLang" select="$vLang"/>
-                </xsl:apply-templates>
+                <xsl:for-each select="parent::tei:monogr/tei:imprint/tei:date">
+                    <xsl:apply-templates select="." mode="mBibl">
+                        <xsl:with-param name="pLang" select="$vLang"/>
+                    </xsl:apply-templates>
+                    <xsl:if test="following-sibling::tei:date">
+                        <xsl:text> / </xsl:text>
+                    </xsl:if>
+                </xsl:for-each>
             </span>
     </xsl:template>
 
     <xsl:template match="tei:imprint/tei:date" mode="mBibl">
-        <xsl:param name="pLang"/>
+        <xsl:param name="pLang" select="'ar'"/>
         <xsl:variable name="v_date-string">
             <xsl:choose>
                 <xsl:when test="@when-custom">
@@ -237,9 +242,6 @@
                     <xsl:value-of select="@when"/>
                     <xsl:text>]</xsl:text>
                 </xsl:if>
-        </xsl:if>
-        <xsl:if test="following-sibling::tei:date">
-            <xsl:text> / </xsl:text>
         </xsl:if>
     </xsl:template>
     
