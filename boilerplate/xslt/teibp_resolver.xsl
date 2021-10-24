@@ -167,7 +167,14 @@
         <xsl:if test="tei:monogr/tei:editor">
             <xsl:text>, </xsl:text>
             <xsl:for-each select="tei:monogr/tei:editor">
-                <xsl:apply-templates select="tei:persName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+                <xsl:choose>
+                    <xsl:when test="tei:persName[@xml:lang = $v_lang]">
+                        <xsl:apply-templates select="tei:persName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:apply-templates select="tei:persName[1]" mode="m_plain-text"/>
+                    </xsl:otherwise>
+                </xsl:choose>
                 <xsl:if test="following-sibling::tei:editor">
                     <xsl:text>, </xsl:text>
                 </xsl:if>
@@ -176,7 +183,14 @@
         <!-- imprint -->
         <xsl:if test="tei:monogr/tei:imprint/tei:pubPlace">
             <xsl:text>, </xsl:text>
-            <xsl:apply-templates select="tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+            <xsl:choose>
+                <xsl:when test="tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $v_lang]">
+                    <xsl:apply-templates select="tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[1]" mode="m_plain-text"/>
+                </xsl:otherwise>
+            </xsl:choose>
             <xsl:if test="tei:monogr/tei:imprint/tei:publisher">
                 <xsl:text>: </xsl:text>
                 <xsl:apply-templates select="tei:monogr/tei:imprint/tei:publisher/node()[@xml:lang = $v_lang]" mode="m_plain-text"/>
