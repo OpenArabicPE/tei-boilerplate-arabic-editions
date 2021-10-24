@@ -137,13 +137,11 @@
                         <xsl:choose>
                             <xsl:when test="$p_authority-file//tei:biblStruct/tei:monogr/tei:idno[@type = $v_authority] = $v_idno">
                                 <!--<xsl:copy-of select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]"/>-->
-                                <xsl:apply-templates select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]" mode="m_plain"/>
+                                <xsl:apply-templates select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]" mode="m_pop-up-entity"/>
                             </xsl:when>
                             <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                             <xsl:otherwise>
                                 <xsl:value-of select="'NA'"/>
-                                <xsl:value-of select="$v_local-uri-scheme"/>
-                                <xsl:value-of select="$v_idno"/>
                             </xsl:otherwise>
                         </xsl:choose>
                     </xsl:when>
@@ -154,23 +152,47 @@
                     </xsl:otherwise>
         </xsl:choose>
     </xsl:template>
-    <xsl:template match="node()" mode="m_plain">
+    <xsl:template match="node()" mode="m_plain-text">
         <xsl:value-of select="."/>
     </xsl:template>
-    <xsl:template match="tei:biblStruct" mode="m_plain">
+    <xsl:template match="tei:biblStruct" mode="m_pop-up-entity">
         <xsl:variable name="v_lang" select="tei:monogr/tei:textLang/@mainLang"/>
-        <!--<ul>
-            <li>title: <xsl:apply-templates select="tei:monogr/tei:title[@xml:lang = $v_lang]" mode="m_plain"/></li>
-            <li><xsl:text>editor: </xsl:text>
-                <xsl:for-each select="tei:monogr/tei:editor">
-                    <xsl:apply-templates select="tei:persName[@xml:lang = $v_lang]" mode="m_plain"/>
-                    <xsl:if test="not(position() = last())">
-                        <xsl:text>, </xsl:text>
-                    </xsl:if>
-                </xsl:for-each>
-            </li>
-        </ul>-->
-        <xsl:apply-templates select="tei:monogr/tei:title[not(@type = 'sub')][@xml:lang = $v_lang][1]" mode="mBibl"/>
+        <span class="c_bibl">
+        <xsl:apply-templates select="tei:monogr/tei:title[not(@type = 'sub')][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+        <xsl:if test="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang]">
+            <xsl:text>: </xsl:text>
+            <xsl:apply-templates select="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+        </xsl:if>
+        <!-- editor -->
+        <xsl:if test="tei:monogr/tei:editor">
+            <xsl:text>, </xsl:text>
+            <xsl:for-each select="tei:monogr/tei:editor">
+                <xsl:apply-templates select="tei:persName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+                <xsl:if test="following-sibling::tei:editor">
+                    <xsl:text>, </xsl:text>
+                </xsl:if>
+            </xsl:for-each>
+        </xsl:if>
+        <!-- imprint -->
+        <xsl:if test="tei:monogr/tei:imprint/tei:pubPlace">
+            <xsl:text>, </xsl:text>
+            <xsl:apply-templates select="tei:monogr/tei:imprint/tei:pubPlace/tei:placeName[@xml:lang = $v_lang]" mode="m_plain-text"/>
+            <xsl:if test="tei:monogr/tei:imprint/tei:publisher">
+                <xsl:text>: </xsl:text>
+                <xsl:apply-templates select="tei:monogr/tei:imprint/tei:publisher/node()[@xml:lang = $v_lang]" mode="m_plain-text"/>
+            </xsl:if>
+        </xsl:if>
+        <!-- date -->
+        <xsl:if test="tei:monogr/tei:imprint/tei:date">
+            <xsl:text>, </xsl:text>
+            <xsl:choose>
+                <xsl:when test="tei:monogr/tei:imprint/tei:date[@type = 'onset']">
+                    <xsl:apply-templates select="tei:monogr/tei:imprint/tei:date[@type = 'onset']" mode="mBibl"/>    
+                </xsl:when>
+            </xsl:choose>
+        </xsl:if>
+        </span>
+        <!-- potentially add holdings -->
     </xsl:template>
     
      <!-- input: @ref, output: a single <html:a> -->
