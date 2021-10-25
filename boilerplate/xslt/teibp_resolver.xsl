@@ -228,7 +228,7 @@
     <xsl:template match="tei:idno" mode="m_link">
         <xsl:choose>
             <xsl:when test="@type = 'OCLC'">
-                <a href="https://worldcat.org/{.}">OCLC: <xsl:value-of select="."/></a>
+                <a href="https://worldcat.org/oclc/{.}">OCLC: <xsl:value-of select="."/></a><xsl:text> </xsl:text>
             </xsl:when>
         </xsl:choose>
     </xsl:template>
