@@ -221,7 +221,7 @@
         <xsl:if test="tei:monogr/tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                  <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'OCLC']" mode="m_link"/>
+                  <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'OCLC'][1]" mode="m_link"/>
             </span>
         </xsl:if>
     </xsl:template>
