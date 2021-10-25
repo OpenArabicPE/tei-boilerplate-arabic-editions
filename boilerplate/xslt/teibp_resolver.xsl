@@ -204,9 +204,33 @@
                     <xsl:apply-templates select="tei:monogr/tei:imprint/tei:date[@type = 'onset']" mode="mBibl"/>    
                 </xsl:when>
             </xsl:choose>
+            <xsl:if test="tei:monogr/tei:imprint/tei:date[@type = 'terminus']">
+                <xsl:text> – </xsl:text>
+                <xsl:apply-templates select="tei:monogr/tei:imprint/tei:date[@type = 'terminus']" mode="mBibl"/>
+            </xsl:if>
         </xsl:if>
+            <!-- pages -->
+            <xsl:if test="tei:monogr/tei:biblScope[@unit = 'page']">
+                <xsl:text>, </xsl:text>
+                <xsl:value-of select="tei:monogr/tei:biblScope[@unit = 'page']/@to - tei:monogr/tei:biblScope[@unit = 'page']/@from"/>
+                <xsl:text> ص</xsl:text>
+            </xsl:if>
         </span>
         <!-- potentially add holdings -->
+        <!--  -->
+        <xsl:if test="tei:monogr/tei:idno">
+            <br/>
+            <span class="c_ids" lang="en">
+                  <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'OCLC']" mode="m_link"/>
+            </span>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:idno" mode="m_link">
+        <xsl:choose>
+            <xsl:when test="@type = 'OCLC'">
+                <a href="https://worldcat.org/{.}">OCLC: <xsl:value-of select="."/></a>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
     
      <!-- input: @ref, output: a single <html:a> -->
