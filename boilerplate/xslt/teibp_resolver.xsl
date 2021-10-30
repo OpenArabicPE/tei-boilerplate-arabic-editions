@@ -230,6 +230,12 @@
             <xsl:when test="@type = 'OCLC'">
                 <a href="https://worldcat.org/oclc/{.}">OCLC: <xsl:value-of select="."/></a><xsl:text> </xsl:text>
             </xsl:when>
+             <xsl:when test="@type = 'oape'">
+                <a href="https://openarabicpe.github.io">OpenArabicPE</a><xsl:text>: </xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text>
+            </xsl:when>
+            <xsl:when test="@type = 'jaraid'">
+                <a href="https://projectjaraid.github.io">Project Jarāʾid</a><xsl:text>: </xsl:text><xsl:value-of select="."/><xsl:text> </xsl:text>
+            </xsl:when>
         </xsl:choose>
     </xsl:template>
     
