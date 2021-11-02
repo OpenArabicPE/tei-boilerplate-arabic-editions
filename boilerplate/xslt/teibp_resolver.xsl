@@ -212,7 +212,7 @@
             <!-- pages -->
             <xsl:if test="tei:monogr/tei:biblScope[@unit = 'page']">
                 <xsl:text>, </xsl:text>
-                <xsl:value-of select="tei:monogr/tei:biblScope[@unit = 'page']/@to - tei:monogr/tei:biblScope[@unit = 'page']/@from"/>
+                <xsl:value-of select="tei:monogr/tei:biblScope[@unit = 'page']/@to - tei:monogr/tei:biblScope[@unit = 'page']/@from + 1"/>
                 <xsl:text> ص</xsl:text>
             </xsl:if>
         </span>
