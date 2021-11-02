@@ -222,6 +222,8 @@
             <br/>
             <span class="c_ids" lang="en">
                   <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'OCLC'][1]" mode="m_link"/>
+                  <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'oape'][1]" mode="m_link"/>
+                  <xsl:apply-templates select="tei:monogr/tei:idno[@type = 'jaraid'][1]" mode="m_link"/>
             </span>
         </xsl:if>
     </xsl:template>
