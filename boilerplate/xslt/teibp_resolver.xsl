@@ -158,10 +158,24 @@
     <xsl:template match="tei:biblStruct" mode="m_pop-up-entity">
         <xsl:variable name="v_lang" select="tei:monogr/tei:textLang/@mainLang"/>
         <span class="c_bibl">
-        <xsl:apply-templates select="tei:monogr/tei:title[not(@type = 'sub')][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+        <xsl:choose>
+                <xsl:when test="tei:monogr/tei:title[not(@type = 'sub')][@xml:lang = $v_lang]">
+                    <xsl:apply-templates select="tei:monogr/tei:title[not(@type = 'sub')][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="tei:monogr/tei:title[not(@type = 'sub')][1]" mode="m_plain-text"/>
+                </xsl:otherwise>
+            </xsl:choose>
         <xsl:if test="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang]">
             <xsl:text>: </xsl:text>
-            <xsl:apply-templates select="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+             <xsl:choose>
+                <xsl:when test="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang]">
+                    <xsl:apply-templates select="tei:monogr/tei:title[@type = 'sub'][@xml:lang = $v_lang][1]" mode="m_plain-text"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="tei:monogr/tei:title[@type = 'sub'][1]" mode="m_plain-text"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:if>
         <!-- editor -->
         <xsl:if test="tei:monogr/tei:editor">
@@ -216,6 +230,7 @@
                 <xsl:text> ص</xsl:text>
             </xsl:if>
         </span>
+        <!-- information on languages -->
         <!-- potentially add holdings -->
         <!--  -->
         <xsl:if test="tei:monogr/tei:idno">
