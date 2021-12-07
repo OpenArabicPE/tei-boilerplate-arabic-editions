@@ -17,6 +17,18 @@ CSS for styling slide-out panels
     box-shadow: 5px 0px 10px 1px rgba(197, 197, 197, 0.5) inset;
     /*padding-top: 60px;*/
 }
+
+/* remove scrollbar from navigation */
+
+.c_sidenav::-webkit-scrollbar {
+  display: none;
+}
+/* Hide scrollbar for IE, Edge and Firefox */
+..c_sidenav{
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
 /* reset standard browser behaviour */
 nav ul {
     margin: 0;
