@@ -1225,6 +1225,12 @@
                         <xsl:if test="@when">
                             <span class="c_li">@when: <xsl:value-of select="@when"/></span>
                         </xsl:if>
+                        <xsl:if test="@from">
+                            <span class="c_li">@from: <xsl:value-of select="@from"/></span>
+                        </xsl:if>
+                        <xsl:if test="@to">
+                            <span class="c_li">@to: <xsl:value-of select="@to"/></span>
+                        </xsl:if>
                         <xsl:if test="@notBefore">
                             <span class="c_li">@notBefore: <xsl:value-of select="@notBefore"/></span>
                         </xsl:if>
