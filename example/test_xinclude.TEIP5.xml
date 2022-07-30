@@ -136,8 +136,8 @@
                 <language ident="ota">Ottoman</language>
                 <language ident="ota-Latn-x-ijmes">Ottoman transcribed into Latin script following the IJMES conventions</language>
                 <language ident="tr">Turkish</language>
-                <language ident="en-Arab-AR">English transcribed into Arabic script following common Levantine Arabic practices</language>
-                <language ident="fr-Arab-AR">French transcribed into Arabic script following common Levantine Arabic practices</language>
+                <language ident="en-Arab-145">English transcribed into Arabic script following common Levantine Arabic practices</language>
+                <language ident="fr-Arab-145">French transcribed into Arabic script following common Levantine Arabic practices</language>
             </langUsage>
         </profileDesc>
         <revisionDesc><change when="2016-01-12" who="#pers_TG">Added automated <att>xml:id</att>s for every element that is a descendant of <gi>tei:text</gi>and had no existing <att>xml:id</att>following the pattern "name()_generate-id()"</change>
