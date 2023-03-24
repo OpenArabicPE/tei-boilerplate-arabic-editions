@@ -1190,8 +1190,7 @@
 <!--                       <em>This title is linked to an authority file</em>-->
                         <xsl:call-template name="t_get-entity-from-authority-file">
                             <xsl:with-param name="p_entity-name" select="."/>
-<!--                            <xsl:with-param name="p_authority-file" select="document('file:///BachUni/BachBibliothek/GitHub/OpenArabicPE/authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/>-->
-                            <xsl:with-param name="p_authority-file" select="document('https://openarabicpe.github.io/authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/>
+                            <xsl:with-param name="p_authority-file" select="$p_bibliography"/>
                         </xsl:call-template>
                     </xsl:with-param>
                 </xsl:call-template>

@@ -45,6 +45,10 @@
     <xsl:param name="p_mimetype" select="'image/tiff'"/>
     <!-- toggle the width of the columns. If set to true(), the facsimiles will take up most of the available space -->
     <xsl:param name="p_facsimile-only" select="false()"/>
+
+    <!-- link authority files -->
+    <!-- <xsl:param name="p_bibliography" select="document('https://openarabicpe.github.io/authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/> -->
+    <xsl:param name="p_bibliography" select="document('../../../authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
