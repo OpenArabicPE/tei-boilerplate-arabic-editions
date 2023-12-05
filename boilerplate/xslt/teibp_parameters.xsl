@@ -38,7 +38,7 @@
     <!-- select whether you want to use inline CSS for the display; default: true() -->
     <xsl:param name="p_use-inline-css" select="true()"/>
     <!-- select whether the language of the interface should follow the main language of the text; default: false() -->
-    <xsl:param name="p_lang-interface-same-as-text" select="true()"/>
+    <xsl:param name="p_lang-interface-same-as-text" select="false()"/>
     <!-- select the colour scheme for heads; currently available options: red, blue, green -->
     <xsl:param name="p_color-scheme" select="'red'"/>
     <!-- parameter to select the mimeType. In some cases tiff might be more efficient than jpeg. Note that JPG is the fallback if the preferred format isn't present -->
@@ -49,6 +49,7 @@
     <!-- link authority files -->
     <!-- <xsl:param name="p_bibliography" select="document('https://openarabicpe.github.io/authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/> -->
     <xsl:param name="p_bibliography" select="document('../../../authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/>
+    <xsl:param name="p_gazetteer" select="document('../../../authority-files/data/tei/gazetteer_OpenArabicPE.TEIP5.xml')"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>

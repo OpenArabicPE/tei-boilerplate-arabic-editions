@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default" version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-    
+<xsl:stylesheet exclude-result-prefixes="xsl tei xd eg fn #default" version="1.0" xmlns="http://www.w3.org/1999/xhtml" xmlns:eg="http://www.tei-c.org/ns/Examples"
+    xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+    xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template name="t_get-entity-from-authority-file">
         <xsl:param name="p_entity-name"/>
         <xsl:param name="p_local-authority" select="'oape'"/>
@@ -120,7 +121,8 @@
             <xsl:when test="$v_entity-type = 'place'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:place/tei:idno[@type = $v_authority] = $v_idno">
-                        <xsl:copy-of select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/>
+                        <!-- <xsl:copy-of select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/> -->
+                        <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
                     <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                     <xsl:otherwise>
@@ -131,7 +133,6 @@
             <xsl:when test="$v_entity-type = 'bibl'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:biblStruct/tei:monogr/tei:idno[@type = $v_authority] = $v_idno">
-                        <!--<xsl:copy-of select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]"/>-->
                         <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
                     <!-- even though the input claims that there is an entry in the authority file, there isn't -->
@@ -237,10 +238,43 @@
             </span>
         </xsl:if>
     </xsl:template>
+    <xsl:template match="tei:place" mode="m_pop-up-entity">
+        <!-- this has been declared in the parameter file -->
+        <xsl:variable name="v_lang" select="$v_lang-interface"/>
+        <span class="c_place">
+            <xsl:choose>
+                <xsl:when test="tei:placeName[@xml:lang = $v_lang]">
+                    <xsl:for-each select="tei:placeName[@xml:lang = $v_lang]">
+                        <xsl:apply-templates mode="m_plain-text" select="."/>
+<!--                        <xsl:if test="not(last())">-->
+                            <xsl:text>, </xsl:text>
+                        <!--</xsl:if>-->
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="m_plain-text" select="tei:placeName[1]"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+        <!-- IDs -->
+        <xsl:if test="tei:idno">
+            <br/>
+            <span class="c_ids" lang="en">
+                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'geon'][1]"/>
+                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'oape'][1]"/>
+                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'jaraid'][1]"/>
+            </span>
+        </xsl:if>
+    </xsl:template>
     <xsl:template match="tei:idno" mode="m_link">
         <xsl:choose>
             <xsl:when test="@type = 'OCLC'">
                 <a href="https://worldcat.org/oclc/{.}">OCLC: 
+                    <xsl:value-of select="."/></a>
+                <xsl:text> </xsl:text>
+            </xsl:when>
+            <xsl:when test="@type = 'geon'">
+                <a href="http://www.geonames.org/{.}">GeoNames:
                     <xsl:value-of select="."/></a>
                 <xsl:text> </xsl:text>
             </xsl:when>

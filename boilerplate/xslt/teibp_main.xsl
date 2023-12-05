@@ -1182,15 +1182,26 @@
             <xsl:copy-of select="$v_content"/>
         <!-- icons and links -->
             <xsl:copy-of select="$v_links"/>
-            <!-- add pop-up -->
+            <!-- add pop-up: titles -->
             <xsl:if test="self::tei:title[@ref]">
                 <xsl:call-template name="t_pop-up-note">
                     <xsl:with-param name="p_lang" select="$v_lang-interface"/>
                     <xsl:with-param name="p_content">
-<!--                       <em>This title is linked to an authority file</em>-->
                         <xsl:call-template name="t_get-entity-from-authority-file">
                             <xsl:with-param name="p_entity-name" select="."/>
                             <xsl:with-param name="p_authority-file" select="$p_bibliography"/>
+                        </xsl:call-template>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>
+            <!-- add pop-up: toponyms -->
+            <xsl:if test="self::tei:placeName[@ref]">
+                <xsl:call-template name="t_pop-up-note">
+                    <xsl:with-param name="p_lang" select="$v_lang-interface"/>
+                    <xsl:with-param name="p_content">
+                        <xsl:call-template name="t_get-entity-from-authority-file">
+                            <xsl:with-param name="p_entity-name" select="."/>
+                            <xsl:with-param name="p_authority-file" select="$p_gazetteer"/>
                         </xsl:call-template>
                     </xsl:with-param>
                 </xsl:call-template>
