@@ -269,23 +269,23 @@
     <xsl:template match="tei:idno" mode="m_link">
         <xsl:choose>
             <xsl:when test="@type = 'OCLC'">
-                <a href="https://worldcat.org/oclc/{.}">OCLC: 
+                <a href="https://worldcat.org/oclc/{.}" target="_blank">OCLC: 
                     <xsl:value-of select="."/></a>
                 <xsl:text> </xsl:text>
             </xsl:when>
             <xsl:when test="@type = 'geon'">
-                <a href="http://www.geonames.org/{.}">GeoNames:
+                <a href="http://www.geonames.org/{.}" target="_blank">GeoNames:
                     <xsl:value-of select="."/></a>
                 <xsl:text> </xsl:text>
             </xsl:when>
             <xsl:when test="@type = 'oape'">
-                <a href="https://openarabicpe.github.io">OpenArabicPE</a>
+                <a href="https://openarabicpe.github.io" target="_blank">OpenArabicPE</a>
                 <xsl:text>: </xsl:text>
                 <xsl:value-of select="."/>
                 <xsl:text> </xsl:text>
             </xsl:when>
             <xsl:when test="@type = 'jaraid'">
-                <a href="https://projectjaraid.github.io">Project Jarāʾid</a>
+                <a href="https://projectjaraid.github.io" target="_blank">Project Jarāʾid</a>
                 <xsl:text>: </xsl:text>
                 <xsl:value-of select="."/>
                 <xsl:text> </xsl:text>
