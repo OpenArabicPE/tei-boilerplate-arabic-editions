@@ -953,7 +953,14 @@
             <xsl:if test="descendant-or-self::tei:TEI/@next">
                 <div class="c_button c_button-sidebar c_pos-6" id="nextIssue">
                     <span class="c_icon">
-                        <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                        <xsl:choose>
+                            <xsl:when test="$v_lang-interface = 'ar'">
+                                <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </span>
                     <a class="c_label" lang="{$v_lang-interface}">
                         <xsl:attribute name="href">
@@ -973,7 +980,14 @@
             <xsl:if test="descendant-or-self::tei:TEI/@prev">
                 <div class="c_button c_button-sidebar c_pos-7" id="prevIssue">
                     <span class="c_icon">
-                        <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                        <xsl:choose>
+                            <xsl:when test="$v_lang-interface = 'ar'">
+                                <xsl:copy-of select="document('../assets/icons/chevron-right.svg')"/>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:copy-of select="document('../assets/icons/chevron-left.svg')"/>
+                            </xsl:otherwise>
+                        </xsl:choose>
                     </span>
                     <a class="c_label" lang="{$v_lang-interface}">
                         <xsl:attribute name="href">
@@ -1058,7 +1072,7 @@
         <!-- build output -->
         <span class="c_toggle-popup">
             <xsl:copy-of select="$v_content"/>
-        <!-- icons and links -->
+            <!-- icons and links -->
             <xsl:copy-of select="$v_links"/>
             <!-- add pop-up: titles -->
             <xsl:if test="self::tei:title[@ref]">
@@ -1086,7 +1100,6 @@
             </xsl:if>
         </span>
     </xsl:template>
-  
     <!-- dates -->
     <xsl:template match="tei:date[ancestor::tei:body]">
         <xsl:variable name="v_icon" select="document('../assets/icons/calendar.svg')"/>
