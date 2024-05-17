@@ -24,6 +24,7 @@
                 <xsl:otherwise/>
             </xsl:choose>
         </xsl:variable>
+        <!-- both $v_authority and $v_idno are correct -->
         <xsl:variable name="v_authority">
             <!-- order matters here: while our local IDs must be unique, we can have multiple entries pointing to the same ID in an external reference file -->
             <xsl:choose>
@@ -120,12 +121,14 @@
             </xsl:when>
             <xsl:when test="$v_entity-type = 'place'">
                 <xsl:choose>
+                    <!-- weird bug: it seems that we cannot access the authority file -->
                     <xsl:when test="$p_authority-file//tei:place/tei:idno[@type = $v_authority] = $v_idno">
-                        <!-- <xsl:copy-of select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/> -->
                         <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
                     <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                     <xsl:otherwise>
+                        <!-- quick debugging: both $v_authority and $v_idno are correct -->
+                        <xsl:value-of select="$p_authority-file//tei:place[1]"/>
                         <xsl:value-of select="'NA'"/>
                     </xsl:otherwise>
                 </xsl:choose>
@@ -322,6 +325,15 @@
                     <xsl:with-param name="p_authority" select="'oclc:'"/>
                     <xsl:with-param name="p_authority-url" select="'https://www.worldcat.org/oclc/'"/>
                     <xsl:with-param name="p_authority-name" select="'WorldCat'"/>
+                </xsl:call-template>
+            </xsl:when>
+            <xsl:when test="contains($p_ref, 'wiki:')">
+                <xsl:call-template name="t_derefence-ref-link">
+                    <xsl:with-param name="p_ref" select="$p_ref"/>
+                    <xsl:with-param name="p_content" select="$p_content"/>
+                    <xsl:with-param name="p_authority" select="'wiki:'"/>
+                    <xsl:with-param name="p_authority-url" select="'https://wikidata.org/wiki/'"/>
+                    <xsl:with-param name="p_authority-name" select="'Wikidata'"/>
                 </xsl:call-template>
             </xsl:when>
             <!-- fallback! -->
