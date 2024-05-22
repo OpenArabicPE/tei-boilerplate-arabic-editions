@@ -52,6 +52,9 @@
                 <xsl:when test="contains($v_ref, 'oclc:')">
                     <xsl:text>OCLC</xsl:text>
                 </xsl:when>
+                <xsl:when test="contains($v_ref, 'wiki:')">
+                    <xsl:text>Wikidata</xsl:text>
+                </xsl:when>
                 <xsl:when test="starts-with($v_ref, 'http')">
                     <xsl:text>url</xsl:text>
                 </xsl:when>
@@ -79,6 +82,9 @@
                     </xsl:when>
                     <xsl:when test="contains($v_ref, 'oclc:')">
                         <xsl:value-of select="substring-after($v_ref, 'oclc:')"/>
+                    </xsl:when>
+                    <xsl:when test="contains($v_ref, 'wiki:')">
+                        <xsl:value-of select="substring-after($v_ref, 'wiki:')"/>
                     </xsl:when>
                     <xsl:when test="contains($v_ref, '^http')">
                         <xsl:value-of select="substring-after($v_ref, 'http')"/>
@@ -233,9 +239,7 @@
         <xsl:if test="tei:monogr/tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno[@type = 'OCLC'][1]"/>
-                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno[@type = 'oape'][1]"/>
-                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno[@type = 'jaraid'][1]"/>
+                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno"/>
             </span>
         </xsl:if>
     </xsl:template>
@@ -261,14 +265,18 @@
         <xsl:if test="tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'geon'][1]"/>
-                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'oape'][1]"/>
-                <xsl:apply-templates mode="m_link" select="tei:idno[@type = 'jaraid'][1]"/>
+                <xsl:apply-templates mode="m_link" select="tei:idno"/>
             </span>
         </xsl:if>
     </xsl:template>
-    <xsl:template match="tei:idno" mode="m_link">
+    <!-- generate links only for the first ID of each type -->
+    <xsl:template match="tei:idno[not(preceding-sibling::tei:idno[@type = current()/@type])]" mode="m_link">
         <xsl:choose>
+            <xsl:when test="@type = 'wiki'">
+                <a href="https://wikidata.org/wiki/{.}" target="_blank">Wikidata:
+                    <xsl:value-of select="."/></a>
+                <xsl:text> </xsl:text>
+            </xsl:when>
             <xsl:when test="@type = 'OCLC'">
                 <a href="https://worldcat.org/oclc/{.}" target="_blank">OCLC: 
                     <xsl:value-of select="."/></a>
@@ -293,6 +301,7 @@
             </xsl:when>
         </xsl:choose>
     </xsl:template>
+    <xsl:template match="tei:idno" mode="m_link"/>
     <!-- input: @ref, output: a single <html:a>-->
     <xsl:template name="t_derefence-ref">
         <xsl:param name="p_ref"/>
