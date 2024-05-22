@@ -109,7 +109,7 @@
             <xsl:when test="$v_entity-type = 'pers'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:person/tei:idno[@type = $v_authority] = $v_idno">
-                        <xsl:copy-of select="$p_authority-file//tei:person[tei:idno[@type = $v_authority] = $v_idno]"/>
+                       <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:person[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$v_message-failure"/>
@@ -122,7 +122,7 @@
                         <xsl:copy-of select="$p_authority-file//tei:org[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
                     <xsl:otherwise>
-                       <xsl:value-of select="$v_message-failure"/>
+                        <xsl:value-of select="$v_message-failure"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -251,13 +251,39 @@
                 <xsl:when test="tei:placeName[@xml:lang = $v_lang]">
                     <xsl:for-each select="tei:placeName[@xml:lang = $v_lang]">
                         <xsl:apply-templates mode="m_plain-text" select="."/>
-<!--                        <xsl:if test="not(last())">-->
-                            <xsl:text>, </xsl:text>
+                        <!--                        <xsl:if test="not(last())">-->
+                        <xsl:text>, </xsl:text>
                         <!--</xsl:if>-->
                     </xsl:for-each>
                 </xsl:when>
                 <xsl:otherwise>
                     <xsl:apply-templates mode="m_plain-text" select="tei:placeName[1]"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+        <!-- IDs -->
+        <xsl:if test="tei:idno">
+            <br/>
+            <span class="c_ids" lang="en">
+                <xsl:apply-templates mode="m_link" select="tei:idno"/>
+            </span>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:person" mode="m_pop-up-entity">
+        <!-- this has been declared in the parameter file -->
+        <xsl:variable name="v_lang" select="$v_lang-interface"/>
+        <span class="c_person">
+            <xsl:choose>
+                <xsl:when test="tei:persName[@xml:lang = $v_lang]">
+                    <xsl:for-each select="tei:persName[@xml:lang = $v_lang]">
+                        <xsl:apply-templates mode="m_plain-text" select="."/>
+                        <!--                        <xsl:if test="not(last())">-->
+                        <xsl:text>, </xsl:text>
+                        <!--</xsl:if>-->
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="m_plain-text" select="tei:persName[1]"/>
                 </xsl:otherwise>
             </xsl:choose>
         </span>

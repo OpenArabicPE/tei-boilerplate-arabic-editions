@@ -51,6 +51,7 @@
     <xsl:param name="p_bibliography" select="document('../../../authority-files/data/tei/bibliography_OpenArabicPE-periodicals.TEIP5.xml')"/>
 <!--     <xsl:param name="p_gazetteer" select="document('https://openarabicpe.github.io/authority-files/data/tei/gazetteer_OpenArabicPE.TEIP5.xml')"/> -->
     <xsl:param name="p_gazetteer" select="document('../../../authority-files/data/tei/gazetteer_OpenArabicPE.TEIP5.xml')"/>
+    <xsl:param name="p_personography" select="document('../../../authority-files/data/tei/personography_OpenArabicPE.TEIP5.xml')"/>
     
     <!-- original TEI Boilerplate stuff -->
     <xsl:param name="teibpHome" select="'http://dcl.slis.indiana.edu/teibp/'"/>
