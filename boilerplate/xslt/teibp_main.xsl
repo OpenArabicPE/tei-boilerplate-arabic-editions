@@ -1110,6 +1110,18 @@
                     </xsl:with-param>
                 </xsl:call-template>
             </xsl:if>
+            <!-- add pop-up: organisational names -->
+            <xsl:if test="self::tei:orgName[@ref]">
+                <xsl:call-template name="t_pop-up-note">
+                    <xsl:with-param name="p_lang" select="$v_lang-interface"/>
+                    <xsl:with-param name="p_content">
+                        <xsl:call-template name="t_get-entity-from-authority-file">
+                            <xsl:with-param name="p_entity-name" select="."/>
+                            <xsl:with-param name="p_authority-file" select="$p_organizationography"/>
+                        </xsl:call-template>
+                    </xsl:with-param>
+                </xsl:call-template>
+            </xsl:if>
         </span>
     </xsl:template>
     <!-- dates -->

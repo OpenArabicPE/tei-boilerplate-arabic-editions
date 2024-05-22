@@ -6,6 +6,7 @@
         <xsl:param name="p_entity-name"/>
         <xsl:param name="p_local-authority" select="'oape'"/>
         <xsl:param name="p_authority-file"/>
+        <xsl:param name="p_lang"/>
         <xsl:variable name="v_ref" select="$p_entity-name/@ref"/>
         <xsl:variable name="v_entity-type">
             <xsl:choose>
@@ -109,7 +110,9 @@
             <xsl:when test="$v_entity-type = 'pers'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:person/tei:idno[@type = $v_authority] = $v_idno">
-                       <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:person[tei:idno[@type = $v_authority] = $v_idno]"/>
+                       <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:person[tei:idno[@type = $v_authority] = $v_idno]">
+                           <xsl:with-param name="p_lang"  select="$p_lang"/>
+                       </xsl:apply-templates>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$v_message-failure"/>
@@ -119,7 +122,9 @@
             <xsl:when test="$v_entity-type = 'org'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:org/tei:idno[@type = $v_authority] = $v_idno">
-                        <xsl:copy-of select="$p_authority-file//tei:org[tei:idno[@type = $v_authority] = $v_idno]"/>
+                        <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:org[tei:idno[@type = $v_authority] = $v_idno]">
+                            <xsl:with-param name="p_lang"  select="$p_lang"/>
+                        </xsl:apply-templates>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$v_message-failure"/>
@@ -129,7 +134,9 @@
             <xsl:when test="$v_entity-type = 'place'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:place/tei:idno[@type = $v_authority] = $v_idno">
-                        <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/>
+                        <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]">
+                            <xsl:with-param name="p_lang"  select="$p_lang"/>
+                        </xsl:apply-templates>
                     </xsl:when>
                     <!-- everything works as expected -->
                     <xsl:otherwise>
@@ -239,17 +246,19 @@
         <xsl:if test="tei:monogr/tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno"/>
+                <xsl:apply-templates mode="m_link" select="tei:monogr/tei:idno">
+                    <xsl:sort select="@type"/>
+                </xsl:apply-templates>
             </span>
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:place" mode="m_pop-up-entity">
         <!-- this has been declared in the parameter file -->
-        <xsl:variable name="v_lang" select="$v_lang-interface"/>
+        <xsl:param name="p_lang"/>
         <span class="c_place">
             <xsl:choose>
-                <xsl:when test="tei:placeName[@xml:lang = $v_lang]">
-                    <xsl:for-each select="tei:placeName[@xml:lang = $v_lang]">
+                <xsl:when test="tei:placeName[@xml:lang = $p_lang]">
+                    <xsl:for-each select="tei:placeName[@xml:lang = $p_lang]">
                         <xsl:apply-templates mode="m_plain-text" select="."/>
                         <!--                        <xsl:if test="not(last())">-->
                         <xsl:text>, </xsl:text>
@@ -265,17 +274,19 @@
         <xsl:if test="tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                <xsl:apply-templates mode="m_link" select="tei:idno"/>
+                <xsl:apply-templates mode="m_link" select="tei:idno">
+                    <xsl:sort select="@type"/>
+                </xsl:apply-templates>
             </span>
         </xsl:if>
     </xsl:template>
     <xsl:template match="tei:person" mode="m_pop-up-entity">
         <!-- this has been declared in the parameter file -->
-        <xsl:variable name="v_lang" select="$v_lang-interface"/>
+        <xsl:param name="p_lang"/>
         <span class="c_person">
             <xsl:choose>
-                <xsl:when test="tei:persName[@xml:lang = $v_lang]">
-                    <xsl:for-each select="tei:persName[@xml:lang = $v_lang]">
+                <xsl:when test="tei:persName[@xml:lang = $p_lang]">
+                    <xsl:for-each select="tei:persName[@xml:lang = $p_lang]">
                         <xsl:apply-templates mode="m_plain-text" select="."/>
                         <!--                        <xsl:if test="not(last())">-->
                         <xsl:text>, </xsl:text>
@@ -291,13 +302,48 @@
         <xsl:if test="tei:idno">
             <br/>
             <span class="c_ids" lang="en">
-                <xsl:apply-templates mode="m_link" select="tei:idno"/>
+                <xsl:apply-templates mode="m_link" select="tei:idno">
+                    <xsl:sort select="@type"/>
+                </xsl:apply-templates>
+            </span>
+        </xsl:if>
+    </xsl:template>
+    <xsl:template match="tei:org" mode="m_pop-up-entity">
+        <!-- this has been declared in the parameter file -->
+        <xsl:param name="p_lang"/>
+        <span class="c_person">
+            <xsl:choose>
+                <xsl:when test="tei:orgName[@xml:lang = $p_lang]">
+                    <xsl:for-each select="tei:orgName[@xml:lang = $p_lang]">
+                        <xsl:apply-templates mode="m_plain-text" select="."/>
+                        <!--                        <xsl:if test="not(last())">-->
+                        <xsl:text>, </xsl:text>
+                        <!--</xsl:if>-->
+                    </xsl:for-each>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates mode="m_plain-text" select="tei:orgName[1]"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </span>
+        <!-- IDs -->
+        <xsl:if test="tei:idno">
+            <br/>
+            <span class="c_ids" lang="en">
+                <xsl:apply-templates mode="m_link" select="tei:idno">
+                    <xsl:sort select="@type"/>
+                </xsl:apply-templates>
             </span>
         </xsl:if>
     </xsl:template>
     <!-- generate links only for the first ID of each type -->
     <xsl:template match="tei:idno[not(preceding-sibling::tei:idno[@type = current()/@type])]" mode="m_link">
         <xsl:choose>
+            <xsl:when test="@type = 'VIAF'">
+                <a href="https://viaf.org/viaf/{.}" target="_blank">VIAF:
+                    <xsl:value-of select="."/></a>
+                <xsl:text> </xsl:text>
+            </xsl:when>
             <xsl:when test="@type = 'wiki'">
                 <a href="https://wikidata.org/wiki/{.}" target="_blank">Wikidata:
                     <xsl:value-of select="."/></a>
