@@ -96,15 +96,17 @@
             </xsl:choose>
         </xsl:variable>
         <!-- output -->
+        <xsl:variable name="v_message-failure">
+            <xsl:value-of select="'NA'"/>
+        </xsl:variable>
         <xsl:choose>
             <xsl:when test="$v_entity-type = 'pers'">
                 <xsl:choose>
                     <xsl:when test="$p_authority-file//tei:person/tei:idno[@type = $v_authority] = $v_idno">
                         <xsl:copy-of select="$p_authority-file//tei:person[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
-                    <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                     <xsl:otherwise>
-                        <xsl:value-of select="'NA'"/>
+                        <xsl:value-of select="$v_message-failure"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -113,23 +115,19 @@
                     <xsl:when test="$p_authority-file//tei:org/tei:idno[@type = $v_authority] = $v_idno">
                         <xsl:copy-of select="$p_authority-file//tei:org[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
-                    <!-- even though the input claims that there is an entry in the authority file, there isn't -->
                     <xsl:otherwise>
-                        <xsl:value-of select="'NA'"/>
+                       <xsl:value-of select="$v_message-failure"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
             <xsl:when test="$v_entity-type = 'place'">
                 <xsl:choose>
-                    <!-- weird bug: it seems that we cannot access the authority file -->
                     <xsl:when test="$p_authority-file//tei:place/tei:idno[@type = $v_authority] = $v_idno">
                         <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:place[tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
-                    <!-- even though the input claims that there is an entry in the authority file, there isn't -->
+                    <!-- everything works as expected -->
                     <xsl:otherwise>
-                        <!-- quick debugging: both $v_authority and $v_idno are correct -->
-                        <xsl:value-of select="$p_authority-file//tei:place[1]"/>
-                        <xsl:value-of select="'NA'"/>
+                        <xsl:value-of select="$v_message-failure"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
@@ -138,9 +136,9 @@
                     <xsl:when test="$p_authority-file//tei:biblStruct/tei:monogr/tei:idno[@type = $v_authority] = $v_idno">
                         <xsl:apply-templates mode="m_pop-up-entity" select="$p_authority-file//tei:biblStruct[tei:monogr/tei:idno[@type = $v_authority] = $v_idno]"/>
                     </xsl:when>
-                    <!-- even though the input claims that there is an entry in the authority file, there isn't -->
+                    <!-- everything works as expected -->
                     <xsl:otherwise>
-                        <xsl:value-of select="'NA'"/>
+                        <xsl:value-of select="$v_message-failure"/>
                     </xsl:otherwise>
                 </xsl:choose>
             </xsl:when>
