@@ -41,6 +41,9 @@
                 <xsl:when test="contains($v_ref, 'damascus:')">
                     <xsl:text>damascus</xsl:text>
                 </xsl:when>
+                <xsl:when test="contains($v_ref, 'wiki:')">
+                    <xsl:text>wiki</xsl:text>
+                </xsl:when>
                 <xsl:when test="contains($v_ref, 'viaf:')">
                     <xsl:text>VIAF</xsl:text>
                 </xsl:when>
@@ -52,9 +55,6 @@
                 </xsl:when>
                 <xsl:when test="contains($v_ref, 'oclc:')">
                     <xsl:text>OCLC</xsl:text>
-                </xsl:when>
-                <xsl:when test="contains($v_ref, 'wiki:')">
-                    <xsl:text>Wikidata</xsl:text>
                 </xsl:when>
                 <xsl:when test="starts-with($v_ref, 'http')">
                     <xsl:text>url</xsl:text>
@@ -72,6 +72,9 @@
                     <xsl:when test="contains($v_ref, $v_local-uri-scheme)">
                         <xsl:value-of select="substring-after($v_ref, $v_local-uri-scheme)"/>
                     </xsl:when>
+                    <xsl:when test="contains($v_ref, 'wiki:')">
+                        <xsl:value-of select="substring-after($v_ref, 'wiki:')"/>
+                    </xsl:when>
                     <xsl:when test="contains($v_ref, 'viaf:')">
                         <xsl:value-of select="substring-after($v_ref, 'viaf:')"/>
                     </xsl:when>
@@ -83,9 +86,6 @@
                     </xsl:when>
                     <xsl:when test="contains($v_ref, 'oclc:')">
                         <xsl:value-of select="substring-after($v_ref, 'oclc:')"/>
-                    </xsl:when>
-                    <xsl:when test="contains($v_ref, 'wiki:')">
-                        <xsl:value-of select="substring-after($v_ref, 'wiki:')"/>
                     </xsl:when>
                     <xsl:when test="contains($v_ref, '^http')">
                         <xsl:value-of select="substring-after($v_ref, 'http')"/>

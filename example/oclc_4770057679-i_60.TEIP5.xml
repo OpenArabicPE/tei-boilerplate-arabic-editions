@@ -617,10 +617,10 @@
                 <salute xml:lang="ar" xml:id="salute_1.d1e1780">بسم الله الرحمن الرحيم</salute>
                 <head xml:lang="ar" xml:id="head_1.d1e1549">فاتحة السنة السادسة</head>
                 <p xml:lang="ar" xml:id="p_17.d1e1554">يفتتح <bibl xml:id="bibl_1.d1e1650" change="#d2e750" xml:lang="ar">
-                  <title level="j" xml:id="title_14.d1e1651" change="#d5e737 #d2e750" ref="oape:bibl:9 oclc:4770057679" xml:lang="ar">المقتبس</title>
+                  <title level="j" xml:id="title_14.d1e1651" change="#d5e737 #d2e750" ref="wiki:Q12193626" xml:lang="ar">المقتبس</title>
                     <biblScope unit="volume" from="6" to="6" xml:id="biblScope_7.d1e1654" change="#d2e750" xml:lang="ar">سنته السادسة</biblScope>
                </bibl> بحمده تعالى<note resp="#org_MS" xml:lang="en" type="editorial">test note</note> أن يسر له قطع شوط يصح عده شيئاً في عمر المجلات، ويغتبط اليوم أن يرى له موقعاً من نفوس العلماء والأدباء ومكانة من مجامعهم وأنديتهم وسبيلاً إلى الانتشار بين الخاصة في كل بلد يتكلم أهلها باللغة العربية أو يرغبون في تلقفها، ويعود فيعاهد قراءه على أن يتعاهدهم كل شهر كما عودهم بنشر الأبحاث النضيجة مشبعاً إياها درساً وتمحيصاً ما ساعدته بيئته ومادته فينقل للشرقيين ما تبرزه عقول الغربيين ويمثل للغربيين ما أنتجته قرائح الشرقيين من الأقدمين والمحدثين ويعنى من المباحث عناية خاصة بعلوم التربية والتعليم والاجتماع والاقتصاد واللغة والأدب والتاريخ والآثار وتدبير المنزل والصحة والكتب وحضارة العرب وحضارة الغرب ولا يتعرض للعلوم الأخرى إلا بقدر ماله علاقة بالموضوع ويتجافى عن مس العواطف الدينية والمنازع السياسية عملاً بالخطة التي رسمها في أول جزء صدر منه على ضفاف النيل.</p>
-               <p><bibl type="periodical" subtype="newspaper" change="#d2e966 #d2e982 #d2e994" xml:id="bibl_15.d2e4379" xml:lang="ar">جريدة <title change="#d2e921 #d2e935 #d10e971" level="j" xml:id="title_31.d2e4313" xml:lang="ar" ref="oclc:5164181 jaraid:bibl:t1r889 oape:bibl:202" resp="#xslt">العمران</title></bibl></p>
+               <p><bibl type="periodical" subtype="newspaper" change="#d2e966 #d2e982 #d2e994" xml:id="bibl_15.d2e4379" xml:lang="ar">جريدة <title change="#d2e921 #d2e935 #d10e971" level="j" xml:id="title_31.d2e4313" xml:lang="ar" ref="wiki:Q124972094" resp="#xslt">العمران</title></bibl></p>
                 <p xml:lang="ar" xml:id="p_18.d1e1557">ولقد هيأ الزمان لهذه المجلة طائفة من العلماء
                     الباحثين والكاتبين المفكرين أخذوا على أنفسهم كما فعلوا في السنين الغابرة أن
                     يوافوها أثابهم الله الشهر بعد الشهر بخلاصة أبحاثهم ويعلموا الناس مما علموا
