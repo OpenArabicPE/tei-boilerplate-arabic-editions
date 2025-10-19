@@ -336,7 +336,7 @@
             </span>
         </xsl:if>
     </xsl:template>
-    <!-- generate links only for the first ID of each type -->
+    <!-- generate links only for the first ID of each type: doesn't work -->
     <xsl:template match="tei:idno[not(preceding-sibling::tei:idno[@type = current()/@type])]" mode="m_link">
         <xsl:choose>
             <xsl:when test="@type = 'VIAF'">
